@@ -1,0 +1,237 @@
+# -----------------------------------------------------------------------------------------------------------------------------
+# GENERAL
+# -----------------------------------------------------------------------------------------------------------------------------
+
+# Super Key
+set $mod Mod4
+font pango:open-sans 8
+
+floating_modifier $mod
+hide_edge_borders both
+focus_follows_mouse no
+mouse_warping none
+
+new_window pixel
+workspace_layout default
+
+hide_edge_borders smart
+popup_during_fullscreen smart
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# COLORS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+# colors
+set $bgcolor 393939
+set $fgcolor 48B685
+set $txtcolor DFEFE2
+set $urgent EF6155
+
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# GENERAL BINDINGS AND MOVEMENTS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+
+bindsym Mod1+F4             kill
+bindsym $mod+c              kill
+
+bindsym $mod+Return         exec urxvt
+# bindsym $mod+a   exec urxvt -cd /home/
+Bindsym $mod+BackSpace      exec ~/.config/i3/flash_active.sh
+# bindsym $mod+d              exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -modi run -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$txtcolor" -font "open-sans 9" -terminal urxvt -hlbg "$bgcolor" -hlfg "#9575CD"
+bindsym $mod+d exec --no-startup-id rofi -show drun -terminal urxvt -width 25
+
+# switching window with win+tab
+bindsym $mod+Tab exec --no-startup-id rofi -show window -width 25
+
+# bindsym $mod+Tab            workspace next
+# bindsym $mod+Shift+Tab      workspace prev
+bindsym Mod1+Tab workspace back_and_forth
+
+
+# change focus
+bindsym $mod+h              focus       left
+bindsym $mod+j              focus       down
+bindsym $mod+k              focus       up
+bindsym $mod+l              focus       right
+
+# move
+bindsym $mod+Shift+h        move        left
+bindsym $mod+Shift+j        move        down
+bindsym $mod+Shift+k        move        up
+bindsym $mod+Shift+l        move        right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+n              split       h
+bindsym $mod+v              split       v
+
+# change container layout
+bindsym $mod+s              layout      stacking
+bindsym $mod+z              layout      tabbed
+bindsym $mod+e              layout      toggle      split
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# bindsym Mod1+F4             kill
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# WORKSPACES
+# -----------------------------------------------------------------------------------------------------------------------------
+
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
+set $desktop "0"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+# bindsym $mod+Shift+d workspace $desktop
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# default workspaces for applications
+#assign [class="Firefox"] $ws3
+#for_window [title="video0 - mpv"] floating enable
+#for_window [title="video0 - mpv"] sticky enable
+
+
+#assign [class="Thunderbird"] $ws4
+#assign [class="Slack"] $ws4
+#["Chromium-browser"] $ws1
+
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# EXECUTION
+# -----------------------------------------------------------------------------------------------------------------------------
+
+bindsym $mod+Shift+x        exec ~/.config/i3/i3lock.sh
+
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# RESIZE
+# -----------------------------------------------------------------------------------------------------------------------------
+
+bindsym $mod+y resize shrink width 5 px or 5 ppt
+bindsym $mod+u resize grow height 5 px or 5 ppt
+bindsym $mod+i resize shrink height 5 px or 5 ppt
+bindsym $mod+o resize grow width 5 px or 5 ppt
+
+
+# Gaps
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+    bindsym o       gaps outer current plus 5
+    bindsym i       gaps inner current plus 5
+    bindsym Shift+o gaps outer current minus 5
+    bindsym Shift+i gaps inner current minus 5
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# FUNCTIONS KEYS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +2% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -2% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 5 increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -de5 # decrease screen brightness
+
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
+bindsym XF86Display			exec --no-startup-id ~/scripts/displayselect
+# bindsym XF86Display			exec --no-startup-id arandr
+bindsym Print 				exec --no-startup-id scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Shift+Print 		exec --no-startup-id scrot -u ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# BAR
+# -----------------------------------------------------------------------------------------------------------------------------
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+#bar {
+#        status_command i3status
+#        i3bar_command i3bar -t
+#}
+# bar {
+#     status_command i3status
+#     position top
+#
+# 	font xft:Open sans 12, FontAwesome 10
+#
+#    colors {
+#       background #$bgcolor
+#         statusline #$txtcolor
+#         separator #$txtcolor
+#         focused_workspace  #$fgcolor #$fgcolor #$bgcolor
+#         inactive_workspace #$bgcolor #$bgcolor #$txtcolor
+#     }
+# }
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# AUTOSTART APPLICATIONS
+# -----------------------------------------------------------------------------------------------------------------------------
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id /usr/bin/indicator-kdeconnect
+exec kdeconnect-indicator
+exec variety
+# exec compton -f --config ~/.config/compton/compton.conf -b --no-fading-openclose
+exec compton -f --config ~/.config/compton/compton.conf -b
+exec xset -b
+exec redshift -l 51.01:4.03
+exec dunst
+exec udiskie &
+#exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
+exec --no-startup-id xss-lock -l -- bash ~/.config/i3/i3lock.sh
