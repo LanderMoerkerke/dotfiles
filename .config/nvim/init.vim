@@ -2,6 +2,8 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'jamessan/vim-gnupg'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }   " Fuzzy Find
 Plug 'junegunn/fzf.vim'
 
