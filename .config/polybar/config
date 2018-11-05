@@ -5,6 +5,7 @@ font-0 = "Open sans:pixelsize=10;2.25"
 font-1 = "Overpass Mono Light:pixelsize=10;2.25"
 # font-1 = MaterialIcons:size=13:dpi=180;3
 font-2 = FontAwesome5Pro:size=9:dpi=138;2
+font-3 = FontAwesome:size=9:dpi=138;2
 
 monitor = ${env:MONITOR:}
 
