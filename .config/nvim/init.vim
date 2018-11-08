@@ -152,6 +152,10 @@ vnoremap <leader>P "+P
 " Getting rid of the search highlights
 map <esc> :noh<cr>
 
+" ------
+" Navigation
+" ------
+
 " Basic navigation
 " nnoremap K 5k
 " nnoremap J 5j
@@ -218,6 +222,11 @@ map <F6> :setlocal spell! spelllang=en_us<CR>
 " Spell-check NL set to F7:
 map <F7> :setlocal spell! spelllang=nl<CR>
 
+
+" ------
+" Buffer Actions
+" ------
+
 " Automatically deletes all tralling whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -229,6 +238,7 @@ autocmd BufWritePost * GitGutter
 " ------
 " Remapping
 " ------
+
 " SetTitleMatchMode,2
 " #IfWinActive,VIM
 "    CAPSLOCK::ESC
@@ -394,10 +404,10 @@ hi IndentGuidesEven guibg=green ctermbg=4
 hi CursorLineNr guifg=yellow ctermfg=11
 hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=12
 
+
 " ------
 " Functions
 " ------
-
 
 autocmd FileType python call AutoCmd_python()
 fun! AutoCmd_python()
