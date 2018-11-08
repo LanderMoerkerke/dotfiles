@@ -93,7 +93,7 @@ set wildmenu                                    " show command line completions
 set wildmode=longest:full                       " complete mode for wildmenu
 set wildmode+=full
 
-set paste
+" set paste
 
 set background=light
 
