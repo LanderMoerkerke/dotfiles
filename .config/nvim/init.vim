@@ -267,31 +267,29 @@ let g:delimitMate_autoclose = 1
 let g:delimitMate_matchpairs = "(:),[:],{:},<:>"
 let g:delimitMate_jump_expansion = 1
 let g:delimitMate_expand_space = 1
-let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_inside_quotes = 1
 
-
 " Nerdtree
-nnoremap <leader>f :NERDTreeFocus<CR>
-nnoremap <leader>F :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeToggle<CR>
 
 
 " Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
-let g:multi_cursor_start_word_key      = '<C-d>'
-let g:multi_cursor_select_all_word_key = '<A-d>'
-let g:multi_cursor_start_key           = 'g<C-d>'
-let g:multi_cursor_select_all_key      = 'g<A-d>'
-let g:multi_cursor_next_key            = '<C-d>'
-let g:multi_cursor_prev_key            = '<C-s>'
-let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_select_all_word_key = '<A-a>'
+let g:multi_cursor_start_key           = 'g<C-a>'
+let g:multi_cursor_select_all_key      = 'g<A-a>'
+let g:multi_cursor_next_key            = '<C-a>'
+let g:multi_cursor_prev_key            = '<A-z>'
+let g:multi_cursor_skip_key            = '<C-z>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " Vim Surround
 " ysw word
 " yss line
+" ds delete
 "
 " Indentline
 let g:indentLine_color_tty_light = 200  " (default: 4)
@@ -306,13 +304,25 @@ let g:autoformat_retab = 0
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+let g:deoplete#max_list = 8
+let g:deoplete#async_timeout = 100
+
+" let deoplete#ignore_sources = {
+"
+" }
+
+" yarp = true
 
 " Disable deoplete when in multi cursor mode
 function! Multiple_cursors_before()
 	let b:deoplete_disable_auto_complete = 1
+	deoplete#disable()
+  	set foldmethod=manual
 endfunction
 function! Multiple_cursors_after()
 	let b:deoplete_disable_auto_complete = 0
+	deoplete#enable()
+  	set foldmethod=syntax
 endfunction
 
 " Deoplete tab
@@ -337,20 +347,20 @@ let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#disable_runtime_snippets = {'_' : 1,}
 
-inoremap <c-space> pumvisible() ? "\<C-n>" : "\<Tab>"
-imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
-\ "\<C-y>" : "\<CR>"
-inoremap <silent><expr> <TAB>
-                \ pumvisible() ? "\<C-n>" :
-                \ <SID>check_back_space() ? "\<TAB>" :
-                \ deoplete#mappings#manual_complete()
-                function! s:check_back_space() abort
-                let col = col('.') - 1
-                return !col || getline('.')[col - 1]  =~ '\s'
-                endfunction
-
-imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" inoremap <c-space> pumvisible() ? "\<C-n>" : "\<Tab>"
+" imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
+" \ "\<C-y>" : "\<CR>"
+" inoremap <silent><expr> <TAB>
+"                 \ pumvisible() ? "\<C-n>" :
+"                 \ <SID>check_back_space() ? "\<TAB>" :
+"                 \ deoplete#mappings#manual_complete()
+"                 function! s:check_back_space() abort
+"                 let col = col('.') - 1
+"                 return !col || getline('.')[col - 1]  =~ '\s'
+"                 endfunction
+"
+" imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " Syntastic
 " let g:syntastic_quiet_messages = { "!level": "errors" }
