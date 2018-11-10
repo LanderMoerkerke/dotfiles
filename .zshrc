@@ -66,6 +66,7 @@ export ZSH=~/.oh-my-zsh
 export TMOUT=9600
 export PAGER=less
 export BROWSER="qutebrowser"
+export FILEMANAGER="ranger"
 export RTV_BROWSER="w3m"
 export PATH=~/.npm-global/bin:~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.5.0/bin:/usr/bin/vendor_perl:~/.local/bin:/opt/google-cloud-sdk/bin
 export fpath=($HOME/.zsh-completions $fpath)
@@ -242,6 +243,7 @@ alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 ## system maintenance
 
 alias pacman_listpackages="expac "%n %m" -l'\n' -Q $(pacman -Qq) | sort -rhk 2 | less"
+alias pacman_listpackages_size="paste <(pacman -Q | awk '{ print $1; }' | xargs pacman -Qi | grep 'Size' | awk '{ print $4$5; }') <(pacman -Q | awk '{print $1; }') | sort -n | column -t | less"
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # SERVERS
@@ -402,3 +404,5 @@ alias sudo='nocorrect sudo'
 
 # dir colors cd
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
