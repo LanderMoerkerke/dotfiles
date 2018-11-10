@@ -235,6 +235,8 @@ autocmd BufWritePre * %s/\s\+$//e
 
 autocmd BufWritePost * GitGutter
 
+autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
+
 " ------
 " Remapping
 " ------
