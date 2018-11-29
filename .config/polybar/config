@@ -17,6 +17,7 @@ fixed-center = true
 width = 100%
 height = 25
 
+; background = #2F343F
 background = #1c1c1c
 foreground = #d0d0d0
 
@@ -187,7 +188,7 @@ format-warn = <label-warn>
 # format-warn-underline = ${colors.color9}
 
 label = "  %temperature-c%"
-label-warn =  %temperature-c%
+label-warn =   %temperature-c%
 # label-warn-foreground = ${colors.color1}
 
 [module/battery]
