@@ -61,6 +61,8 @@ Plug 'leafgarland/typescript-vim'                                   " typescript
 
 Plug 'KabbAmine/zeavim.vim'											" Zeal integration
 
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+
 call plug#end()
 
 
@@ -85,6 +87,8 @@ set laststatus=2                                " always show the statusline
 
 set nofoldenable								" disable folding
 set foldmethod=indent
+set foldnestmax=2
+
 set rtp^=~/.config/nvim
 set mouse-=a                                    " disable mouse
 set path+=**                                    " able to search subdirs recursive
@@ -95,9 +99,11 @@ set wildmode+=full
 
 " set paste
 
-set background=light
+" Wrapping
+" set linebreak                                   " only wrap after words, not inside words
+set nowrap
+set fo-=t
 
-set linebreak                                   " only wrap after words, not inside words
 set ignorecase                                  " ignore case in (search) patterns
 set smartcase                                   " when the (search) pattern contains uppercase chars, don't ignore case
 set hlsearch                                   " highlight all the matches for the search
@@ -127,6 +133,11 @@ set tags=./tags;
 set splitright
 set splitbelow
 
+" 80 character
+" set tw=79
+" set colorcolumn=80
+" highlight ColorColumn ctermbg=255
+
 " set nocompatible
 set encoding=utf-8
 
@@ -152,6 +163,13 @@ vnoremap <leader>P "+P
 " Getting rid of the search highlights
 map <esc> :noh<cr>
 
+" Sorting selection
+map <leader>s :sort<cr>
+
+" Better indenting
+vnoremap < <gv
+vnoremap > >gv
+
 " ------
 " Navigation
 " ------
@@ -167,10 +185,12 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
+nnoremap <c-n> gt
+nnoremap <c-m> gT
 
 " Split
-nnoremap <leader>s :split <cr>
-nnoremap <leader>S :vsplit <cr>
+nnoremap <leader>n :split <cr>
+nnoremap <leader>v :vsplit <cr>
 
 " Simpler resize
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -393,6 +413,10 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " let g:airline_theme="base16-spacemacs"
 
+
+" Pymode
+let g:pymode_options_colorcolumn = 0
+
 " ------
 " Snippets
 " ------
@@ -407,7 +431,7 @@ let g:UltiSnipsEditSplit="vertical"
 " ------
 " Colors
 " ------
-colorscheme minimalist
+colorscheme wombat256mod
 
 hi SpellBad ctermfg=1 ctermbg=234
 hi SpellCap ctermfg=1 ctermbg=234
