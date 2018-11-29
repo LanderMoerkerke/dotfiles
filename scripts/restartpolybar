@@ -1,0 +1,4 @@
+#!/bin/sh
+# Restart Polybar
+
+bash ~/.config/polybar/launch.sh
