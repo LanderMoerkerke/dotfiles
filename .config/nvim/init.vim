@@ -170,6 +170,9 @@ map <leader>s :sort<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+" Folding
+map <leader>z :set wrap!<cr>
+
 " ------
 " Navigation
 " ------
@@ -281,6 +284,7 @@ nnoremap <C-p> :FZF <cr>
 " Commenting
 nnoremap <C-c> :TComment<cr>
 vnoremap <C-c> :TComment<cr>
+inoremap <C-c> <Esc>:TComment<cr>A
 
 " DelimitMate
 let g:delimitMate_autoclose = 1
@@ -336,12 +340,12 @@ let g:deoplete#async_timeout = 100
 " Disable deoplete when in multi cursor mode
 function! Multiple_cursors_before()
 	let b:deoplete_disable_auto_complete = 1
-	deoplete#disable()
+	" deoplete#disable()
   	set foldmethod=manual
 endfunction
 function! Multiple_cursors_after()
 	let b:deoplete_disable_auto_complete = 0
-	deoplete#enable()
+	" deoplete#enable()
   	set foldmethod=syntax
 endfunction
 
