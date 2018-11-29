@@ -72,7 +72,9 @@ export PATH=~/.npm-global/bin:~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin
 export fpath=($HOME/.zsh-completions $fpath)
 export GOPATH=~/.go
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+
 export JUPYTER_CONFIG_DIR="$HOME/.jupyter/"
+export NLTK_DATA="$HOME/.local/lib/nltk_data"
 
 # SCHOOL
 export HOW=~/Documents/Howest/3NMCT/S5/
