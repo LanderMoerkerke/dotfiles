@@ -18,6 +18,18 @@ hide_edge_borders smart
 popup_during_fullscreen smart
 
 # -----------------------------------------------------------------------------------------------------------------------------
+# SCRATPAD
+# -----------------------------------------------------------------------------------------------------------------------------
+
+for_window [instance="urxvtt"] floating enable
+for_window [instance="urxvtt"] resize set 625 450
+for_window [instance="urxvtt"] move scratchpad
+for_window [instance="urxvtt"] border pixel 3
+for_window [instance="urxvtt"] sticky enable
+
+bindsym $mod+m			exec --no-startup-id ddspawn urxvtt
+
+# -----------------------------------------------------------------------------------------------------------------------------
 # COLORS
 # -----------------------------------------------------------------------------------------------------------------------------
 
@@ -149,7 +161,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # -----------------------------------------------------------------------------------------------------------------------------
 
 bindsym $mod+Shift+x        exec ~/.config/i3/i3lock.sh
-
+bindsym $mod+Shift+e		exec --no-startup-id ~/scripts/rofi-emoji
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # RESIZE
