@@ -45,8 +45,9 @@ URxvt.colorUL:		#4682B4
 
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: linkhandler
+URxvt.url-select.launcher: qutebrowser
 URxvt.url-select.underline: true
+URxvt.url-launcher: qutebrowser
 
 !! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
