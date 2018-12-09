@@ -40,16 +40,6 @@ banner_info () {
 
 }
 
-if [[ -n "$SSH_CONNECTION" ]] ; then
-
-    banner_info
-
-elif [[ $TTY == "/dev/tty1" ]]; then
-
-    banner_info
-
-fi
-
 # -----------------------------------------------------------------------------------------------------------------------------
 # ENVIRONMENT_VARIABLES
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -65,10 +55,6 @@ export LFS="/mnt/lfs"
 export ZSH=~/.oh-my-zsh
 export TMOUT=9600
 export PAGER=less
-export BROWSER="qutebrowser"
-export FILEMANAGER="ranger"
-export RTV_BROWSER="w3m"
-export PATH=~/.npm-global/bin:~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.vimpkg/bin:~/.vimpkg/bin:~/.config/composer/vendor/bin:~/.go/bin:~/.cargo/bin:~/.gem/ruby/2.5.0/bin:/usr/bin/vendor_perl:~/.local/bin:/opt/google-cloud-sdk/bin
 export fpath=($HOME/.zsh-completions $fpath)
 export GOPATH=~/.go
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
@@ -91,19 +77,6 @@ export VEST=~/Documents/VEST/
 export ZSHRC=~/.zshrc
 export NVIM=~/.config/nvim/init.vim
 export I3=~/.config/i3/config
-
-
-if [[ -n "$SSH_CONNECTION" ]] ; then
-
-    export TERM="xterm"
-    export EDITOR="vim"
-
-else
-
-    export TERM="xterm-256color"
-    export EDITOR="nvim"
-
-fi
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GENERAL
@@ -148,6 +121,14 @@ autoload -U compinit && compinit -u
 if [[ -n "$SSH_CONNECTION" ]] ; then
 
     alias v='vim'
+    banner_info
+    export EDITOR="vim"
+    export TERM="xterm"
+
+
+elif [[ $TTY == "/dev/tty1" ]]; then
+
+    banner_info
 
 else
 
@@ -173,7 +154,7 @@ alias gp="git pull"
 alias gda="git diff -a"
 alias docka="docker run --rm -it alpine sh"
 alias temp='cat /sys/bus/acpi/drivers/thermal/LNXTHERM\:00/thermal_zone/temp'
-alias du='du -sh *'
+alias dus='du -sh *'
 alias tree='tree -Csuh'
 alias xs='cd'
 alias vf='cd'
@@ -193,8 +174,8 @@ alias SS='sudo systemctl'
 alias df='df -kTh'
 alias df='dfc -T'
 alias ll='ls -latrFi'
+alias ls='ls -hN --color=auto --group-directories-first'
 alias we='curl wttr.in/Gent'
-alias weather='curl wttr.in/Gent'
 alias pdf='zathura'
 alias vscode='code'
 alias soundcloud="scdl"
