@@ -2,7 +2,7 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'jamessan/vim-gnupg'
+Plug 'jamessan/vim-gnupg'                                           " GPG viewer
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }   " Fuzzy Find
 Plug 'junegunn/fzf.vim'
@@ -57,11 +57,13 @@ Plug 'scrooloose/syntastic'                                         " syntax hig
 Plug 'Chiel92/vim-autoformat'                                       " autoformat
 Plug 'tell-k/vim-autopep8'											" autopep8 formatter
 
-Plug 'leafgarland/typescript-vim'                                   " typescript syntax
-
 Plug 'KabbAmine/zeavim.vim'											" Zeal integration
 
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
+
+" Filetypes / syntax
+Plug 'leafgarland/typescript-vim'                                   " typescript
+Plug 'PotatoesMaster/i3-vim-syntax'                                 " i3
 
 call plug#end()
 
@@ -106,7 +108,7 @@ set fo-=t
 
 set ignorecase                                  " ignore case in (search) patterns
 set smartcase                                   " when the (search) pattern contains uppercase chars, don't ignore case
-set hlsearch                                   " highlight all the matches for the search
+set hlsearch                                    " highlight all the matches for the search
 set t_Co=256
 set showcmd
 
@@ -122,7 +124,7 @@ set ts=4
 set expandtab                                   " expand tabs to spaces
 set formatoptions+=r                            " automatic formatting: auto insert current comment leader after enter
 set tabstop=4                                   " number of spaces that a tab counts for
-set softtabstop=0 expandtab                   " number of spaces that a tab counts for while editing
+set softtabstop=0 expandtab                     " number of spaces that a tab counts for while editing
 set shiftwidth=4                                " number of spaces to use for each step of indent
 set smarttab                                    " Handle tabs more intelligently"
 set autoindent                                  " automatically indent a new line
@@ -137,6 +139,11 @@ set splitbelow
 " set tw=79
 " set colorcolumn=80
 " highlight ColorColumn ctermbg=255
+
+set undofile                                   " Save undo's after file closes
+set undodir=$HOME/.vim/undo                    " where to save undo histories
+set undolevels=1000                            " How many undos
+set undoreload=10000                           " number of lines to save for undo
 
 " set nocompatible
 set encoding=utf-8
@@ -157,21 +164,46 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
+" Behave like other capitals
+nnoremap Y y$
+
+" Keep search matches in middle
+nnoremap n nzz
+nnoremap N Nzz
+
+" Reselect text you just entered
+nnoremap gV `[v`]
+
 " Exit terminal with shift esc
-:tnoremap <C-²> <C-\\><C-n>
+tnoremap <C-²> <C-\\><C-n>
+
+" Increment decrement under cursor
+nnoremap <C-s> <C-a>
 
 " Getting rid of the search highlights
-map <esc> :noh<cr>
+nnoremap <esc> :noh<cr>
 
 " Sorting selection
 map <leader>s :sort<cr>
 
-" Better indenting
+" Replace all
+nnoremap S :%s//g<Left><Left>
+
+" Open the selected text in a split (i.e. should be a file).
+map <leader>o "oyaW:sp <C-R>o<CR>
+xnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
+vnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
+
+" Folding
+nnoremap <leader>z :set wrap!<cr>
+
+" Reselect when indenting
 vnoremap < <gv
 vnoremap > >gv
 
-" Folding
-map <leader>z :set wrap!<cr>
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " ------
 " Navigation
@@ -183,6 +215,14 @@ map <leader>z :set wrap!<cr>
 " nnoremap L 5l
 " nnoremap H 5h
 
+" Scrolling using arrows
+nmap <Down> 3<C-E>
+nmap <Up> 3<C-Y>
+vmap <Down> 3<C-E>
+vmap <Up> 3<C-Y>
+imap <Down> <C-O>3<C-E>
+imap <Up> <C-O>3<C-Y>
+
 " Split navigation
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -192,20 +232,15 @@ nnoremap <c-n> gt
 nnoremap <c-m> gT
 
 " Split
-nnoremap <leader>n :split <cr>
-nnoremap <leader>v :vsplit <cr>
+nnoremap <leader>nn :split <cr>
+nnoremap <leader>vn :vsplit <cr>
 
 " Simpler resize
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>v+ :vertical resize +5<CR>
+nnoremap <silent> <Leader>v- :vertical resize -5<CR>
 
-" Replace all
-nnoremap S :%s//g<Left><Left>
-
-" Open the selected text in a split (i.e. should be a file).
-map <leader>o "oyaW:sp <C-R>o<CR>
-xnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
-vnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
+nnoremap <silent> <Leader>n+ :res +5<CR>
+nnoremap <silent> <Leader>n- :res -5<CR>
 
 " C-T for new tab
 nnoremap <C-t> :tabnew<cr>
@@ -239,25 +274,32 @@ map <F2> :Autoformat <CR>
 " Get line, word and character counts with F3:
 map <F3> :!wc <C-R>%<CR>
 
-" Spell-check EN set to F6:
-map <F6> :setlocal spell! spelllang=en_us<CR>
+" F4: execute code
 
-" Spell-check NL set to F7:
-map <F7> :setlocal spell! spelllang=nl<CR>
+" F5: execute code
 
+" Spell-check picker
+noremap <F6> :call <SID>ToggleSpell()<CR>
+
+" Scrolling buffers
+map <F8> :bprevious<CR>
+map <F9> :bnext<CR>
+
+" F10: SyntasticToggleMode
 
 " ------
 " Buffer Actions
 " ------
 
+" Before saving
 " Automatically deletes all tralling whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
-
-" Before saving
 " autocmd BufWritePre *.py :Autofromat <CR>
 
+" After saving
 autocmd BufWritePost * GitGutter
 
+" Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
 " ------
@@ -397,7 +439,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 
- silent! nmap <F8> :SyntasticToggleMode<CR>
+ silent! nmap <F10> :SyntasticToggleMode<CR>
 
 " python
  let g:syntastic_python_flake8_args='--ignore=E501'
@@ -420,6 +462,8 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Pymode
 let g:pymode_options_colorcolumn = 0
+let g:pymode_python = 'python3'
+let g:pymode_rope_goto_defination_bind = '<C-g>'
 
 " ------
 " Snippets
@@ -433,7 +477,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 " ------
-" Colors
+" Appearance
 " ------
 colorscheme wombat256mod
 
@@ -448,10 +492,43 @@ hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=12
 " ------
 " Functions
 " ------
-
-autocmd FileType python call AutoCmd_python()
-fun! AutoCmd_python()
-	" nnoremap <buffer> <F4> :Autopep8<cr>
+" Execute
+" Python
+autocmd FileType python call Run_Python()
+fun! Run_Python()
 	nnoremap <buffer> <F4> :exec '!python3.7' shellescape(@%, 1)<cr>
 	nnoremap <buffer> <F5> :exec '!python3.6' shellescape(@%, 1)<cr>
 endf
+
+" Go
+autocmd FileType go call Run_Go()
+fun! Run_Go()
+	nnoremap <buffer> <F5> :exec '!go run' shellescape(@%, 1)<cr>
+endf
+
+" JS
+autocmd FileType javascript call Run_Js()
+fun! Run_Js()
+	nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
+endf
+
+
+" Spellcheck
+function! <SID>ToggleSpell()
+    let spelllang_list = ['nl', 'en', 'fr']
+    let string = []
+
+    for i in range(len(spelllang_list))
+        call add(string, i+1 . ") " . spelllang_list[i])
+    endfor
+
+    if ! &spell
+        let &spell = 1
+        let selection = inputlist(string)
+        let &spelllang = spelllang_list[selection-1]
+    else
+        let &spell = 0
+        echo "'spell' disabled..."
+    endif
+endfunction
+
