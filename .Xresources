@@ -22,10 +22,10 @@ rofi.hide-scrollbar: 	true
 ! -----------------------------------------------------------------------------------------------------------------------------
 
 ! general settings
+URxvt*termName: xterm-256color
 URxvt.saveLines: 100000
 URxvt.scrollBar: False
 URxvt.scrollstyle: rxvt
-URxvt*termName: rxvt-unicode-patched-256color
 URxvt*pointerBlank: True
 URxvt.urgentOnBell: True
 URxvt.cursorBlink: True
@@ -36,7 +36,6 @@ URxvt*insecure: false
 URxvt*depth: 32
 
 ! clickable links
-URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
 ! extensions
@@ -63,7 +62,10 @@ URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 ! font
-URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true
+! NotoColorEmoji
+
+URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true,xft:EmojiOne:size=5:antialias=true:hinting=true,xft:NotoColorEmoji:size=5:antialias=true:hinting=true
+
 
 URxvt.letterSpace: -1
 
