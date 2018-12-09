@@ -18,16 +18,28 @@ hide_edge_borders smart
 popup_during_fullscreen smart
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# SCRATPAD
+# SCRATPAD math
 # -----------------------------------------------------------------------------------------------------------------------------
 
-for_window [instance="urxvtt"] floating enable
-for_window [instance="urxvtt"] resize set 625 450
-for_window [instance="urxvtt"] move scratchpad
-for_window [instance="urxvtt"] border pixel 3
-for_window [instance="urxvtt"] sticky enable
+for_window [instance="scratch_math"] floating enable
+for_window [instance="scratch_math"] resize set 625 450
+for_window [instance="scratch_math"] move scratchpad
+for_window [instance="scratch_math"] border pixel 3
+for_window [instance="scratch_math"] sticky enable
 
-bindsym $mod+m			exec --no-startup-id ddspawn urxvtt
+bindsym $mod+m		        	exec --no-startup-id ddspawn scratch_math
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# SCRATPAD caprine
+# -----------------------------------------------------------------------------------------------------------------------------
+
+for_window [instance="caprine"] floating enable
+for_window [instance="caprine"] resize set 625 700
+for_window [instance="caprine"] move scratchpad
+for_window [instance="caprine"] border pixel 3
+for_window [instance="caprine"] sticky enable
+
+bindsym $mod+Shift+m			exec --no-startup-id ddspawn caprine
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # COLORS
@@ -43,7 +55,6 @@ set $urgent EF6155
 # -----------------------------------------------------------------------------------------------------------------------------
 # GENERAL BINDINGS AND MOVEMENTS
 # -----------------------------------------------------------------------------------------------------------------------------
-
 
 bindsym Mod1+F4             kill
 bindsym $mod+c              kill
@@ -161,7 +172,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # -----------------------------------------------------------------------------------------------------------------------------
 
 bindsym $mod+Shift+x        exec ~/.config/i3/i3lock.sh
-bindsym $mod+Shift+e		exec --no-startup-id ~/scripts/rofi-emoji
+bindsym $mod+Shift+e		exec --no-startup-id rofi-emoji
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # RESIZE
@@ -171,7 +182,6 @@ bindsym $mod+y resize shrink width 5 px or 5 ppt
 bindsym $mod+u resize grow height 5 px or 5 ppt
 bindsym $mod+i resize shrink height 5 px or 5 ppt
 bindsym $mod+o resize grow width 5 px or 5 ppt
-
 
 # Gaps
 bindsym $mod+Shift+g mode "$mode_gaps"
@@ -190,49 +200,20 @@ mode "$mode_gaps" {
 # -----------------------------------------------------------------------------------------------------------------------------
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +2% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -2% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume        exec --no-startup-id pactl -- set-sink-volume 0 +2% #increase sound volume
+bindsym XF86AudioLowerVolume        exec --no-startup-id pactl -- set-sink-volume 0 -2% #decrease sound volume
+bindsym XF86AudioMute               exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 5 increase screen brightness
-# bindsym XF86MonBrightnessDown exec xbacklight -de5 # decrease screen brightness
+bindsym XF86MonBrightnessUp         exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown       exec light -U 5 # decrease screen brightness
 
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+bindsym XF86Display	            	exec --no-startup-id displayselect
+bindsym Print 		            	exec --no-startup-id scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Shift+Print             	exec --no-startup-id scrot -u ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
 
-bindsym XF86Display			exec --no-startup-id ~/scripts/displayselect
-# bindsym XF86Display			exec --no-startup-id arandr
-bindsym Print 				exec --no-startup-id scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
-bindsym Shift+Print 		exec --no-startup-id scrot -u ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Control+Print 		    	exec maim -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+bindsym Control+Shift+Print     	exec maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 
-bindsym Control+Print 			exec maim -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
-bindsym Control+Shift+Print 	exec maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
-
-# -----------------------------------------------------------------------------------------------------------------------------
-# BAR
-# -----------------------------------------------------------------------------------------------------------------------------
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#        i3bar_command i3bar -t
-#}
-# bar {
-#     status_command i3status
-#     position top
-#
-# 	font xft:Open sans 12, FontAwesome 10
-#
-#    colors {
-#       background #$bgcolor
-#         statusline #$txtcolor
-#         separator #$txtcolor
-#         focused_workspace  #$fgcolor #$fgcolor #$bgcolor
-#         inactive_workspace #$bgcolor #$bgcolor #$txtcolor
-#     }
-# }
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # AUTOSTART APPLICATIONS
@@ -242,11 +223,11 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id /usr/bin/indicator-kdeconnect
 exec kdeconnect-indicator
 exec variety
-# exec compton -f --config ~/.config/compton/compton.conf -b --no-fading-openclose
 exec compton -f --config ~/.config/compton/compton.conf -b
 exec xset -b
 exec redshift -l 51.01:4.03
 exec dunst
 exec udiskie &
-#exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 exec --no-startup-id xss-lock -l -- bash ~/.config/i3/i3lock.sh
+
+# vim: filetype=i3
