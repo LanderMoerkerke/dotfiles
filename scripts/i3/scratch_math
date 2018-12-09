@@ -1,0 +1,4 @@
+#!/bin/sh
+
+python3.6 -q
+# /usr/bin/R -q --no-save

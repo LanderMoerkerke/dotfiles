@@ -72,10 +72,13 @@ function download() {
 }
 
 function rofi_menu() { # {{{
-    rofi -width 25 -lines 7 -dmenu -i -p 'Emoji' \
+    rofi -width 25 \
+        -lines 7 \
+        -dmenu -i -p 'Emoji' \
         -kb-row-tab '' \
         -kb-row-select Tab \
-        -kb-custom-1 Ctrl+c
+        -kb-custom-1 Ctrl+c \
+        -font "Source Sans Pro 15"
 }
 # }}}
 
