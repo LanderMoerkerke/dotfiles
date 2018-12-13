@@ -228,6 +228,8 @@ alias nmap_web_safe_osscan="sudo nmap -p 80,443 -O -v --osscan-guess --fuzzy "
 alias pacman_listpackages="expac "%n %m" -l'\n' -Q $(pacman -Qq) | sort -rhk 2 | less"
 alias pacman_listpackages_size="paste <(pacman -Q | awk '{ print $1; }' | xargs pacman -Qi | grep 'Size' | awk '{ print $4$5; }') <(pacman -Q | awk '{print $1; }') | sort -n | column -t | less"
 
+alias mailsync="bash $HOME/.config/mutt/etc/mailsync.sh"
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # SERVERS
 # -----------------------------------------------------------------------------------------------------------------------------
