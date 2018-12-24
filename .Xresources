@@ -75,51 +75,44 @@ URxvt*background: [91]#1c1c1c
 ! URxvt*background: [91]#f9fafb
 
 ! colors
-! black
-URxvt.color0  : #303030
-URxvt.color8  : #536a70
-! URxvt.color0  : #282a2e
-! URxvt.color8  : #373b41
 
-! red
-URxvt.color1  : #cb4b16
-URxvt.color9  : #ba4443
-! URxvt.color1   : #a54242
-! URxvt.color9   : #cc6666
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
 
-! green
-URxvt.color2  : #AFD787
-URxvt.color10 : #98c379
-! URxvt.color2  : #8c9440
-! URxvt.color10 : #93a10c
+*.foreground:   nord4
+*.background:   nord0
+st.background:  #1c1c1c
+*.cursorColor:  nord4
+*fading: 35
+*fadeColor: nord3
 
-! yellow
-URxvt*.color3 : #ffcc66
-URxvt.color11 : #e5c07b
-! URxvt.color3  : #cb5707
-! URxvt.color11 : #f0c674
-
-! blue
-URxvt.color4  : #87D7FF
-URxvt*.color12: #5fafd7
-! URxvt.color4  : #5f819d
-! URxvt.color12 : #81a2be
-
-! magenta
-! URxvt*.color5 : #cc99cc
-! URxvt*.color13: #b777e0
-! URxvt.color5  : #85678f
-! URxvt.color13 : #b294bb
-
-! cyan
-URxvt*.color6 : #66cccc
-URxvt.color14 : #2aa198
-! URxvt.color6  : #e4f0c3
-! URxvt.color14 : #369d8f
-
-! white
-URxvt.color7  : #e8e8de
-URxvt.color15 : #fdf6e3
-! URxvt.color7  : #707880
-! URxvt.color15 : #4e5353
-
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
