@@ -59,8 +59,9 @@ set $urgent EF6155
 bindsym Mod1+F4             kill
 bindsym $mod+c              kill
 
-bindsym $mod+Return         exec urxvt
-# bindsym $mod+a   exec urxvt -cd /home/
+bindsym $mod+Return         exec st
+bindsym $mod+Shift+Return	exec --no-startup-id samedir
+
 Bindsym $mod+BackSpace      exec ~/.config/i3/flash_active.sh
 # bindsym $mod+d              exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -modi run -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$txtcolor" -font "open-sans 9" -terminal urxvt -hlbg "$bgcolor" -hlfg "#9575CD"
 bindsym $mod+d exec --no-startup-id rofi -show drun -terminal urxvt -width 25
@@ -108,14 +109,13 @@ bindsym $mod+e              layout      toggle      split
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# bindsym Mod1+F4             kill
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+bindsym $mod+p exec passmenu
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # WORKSPACES
@@ -171,8 +171,12 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # EXECUTION
 # -----------------------------------------------------------------------------------------------------------------------------
 
-bindsym $mod+Shift+x        exec ~/.config/i3/i3lock.sh
+bindsym $mod+x              exec --no-startup-id lockscreen
+bindsym $mod+Shift+x		exec --no-startup-id lockscreen
 bindsym $mod+Shift+e		exec --no-startup-id rofi-emoji
+bindsym $mod+r              exec $TERMINAL -e "ranger"
+bindsym $mod+Shift+n        exec $TERMINAL -e "neomutt"
+bindsym $mod+b              exec $BROWSER
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # RESIZE
@@ -216,6 +220,12 @@ bindsym Control+Shift+Print     	exec maim -s -u --format=png /dev/stdout | xcli
 
 
 # -----------------------------------------------------------------------------------------------------------------------------
+# MISC
+# -----------------------------------------------------------------------------------------------------------------------------
+
+bindsym $mod+Insert		exec --no-startup-id showclip
+
+# -----------------------------------------------------------------------------------------------------------------------------
 # AUTOSTART APPLICATIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
@@ -228,6 +238,6 @@ exec xset -b
 exec redshift -l 51.01:4.03
 exec dunst
 exec udiskie &
-exec --no-startup-id xss-lock -l -- bash ~/.config/i3/i3lock.sh
+exec --no-startup-id xss-lock -l -- lockscreen
 
 # vim: filetype=i3
