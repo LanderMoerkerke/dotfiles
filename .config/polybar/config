@@ -32,7 +32,7 @@ padding-right = 1
 module-margin = 2
 modules-left = i3 eth wlan
 modules-center = date
-modules-right = cpu memory temperature battery volume
+modules-right = mail cpu memory temperature battery volume
 
 tray-position = right
 
@@ -84,10 +84,11 @@ interface = enp0s31f6
 accumulate-stats = true
 
 format-connected = <label-connected>
-label-connected = " %linkspeed%"
+label-connected  = "%linkspeed%   %local_ip%      %downspeed%      %upspeed%    |"
 
 format-disconnected = <label-disconnected>
 # label-connected = " %linkspeed%  %downspeed%  %upspeed%"
+
 
 [module/wlan]
 
@@ -126,6 +127,29 @@ format-foreground = #f0c674
 format-padding = 1
 label-maxlen = 50
 
+
+[module/mail]
+type = custom/script
+
+; Available tokens:
+;   %counter%
+; Command to be executed (using "/usr/bin/env sh -c [command]")
+exec = ~/.config/polybar/mailcheck.sh
+
+; Conditional command that, if defined, needs to exit successfully
+; before the main exec command is invoked.
+; Default: ""
+; exec-if = pgrep -x myservice
+
+; Will the script output continous content?
+; Default: false
+tail = true
+
+; Seconds to sleep between updates
+; Default: 2 (0 if `tail = true`)
+interval = 300
+
+label = "  %output%   |"
 
 
 [module/memory]
