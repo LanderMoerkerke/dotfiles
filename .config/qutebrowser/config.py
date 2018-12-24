@@ -336,12 +336,12 @@ c.downloads.position = 'top'
 # Number of milliseconds to wait before removing finished downloads. If
 # set to -1, downloads are never removed.
 # Type: Int
-c.downloads.remove_finished = 500
+c.downloads.remove_finished = 60000
 
 # The editor (and arguments) to use for the `open-editor` command. `{}`
 # gets replaced by the filename of the file to be edited.
 # Type: ShellCommand
-c.editor.command = ['gvim', '-f', '{}']
+c.editor.command = ['gvim', '{}']
 
 # Encoding to use for the editor.
 # Type: Encoding
