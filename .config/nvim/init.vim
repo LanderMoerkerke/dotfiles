@@ -42,6 +42,7 @@ Plug 'amix/vim-zenroom2'                                            " iA emulato
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
 Plug 'zchee/deoplete-jedi'                                          " autocomplete python
 Plug 'zchee/deoplete-clang'											" autocomplete c
+Plug 'poppyschmo/deoplete-latex'                                    " autocomplete latex
 
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -51,8 +52,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'lambdalisue/suda.vim'                                         " sudo
-
-Plug 'scrooloose/syntastic'                                         " syntax highlight
 
 Plug 'Chiel92/vim-autoformat'                                       " autoformat
 Plug 'tell-k/vim-autopep8'											" autopep8 formatter
@@ -102,7 +101,7 @@ set wildmode+=full
 " set paste
 
 " Wrapping
-" set linebreak                                   " only wrap after words, not inside words
+set linebreak                                   " only wrap after words, not inside words
 set nowrap
 set fo-=t
 
@@ -174,6 +173,8 @@ nnoremap N Nzz
 " Reselect text you just entered
 nnoremap gV `[v`]
 
+map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+
 " Exit terminal with shift esc
 tnoremap <C-²> <C-\\><C-n>
 
@@ -210,10 +211,8 @@ vnoremap K :m '<-2<CR>gv=gv
 " ------
 
 " Basic navigation
-" nnoremap K 5k
-" nnoremap J 5j
-" nnoremap L 5l
-" nnoremap H 5h
+nnoremap k gk
+nnoremap j gj
 
 " Scrolling using arrows
 nmap <Down> 3<C-E>
@@ -285,7 +284,8 @@ noremap <F6> :call <SID>ToggleSpell()<CR>
 map <F8> :bprevious<CR>
 map <F9> :bnext<CR>
 
-" F10: SyntasticToggleMode
+" F10: PyLint
+map <F10> :PymodeLint<CR>
 
 " ------
 " Buffer Actions
@@ -301,6 +301,11 @@ autocmd BufWritePost * GitGutter
 
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
+
+" ------
+" OTHER
+" ------
+autocmd VimResized * wincmd =
 
 " ------
 " Remapping
@@ -368,6 +373,7 @@ let g:gitgutter_max_signs = 1000
 let g:autoformat_retab = 0
 
 " Deoplete
+" General
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#max_list = 8
@@ -407,48 +413,17 @@ highlight Pmenu ctermbg=8 guibg=#606060
 highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
 highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 
+" Deoplete
+" Clang
+let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
+
 
 " Neosnippet
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#disable_runtime_snippets = {'_' : 1,}
 
-" inoremap <c-space> pumvisible() ? "\<C-n>" : "\<Tab>"
-" imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
-" \ "\<C-y>" : "\<CR>"
-" inoremap <silent><expr> <TAB>
-"                 \ pumvisible() ? "\<C-n>" :
-"                 \ <SID>check_back_space() ? "\<TAB>" :
-"                 \ deoplete#mappings#manual_complete()
-"                 function! s:check_back_space() abort
-"                 let col = col('.') - 1
-"                 return !col || getline('.')[col - 1]  =~ '\s'
-"                 endfunction
-"
-" imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" Syntastic
-" let g:syntastic_quiet_messages = { "!level": "errors" }
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-
- silent! nmap <F10> :SyntasticToggleMode<CR>
-
-" python
- let g:syntastic_python_flake8_args='--ignore=E501'
-
-" js
-" let g:syntastic_javascript_checkers=['eslint']
-" let g:syntastic_debug=3
-let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 " Indentline
 let g:airline#extensions#tabline#enabled = 1
@@ -464,6 +439,19 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:pymode_options_colorcolumn = 0
 let g:pymode_python = 'python3'
 let g:pymode_rope_goto_defination_bind = '<C-g>'
+
+let g:pymode_run = 0
+
+let g:pymode_lint = 1
+let g:pymode_lint_on_write = 1
+
+let g:pymode_rope_completion = 0
+
+" Zeal
+nmap <leader>Z <Plug>Zeavim
+vmap <leader>Z <Plug>ZVVisSelection
+nmap gz <Plug>ZVOperator
+nmap <leader><leader>z <Plug>ZVKeyDocset
 
 " ------
 " Snippets
