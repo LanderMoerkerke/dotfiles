@@ -102,7 +102,6 @@ zsh-completions
 zsh-dircolors-solarized
 )
 
-
 source $ZSH/oh-my-zsh.sh
 bindkey 'µ' autosuggest-accept
 
@@ -156,18 +155,11 @@ alias docka="docker run --rm -it alpine sh"
 alias temp='cat /sys/bus/acpi/drivers/thermal/LNXTHERM\:00/thermal_zone/temp'
 alias dus='du -sh *'
 alias tree='tree -Csuh'
-alias xs='cd'
-alias vf='cd'
-alias moer='more'
-alias moew='more'
-alias kk='ll'
 alias more='less'
 alias L='less'
 alias browse='w3m -F -graph -o auto_image=TRUE'
 alias imageburner='etcher'
 alias music='echo "press enter to play" && mocp -n -T alldefault'
-alias video='mpv'
-alias reddit='rtv --enable-media'
 alias rtv='rtv --enable-media'
 alias sudo='sudo '
 alias SS='sudo systemctl'
@@ -196,7 +188,7 @@ alias m='neomutt'
 alias n='/usr/bin/newsboat'
 alias o='cd /run/media/$USER/'
 alias p="python"
-alias pc="sudo pacman"
+alias p3="python3"
 alias r='ranger'
 alias s="slack-term"
 alias t="tree"
@@ -236,7 +228,7 @@ alias selection_to_image="xclip -selection clipboard -t image/jpg -o > $1"
 alias image_to_selection="xclip -selection clipboard -t image/jpg -i $1"
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# SERVERS
+# SERVICES
 # -----------------------------------------------------------------------------------------------------------------------------
 
 alias vmware_start="sudo systemctl start vmware-hostd-certificates.service vmware-networks-configuration.service vmware-usbarbitrator.service vmware-hostd.service vmware-networks.service"
@@ -275,30 +267,6 @@ wificonnect () {
         sudo wpa_supplicant -B -i wlp4s0 -c "$1"
 
     fi
-
-}
-
-
-# calendar
-c () {
-
-    vdirsyncer sync
-    rm -v ~/.calcurse/apts
-
-    for event in $(ls ~/.calendars/*/*.ics); do
-
-        calcurse -i $event
-
-    done
-
-    calcurse
-
-}
-
-ww () {
-
-    echo "Use M to copy url and ESCM to copy url under cursor."
-    w3m ${@}
 
 }
 
@@ -349,29 +317,9 @@ pull () {
 
 }
 
-git_clone_all_server () {
-
-    for repo in $(ssh sevahoFileServer ls /data/Git); do
-
-        echo $repo
-        git clone ssh://sevaho@localhost:2202/data/Git/$repo
-
-
-    done
-
-}
-
 # -----------------------------------------------------------------------------------------------------------------------------
 # SERVERS
 # -----------------------------------------------------------------------------------------------------------------------------
-
-remoteWindows () {
-
-    WINDOWS_SERVER_PASS=$(pass windows/pass)
-    ssh -fL 3389:192.168.0.3:3389 sevahoSSHServer sleep 5
-    xfreerdp /v:localhost /port:3389 /u:Administrator /p:"$WINDOWS_SERVER_PASS" /w:1700 /h:900
-
-}
 
 ssh_rpi () {
     ssh lander@landerpi.home
