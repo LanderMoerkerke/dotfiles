@@ -117,6 +117,9 @@ bindsym $mod+space focus mode_toggle
 
 bindsym $mod+p exec passmenu
 
+bindsym $mod+Next exec variety -n
+bindsym $mod+Prior exec variety -p
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # WORKSPACES
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -155,17 +158,6 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-
-# default workspaces for applications
-#assign [class="Firefox"] $ws3
-#for_window [title="video0 - mpv"] floating enable
-#for_window [title="video0 - mpv"] sticky enable
-
-
-#assign [class="Thunderbird"] $ws4
-#assign [class="Slack"] $ws4
-#["Chromium-browser"] $ws1
-
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # EXECUTION
