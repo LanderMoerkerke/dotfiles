@@ -864,6 +864,7 @@ c.url.incdec_segments = ['path', 'query']
 c.url.searchengines = {
     'DEFAULT': 'https://google.com/search?q={}',
     'aw': 'https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}',
+    'aur': 'https://aur.archlinux.org/packages/?K={}',
     'bc': 'https://www.bitchute.com/search?q={}&sort=date_created%20desc',
     'ddg': 'https://duckduckgo.com/?q={}',
     'ddgi': 'https://duckduckgo.com/?q={}&t=ha&iar=images',
@@ -1181,21 +1182,6 @@ c.bindings.commands = {
         '<Escape>': 'leave-mode'
     }
 }
-
-
-# Bindings for caret mod
-
-# Bindings for command mode
-
-# Bindings for hint mode
-
-# Bindings for insert mode
-
-# Bindings for passthrough mode
-
-# Bindings for prompt mode
-
-# Bindings for register mode
 
 # config.source('shortcuts.py')
 config.source("nord-qutebrowser-theme.py")
