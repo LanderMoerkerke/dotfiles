@@ -115,7 +115,7 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-bindsym $mod+p exec passmenu
+bindsym $mod+p exec passmenu -i
 
 bindsym $mod+Next exec variety -n
 bindsym $mod+Prior exec variety -p
