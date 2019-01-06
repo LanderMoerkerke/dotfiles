@@ -116,6 +116,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 bindsym $mod+p exec passmenu -i
+bindsym $mod+Shift+p exec enpass showassistant
 
 bindsym $mod+Next exec variety -n
 bindsym $mod+Prior exec variety -p
