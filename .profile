@@ -16,4 +16,4 @@ export TERMINAL="st"
 
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 
-export SANE_CONFIG_DIR=hpaio:/net/Officejet_6700?ip=192.168.0.50
+export SANE_CONFIG_DIR=hpaio:/net/Officejet_6700?ip=192.168.0.20
