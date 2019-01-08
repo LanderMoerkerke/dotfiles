@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rsync -rtvPuzsh --delete --progress $HOME/Documents/ $USER@backupserver:Backup/ --filter=':- .gitignore' --max-size=300M --exclude-from=$HOME/.rsyncignore >&1 | tee /tmp/out
+
+/usr/bin/notify-send -i $HOME/Pictures/Notifications/backup.png "Backup done: rsync" "$(tail -2 /tmp/out)"
