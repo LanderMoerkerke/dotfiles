@@ -1,0 +1,4 @@
+#!/bin/sh
+
+tmux
+# /usr/bin/R -q --no-save

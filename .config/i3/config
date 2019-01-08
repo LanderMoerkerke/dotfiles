@@ -18,6 +18,18 @@ hide_edge_borders smart
 popup_during_fullscreen smart
 
 # -----------------------------------------------------------------------------------------------------------------------------
+# SCRATPAD Tmux
+# -----------------------------------------------------------------------------------------------------------------------------
+
+for_window [instance="scratch_tmux"] floating enable
+for_window [instance="scratch_tmux"] resize set 700 700
+for_window [instance="scratch_tmux"] move scratchpad
+for_window [instance="scratch_tmux"] border pixel 3
+for_window [instance="scratch_tmux"] sticky enable
+
+bindsym $mod+t		        	exec --no-startup-id ddspawn scratch_tmux
+
+# -----------------------------------------------------------------------------------------------------------------------------
 # SCRATPAD math
 # -----------------------------------------------------------------------------------------------------------------------------
 
@@ -59,12 +71,12 @@ set $urgent EF6155
 bindsym Mod1+F4             kill
 bindsym $mod+c              kill
 
-bindsym $mod+Return         exec st
+bindsym $mod+Return         exec $TERMINAL
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
 Bindsym $mod+BackSpace      exec ~/.config/i3/flash_active.sh
 # bindsym $mod+d              exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -modi run -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$txtcolor" -font "open-sans 9" -terminal urxvt -hlbg "$bgcolor" -hlfg "#9575CD"
-bindsym $mod+d exec --no-startup-id rofi -show drun -terminal urxvt -width 25
+bindsym $mod+d exec --no-startup-id rofi -show drun -terminal $TERMINAL -width 25
 
 # switching window with win+tab
 bindsym $mod+Tab exec --no-startup-id rofi -show window -width 25
