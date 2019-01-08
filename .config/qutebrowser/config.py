@@ -254,7 +254,7 @@ c.content.pdfjs = False
 
 # Enables or disables plugins in Web pages.
 # Type: Bool
-c.content.plugins = False
+c.content.plugins = True
 
 # Whether the background color and images are also drawn when the page
 # is printed.
@@ -863,8 +863,8 @@ c.url.incdec_segments = ['path', 'query']
 
 c.url.searchengines = {
     'DEFAULT': 'https://google.com/search?q={}',
-    'aw': 'https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}',
     'aur': 'https://aur.archlinux.org/packages/?K={}',
+    'aw': 'https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}',
     'bc': 'https://www.bitchute.com/search?q={}&sort=date_created%20desc',
     'ddg': 'https://duckduckgo.com/?q={}',
     'ddgi': 'https://duckduckgo.com/?q={}&t=ha&iar=images',
@@ -873,6 +873,8 @@ c.url.searchengines = {
     'mtp': 'http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}',
     'osm': 'http://www.openstreetmap.org/search?query={}',
     'red': 'https://reddit.com/r/{}',
+    'syn': 'https://www.mijnwoordenboek.nl/synoniemen/{}',
+    'synen': 'https://www.thesaurus.com/browse/{}',
     'thw': 'http://www.thinkwiki.org/w/index.php?search={}&title=Special%3ASearch',
     'tpb': 'http://pirateproxy.gdn/search/{}',
     'tw': 'https://twitter.com/{}',
@@ -945,6 +947,7 @@ c.bindings.commands = {
         ';r': 'hint --rapid links tab-bg',
         ';t': 'hint inputs',
         ';y': 'hint links yank',
+        ';m': 'hint links spawn mpv {hint-url}',
         '<Alt-1>': 'tab-focus 1',
         '<Alt-2>': 'tab-focus 2',
         '<Alt-3>': 'tab-focus 3',
@@ -999,6 +1002,10 @@ c.bindings.commands = {
         'O': 'set-cmd-text -s :open -t',
         'PP': 'open -t -- {primary}',
         'Pp': 'open -t -- {clipboard}',
+        'Pm': 'spawn mpv {primary}',
+        'PM': 'spawn mpv {clipboard}',
+        'pm': 'spawn mpv {primary}',
+        'pM': 'spawn mpv {clipboard}',
         'R': 'reload -f',
         'Sb': 'open qute://bookmarks#bookmarks',
         'Sh': 'open qute://history',
