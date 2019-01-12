@@ -7,6 +7,7 @@ export PATH="$HOME/.local/bin/:$HOME/.npm-global/bin:/usr/local/sbin:/usr/local/
 
 # default programs
 export BROWSER="qutebrowser"
+export BROWSER2="chromium"
 export EDITOR="nvim"
 export FILEMANAGER="ranger"
 export READER="zathura"

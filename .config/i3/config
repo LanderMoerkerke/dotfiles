@@ -182,6 +182,8 @@ bindsym $mod+Shift+e		exec --no-startup-id rofi-emoji
 bindsym $mod+r              exec $TERMINAL -e "ranger"
 bindsym $mod+Shift+n        exec $TERMINAL -e "neomutt"
 bindsym $mod+b              exec $BROWSER
+bindsym $mod+Shift+b        exec $BROWSER2
+
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # RESIZE
