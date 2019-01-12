@@ -237,7 +237,7 @@ bindsym $mod+Insert		exec --no-startup-id showclip
 # AUTOSTART APPLICATIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id launch-polybar &
 exec --no-startup-id /usr/bin/indicator-kdeconnect
 exec kdeconnect-indicator
 exec variety

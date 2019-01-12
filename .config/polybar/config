@@ -134,7 +134,7 @@ type = custom/script
 ; Available tokens:
 ;   %counter%
 ; Command to be executed (using "/usr/bin/env sh -c [command]")
-exec = ~/.config/polybar/mailcheck.sh
+exec = mailcheck
 
 ; Conditional command that, if defined, needs to exit successfully
 ; before the main exec command is invoked.
