@@ -1,4 +1,5 @@
-qll dunst
+#!/bin/sh
+killall dunst
 dunst -config ~/.config/dunst/dunstrc &
 
 notify-send -u critical "Test message: critical test 1"
