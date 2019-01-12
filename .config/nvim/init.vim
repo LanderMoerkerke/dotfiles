@@ -11,14 +11,12 @@ Plug 'tpope/vim-fugitive'                                           " Fuzzy Find
 
 Plug 'scrooloose/nerdtree'                                          " nerdtree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                      " nerdtree colors
-Plug 'Xuyuanp/nerdtree-git-plugin'                                  " nerdtree git
 
 Plug 'tomtom/tcomment_vim'                                          " commenting with g <
 
 Plug 'alvan/vim-closetag'                                           " autoclose html tags
 Plug 'Raimondi/delimitMate'                                         " autoclose symbols
 
-" Plug 'itchyny/lightline.vim'                                        " Light statusbar
 Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -37,19 +35,13 @@ Plug 'mhinz/vim-startify'                                           " Fancy star
 
 Plug 'junegunn/goyo.vim'                                            " Distraction free
 
-Plug 'amix/vim-zenroom2'                                            " iA emulator
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
 Plug 'zchee/deoplete-jedi'                                          " autocomplete python
 Plug 'zchee/deoplete-clang'											" autocomplete c
 Plug 'poppyschmo/deoplete-latex'                                    " autocomplete latex
 
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-
-Plug 'SirVer/ultisnips'
-
-Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'                                             " snippets
+Plug 'honza/vim-snippets'                                           " extra snippets
 
 Plug 'lambdalisue/suda.vim'                                         " sudo
 
@@ -89,6 +81,7 @@ set laststatus=2                                " always show the statusline
 set nofoldenable								" disable folding
 set foldmethod=indent
 set foldnestmax=2
+set foldlevel=1
 
 set rtp^=~/.config/nvim
 set mouse-=a                                    " disable mouse
@@ -287,6 +280,9 @@ map <F9> :bnext<CR>
 " F10: PyLint
 map <F10> :PymodeLint<CR>
 
+" F11: Goyo
+map <F11> :Goyo<CR>
+
 " ------
 " Buffer Actions
 " ------
@@ -376,7 +372,7 @@ let g:autoformat_retab = 0
 " General
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-let g:deoplete#max_list = 8
+let g:deoplete#max_list = 15
 let g:deoplete#async_timeout = 100
 
 " let deoplete#ignore_sources = {
@@ -398,17 +394,6 @@ function! Multiple_cursors_after()
 endfunction
 
 " Deoplete tab
-" imap <expr><TAB>
-"			\ pumvisible() ? "\<C-n>" :
-"			\ neosnippet#expandable_or_jumpable() ?
-"			\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"
-" imap <expr><silent><CR> pumvisible() ? deoplete#mappings#close_popup() .
-"			\ "\<Plug>(neosnippet_jump_or_expand)" : "\<CR>"
-" smap <silent><CR> <Plug>(neosnippet_jump_or_expand)
-
 highlight Pmenu ctermbg=8 guibg=#606060
 highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
 highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
@@ -418,22 +403,12 @@ highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 
-
-" Neosnippet
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#disable_runtime_snippets = {'_' : 1,}
-
-
 " Indentline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme="minimalist"
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" let g:airline_theme="base16-spacemacs"
-
 
 " Pymode
 let g:pymode_options_colorcolumn = 0
@@ -456,7 +431,10 @@ nmap <leader><leader>z <Plug>ZVKeyDocset
 " ------
 " Snippets
 " ------
-" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/snippets/"
+let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
