@@ -239,13 +239,14 @@ bindsym $mod+Insert		exec --no-startup-id showclip
 
 exec_always --no-startup-id launch-polybar &
 exec --no-startup-id /usr/bin/indicator-kdeconnect
-exec kdeconnect-indicator
-exec variety
-exec compton -f --config ~/.config/compton/compton.conf -b
-exec xset -b
-exec redshift -l 51.01:4.03
-exec dunst
-exec udiskie &
+exec --no-startup-id battery-popup -L 20 -n -i $HOME/Pictures/Notifications/low-battery.png
 exec --no-startup-id xss-lock -l -- lockscreen
+exec compton -f --config ~/.config/compton/compton.conf -b
+exec dunst
+exec kdeconnect-indicator
+exec redshift -l 51.01:4.03
+exec udiskie &
+exec variety
+exec xset -b
 
 # vim: filetype=i3
