@@ -56,6 +56,9 @@ Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'leafgarland/typescript-vim'                                   " typescript
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " i3
 
+Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
+Plug 'junegunn/vim-easy-align'                                      " Easy align
+
 call plug#end()
 
 
@@ -478,6 +481,11 @@ fun! Run_Js()
 	nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
 endf
 
+" CPP
+autocmd FileType cpp call Run_CPP()
+fun! Run_CPP()
+	nnoremap <buffer> <F5> :exec '!g++ % -o run && ./run' shellescape(@%, 1)<cr>
+endf
 
 " Spellcheck
 function! <SID>ToggleSpell()
