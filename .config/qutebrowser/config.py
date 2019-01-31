@@ -1030,7 +1030,7 @@ c.bindings.commands = {
         'g^': 'tab-focus 1',
         'ga': 'open -t',
         'gb': 'set-cmd-text -s :bookmark-load',
-        'gd': 'download',
+        'gd': 'download-open',
         'gf': 'view-source',
         'gg': 'scroll-to-perc 0',
         'gl': 'tab-move -',
@@ -1088,7 +1088,7 @@ c.bindings.commands = {
         '}}': 'navigate next -t',
         ';;': 'hint links download'
     },
-    "caret" : {
+    "caret": {
         '$': 'move-to-end-of-line',
         '0': 'move-to-start-of-line',
         '<Ctrl-Space>': 'drop-selection',
