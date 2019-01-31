@@ -90,8 +90,8 @@ handle_image() {
     case "${mimetype}" in
         # SVG
         # image/svg+xml)
-        #     convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
-        #     exit 1;;
+            # convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
+            # exit 1;;
 
         # Image
         image/*)
