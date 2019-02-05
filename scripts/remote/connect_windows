@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ssh -fL 3389:$WINDOWS_PASS:3389 $USER@home sleep 1
+ssh -fL 3389:$WINDOWS_IP:3389 $USER@home sleep 1
 
 xfreerdp \
     /u:$WINDOWS_USER \
