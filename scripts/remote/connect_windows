@@ -1,0 +1,19 @@
+#!/bin/sh
+
+ssh -fL 3389:$WINDOWS_PASS:3389 $USER@home sleep 1
+
+xfreerdp \
+    /u:$WINDOWS_USER \
+    /p:$WINDOWS_PASS \
+    /v:localhost \
+    /drive:home,/home/$USER \
+    /sound \
+    /w:1700 \
+    /h:900 \
+    +toggle-fullscreen \
+    +clipboard \
+    +auto-reconnect \
+    +drives \
+    +fonts \
+    -themes \
+    -wallpaper \

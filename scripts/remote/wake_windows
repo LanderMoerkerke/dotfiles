@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ssh lander@home './Scripts/wake_windows'
