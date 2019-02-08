@@ -459,6 +459,12 @@ hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=12
 
 
 " ------
+" Commands
+" ------
+command! W w suda://%
+
+
+" ------
 " Functions
 " ------
 " Execute
