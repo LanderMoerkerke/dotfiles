@@ -95,14 +95,24 @@ setopt EXTENDED_GLOB
 ZSH_THEME="powerzeesh"
 plugins=(
 git
-zsh-autosuggestions
-zsh-syntax-highlighting
+notify
 vi-mode
+zsh-autosuggestions
 zsh-completions
 zsh-dircolors-solarized
+zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# notify
+zstyle ':notify:*' command-complete-timeout 2
+
+zstyle ':notify:*' error-title "Command failed"
+zstyle ':notify:*' success-title "Command finished"
+
+zstyle ':notify:*' error-icon "$HOME/Pictures/Notifications/error.png"
+zstyle ':notify:*' success-icon "$HOME/Pictures/Notifications/success.png"
 
 # autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && source ~/.autojump/etc/profile.d/autojump.zsh
