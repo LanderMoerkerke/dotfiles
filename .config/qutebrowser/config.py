@@ -54,7 +54,7 @@ c.completion.cmd_history_max_items = 100
 
 # The height of the completion, in px or as percentage of the window.
 # Type: PercOrInt
-c.completion.height = '50%'
+c.completion.height = '20%'
 
 # Move on to the next part when there's only one possible completion
 # left.
