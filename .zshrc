@@ -108,8 +108,8 @@ source $ZSH/oh-my-zsh.sh
 # notify
 zstyle ':notify:*' command-complete-timeout 10
 
-zstyle ':notify:*' error-title "Command failed"
-zstyle ':notify:*' success-title "Command finished"
+zstyle ':notify:*' error-title "Command failed (in #{time_elapsed} seconds)"
+zstyle ':notify:*' success-title "Command finished (in #{time_elapsed} seconds)"
 
 zstyle ':notify:*' error-icon "$HOME/Pictures/Notifications/error.png"
 zstyle ':notify:*' success-icon "$HOME/Pictures/Notifications/success.png"
@@ -152,6 +152,7 @@ function chpwd() {
     ls
 }
 
+alias up="cd .."
 alias chmod_num="stat --format '%a'"
 alias password16="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1"
 alias password32="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1"
