@@ -8,8 +8,10 @@ xfreerdp \
     /v:localhost \
     /drive:home,/home/$USER \
     /sound \
-    /w:1700 \
-    /h:900 \
+    /w:1920 \
+    /h:1030 \
+    # /dynamic-resolution \
+    # /window-position:10x10 \
     +toggle-fullscreen \
     +clipboard \
     +auto-reconnect \
