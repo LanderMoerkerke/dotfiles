@@ -38,7 +38,7 @@ Plug 'junegunn/goyo.vim'                                            " Distractio
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
 Plug 'zchee/deoplete-jedi'                                          " autocomplete python
 Plug 'zchee/deoplete-clang'											" autocomplete c
-Plug 'poppyschmo/deoplete-latex'                                    " autocomplete latex
+" Plug 'poppyschmo/deoplete-latex'                                    " autocomplete latex
 
 Plug 'SirVer/ultisnips'                                             " snippets
 Plug 'honza/vim-snippets'                                           " extra snippets
@@ -284,7 +284,7 @@ map <F9> :bnext<CR>
 map <F10> :PymodeLint<CR>
 
 " F11: Goyo
-map <F11> :Goyo<CR>
+map <F11> :Goyo<CR>:set wrap<CR>
 
 " ------
 " Buffer Actions
@@ -438,8 +438,8 @@ let g:UltiSnipsSnippetsDir="~/.config/nvim/snippets/"
 let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -511,4 +511,3 @@ function! <SID>ToggleSpell()
         echo "'spell' disabled..."
     endif
 endfunction
-
