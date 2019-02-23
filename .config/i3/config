@@ -247,5 +247,6 @@ exec redshift -l 51.01:4.03
 exec udiskie &
 exec variety
 exec xset -b
+exec xset r rate 200 50
 
 # vim: filetype=i3
