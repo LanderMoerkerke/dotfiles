@@ -12,7 +12,7 @@ xfreerdp \
     /h:1030 \
     # /dynamic-resolution \
     # /window-position:10x10 \
-    +toggle-fullscreen \
+    # +toggle-fullscreen \
     +clipboard \
     +auto-reconnect \
     +drives \
