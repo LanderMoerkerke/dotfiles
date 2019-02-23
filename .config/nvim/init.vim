@@ -109,7 +109,8 @@ set showcmd
 
 set title
 set ruler
-set relativenumber
+" set relativenumber
+set conceallevel=1                              " conceals
 
 set autoread                                    " automatically reload the file when modified outside and not modified inside
 set autowrite                                   " write the modified file when switching to another file
@@ -198,6 +199,10 @@ nnoremap <leader>z :set wrap!<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+" Indent using Shift + S-Shift
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <LT>gv
+
 " Move visual block
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -211,20 +216,24 @@ nnoremap k gk
 nnoremap j gj
 
 " Scrolling using arrows
-nmap <Down> 3<C-E>
-nmap <Up> 3<C-Y>
-vmap <Down> 3<C-E>
-vmap <Up> 3<C-Y>
-imap <Down> <C-O>3<C-E>
-imap <Up> <C-O>3<C-Y>
+" nmap <Down> 3<C-E>
+" nmap <Up> 3<C-Y>
+" vmap <Down> 3<C-E>
+" vmap <Up> 3<C-Y>
+" imap <Down> <C-O>3<C-E>
+" imap <Up> <C-O>3<C-Y>
 
 " Split navigation
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-nnoremap <c-n> gt
-nnoremap <c-m> gT
+
+" Tabs
+" nnoremap <c-n> gt
+" nnoremap <c-m> gT
+nnoremap <c-n> :bnext<cr>
+nnoremap <c-m> :bprevious<cr>
 
 " Split
 nnoremap <leader>nn :split <cr>
@@ -237,8 +246,15 @@ nnoremap <silent> <Leader>v- :vertical resize -5<CR>
 nnoremap <silent> <Leader>n+ :res +5<CR>
 nnoremap <silent> <Leader>n- :res -5<CR>
 
-" C-T for new tab
-nnoremap <C-t> :tabnew<cr>
+" Resize windows using arrow keys
+noremap <up>    <C-W>+
+noremap <down>  <C-W>-
+noremap <left>  3<C-W><
+noremap <right> 3<C-W>>
+
+" C-t for new tab / buffer
+" nnoremap <C-t> :tabnew<cr>
+nnoremap <C-t> :enew<cr>
 
 " Go to tab by number
 noremap <leader>1 1gt
@@ -304,7 +320,7 @@ autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 " ------
 " OTHER
 " ------
-autocmd VimResized * wincmd =
+autocmd VimResized * :wincmd =
 
 " ------
 " Remapping
@@ -386,14 +402,14 @@ let g:deoplete#async_timeout = 100
 
 " Disable deoplete when in multi cursor mode
 function! Multiple_cursors_before()
-	let b:deoplete_disable_auto_complete = 1
-	" deoplete#disable()
-  	set foldmethod=manual
+    let b:deoplete_disable_auto_complete = 1
+    " deoplete#disable()
+    set foldmethod=manual
 endfunction
 function! Multiple_cursors_after()
-	let b:deoplete_disable_auto_complete = 0
-	" deoplete#enable()
-  	set foldmethod=syntax
+    let b:deoplete_disable_auto_complete = 0
+    " deoplete#enable()
+    set foldmethod=syntax
 endfunction
 
 " Deoplete tab
@@ -424,6 +440,7 @@ let g:pymode_lint = 1
 let g:pymode_lint_on_write = 1
 
 let g:pymode_rope_completion = 0
+let g:pymode_lint_ignore = ["E501", "W503",]
 
 " Zeal
 nmap <leader>Z <Plug>Zeavim
@@ -471,26 +488,26 @@ command! W w suda://%
 " Python
 autocmd FileType python call Run_Python()
 fun! Run_Python()
-	nnoremap <buffer> <F4> :exec '!python3.7' shellescape(@%, 1)<cr>
-	nnoremap <buffer> <F5> :exec '!python3.6' shellescape(@%, 1)<cr>
+    nnoremap <buffer> <F4> :exec '!python3.7' shellescape(@%, 1)<cr>
+    nnoremap <buffer> <F5> :exec '!python3.6' shellescape(@%, 1)<cr>
 endf
 
 " Go
 autocmd FileType go call Run_Go()
 fun! Run_Go()
-	nnoremap <buffer> <F5> :exec '!go run' shellescape(@%, 1)<cr>
+    nnoremap <buffer> <F5> :exec '!go run' shellescape(@%, 1)<cr>
 endf
 
 " JS
 autocmd FileType javascript call Run_Js()
 fun! Run_Js()
-	nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
+    nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
 endf
 
 " CPP
 autocmd FileType cpp call Run_CPP()
 fun! Run_CPP()
-	nnoremap <buffer> <F5> :exec '!g++ % -o run && ./run' shellescape(@%, 1)<cr>
+    nnoremap <buffer> <F5> :exec '!g++ % -o run && ./run' shellescape(@%, 1)<cr>
 endf
 
 " Spellcheck
