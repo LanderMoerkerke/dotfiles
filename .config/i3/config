@@ -74,7 +74,8 @@ bindsym $mod+c              kill
 bindsym $mod+Return         exec $TERMINAL
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
-Bindsym $mod+BackSpace      exec flash-active
+Bindsym $mod+BackSpace          exec flash-active
+Bindsym $mod+Shift+BackSpace    exec transset-df -a -x 1
 # bindsym $mod+d              exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -modi run -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$txtcolor" -font "open-sans 9" -terminal urxvt -hlbg "$bgcolor" -hlfg "#9575CD"
 bindsym $mod+d exec --no-startup-id rofi -show drun -terminal $TERMINAL -width 25
 
