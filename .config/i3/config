@@ -195,7 +195,7 @@ bindsym $mod+i resize shrink height 5 px or 5 ppt
 bindsym $mod+o resize grow width 5 px or 5 ppt
 
 # Gaps
-bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+Shift+w mode "$mode_gaps"
 
 mode "$mode_gaps" {
     bindsym o       gaps outer current plus 5
@@ -232,7 +232,9 @@ bindsym Control+Shift+Print     	exec maim -s -u --format=png /dev/stdout | xcli
 # MISC
 # -----------------------------------------------------------------------------------------------------------------------------
 
-bindsym $mod+Insert		exec --no-startup-id showclip
+bindsym $mod+Insert		            exec --no-startup-id showclip
+bindsym $mod+g                      exec echo $EMAIL_PRIMARY | xclip -selection clipboard -selection primary
+bindsym $mod+Shift+g                exec echo $EMAIL_SECONDARY | xclip -selection clipboard -selection primary
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # AUTOSTART APPLICATIONS
@@ -249,5 +251,3 @@ exec udiskie &
 exec variety
 exec xset -b
 exec xset r rate 200 50
-
-# vim: filetype=i3
