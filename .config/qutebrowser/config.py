@@ -1081,6 +1081,7 @@ c.bindings.commands = {
         'yT': 'yank title -s',
         'yY': 'yank -s',
         'yd': 'yank domain',
+        'ym': 'yank markdown',
         'yp': 'yank pretty-url',
         'yt': 'yank title',
         'yy': 'yank',
@@ -1191,4 +1192,4 @@ c.bindings.commands = {
 }
 
 # config.source('shortcuts.py')
-config.source("nord-qutebrowser-theme.py")
+config.source("dark-qutebrowser-theme.py")
