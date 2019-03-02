@@ -1018,6 +1018,7 @@ c.bindings.commands = {
         '[[': 'navigate prev',
         ']]': 'navigate next',
         'ad': 'download-cancel',
+        'Cd': 'download-cancel',
         'b': 'set-cmd-text -s :quickmark-load',
         'cd': 'download-clear',
         'co': 'tab-only',
