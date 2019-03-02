@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 # Created by newuser for 5.5.1
 TERM=xterm
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -171,10 +173,8 @@ alias more='less'
 alias L='less'
 alias lg='lazygit'
 alias browse='w3m -F -graph -o auto_image=TRUE'
-alias imageburner='etcher'
 alias music='echo "press enter to play" && mocp -n -T alldefault'
 alias rtv='rtv --enable-media'
-alias sudo='sudo '
 alias SS='sudo systemctl'
 alias df='df -kTh'
 alias df='dfc -T'
@@ -182,7 +182,6 @@ alias ll='ls -latrFi'
 alias ls='ls -hN --color=auto --group-directories-first'
 alias we='curl wttr.in/Gent'
 alias pdf='zathura'
-alias vscode='code'
 alias soundcloud="scdl"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
 alias python3="python3.6"
@@ -190,12 +189,12 @@ alias pip="pip3.7"
 alias pip3="pip3.6"
 alias pe="pipenv"
 alias jn="jupyter notebook --browser=Chromium"
-# alias gHow="cd ~/Documents/Howest/3NMCT/S5"
 
 ## one letter aliasses
 
 alias e='emacs -nw'
 alias i='feh --geometry 400x400'
+alias j="joplin"
 alias l='ls -latrFi'
 alias m='neomutt'
 alias n='/usr/bin/newsboat'
@@ -211,7 +210,6 @@ alias u="unzip"
 
 alias xrandr_right="xrandr --output DP-2 --auto --right-of eDP-1"
 alias xrandr_left="xrandr --output DP-2 --auto --left-of eDP-1"
-alias xrandr_copy ="xrandr"
 
 ## nmap
 
@@ -351,10 +349,9 @@ mtpfs_op () {
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC
 # -----------------------------------------------------------------------------------------------------------------------------
-eval "$(pipenv --completion)"
 alias sudo='nocorrect sudo'
 
 # dir colors cd
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# zprof
