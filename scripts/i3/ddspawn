@@ -19,8 +19,8 @@ then
 	echo "Window detected."
 else
 	echo "Window not detected... spawning."
-	i3 "exec --no-startup-id $TERMINAL -n $1 $(echo "$@" | cut -d ' ' -f2-) -e $1" && i3 "[instance=\"$1\"] scratchpad show; [instance=\"$1\"] move position center"
-    echo i3 "exec --no-startup-id $TERMINAL -n $1 $(echo "$@" | cut -d ' ' -f2-) -e $1"
+	i3 "exec --no-startup-id $TERMINAL2 -n $1 $(echo "$@" | cut -d ' ' -f2-) -e $1" && i3 "[instance=\"$1\"] scratchpad show; [instance=\"$1\"] move position center"
+    echo i3 "exec --no-startup-id $TERMINAL2 -n $1 $(echo "$@" | cut -d ' ' -f2-) -e $1"
     sleep .25 # This sleep is my laziness, will fix later (needed for immediate appearance after spawn).
 fi
 i3 "[instance=\"$1\"] scratchpad show; [instance=\"$1\"] move position center"
