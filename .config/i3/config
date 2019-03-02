@@ -14,7 +14,7 @@ mouse_warping none
 new_window pixel
 workspace_layout default
 
-hide_edge_borders smart
+# hide_edge_borders smart
 popup_during_fullscreen smart
 
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ popup_during_fullscreen smart
 for_window [instance="scratch_tmux"] floating enable
 for_window [instance="scratch_tmux"] resize set 700 700
 for_window [instance="scratch_tmux"] move scratchpad
-for_window [instance="scratch_tmux"] border pixel 3
+for_window [instance="scratch_tmux"] border pixel 0
 for_window [instance="scratch_tmux"] sticky enable
 
 bindsym $mod+t		        	exec --no-startup-id ddspawn scratch_tmux
@@ -36,7 +36,7 @@ bindsym $mod+t		        	exec --no-startup-id ddspawn scratch_tmux
 for_window [instance="scratch_math"] floating enable
 for_window [instance="scratch_math"] resize set 625 450
 for_window [instance="scratch_math"] move scratchpad
-for_window [instance="scratch_math"] border pixel 3
+for_window [instance="scratch_math"] border pixel 0
 for_window [instance="scratch_math"] sticky enable
 
 bindsym $mod+m		        	exec --no-startup-id ddspawn scratch_math
@@ -48,7 +48,7 @@ bindsym $mod+m		        	exec --no-startup-id ddspawn scratch_math
 for_window [instance="caprine"] floating enable
 for_window [instance="caprine"] resize set 625 700
 for_window [instance="caprine"] move scratchpad
-for_window [instance="caprine"] border pixel 3
+for_window [instance="caprine"] border pixel 0
 for_window [instance="caprine"] sticky enable
 
 bindsym $mod+Shift+m			exec --no-startup-id ddspawn caprine
@@ -63,6 +63,26 @@ set $fgcolor 48B685
 set $txtcolor DFEFE2
 set $urgent EF6155
 
+set $bg-color               #203030
+set $active-bg-color        #405659
+set $inactive-bg-color      #203030
+set $text-color             #eeeeee
+set $inactive-text-color    #676E7D
+set $urgent-bg-color        #E53935
+
+# class                 border              backgr.             text                    indicator   child_border
+client.focused          $active-bg-color    $active-bg-color    $active-bg-color        #586e75
+client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color    #586e75
+client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color    #586e75
+client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color             #586e75
+# client.placeholder      #000000             #0c0c0c             #ffffff                 #000000     #0c0c0c
+# client.background       #ffffff
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #ffffff #25252c #ffffff #2e9ef4   #FFFFFF
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GENERAL BINDINGS AND MOVEMENTS
@@ -181,7 +201,7 @@ bindsym $mod+x              exec --no-startup-id lockscreen
 bindsym $mod+Shift+x		exec --no-startup-id lockscreen
 bindsym $mod+Shift+e		exec --no-startup-id rofi-emoji
 bindsym $mod+r              exec $TERMINAL -e "ranger"
-bindsym $mod+Shift+n        exec $TERMINAL -e "neomutt"
+bindsym $mod+Shift+n        exec $TERMINAL2 -e "neomutt"
 bindsym $mod+Shift+v        exec $TERMINAL -e "nvim"
 bindsym $mod+b              exec $BROWSER
 bindsym $mod+Shift+b        exec $BROWSER2
@@ -252,3 +272,4 @@ exec udiskie &
 exec variety
 exec xset -b
 exec xset r rate 200 50
+exec xinput --set-prop 12 --type=int --format=8 286 "2"
