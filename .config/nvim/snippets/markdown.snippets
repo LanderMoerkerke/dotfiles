@@ -1,0 +1,149 @@
+###########################################################################
+#                            Markdown Snippets                            #
+###########################################################################
+
+#############
+#  Headers  #
+#############
+
+snippet h1 "Header h1" b
+	# ${1:Header name}
+snippet h2 "Header h2" b
+	## ${1:Header name}
+snippet h3 "Header h3" b
+	### ${1:Header name}
+snippet h4 "Header h4" b
+	#### ${1:Header name}
+snippet h5 "Header h5" b
+	##### ${1:Header name}
+snippet h6 "Header h6" b
+	###### ${1:Header name}
+snippet hrlnk "Header ID Link"
+	[${1:Text}](#${2:Header ID})$0
+
+###########
+#  Links  #
+###########
+
+snippet lnk "Inline Link"
+	[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}}${4/.+/ "/}${4:opt title}${4/.+/"/})$0
+snippet rlnk "Reference-style link"
+	[${1:${VISUAL:Text}}][${2:Reference}]$0
+snippet rdef "Reference-style link ID"
+	[${1}]: ${3:http://${2:www.url.com}}
+snippet flnk "Fast link"
+	<http://${1:url}>$0
+
+##############
+#  Emphasis  #
+##############
+
+snippet * "Italic"
+	*${1:${VISUAL:Text}}*$0
+snippet _ "Strong"
+	__${1:${VISUAL:Text}}__$0
+snippet *_ "Italic and Strong"
+	***${1:${VISUAL:Text}}***$0
+
+############
+#  Quotes  #
+############
+
+snippet > "Quote" !b
+	> ${1:${VISUAL:Text}:${VISUAL:Text}}
+
+###########
+#  Lists  #
+###########
+
+snippet ol "Ordered List"
+	1. ${1}
+	2. ${2}
+	3. ${3}
+	4. ${4}
+
+snippet ul "Unordered List"
+	* ${1}
+	* ${2}
+	* ${3}
+	* ${4}
+
+snippet cl "Check List"
+	[ ] ${1}
+	[ ] ${2}
+	[ ] ${3}
+	[ ] ${4}
+
+snippet lb "Linebreak"
+	<br>${1}
+
+######################
+#  Definition Lists  #
+######################
+
+snippet dl "Definition List" !b
+	${1:Word 1}
+	: ${2:Definition}
+	${3:Word 2}
+	: ${4:Definition}
+	${5:Word 3}
+	: ${6:Definition}
+	${7:Word 4}
+	: ${8:Definition}
+
+############
+#  Images  #
+############
+
+snippet img! "Image"
+	![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+snippet ilnk "Reference-style Image"
+	![${1:${VISUAL:Text}}][${2:Reference}] $0
+snippet idef "Reference-style Image ID"
+	[${1}]: ${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/}
+
+############
+#  Tables  #
+############
+
+snippet table "Table"
+	${1:First Header}   | ${6:First Header}
+	--------------------|--------------------
+	${2:Content Cell}   | ${7:Content Cell}
+	${3:Content Cell}   | ${8:Content Cell}
+	${4:Content Cell}   | ${9:Content Cell}
+	${5:Content Cell}   | ${10:Content Cell}
+
+##########
+#  Code  #
+##########
+
+snippet ` "Inline code"
+	\`${1:code}\` $0
+snippet ~ "Code" b
+	~~~
+	${1:${VISUAL:Code}}
+	~~~
+
+#####################
+#  Horizontal Rule  #
+#####################
+
+snippet hr "Horizontal Rule" b
+	----------
+
+###############
+#  Footnotes  #
+###############
+
+snippet ft "Footnote Reference"
+	[^${1:Footnote label}]
+snippet ftd "Footnote Definition"
+	[^${1:footnote label}]: ${2:Footnote}
+
+##################
+# Abbreviations  #
+##################
+
+snippet abb "Abbreviation" b
+	*[${1:abbreviation}]: ${2:definition}
