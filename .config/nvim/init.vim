@@ -52,6 +52,8 @@ Plug 'KabbAmine/zeavim.vim'											" Zeal integration
 
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
+Plug 'majutsushi/tagbar'
+
 " Filetypes / syntax
 Plug 'leafgarland/typescript-vim'                                   " typescript
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " i3
@@ -256,6 +258,8 @@ noremap <right> 3<C-W>>
 " nnoremap <C-t> :tabnew<cr>
 nnoremap <C-t> :enew<cr>
 
+nnoremap <leader>x :bp\|bd #<CR>
+
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -302,6 +306,7 @@ map <F10> :PymodeLint<CR>
 " F11: Goyo
 map <F11> :Goyo<CR>:set wrap<CR>
 
+map <F12> :TagbarToggle<CR>
 " ------
 " Buffer Actions
 " ------
@@ -362,8 +367,16 @@ let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_inside_quotes = 1
 
 " Nerdtree
-nnoremap <leader>f :NERDTreeToggle<CR>
+" nnoremap <leader>f :NERDTreeToggle<CR>
 
+nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
+
+function! g:WorkaroundNERDTreeToggle()
+  try | NERDTreeToggle | catch | silent! NERDTree | endtry
+endfunction
+
+" Tagbar
+nnoremap <leader>t :TagbarToggle<CR>
 
 " Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
