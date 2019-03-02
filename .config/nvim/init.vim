@@ -110,7 +110,7 @@ set showcmd
 set title
 set ruler
 " set relativenumber
-set conceallevel=1                              " conceals
+set conceallevel=0                              " conceals
 
 set autoread                                    " automatically reload the file when modified outside and not modified inside
 set autowrite                                   " write the modified file when switching to another file
@@ -200,8 +200,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Indent using Shift + S-Shift
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <LT>gv
+noremap <Tab> V>gv<esc>
+noremap <S-Tab> V<LT>gv<esc>
 
 " Move visual block
 vnoremap J :m '>+1<CR>gv=gv
@@ -305,6 +305,8 @@ map <F11> :Goyo<CR>:set wrap<CR>
 " ------
 " Buffer Actions
 " ------
+" After buffer
+au BufEnter stories.md hi Error NONE
 
 " Before saving
 " Automatically deletes all tralling whitespace on save.
@@ -348,6 +350,9 @@ nnoremap <C-c> :TComment<cr>
 vnoremap <C-c> :TComment<cr>
 inoremap <C-c> <Esc>:TComment<cr>A
 
+nnoremap <C-S> :Snippets<cr>
+inoremap <C-S> <Esc>:Snippets<cr>
+
 " DelimitMate
 let g:delimitMate_autoclose = 1
 let g:delimitMate_matchpairs = "(:),[:],{:},<:>"
@@ -380,6 +385,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " Indentline
 let g:indentLine_color_tty_light = 200  " (default: 4)
 let g:indentLine_color_dark = 210       " (default: 2)
+let g:indentLine_setConceal = 0         " (default: 2)
 
 " GitGutter
 let g:gitgutter_max_signs = 1000
@@ -451,12 +457,11 @@ nmap <leader><leader>z <Plug>ZVKeyDocset
 " ------
 " Snippets
 " ------
-let g:UltiSnipsSnippetsDir="~/.config/nvim/snippets/"
-let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "~/.config/nvim/snippets/"]
 
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-m>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
