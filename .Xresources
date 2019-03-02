@@ -40,11 +40,12 @@ URxvt.matcher.button: 1
 
 ! extensions
 URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select
-URxvt.colorUL:		#4682B4
+URxvt.colorUL:		#FFF
+! URxvt.colorUL:		#4682B4
 
 !! url-select
-URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: qutebrowser
+URxvt.keysym.M-l:	perl:url-select:select_next
+URxvt.url-select.launcher: $BROWSER
 URxvt.url-select.underline: true
 URxvt.url-launcher: qutebrowser
 
@@ -52,8 +53,8 @@ URxvt.url-launcher: qutebrowser
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 !! resize-font
-URxvt.resize-font.smaller:	C-Down
-URxvt.resize-font.bigger:	C-Up
+URxvt.resize-font.smaller:	M-J
+URxvt.resize-font.bigger:	M-K
 
 ! keybindings
 URxvt.keysym.Control-Shift-C: perl:clipboard:copy
@@ -61,17 +62,27 @@ URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
+!! scrolling
+URxvt.keysym.M-k: command:\033]720;1\007
+URxvt.keysym.M-j: command:\033]721;1\007
+URxvt.keysym.M-u: command:\033]720;10\007
+URxvt.keysym.M-d: command:\033]721;10\007
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
 ! font
 ! NotoColorEmoji
-
 URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true,xft:EmojiOne:size=5:antialias=true:hinting=true,xft:NotoColorEmoji:size=5:antialias=true:hinting=true
-
 
 URxvt.letterSpace: -1
 
-URxvt.foreground: #839496
+URxvt.foreground: #FFF
 ! URxvt.foreground: #4a5351
-URxvt*background: [91]#1c1c1c
+URxvt*background: [96]#1c1c1c
 ! URxvt*background: [91]#f9fafb
 
 ! colors
@@ -97,7 +108,7 @@ URxvt*background: [91]#1c1c1c
 *.background:   nord0
 st.background:  #1c1c1c
 *.cursorColor:  nord4
-*fading: 35
+! *fading: 35
 *fadeColor: nord3
 
 *.color0: nord1
