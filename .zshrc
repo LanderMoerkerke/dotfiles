@@ -369,7 +369,6 @@ fkill() {
   fi
 }
 
-
 # ff() { fzf --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"; }
 
 # checkout branch
@@ -407,7 +406,7 @@ function cd() {
                 echo;
                 ls -p --color=always "${__cd_path}";
         ')"
-        [[ ${#dir} != 0 ]] || return 0
+        [[ ${#dir} == 0 ]] && ls && return 0
         builtin cd "$dir" &> /dev/null
     done
 }
