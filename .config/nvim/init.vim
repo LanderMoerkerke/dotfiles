@@ -150,6 +150,8 @@ set encoding=utf-8
 " ------
 " Key bindings
 " ------
+" Copy to clipboard
+nnoremap  <leader>r  :e % <CR>
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
