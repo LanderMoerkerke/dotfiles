@@ -482,6 +482,21 @@ vmap <leader>Z <Plug>ZVVisSelection
 nmap gz <Plug>ZVOperator
 nmap <leader><leader>z <Plug>ZVKeyDocset
 
+" LaTeX - Biber
+" let $FZF_BIBTEX_CACHEDIR = '~/.vim/'
+let $FZF_BIBTEX_SOURCES = $BIB
+
+function! s:bibtex_cite_sink(lines)
+    let r=system("bibtex-cite ", a:lines)
+    execute ':normal! i\cite{' . r'}'
+endfunction
+
+nnoremap <leader>b :call fzf#run({
+                        \ 'source': 'bibtex-ls',
+                        \ 'sink*': function('<sid>bibtex_cite_sink'),
+                        \ 'up': '20%',
+                        \ 'options': '--ansi  --multi --prompt "Cite> "'}) <CR><CR>
+
 " ------
 " Snippets
 " ------
