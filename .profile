@@ -16,7 +16,7 @@ export TERMINAL="urxvt"
 export TERMINAL2="st"
 
 export COMPILE="$HOME/Documents/LaTeX/"
-export BIB="$COMILE/uni.bib"
+export BIB="$COMPILE/uni.bib"
 
 export SANE_CONFIG_DIR=hpaio:/net/Officejet_6700?ip=192.168.0.20
 
