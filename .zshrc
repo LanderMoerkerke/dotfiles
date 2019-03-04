@@ -346,8 +346,88 @@ mtpfs_op () {
 
 [ -f ~/.fzf/.fzf.zsh ] && source ~/.fzf/.fzf.zsh
 
-se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-vf() { fzf | xargs -r -I % $EDITOR % ;}
+# Vim
+# se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
+fv() { fzf | xargs -r -I % $EDITOR % ;}
+
+# Try highlight, coderay, rougify in turn, then fall back to cat
+fvp() { fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
+                 echo {} is a binary file ||
+                 (highlight -O ansi -l {} ||
+                  coderay {} ||
+                  rougify {} ||
+                  cat {}) 2> /dev/null | head -500' ;}
+
+# fkill - kill process
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+
+# ff() { fzf --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"; }
+
+# checkout branch
+fgcb() {
+    local tags branches target
+    tags=$(git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
+    branches=$(git branch --all | grep -v HEAD |
+    sed "s/.* //" | sed "s#remotes/[^/]*/##" |
+    sort -u | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
+    target=$( (echo "$branches"; echo "$tags") | fzf --no-hscroll --no-multi --delimiter="\t" -n 2 --ansi --preview="git log -200 --pretty=format:%s $(echo {+2..} |  sed 's/$/../' )" ) || return
+    git checkout $(echo "$target" | awk '{print $2}')
+}
+
+# checkout commit
+fgcc() {
+    local commits commit
+    commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+    commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+    git checkout $(echo "$commit" | sed "s/ .*//");
+}
+
+# Interactive cd
+function cd() {
+    if [[ "$#" != 0 ]]; then
+        builtin cd "$@";
+        return
+    fi
+    while true; do
+        local lsd=$(echo ".." && ls -p | grep '/$' | sed 's;/$;;')
+        local dir="$(printf '%s\n' "${lsd[@]}" |
+            fzf --reverse --preview '
+                __cd_nxt="$(echo {})";
+                __cd_path="$(echo $(pwd)/${__cd_nxt} | sed "s;//;/;")";
+                echo $__cd_path;
+                echo;
+                ls -p --color=always "${__cd_path}";
+        ')"
+        [[ ${#dir} != 0 ]] || return 0
+        builtin cd "$dir" &> /dev/null
+    done
+}
+
+# DOCKER
+# Select a docker container to start and attach to
+function fda() {
+  local cid
+  cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
+}
+
+# Select a running docker container to stop
+function fds() {
+  local cid
+  cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
+
+  [ -n "$cid" ] && docker stop "$cid"
+}
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC
