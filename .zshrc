@@ -348,15 +348,15 @@ mtpfs_op () {
 
 # Vim
 # se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-fv() { fzf | xargs -r -I % $EDITOR % ;}
+# fv() { fzf | xargs -r -I % $EDITOR % ;}
 
 # Try highlight, coderay, rougify in turn, then fall back to cat
-fvp() { fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
+fv() { fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
                  echo {} is a binary file ||
                  (highlight -O ansi -l {} ||
                   coderay {} ||
                   rougify {} ||
-                  cat {}) 2> /dev/null | head -500' ;}
+                  cat {}) 2> /dev/null | head -500' | xargs -r -I % $EDITOR % ;}
 
 # fkill - kill process
 fkill() {
