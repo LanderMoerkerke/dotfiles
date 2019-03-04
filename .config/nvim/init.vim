@@ -54,7 +54,6 @@ Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 Plug 'majutsushi/tagbar'
 Plug 'lvht/tagbar-markdown'
-" Plug 'tenfyzhong/tagbar-markdown.vim'
 
 " Filetypes / syntax
 Plug 'leafgarland/typescript-vim'                                   " typescript
