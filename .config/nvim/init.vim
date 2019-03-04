@@ -324,7 +324,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " After saving
 autocmd BufWritePost * GitGutter
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
-autocmd BufWritePost init.vim :source % <CR>
 
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
