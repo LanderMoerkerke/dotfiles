@@ -53,6 +53,8 @@ Plug 'KabbAmine/zeavim.vim'											" Zeal integration
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 Plug 'majutsushi/tagbar'
+Plug 'lvht/tagbar-markdown'
+" Plug 'tenfyzhong/tagbar-markdown.vim'
 
 " Filetypes / syntax
 Plug 'leafgarland/typescript-vim'                                   " typescript
@@ -320,6 +322,8 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " After saving
 autocmd BufWritePost * GitGutter
+autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
+autocmd BufWritePost init.vim :source % <CR>
 
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
@@ -402,6 +406,17 @@ let g:indentLine_setConceal = 0         " (default: 2)
 
 " GitGutter
 let g:gitgutter_max_signs = 1000
+
+" navigate to hunks
+nnoremap ]h :GitGutterNextHunk<CR>
+nnoremap [h :GitGutterPrevHunk<CR>
+
+" stage hunks
+nmap <Leader>ha :GitGutterStageHunk<CR>
+nmap <Leader>hr :GitGutterUndoHunk<CR>
+
+" preview hunk's changes
+nmap <Leader>hv :GitGutterPreviewHunk<CR>
 
 " AutoFormat
 let g:autoformat_retab = 0
