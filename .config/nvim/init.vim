@@ -11,6 +11,7 @@ Plug 'tpope/vim-fugitive'                                           " Fuzzy Find
 
 Plug 'scrooloose/nerdtree'                                          " nerdtree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                      " nerdtree colors
+Plug 'Xuyuanp/nerdtree-git-plugin'                                  " nerdtree git
 
 Plug 'tomtom/tcomment_vim'                                          " commenting with g <
 
