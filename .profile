@@ -15,7 +15,7 @@ export RTV_BROWSER="w3m"
 export TERMINAL="urxvt"
 export TERMINAL2="st"
 
-export COMPILE="$HOME/Documents/LaTeX/"
+export COMPILE="$HOME/Documents/LaTeX"
 export BIB="$COMPILE/uni.bib"
 
 export SANE_CONFIG_DIR=hpaio:/net/Officejet_6700?ip=192.168.0.20
