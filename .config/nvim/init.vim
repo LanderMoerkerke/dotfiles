@@ -387,7 +387,7 @@ nnoremap <leader>t :TagbarToggle<CR>
 
 " Color
 " let g:colorizer_auto_color = 1
-let g:colorizer_auto_filetype='*'
+let g:colorizer_auto_filetype='html,css,xdefaults,i3'
 
 " Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
