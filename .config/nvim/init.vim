@@ -22,6 +22,8 @@ Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'chrisbra/Colorizer'                                           " Color codes to color
+
 Plug 'terryma/vim-multiple-cursors'                                 " Multiple Cursors
 
 Plug 'tpope/vim-eunuch'                                             " Unix operations inside vim
@@ -382,6 +384,10 @@ endfunction
 
 " Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
+
+" Color
+" let g:colorizer_auto_color = 1
+let g:colorizer_auto_filetype='*'
 
 " Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
