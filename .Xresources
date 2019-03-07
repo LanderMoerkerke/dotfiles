@@ -50,17 +50,14 @@ URxvt.url-select.underline: true
 URxvt.url-launcher: qutebrowser
 
 !! keyboard-select:
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-v: perl:keyboard-select:activate
 
 !! resize-font
 URxvt.resize-font.smaller:	M-J
 URxvt.resize-font.bigger:	M-K
 
 ! keybindings
-URxvt.keysym.Control-Shift-C: perl:clipboard:copy
-URxvt.keysym.Control-Shift-V: perl:clipboard:paste
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.M-p: eval:paste_clipboard
 
 !! scrolling
 URxvt.keysym.M-k: command:\033]720;1\007
