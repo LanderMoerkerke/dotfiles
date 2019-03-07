@@ -1,4 +1,4 @@
 #!/bin/sh
 
-python3.6 -q
+ptpython
 # /usr/bin/R -q --no-save
