@@ -346,6 +346,8 @@ mtpfs_op () {
 
 [ -f ~/.fzf/.fzf.zsh ] && source ~/.fzf/.fzf.zsh
 
+export FZF_DEFAULT_COMMAND="rg --files --ignore-file .gitignore_global ."
+
 # Vim
 # se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 # fv() { fzf | xargs -r -I % $EDITOR % ;}
