@@ -353,7 +353,7 @@ export FZF_DEFAULT_COMMAND="rg --files --ignore-file .gitignore_global ."
 # fv() { fzf | xargs -r -I % $EDITOR % ;}
 
 # Try highlight, coderay, rougify in turn, then fall back to cat
-fv() { fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
+vf() { fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
                  echo {} is a binary file ||
                  (highlight -O ansi -l {} ||
                   coderay {} ||
@@ -361,7 +361,7 @@ fv() { fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
                   cat {}) 2> /dev/null | head -500' | xargs -r -I % $EDITOR % ;}
 
 # fkill - kill process
-fkill() {
+killf() {
   local pid
   pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
@@ -374,7 +374,7 @@ fkill() {
 # ff() { fzf --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"; }
 
 # checkout branch
-fgcb() {
+gcbf() {
     local tags branches target
     tags=$(git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
     branches=$(git branch --all | grep -v HEAD |
@@ -385,7 +385,7 @@ fgcb() {
 }
 
 # checkout commit
-fgcc() {
+gccf() {
     local commits commit
     commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
     commit=$(echo "$commits" | fzf --tac +s +m -e) &&
@@ -415,7 +415,7 @@ function cd() {
 
 # DOCKER
 # Select a docker container to start and attach to
-function fda() {
+function daf() {
   local cid
   cid=$(docker ps -a | sed 1d | fzf -1 -q "$1" | awk '{print $1}')
 
@@ -423,7 +423,7 @@ function fda() {
 }
 
 # Select a running docker container to stop
-function fds() {
+function dsf() {
   local cid
   cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
 
