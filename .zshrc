@@ -437,3 +437,16 @@ alias sudo='nocorrect sudo'
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # zprof
+
+zle-keymap-select () {
+  if [ $KEYMAP = vicmd ]; then
+        echo -ne '\e[1 q'
+    else
+        echo -ne '\e[5 q'
+  fi
+}
+zle-line-init () {
+  zle -K viins
+  echo -ne "\033]12;Grey\007"
+}
+
