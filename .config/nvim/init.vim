@@ -204,12 +204,12 @@ vnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
 nnoremap <leader>z :set wrap!<cr>
 
 " Reselect when indenting
-vnoremap < <gv
-vnoremap > >gv
+noremap < <gv
+noremap > >gv
 
 " Indent using Shift + S-Shift
-noremap <Tab> V>gv<esc>
-noremap <S-Tab> V<LT>gv<esc>
+nnoremap <Tab> V>gv<esc>
+nnoremap <S-Tab> V<LT>gv<esc>
 
 " Move visual block
 vnoremap J :m '>+1<CR>gv=gv
