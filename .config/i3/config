@@ -34,7 +34,7 @@ bindsym $mod+t		        	exec --no-startup-id ddspawn scratch_tmux
 # -----------------------------------------------------------------------------------------------------------------------------
 
 for_window [instance="scratch_math"] floating enable
-for_window [instance="scratch_math"] resize set 625 450
+for_window [instance="scratch_math"] resize set 700 450
 for_window [instance="scratch_math"] move scratchpad
 for_window [instance="scratch_math"] border pixel 0
 for_window [instance="scratch_math"] sticky enable
