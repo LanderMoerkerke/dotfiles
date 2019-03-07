@@ -317,7 +317,7 @@ map <F12> :TagbarToggle<CR>
 " Buffer Actions
 " ------
 " After buffer
-au BufEnter stories.md hi Error NONE
+au BufEnter stories.md,intents* hi Error NONE
 
 " Before saving
 " Automatically deletes all tralling whitespace on save.
