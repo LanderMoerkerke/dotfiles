@@ -184,7 +184,7 @@ map <leader>c :w! \| !compiler <c-r>%<CR><CR>
 tnoremap <C-²> <C-\\><C-n>
 
 " Increment decrement under cursor
-nnoremap <C-s> <C-a>
+nnoremap <C-w> <C-a>
 
 " Getting rid of the search highlights
 nnoremap <esc> :noh<cr>
