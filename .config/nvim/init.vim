@@ -181,7 +181,8 @@ nnoremap gV `[v`]
 map <leader>c :w! \| !compiler <c-r>%<CR><CR>
 
 " Exit terminal with shift esc
-tnoremap <C-²> <C-\\><C-n>
+tnoremap <C-\<> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 
 " Increment decrement under cursor
 nnoremap <C-w> <C-a>
