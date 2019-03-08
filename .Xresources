@@ -45,7 +45,7 @@ URxvt.colorUL:		#FFF
 
 !! url-select
 URxvt.keysym.M-l:	perl:url-select:select_next
-URxvt.url-select.launcher: $BROWSER
+URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 URxvt.url-launcher: qutebrowser
 
