@@ -273,4 +273,4 @@ exec udiskie &
 exec variety
 exec xset -b
 exec xset r rate 200 50
-exec xinput --set-prop 12 --type=int --format=8 286 "2"
+exec xinput --set-prop 12 --type=int --format=8 287 "2"
