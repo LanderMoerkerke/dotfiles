@@ -429,6 +429,9 @@ nmap <Leader>hv :GitGutterPreviewHunk<CR>
 " AutoFormat
 let g:autoformat_retab = 0
 
+let g:formatdef_custom_yaml = '"cat"'
+let g:formatters_yaml = ["custom_yaml"]
+
 " Deoplete
 " General
 let g:deoplete#enable_at_startup = 1
