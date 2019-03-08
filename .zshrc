@@ -154,6 +154,7 @@ function chpwd() {
     ls
 }
 
+alias cdh="cd $HOME"
 alias up="cd .."
 alias chmod_num="stat --format '%a'"
 alias password16="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1"
@@ -346,14 +347,15 @@ mtpfs_op () {
 
 [ -f ~/.fzf/.fzf.zsh ] && source ~/.fzf/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND="rg --files --ignore-file .gitignore_global ."
+export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file .gitignore_global ."
+export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border'
 
 # Vim
 # se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 # fv() { fzf | xargs -r -I % $EDITOR % ;}
 
 # Try highlight, coderay, rougify in turn, then fall back to cat
-vf() { fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
+vf() { fzf --height 100% --preview '[[ $(file --mime {}) =~ binary ]] &&
                  echo {} is a binary file ||
                  (highlight -O ansi -l {} ||
                   coderay {} ||
