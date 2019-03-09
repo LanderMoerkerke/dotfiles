@@ -2,71 +2,59 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'jamessan/vim-gnupg'                                           " GPG viewer
-
+" General
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }   " Fuzzy Find
-Plug 'junegunn/fzf.vim'
-
+Plug 'junegunn/fzf.vim'                                             " Fuzzy Find
 Plug 'tpope/vim-fugitive'                                           " Fuzzy Find Commits
-
-Plug 'scrooloose/nerdtree'                                          " nerdtree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                      " nerdtree colors
-Plug 'Xuyuanp/nerdtree-git-plugin'                                  " nerdtree git
-
-Plug 'ryanoasis/vim-devicons'                                       " icons
-
-Plug 'tomtom/tcomment_vim'                                          " commenting with g <
-
-Plug 'alvan/vim-closetag'                                           " autoclose html tags
-Plug 'Raimondi/delimitMate'                                         " autoclose symbols
-
-Plug 'vim-airline/vim-airline'										" Statusbar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'chrisbra/Colorizer'                                           " Color codes to color
-
+Plug 'tomtom/tcomment_vim'                                          " Commenting with g <
+Plug 'alvan/vim-closetag'                                           " Autoclose html tags
+Plug 'Raimondi/delimitMate'                                         " Autoclose symbols
 Plug 'terryma/vim-multiple-cursors'                                 " Multiple Cursors
-
-Plug 'tpope/vim-eunuch'                                             " Unix operations inside vim
-
 Plug 'tpope/vim-surround'                                           " Surround
-
-Plug 'Yggdroot/indentLine'                                          " indent
-
-Plug 'airblade/vim-gitgutter'                                       " gitgutter
-
-Plug 'mhinz/vim-startify'                                           " Fancy startup
-
-Plug 'junegunn/goyo.vim'                                            " Distraction free
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
-Plug 'zchee/deoplete-jedi'                                          " autocomplete python
-Plug 'zchee/deoplete-clang'											" autocomplete c
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}                 " autocomplete go
-" Plug 'poppyschmo/deoplete-latex'                                    " autocomplete latex
-
-Plug 'SirVer/ultisnips'                                             " snippets
-Plug 'honza/vim-snippets'                                           " extra snippets
-
-Plug 'lambdalisue/suda.vim'                                         " sudo
-
-Plug 'Chiel92/vim-autoformat'                                       " autoformat
-Plug 'tell-k/vim-autopep8'											" autopep8 formatter
-
 Plug 'KabbAmine/zeavim.vim'											" Zeal integration
+Plug 'junegunn/vim-easy-align'                                      " Easy align
 
+" Unix related
+Plug 'jamessan/vim-gnupg'                                           " GPG viewer
+Plug 'tpope/vim-eunuch'                                             " Unix operations inside vim
+Plug 'lambdalisue/suda.vim'                                         " Sudo
+
+" Appearance
+Plug 'mhinz/vim-startify'                                           " Fancy startup
+Plug 'scrooloose/nerdtree'                                          " Nerdtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                      " Nerdtree colors
+Plug 'Xuyuanp/nerdtree-git-plugin'                                  " Nerdtree git
+Plug 'ryanoasis/vim-devicons'                                       " Icons
+Plug 'vim-airline/vim-airline'										" Statusbar
+Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
+Plug 'chrisbra/Colorizer'                                           " Color codes to color
+Plug 'Yggdroot/indentLine'                                          " Indent
+Plug 'airblade/vim-gitgutter'                                       " Gitgutter
+Plug 'junegunn/goyo.vim'                                            " Distraction free
+Plug 'majutsushi/tagbar'                                            " Tagbar
+Plug 'lvht/tagbar-markdown'                                         " Tagbar for Markdown
+Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
+
+" Completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
+Plug 'zchee/deoplete-jedi'                                          " Autocomplete python
+Plug 'zchee/deoplete-clang'											" Autocomplete c
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}                " Autocomplete go
+
+" Snippets
+Plug 'SirVer/ultisnips'                                             " Snippets
+Plug 'honza/vim-snippets'                                           " Extra snippets
+
+" Formatting
+Plug 'Chiel92/vim-autoformat'                                       " Autoformat
+Plug 'tell-k/vim-autopep8'											" Autopep8 formatter
+
+" Linting
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
-Plug 'majutsushi/tagbar'
-Plug 'lvht/tagbar-markdown'
-
 " Filetypes / syntax
-Plug 'leafgarland/typescript-vim'                                   " typescript
-Plug 'PotatoesMaster/i3-vim-syntax'                                 " i3
-
-Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
-Plug 'junegunn/vim-easy-align'                                      " Easy align
+Plug 'leafgarland/typescript-vim'                                   " Typescript
+Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
 
 call plug#end()
 
@@ -379,7 +367,6 @@ let g:delimitMate_expand_inside_quotes = 1
 
 " Nerdtree
 " nnoremap <leader>f :NERDTreeToggle<CR>
-
 nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
 
 function! g:WorkaroundNERDTreeToggle()
