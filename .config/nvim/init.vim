@@ -50,14 +50,13 @@ Plug 'Chiel92/vim-autoformat'                                       " Autoformat
 Plug 'tell-k/vim-autopep8'											" Autopep8 formatter
 
 " Linting
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'w0rp/ale'                                                     " Linting engine
 
 " Filetypes / syntax
 Plug 'leafgarland/typescript-vim'                                   " Typescript
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
 
 call plug#end()
-
 
 " Leader
 let mapleader = " "
@@ -298,8 +297,8 @@ noremap <F6> :call <SID>ToggleSpell()<CR>
 map <F8> :bprevious<CR>
 map <F9> :bnext<CR>
 
-" F10: PyLint
-map <F10> :PymodeLint<CR>
+" F10: Linting
+map <F10> :ALEToggleBuffer<CR>
 
 " F11: Goyo
 map <F11> :Goyo<CR>:set wrap<CR>
@@ -464,18 +463,16 @@ let g:airline_theme="minimalist"
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" Pymode
-let g:pymode_options_colorcolumn = 0
-let g:pymode_python = 'python3'
-let g:pymode_rope_goto_defination_bind = '<C-g>'
+" Ale
+let b:ale_fixers = {
+\    'javascript': ['prettier', 'eslint'],
+\    'python': ['black', 'autopep8', 'flake8'],
+\    'go': ['golangci-lint run']
+\}
 
-let g:pymode_run = 0
-
-let g:pymode_lint = 1
-let g:pymode_lint_on_write = 1
-
-let g:pymode_rope_completion = 0
-let g:pymode_lint_ignore = ["E501", "W503",]
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " Zeal
 nmap <leader>Z <Plug>Zeavim
