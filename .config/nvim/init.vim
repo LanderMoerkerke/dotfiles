@@ -41,6 +41,7 @@ Plug 'junegunn/goyo.vim'                                            " Distractio
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
 Plug 'zchee/deoplete-jedi'                                          " autocomplete python
 Plug 'zchee/deoplete-clang'											" autocomplete c
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}                 " autocomplete go
 " Plug 'poppyschmo/deoplete-latex'                                    " autocomplete latex
 
 Plug 'SirVer/ultisnips'                                             " snippets
