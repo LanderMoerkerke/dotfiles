@@ -75,7 +75,7 @@ URxvt*scrollTtyKeypress: true
 
 ! font
 ! NotoColorEmoji
-URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:FontAwesome:size=5:antialias=true:hinting=true,xft:EmojiOne:size=5:antialias=true:hinting=true,xft:NotoColorEmoji:size=5:antialias=true:hinting=true
+URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:DroidSansMono Nerd Font:size=9:antialias=true:hinting=true,xft:DroidSansMono Nerd Font Mono:size=9:antialias=true:hinting=true,xft:Symbols Nerd Font:size=9:antialias=true:hinting=true,xft:Font Awesome 5 Pro:size=9:antialias=true:hinting=true,xft:EmojiOne:size=5:antialias=true:hinting=true,xft:NotoColorEmoji:size=5:antialias=true:hinting=true,xft:Material Icons:size=5:antialias=true:hinting=true
 
 URxvt.letterSpace: -1
 
