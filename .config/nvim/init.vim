@@ -13,6 +13,8 @@ Plug 'scrooloose/nerdtree'                                          " nerdtree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                      " nerdtree colors
 Plug 'Xuyuanp/nerdtree-git-plugin'                                  " nerdtree git
 
+Plug 'ryanoasis/vim-devicons'                                       " icons
+
 Plug 'tomtom/tcomment_vim'                                          " commenting with g <
 
 Plug 'alvan/vim-closetag'                                           " autoclose html tags
