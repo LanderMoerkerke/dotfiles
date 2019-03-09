@@ -47,7 +47,6 @@ URxvt.colorUL:		#FFF
 URxvt.keysym.M-l:	perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
-URxvt.url-launcher: qutebrowser
 
 !! keyboard-select:
 URxvt.keysym.M-v: perl:keyboard-select:activate
