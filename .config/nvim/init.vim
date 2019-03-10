@@ -344,6 +344,10 @@ autocmd VimResized * :wincmd =
 " Plugins
 " ------
 
+" Easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 " FuzzyFind
 nnoremap <C-p> :FZF <cr>
 " let $FZF_DEFAULT_COMMAND = 'ag -g ""'
