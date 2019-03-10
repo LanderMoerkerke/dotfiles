@@ -254,8 +254,8 @@ bindsym Control+Shift+Print     	exec maim -s -u --format=png /dev/stdout | xcli
 # -----------------------------------------------------------------------------------------------------------------------------
 
 bindsym $mod+Insert		            exec --no-startup-id showclip
-bindsym $mod+g                      exec echo $EMAIL_PRIMARY | xclip -selection clipboard -selection primary
-bindsym $mod+Shift+g                exec echo $EMAIL_SECONDARY | xclip -selection clipboard -selection primary
+bindsym $mod+g                      exec echo $EMAIL_PRIMARY | xclip -selection clipboard -selection clipboard
+bindsym $mod+Shift+g                exec echo $EMAIL_SECONDARY | xclip -selection clipboard -selection clipboard
 bindsym $mod+Shift+f                exec gpgconf --reload gpg-agent
 
 # -----------------------------------------------------------------------------------------------------------------------------
