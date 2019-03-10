@@ -3,66 +3,69 @@
 ! -----------------------------------------------------------------------------------------------------------------------------
 
 ! general settings
-URxvt*termName: xterm-256color
-URxvt.saveLines: 100000
-URxvt.scrollBar: False
-URxvt.scrollstyle: rxvt
-URxvt*pointerBlank: True
-URxvt.urgentOnBell: True
-URxvt.cursorBlink: True
-URxvt.cursorUnderline: False
-URxvt.iso14755: False
-URxvt.iso14755_52: false
-URxvt*insecure: false
-URxvt*depth: 32
+URxvt*termName:             xterm-256color
+URxvt.saveLines:            100000
+URxvt.scrollBar:            False
+URxvt.scrollstyle:          rxvt
+URxvt*pointerBlank:         True
+URxvt.urgentOnBell:         True
+URxvt.cursorBlink:          True
+URxvt.cursorUnderline:      False
+URxvt.iso14755:             False
+URxvt.iso14755_52:          false
+URxvt*insecure:             false
+URxvt*depth:                32
 
 ! clickable links
-URxvt.matcher.button: 1
+URxvt.matcher.button:       1
 
 ! extensions
-URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select
-URxvt.colorUL:		#FFF
-! URxvt.colorUL:		#4682B4
+URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select
+URxvt.colorUL:	    	    #4682B4
 
 !! url-select
-URxvt.keysym.M-l:	perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.keysym.M-l:           perl:url-select:select_next
+URxvt.url-select.launcher:  /usr/bin/xdg-open
 URxvt.url-select.underline: true
 
 !! keyboard-select:
-URxvt.keysym.M-v: perl:keyboard-select:activate
+URxvt.keysym.M-v:           perl:keyboard-select:activate
 
 !! resize-font
-URxvt.resize-font.smaller:	M-J
-URxvt.resize-font.bigger:	M-K
-URxvt.resize-font.reset:  M-R
-URxvt.resize-font.step: 1
+URxvt.resize-font.smaller:  M-J
+URxvt.resize-font.bigger:   M-K
+URxvt.resize-font.reset:    M-R
+URxvt.resize-font.step:     1
 
 ! keybindings
-URxvt.keysym.M-p: eval:paste_clipboard
+URxvt.keysym.M-p:           eval:paste_clipboard
 
 !! scrolling
-URxvt.keysym.M-k: command:\033]720;1\007
-URxvt.keysym.M-j: command:\033]721;1\007
-URxvt.keysym.M-u: command:\033]720;10\007
-URxvt.keysym.M-d: command:\033]721;10\007
+URxvt.keysym.M-k:           command:\033]720;1\007
+URxvt.keysym.M-j:           command:\033]721;1\007
+URxvt.keysym.M-u:           command:\033]720;10\007
+URxvt.keysym.M-d:           command:\033]721;10\007
 
 ! do not scroll with output
-URxvt*scrollTtyOutput: false
+URxvt*scrollTtyOutput:      false
 
 ! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
+URxvt*scrollTtyKeypress:    true
 
 ! font
-! NotoColorEmoji
-URxvt.font: xft:Hack:size=9:antialias=true:hinting=true,xft:DroidSansMono Nerd Font:size=9:antialias=true:hinting=true,xft:DroidSansMono Nerd Font Mono:size=9:antialias=true:hinting=true,xft:Symbols Nerd Font:size=9:antialias=true:hinting=true,xft:Font Awesome 5 Pro:size=9:antialias=true:hinting=true,xft:EmojiOne:size=5:antialias=true:hinting=true,xft:NotoColorEmoji:size=5:antialias=true:hinting=true,xft:Material Icons:size=5:antialias=true:hinting=true
+URxvt.font:                 xft:Hack:                         size=9:antialias=true:hinting=true,\
+                            xft:DroidSansMono Nerd Font:      size=9:antialias=true:hinting=true,\
+                            xft:DroidSansMono Nerd Font Mono: size=9:antialias=true:hinting=true,\
+                            xft:Symbols Nerd Font:            size=9:antialias=true:hinting=true,\
+                            xft:Font Awesome 5 Pro:           size=9:antialias=true:hinting=true,\
+                            xft:EmojiOne:                     size=5:antialias=true:hinting=true,\
+                            xft:NotoColorEmoji:               size=5:antialias=true:hinting=true,\
+                            xft:Material Icons:               size=5:antialias=true:hinting=true
 
-URxvt.letterSpace: -1
+URxvt.letterSpace:          -1
 
-URxvt.foreground: #FFF
-! URxvt.foreground: #4a5351
-URxvt*background: [96]#1c1c1c
-! URxvt*background: [91]#f9fafb
+URxvt.foreground:           #FFF
+URxvt*background:           [96]#1c1c1c
 
 ! -----------------------------------------------------------------------------------------------------------------------------
 ! COLOURS VERU
