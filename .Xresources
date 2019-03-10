@@ -83,45 +83,46 @@ URxvt.foreground: #FFF
 URxvt*background: [96]#1c1c1c
 ! URxvt*background: [91]#f9fafb
 
-! colors
+! -----------------------------------------------------------------------------------------------------------------------------
+! COLOURS VERU
+! -----------------------------------------------------------------------------------------------------------------------------
 
-#define nord0 #1c1c1c
-#define nord1 #3B4252
-#define nord2 #434C5E
-#define nord3 #4C566A
-#define nord4 #D8DEE9
-#define nord5 #E5E9F0
-#define nord6 #ECEFF4
-#define nord7 #8FBCBB
-#define nord8 #88C0D0
-#define nord9 #81A1C1
-#define nord10 #5E81AC
-#define nord11 #BF616A
-#define nord12 #D08770
-#define nord13 #EBCB8B
-#define nord14 #A3BE8C
-#define nord15 #B48EAD
+#define veru0  #1c1c1c
+#define veru1  #3B4252
+#define veru2  #434C5E
+#define veru3  #4C566A
+#define veru4  #D8DEE9
+#define veru5  #E5E9F0
+#define veru6  #ECEFF4
+#define veru7  #8FBCBB
+#define veru8  #88C0D0
+#define veru9  #81A1C1
+#define veru10 #5E81AC
+#define veru11 #BF616A
+#define veru12 #D08770
+#define veru13 #EBCB8B
+#define veru14 #A3BE8C
+#define veru15 #B48EAD
 
-*.foreground:   nord4
-*.background:   nord0
-st.background:  #1c1c1c
-*.cursorColor:  nord4
-! *fading: 35
-*fadeColor: nord3
+*.foreground:  veru4
+*.background:  veru0
+*.cursorColor: veru4
+! *fading:       35
+! *fadeColor:    veru3
 
-*.color0: nord1
-*.color1: nord11
-*.color2: nord14
-*.color3: nord13
-*.color4: nord9
-*.color5: nord15
-*.color6: nord8
-*.color7: nord5
-*.color8: nord3
-*.color9: nord11
-*.color10: nord14
-*.color11: nord13
-*.color12: nord9
-*.color13: nord15
-*.color14: nord7
-*.color15: nord6
+*.color0:  veru1
+*.color1:  veru11
+*.color2:  veru14
+*.color3:  veru13
+*.color4:  veru9
+*.color5:  veru15
+*.color6:  veru8
+*.color7:  veru5
+*.color8:  veru3
+*.color9:  veru11
+*.color10: veru14
+*.color11: veru13
+*.color12: veru9
+*.color13: veru15
+*.color14: veru7
+*.color15: veru6
