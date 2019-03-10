@@ -1,3 +1,5 @@
+# https://github.com/sevaho/Powerzeesh
+
 FG=black
 SYMBOLS=()
 
