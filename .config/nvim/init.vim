@@ -191,6 +191,10 @@ map <leader>o "oyaW:sp <C-R>o<CR>
 xnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
 vnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
 
+map <leader>O "oyaW:vsp <C-R>o<CR>
+xnoremap <leader>O "oy<esc>:vsp <C-R>o<CR>
+vnoremap <leader>O "oy<esc>:vsp <C-R>o<CR>
+
 " Folding
 nnoremap <leader>z :set wrap!<cr>
 
