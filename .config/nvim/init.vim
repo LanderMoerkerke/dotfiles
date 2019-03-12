@@ -363,7 +363,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " FuzzyFind
-nnoremap <C-p> :FZF <cr>
+nnoremap <leader>p :FZF <cr>
 " let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Commenting
