@@ -236,7 +236,7 @@ nnoremap <c-l> <c-w>l
 " nnoremap <c-n> gt
 " nnoremap <c-m> gT
 nnoremap <c-n> :bnext<cr>
-nnoremap <c-m> :bprevious<cr>
+nnoremap <c-p> :bprevious<cr>
 
 " Split
 nnoremap <leader>nn :split <cr>
