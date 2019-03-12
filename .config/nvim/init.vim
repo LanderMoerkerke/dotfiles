@@ -485,12 +485,18 @@ let g:airline_theme="minimalist"
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" Ale
-let b:ale_fixers = {
-\    'javascript': ['prettier', 'eslint'],
-\    'python': ['black', 'autopep8', 'flake8'],
-\    'go': ['golangci-lint run']
-\}
+" ALE
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_completion_enabled = 1
+let g:ale_lint_fix_on_save = 1
+
+let b:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['gofmt']}
+let b:ale_fixers = {'python': ['black'], 'javascript': ['eslint'], 'go': ['golangci-lint run', 'gofmt']}
+
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '*'
 
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
