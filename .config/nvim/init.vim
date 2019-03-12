@@ -390,6 +390,10 @@ function! g:WorkaroundNERDTreeToggle()
   try | NERDTreeToggle | catch | silent! NERDTree | endtry
 endfunction
 
+" disables keybindings when focussing on nerdtree
+autocmd FileType nerdtree noremap <buffer> <c-n> <nop>
+autocmd FileType nerdtree noremap <buffer> <c-p> <nop>
+
 " Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
 
