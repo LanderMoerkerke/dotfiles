@@ -345,6 +345,16 @@ autocmd VimResized * :wincmd =
 " return
 
 " ------
+" RipGrep
+" ------
+
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+nnoremap <Leader>g :silent lgrep<Space>
+
+nnoremap <silent> [f :lprevious<CR>
+nnoremap <silent> ]f :lnext<CR>
+
+" ------
 " Plugins
 " ------
 
