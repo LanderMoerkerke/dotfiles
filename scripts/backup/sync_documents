@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export DISPLAY=:0.0
+
 unison documents -logfile $HOME/Logs/Unison/unison.log  >&1 | tee /tmp/out
 
 /usr/bin/notify-send -i $HOME/Pictures/Notifications/backup.png "Backup done: unison" "Synced"
