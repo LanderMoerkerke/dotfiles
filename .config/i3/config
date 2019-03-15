@@ -18,7 +18,7 @@ workspace_layout default
 popup_during_fullscreen smart
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# SCRATPAD Tmux
+# SCRATPAD tmux
 # -----------------------------------------------------------------------------------------------------------------------------
 
 for_window [instance="scratch_tmux"] floating enable
@@ -28,6 +28,18 @@ for_window [instance="scratch_tmux"] border pixel 0
 for_window [instance="scratch_tmux"] sticky enable
 
 bindsym $mod+t		        	exec --no-startup-id ddspawn scratch_tmux
+
+# -----------------------------------------------------------------------------------------------------------------------------
+# SCRATPAD nvim
+# -----------------------------------------------------------------------------------------------------------------------------
+
+for_window [instance="scratch_nvim"] floating enable
+for_window [instance="scratch_nvim"] resize set 1500 900
+for_window [instance="scratch_nvim"] move scratchpad
+for_window [instance="scratch_nvim"] border pixel 0
+for_window [instance="scratch_nvim"] sticky enable
+
+bindsym $mod+Shift+t		     exec --no-startup-id ddspawn scratch_nvim
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # SCRATPAD math
