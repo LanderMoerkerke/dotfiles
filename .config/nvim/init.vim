@@ -106,7 +106,7 @@ set showcmd
 set title
 set ruler
 " set relativenumber
-set conceallevel=0                              " conceals
+set conceallevel=2                              " conceals
 
 set autoread                                    " automatically reload the file when modified outside and not modified inside
 set autowrite                                   " write the modified file when switching to another file
@@ -480,6 +480,7 @@ let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
 
 " Indentline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme="minimalist"
 let g:airline#extensions#tabline#formatter = 'default'
