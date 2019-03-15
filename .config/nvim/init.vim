@@ -322,6 +322,7 @@ autocmd BufWritePre * %s/\s\+$//e
 " After saving
 autocmd BufWritePost * GitGutter
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
+autocmd BufWritePre *.go,*.py,*.js ALEFix
 
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
@@ -443,6 +444,9 @@ let g:autoformat_retab = 0
 let g:formatdef_custom_yaml = '"cat"'
 let g:formatters_yaml = ["custom_yaml"]
 
+" let g:formatdef_custom_python = '"autopep8 --global-config ~/.config/.pycodestyle"'
+" let g:formatters_python = ["custom_python"]
+
 " Deoplete
 " General
 let g:deoplete#enable_at_startup = 1
@@ -487,14 +491,15 @@ let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ALE
+let g:ale_set_quickfix = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_completion_enabled = 1
 let g:ale_lint_fix_on_save = 1
 
-let b:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['gofmt']}
-let b:ale_fixers = {'python': ['black'], 'javascript': ['eslint'], 'go': ['golangci-lint run', 'gofmt']}
-
+let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['gofmt']}
+let g:ale_fixers = {'python': ['black', ], 'javascript': ['eslint'], 'go': ['golangci-lint run', 'gofmt']}
+" 'isort'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '*'
