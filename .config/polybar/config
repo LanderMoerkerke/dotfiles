@@ -142,7 +142,7 @@ label-maxlen = 50
 type = custom/script
 exec = check-updates-packages
 tail = true
-interval = 900
+interval = 20
 
 label = "  %output%   |"
 
