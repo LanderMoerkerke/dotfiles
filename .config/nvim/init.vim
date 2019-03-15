@@ -490,6 +490,11 @@ let g:airline_theme="minimalist"
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+let g:airline_section_c =
+      \"%{bufnr('%')}: ".
+      \"%<%f%m %#__accent_red#".
+      \"%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"
+
 " ALE
 let g:ale_set_quickfix = 1
 let g:ale_lint_on_text_changed = 'never'
