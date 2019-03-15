@@ -351,8 +351,7 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file .gitignore_global 
 export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border'
 
 # Vim
-# se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
-# fv() { fzf | xargs -r -I % $EDITOR % ;}
+xf() { fzf | xargs -r -I % xdg-open % &;}
 
 # Try highlight, coderay, rougify in turn, then fall back to cat
 vf() { fzf --height 100% --preview '[[ $(file --mime {}) =~ binary ]] &&
