@@ -140,7 +140,7 @@ if [[ -n "$SSH_CONNECTION" ]] ; then
 
 elif [[ $TTY == "/dev/tty1" ]]; then
 
-    banner_info
+    exec startx
 
 else
 
