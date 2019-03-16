@@ -32,7 +32,7 @@ padding-right = 1
 module-margin = 2
 modules-left = i3 eth wlan
 modules-center = date
-modules-right = updates mail cpu memory temperature battery volume
+modules-right = syncing updates mail cpu memory temperature battery volume
 
 tray-position = right
 
@@ -138,12 +138,18 @@ format-foreground = #f0c674
 format-padding = 1
 label-maxlen = 50
 
+[module/syncing]
+type = custom/script
+exec = check-syncing-documents
+tail = true
+interval = 5
+label = "  %output%  |"
+
 [module/updates]
 type = custom/script
 exec = check-updates-packages
 tail = true
 interval = 20
-
 label = "  %output%   |"
 
 [module/mail]
