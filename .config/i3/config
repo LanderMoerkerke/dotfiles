@@ -283,6 +283,3 @@ exec dunst
 exec redshift -l 51.01:4.03
 exec udiskie &
 exec variety
-exec xset -b
-exec xset r rate 200 50
-exec xinput --set-prop 12 --type=int --format=8 287 "2"
