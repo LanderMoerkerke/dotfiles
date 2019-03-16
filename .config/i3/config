@@ -274,6 +274,7 @@ bindsym $mod+Shift+f                exec gpgconf --reload gpg-agent
 # AUTOSTART APPLICATIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
+exec_always  --no-startup-id feh --bg-fill $HOME/Pictures/bg.jpg
 exec_always --no-startup-id launch-polybar &
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id battery-popup -L 20 -n -i $HOME/Pictures/Notifications/low-battery.png
