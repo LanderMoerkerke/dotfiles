@@ -9,6 +9,8 @@ done
 
 xrdb ~/.Xresources
 
+numlockx on
+
 xset -b
 xset r rate 200 50
 
