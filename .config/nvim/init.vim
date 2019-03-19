@@ -322,7 +322,7 @@ autocmd BufWritePre *.go,*.py,*.js ALEFix
 " After saving
 autocmd BufWritePost * GitGutter
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
-autocmd BufWritePre *.go,*.py,*.js ALEFix
+" autocmd BufWritePost *.py,*.c,*.cpp,*.h,*go silent! !eval 'ctags -R -o newtags; mv newtags tags' &
 
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
