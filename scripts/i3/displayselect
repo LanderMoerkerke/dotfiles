@@ -45,7 +45,7 @@ esac
 # feh --bg-scale "$HOME/.config/wall.png"
 # Polybar users will want to uncomment this line, which reactivates polybar on all new displays:
 #polybar_launch
-bash ~/.config/polybar/launch.sh &
+launch-polybar &
 # Re-remap keys if keyboard added (for laptop bases)
 # remaps
 
