@@ -257,7 +257,7 @@ noremap <right> 3<C-W>>
 
 " C-t for new tab / buffer
 " nnoremap <C-t> :tabnew<cr>
-nnoremap <C-t> :enew<cr>
+" nnoremap <C-t> :enew<cr>
 
 nnoremap <leader>x :bp\|bd #<CR>
 
