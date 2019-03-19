@@ -17,4 +17,10 @@ xset r rate 200 50
 # faster mouse speed
 xinput --set-prop 12 --type=int --format=8 "Device Accel Profile" "2"
 
+# scrolling both ways
+xinput --set-prop 12 --type=int --format=8 "Synaptics Two-Finger Scrolling" 1, 1
+
+# natural scrolling
+xinput --set-prop 12 --type=int --format=32 "Synaptics Scrolling Distance" -100, -100
+
 exec i3
