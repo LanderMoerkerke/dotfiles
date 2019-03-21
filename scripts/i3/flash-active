@@ -1,6 +1,6 @@
 #!/bin/bash
 #Flashes the active window in I3
 
-transset-df -a -m 0
+transset-df -a -t 0.85
 sleep .1
-transset-df -a -x 1
+transset-df -a -t
