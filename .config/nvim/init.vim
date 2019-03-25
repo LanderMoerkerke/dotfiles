@@ -333,6 +333,8 @@ autocmd VimLeave *.tex !texclear %
 " ------
 autocmd VimResized * :wincmd =
 
+" Add todo
+nnoremap <leader><leader>t OTODO:<Esc>:TComment<CR>A
 " ------
 " Remapping
 " ------
