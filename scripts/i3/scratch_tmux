@@ -1,4 +1,3 @@
 #!/bin/sh
 
 tmux a || tmux
-# /usr/bin/R -q --no-save
