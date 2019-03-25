@@ -579,7 +579,7 @@ command! W w suda://%
 autocmd FileType python call Run_Python()
 fun! Run_Python()
     nnoremap <buffer> <F4> :exec '!python3.7' shellescape(@%, 1)<cr>
-    nnoremap <buffer> <F5> :exec '!python3.6' shellescape(@%, 1)<cr>
+    nnoremap <buffer> <F5> :exec '!pipenv run python' shellescape(@%, 1)<cr>
 endf
 
 " Go
