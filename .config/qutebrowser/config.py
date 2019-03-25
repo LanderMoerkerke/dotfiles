@@ -13,7 +13,7 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'w': 'session-save', 'q': 'quit', 'wq': 'quit --save'}
+c.aliases = {"w": "session-save", "q": "quit", "wq": "quit --save"}
 
 # How often (in milliseconds) to auto-save config/cookies/etc.
 # Type: Int
@@ -35,7 +35,7 @@ c.auto_save.session = True
 # Valid values:
 # - webengine: Use QtWebEngine (based on Chromium)
 # - webkit: Use QtWebKit (based on WebKit, similar to Safari)
-c.backend = 'webengine'
+c.backend = "webengine"
 
 # This setting can be used to map keys to other keys. When the key used
 # as dictionary-key is pressed, the binding for the key used as
@@ -44,8 +44,16 @@ c.backend = 'webengine'
 # when a key is bound (via `bindings.default` or `bindings.commands`),
 # the mapping is ignored.
 # Type: Dict
-c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctrl-M>': '<Return>', '<Ctrl-J>': '<Return>',
-                           '<Shift-Return>': '<Return>', '<Enter>': '<Return>', '<Shift-Enter>': '<Return>', '<Ctrl-Enter>': '<Ctrl-Return>'}
+c.bindings.key_mappings = {
+    "<Ctrl-[>": "<Escape>",
+    "<Ctrl-6>": "<Ctrl-^>",
+    "<Ctrl-M>": "<Return>",
+    "<Ctrl-J>": "<Return>",
+    "<Shift-Return>": "<Return>",
+    "<Enter>": "<Return>",
+    "<Shift-Enter>": "<Return>",
+    "<Ctrl-Enter>": "<Ctrl-Return>",
+}
 
 # How many commands to save in the command history. 0: no history / -1:
 # unlimited
@@ -54,7 +62,7 @@ c.completion.cmd_history_max_items = 100
 
 # The height of the completion, in px or as percentage of the window.
 # Type: PercOrInt
-c.completion.height = '20%'
+c.completion.height = "20%"
 
 # Move on to the next part when there's only one possible completion
 # left.
@@ -75,7 +83,7 @@ c.completion.scrollbar.width = 12
 # - always: Whenever a completion is available.
 # - auto: Whenever a completion is requested.
 # - never: Never.
-c.completion.show = 'always'
+c.completion.show = "always"
 
 # Shrink the completion to be smaller than the configured size if there
 # are no scrollbars.
@@ -84,7 +92,7 @@ c.completion.shrink = False
 
 # How to format timestamps (e.g. for the history completion).
 # Type: TimestampTemplate
-c.completion.timestamp_format = '%Y-%m-%d'
+c.completion.timestamp_format = "%Y-%m-%d"
 
 # How many URLs to show in the web history. 0: no history / -1:
 # unlimited
@@ -98,7 +106,7 @@ c.completion.web_history.max_items = -1
 # - multiple-tabs: Show a confirmation if multiple tabs are opened.
 # - downloads: Show a confirmation if downloads are running
 # - never: Never show a confirmation.
-c.confirm_quit = ['never']
+c.confirm_quit = ["never"]
 
 # Size of the HTTP network cache. Null to use the default value. With
 # QtWebEngine, the maximum supported value is 2147483647 (~2 GB).
@@ -112,7 +120,7 @@ c.content.cache.size = None
 # - no-3rdparty: Accept cookies from the same origin only.
 # - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain.
 # - never: Don't accept cookies at all.
-c.content.cookies.accept = 'no-3rdparty'
+c.content.cookies.accept = "no-3rdparty"
 
 # Store cookies. Note this option needs a restart with QtWebEngine on Qt
 # < 5.9.
@@ -122,7 +130,7 @@ c.content.cookies.store = True
 # Default encoding to use for websites. The encoding must be a string
 # describing an encoding such as _utf-8_, _iso-8859-1_, etc.
 # Type: String
-c.content.default_encoding = 'iso-8859-1'
+c.content.default_encoding = "iso-8859-1"
 
 # Allow websites to request geolocations.
 # Type: BoolAsk
@@ -130,11 +138,11 @@ c.content.default_encoding = 'iso-8859-1'
 # - true
 # - false
 # - ask
-c.content.geolocation = 'ask'
+c.content.geolocation = "ask"
 
 # Value to send in the `Accept-Language` header.
 # Type: String
-c.content.headers.accept_language = 'en-US,en'
+c.content.headers.accept_language = "en-US,en"
 
 # Set custom headers for qutebrowser HTTP requests.
 # Type: Dict
@@ -153,7 +161,7 @@ c.content.headers.do_not_track = True
 # - always: Always send the Referer.
 # - never: Never send the Referer. This is not recommended, as some sites may break.
 # - same-domain: Only send the Referer for the same domain. This will still protect your privacy, but shouldn't break any sites.
-c.content.headers.referer = 'same-domain'
+c.content.headers.referer = "same-domain"
 
 # User agent to send. Unset to send the default.
 # Type: String
@@ -161,22 +169,27 @@ c.content.headers.user_agent = None
 
 # Whether host blocking is enabled.
 # Type: Bool
-c.content.host_blocking.enabled = True
+c.content.host_blocking.enabled = False
 
 # List of URLs of lists which contain hosts to block.  The file can be
 # in one of the following formats:  - An `/etc/hosts`-like file - One
 # host per line - A zip-file of any of the above, with either only one
 # file, or a file named   `hosts` (with any extension).
 # Type: List of Url
-c.content.host_blocking.lists = ['https://www.malwaredomainlist.com/hostslist/hosts.txt', 'http://someonewhocares.org/hosts/hosts', 'http://winhelp2002.mvps.org/hosts.zip',
-                                 'http://malwaredomains.lehigh.edu/files/justdomains.zip', 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext']
+c.content.host_blocking.lists = [
+    "https://www.malwaredomainlist.com/hostslist/hosts.txt",
+    "http://someonewhocares.org/hosts/hosts",
+    "http://winhelp2002.mvps.org/hosts.zip",
+    "http://malwaredomains.lehigh.edu/files/justdomains.zip",
+    "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext",
+]
 
 # List of domains that should always be loaded, despite being ad-
 # blocked. Domains may contain * and ? wildcards and are otherwise
 # required to exactly match the requested domain. Local domains are
 # always exempt from hostblocking.
 # Type: List of String
-c.content.host_blocking.whitelist = ['piwik.org']
+c.content.host_blocking.whitelist = ["piwik.org"]
 
 # Enable or disable hyperlink auditing (`<a ping>`).
 # Type: Bool
@@ -209,8 +222,12 @@ c.content.javascript.enabled = True
 # logged, the corresponding dictionary value selects the qutebrowser
 # logger to use. On QtWebKit, the "unknown" setting is always used.
 # Type: Dict
-c.content.javascript.log = {'unknown': 'debug',
-                            'info': 'debug', 'warning': 'debug', 'error': 'debug'}
+c.content.javascript.log = {
+    "unknown": "debug",
+    "info": "debug",
+    "warning": "debug",
+    "error": "debug",
+}
 
 # Use the standard JavaScript modal dialog for `alert()` and `confirm()`
 # Type: Bool
@@ -239,7 +256,7 @@ c.content.local_storage = True
 # - true
 # - false
 # - ask
-c.content.media_capture = 'ask'
+c.content.media_capture = "ask"
 
 # Location of a netrc-file for HTTP authentication. If unset, `~/.netrc`
 # is used.
@@ -272,7 +289,7 @@ c.content.private_browsing = False
 # Valid values:
 # - system: Use the system wide proxy.
 # - none: Don't use any proxy
-c.content.proxy = 'system'
+c.content.proxy = "system"
 
 # Validate SSL handshakes.
 # Type: BoolAsk
@@ -318,20 +335,20 @@ c.downloads.location.remember = True
 # - path: Show only the download path.
 # - filename: Show only download filename.
 # - both: Show download path and filename.
-c.downloads.location.suggestion = 'path'
+c.downloads.location.suggestion = "path"
 
 # The default program used to open downloads. If null, the default
 # internal handler is used. Any `{}` in the string will be expanded to
 # the filename, else the filename will be appended.
 # Type: String
-c.downloads.open_dispatcher = 'xdg-open {}'
+c.downloads.open_dispatcher = "xdg-open {}"
 
 # Where to show the downloaded files.
 # Type: VerticalPosition
 # Valid values:
 # - top
 # - bottom
-c.downloads.position = 'top'
+c.downloads.position = "top"
 
 # Number of milliseconds to wait before removing finished downloads. If
 # set to -1, downloads are never removed.
@@ -341,47 +358,47 @@ c.downloads.remove_finished = 60000
 # The editor (and arguments) to use for the `open-editor` command. `{}`
 # gets replaced by the filename of the file to be edited.
 # Type: ShellCommand
-c.editor.command = ['gvim', '{}']
+c.editor.command = ["gvim", "{}"]
 
 # Encoding to use for the editor.
 # Type: Encoding
-c.editor.encoding = 'utf-8'
+c.editor.encoding = "utf-8"
 
 # Font used in the completion categories.
 # Type: Font
-c.fonts.completion.category = 'bold 10pt monospace'
+c.fonts.completion.category = "bold 10pt monospace"
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '10pt monospace'
+c.fonts.completion.entry = "10pt monospace"
 
 # Font used for the debugging console.
 # Type: QtFont
-c.fonts.debug_console = '10pt monospace'
+c.fonts.debug_console = "10pt monospace"
 
 # Font used for the downloadbar.
 # Type: Font
-c.fonts.downloads = '10pt monospace'
+c.fonts.downloads = "10pt monospace"
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = 'bold 10pt monospace'
+c.fonts.hints = "bold 10pt monospace"
 
 # Font used in the keyhint widget.
 # Type: Font
-c.fonts.keyhint = '10pt monospace'
+c.fonts.keyhint = "10pt monospace"
 
 # Font used for error messages.
 # Type: Font
-c.fonts.messages.error = '10pt monospace'
+c.fonts.messages.error = "10pt monospace"
 
 # Font used for info messages.
 # Type: Font
-c.fonts.messages.info = '10pt monospace'
+c.fonts.messages.info = "10pt monospace"
 
 # Font used for warning messages.
 # Type: Font
-c.fonts.messages.warning = '10pt monospace'
+c.fonts.messages.warning = "10pt monospace"
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
@@ -390,39 +407,39 @@ c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", M
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = '10pt sans-serif'
+c.fonts.prompts = "10pt sans-serif"
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '10pt monospace'
+c.fonts.statusbar = "10pt monospace"
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '10pt monospace'
+c.fonts.tabs = "10pt monospace"
 
 # Font family for cursive fonts.
 # Type: FontFamily
-c.fonts.web.family.cursive = ''
+c.fonts.web.family.cursive = ""
 
 # Font family for fantasy fonts.
 # Type: FontFamily
-c.fonts.web.family.fantasy = ''
+c.fonts.web.family.fantasy = ""
 
 # Font family for fixed fonts.
 # Type: FontFamily
-c.fonts.web.family.fixed = ''
+c.fonts.web.family.fixed = ""
 
 # Font family for sans-serif fonts.
 # Type: FontFamily
-c.fonts.web.family.sans_serif = ''
+c.fonts.web.family.sans_serif = ""
 
 # Font family for serif fonts.
 # Type: FontFamily
-c.fonts.web.family.serif = ''
+c.fonts.web.family.serif = ""
 
 # Font family for standard fonts.
 # Type: FontFamily
-c.fonts.web.family.standard = ''
+c.fonts.web.family.standard = ""
 
 # The default font size for regular text.
 # Type: Int
@@ -448,7 +465,7 @@ c.fonts.web.size.minimum_logical = 6
 # - unique-match: Auto-follow whenever there is a unique non-empty match in either the hint string (word mode) or filter (number mode).
 # - full-match: Follow the hint when the user typed the whole hint (letter, word or number mode) or the element's text (only in number mode).
 # - never: The user will always need to press Enter to follow a hint.
-c.hints.auto_follow = 'always'
+c.hints.auto_follow = "always"
 
 # A timeout (in milliseconds) to ignore normal-mode key bindings after a
 # successful auto-follow.
@@ -457,11 +474,11 @@ c.hints.auto_follow_timeout = 0
 
 # Chars used for hint strings.
 # Type: UniqueCharString
-c.hints.chars = 'asdfghjkl'
+c.hints.chars = "asdfghjkl"
 
 # The dictionary file to be used by the word hints.
 # Type: File
-c.hints.dictionary = '/usr/share/dict/words'
+c.hints.dictionary = "/usr/share/dict/words"
 
 # Hide unmatched hints in rapid mode.
 # Type: Bool
@@ -477,17 +494,28 @@ c.hints.min_chars = 1
 # - number: Use numeric hints. (In this mode you can also type letters from the hinted element to filter and reduce the number of elements that are hinted.)
 # - letter: Use the chars in the `hints.chars` setting.
 # - word: Use hints words based on the html elements and the extra words.
-c.hints.mode = 'letter'
+c.hints.mode = "letter"
 
 # A comma-separated list of regexes to use for 'next' links.
 # Type: List of Regex
-c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b',
-                        '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
+c.hints.next_regexes = [
+    "\\bnext\\b",
+    "\\bmore\\b",
+    "\\bnewer\\b",
+    "\\b[>→≫]\\b",
+    "\\b(>>|»)\\b",
+    "\\bcontinue\\b",
+]
 
 # A comma-separated list of regexes to use for 'prev' links.
 # Type: List of Regex
 c.hints.prev_regexes = [
-    '\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
+    "\\bprev(ious)?\\b",
+    "\\bback\\b",
+    "\\bolder\\b",
+    "\\b[<←≪]\\b",
+    "\\b(<<|«)\\b",
+]
 
 # Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
 # number hints.
@@ -511,7 +539,7 @@ c.history_gap_interval = 30
 # - always: Search case-insensitively
 # - never: Search case-sensitively
 # - smart: Search case-sensitively if there are capital chars
-c.search.ignore_case = 'smart'
+c.search.ignore_case = "smart"
 
 # Forward unbound keys to the webview in normal mode.
 # Type: String
@@ -519,7 +547,7 @@ c.search.ignore_case = 'smart'
 # - all: Forward all unbound keys.
 # - auto: Forward unbound non-alphanumeric keys.
 # - none: Don't forward any keys.
-c.input.forward_unbound_keys = 'auto'
+c.input.forward_unbound_keys = "auto"
 
 # Leave insert mode if a non-editable element is clicked.
 # Type: Bool
@@ -584,7 +612,7 @@ c.messages.timeout = 2000
 # - tab-silent: Open a new tab in the existing window without activating the window.
 # - tab-bg-silent: Open a new background tab in the existing window without activating the window.
 # - window: Open in a new window.
-c.new_instance_open_target = 'tab'
+c.new_instance_open_target = "tab"
 
 # Which window to choose when opening links as new tabs. When
 # `new_instance_open_target` is not set to `window`, this is ignored.
@@ -594,7 +622,7 @@ c.new_instance_open_target = 'tab'
 # - last-opened: Open new tabs in the last (newest) opened window.
 # - last-focused: Open new tabs in the most recently focused window.
 # - last-visible: Open new tabs in the most recently visible window.
-c.new_instance_open_target_window = 'last-focused'
+c.new_instance_open_target_window = "last-focused"
 
 # Show a filebrowser in upload/download prompts.
 # Type: Bool
@@ -609,7 +637,7 @@ c.prompt.radius = 8
 # https://peter.sh/experiments/chromium-command-line-switches/ for a
 # list) will work. This setting requires a restart.
 # Type: List of String
-c.qt.args = []
+c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so"]
 
 # Force a Qt platform to use. This sets the `QT_QPA_PLATFORM`
 # environment variable and is useful to force using the XCB plugin when
@@ -685,14 +713,14 @@ c.spellcheck.languages = []
 
 # Padding for the statusbar.
 # Type: Padding
-c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
+c.statusbar.padding = {"top": 1, "bottom": 1, "left": 0, "right": 0}
 
 # The position of the status bar.
 # Type: VerticalPosition
 # Valid values:
 # - top
 # - bottom
-c.statusbar.position = 'bottom'
+c.statusbar.position = "bottom"
 
 # Open new tabs (middleclick/ctrl+click) in the background.
 # Type: Bool
@@ -704,7 +732,7 @@ c.tabs.background = False
 # - right: Close tabs on right-click.
 # - middle: Close tabs on middle-click.
 # - none: Don't close tabs using the mouse.
-c.tabs.close_mouse_button = 'middle'
+c.tabs.close_mouse_button = "middle"
 
 # Scaling for favicons in the tab bar. The tab size is unchanged, so big
 # favicons also require extra `tabs.padding`.
@@ -717,7 +745,7 @@ c.tabs.favicons.scale = 1.0
 
 # Padding for tab indicators
 # Type: Padding
-c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
+c.tabs.indicator.padding = {"top": 2, "bottom": 2, "left": 0, "right": 4}
 
 # Behavior when the last tab is closed.
 # Type: String
@@ -727,7 +755,7 @@ c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
 # - startpage: Load the start page.
 # - default-page: Load the default page.
 # - close: Close the window.
-c.tabs.last_close = 'close'
+c.tabs.last_close = "close"
 
 # Switch between tabs using the mouse wheel.
 # Type: Bool
@@ -740,7 +768,7 @@ c.tabs.mousewheel_switching = True
 # - next: After the current tab.
 # - first: At the beginning.
 # - last: At the end.
-c.tabs.new_position.related = 'next'
+c.tabs.new_position.related = "next"
 
 # How new tabs which aren't opened from another tab are positioned.
 # Type: NewTabPosition
@@ -749,11 +777,11 @@ c.tabs.new_position.related = 'next'
 # - next: After the current tab.
 # - first: At the beginning.
 # - last: At the end.
-c.tabs.new_position.unrelated = 'last'
+c.tabs.new_position.unrelated = "last"
 
 # Padding around text for tabs
 # Type: Padding
-c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 5, 'right': 5}
+c.tabs.padding = {"top": 0, "bottom": 0, "left": 5, "right": 5}
 
 # The position of the tab bar.
 # Type: Position
@@ -762,7 +790,7 @@ c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 5, 'right': 5}
 # - bottom
 # - left
 # - right
-c.tabs.position = 'top'
+c.tabs.position = "top"
 
 # Which tab to select when the focused tab is removed.
 # Type: SelectOnRemove
@@ -770,7 +798,7 @@ c.tabs.position = 'top'
 # - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
 # - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
 # - last-used: Select the previously selected tab.
-c.tabs.select_on_remove = 'next'
+c.tabs.select_on_remove = "next"
 
 # When to show the tab bar.
 # Type: String
@@ -779,7 +807,7 @@ c.tabs.select_on_remove = 'next'
 # - never: Always hide the tab bar.
 # - multiple: Hide the tab bar if only one tab is open.
 # - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'multiple'
+c.tabs.show = "multiple"
 
 # Time to show the tab bar before hiding it when tabs.show is set to
 # 'switching'.
@@ -796,7 +824,7 @@ c.tabs.tabs_are_windows = False
 # - left
 # - right
 # - center
-c.tabs.title.alignment = 'left'
+c.tabs.title.alignment = "left"
 
 # The format to use for the tab title. The following placeholders are
 # defined:  * `{perc}`: The percentage as a string like `[10%]`. *
@@ -808,17 +836,17 @@ c.tabs.title.alignment = 'left'
 # Either ''webkit'' or ''webengine'' * `{private}` : Indicates when
 # private mode is enabled.
 # Type: FormatString
-c.tabs.title.format = '{index}: {title}'
+c.tabs.title.format = "{index}: {title}"
 
 # The format to use for the tab title for pinned tabs. The same
 # placeholders like for `tabs.title.format` are defined.
 # Type: FormatString
-c.tabs.title.format_pinned = '{index}'
+c.tabs.title.format_pinned = "{index}"
 
 # The width of the tab bar if it's vertical, in px or as percentage of
 # the window.
 # Type: PercOrInt
-c.tabs.width = '20%'
+c.tabs.width = "20%"
 
 # Width of the progress indicator (0 to disable).
 # Type: Int
@@ -834,12 +862,12 @@ c.tabs.wrap = True
 # - naive: Use simple/naive check.
 # - dns: Use DNS requests (might be slow!).
 # - never: Never search automatically.
-c.url.auto_search = 'naive'
+c.url.auto_search = "naive"
 
 # The page to open if :open -t/-b/-w is used without URL. Use
 # `about:blank` for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'www.google.com'
+c.url.default_page = "www.google.com"
 
 # The URL segments where `:navigate increment/decrement` will search for
 # a number.
@@ -849,7 +877,7 @@ c.url.default_page = 'www.google.com'
 # - path
 # - query
 # - anchor
-c.url.incdec_segments = ['path', 'query']
+c.url.incdec_segments = ["path", "query"]
 
 # Definitions of search engines which can be used via the address bar.
 # Maps a searchengine name (such as `DEFAULT`, or `ddg`) to a URL with a
@@ -862,40 +890,46 @@ c.url.incdec_segments = ['path', 'query']
 # Type: Dict
 
 c.url.searchengines = {
-    'DEFAULT': 'https://google.com/search?q={}',
-    'aur': 'https://aur.archlinux.org/packages/?K={}',
-    'aw': 'https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}',
-    'bc': 'https://www.bitchute.com/search?q={}&sort=date_created%20desc',
-    'ddg': 'https://duckduckgo.com/?q={}',
-    'ddgi': 'https://duckduckgo.com/?q={}&t=ha&iar=images',
-    'eb': 'https://ebay.com/sch/{}',
-    'i': 'https://www.google.be/search?q={}&source=lnms&tbm=isch',
-    'mtp': 'http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}',
-    'osm': 'http://www.openstreetmap.org/search?query={}',
-    'red': 'https://reddit.com/r/{}',
-    'syn': 'https://synoniemen.net/index.php?zoekterm={}',
-    'syn2': 'https://www.mijnwoordenboek.nl/synoniemen/{}',
-    'synen': 'https://www.thesaurus.com/browse/{}',
-    'thw': 'http://www.thinkwiki.org/w/index.php?search={}&title=Special%3ASearch',
-    'tpb': 'http://pirateproxy.gdn/search/{}',
-    'tw': 'https://twitter.com/{}',
-    'viw': 'http://vim.wikia.com/wiki/Special:Search?fulltext=Search&query={}',
-    'vw': 'https://wiki.voidlinux.eu/index.php?search={}&title=Special%3ASearch',
-    'w': 'https://www.wikipedia.org/search-redirect.php?family=wikipedia&language=en&search={}&language=en&go=Go',
-    'wt': 'http://en.wiktionary.org/?search={}',
-    'yt': 'https://www.youtube.com/results?search_query={}',
-    'ytv': 'https://hooktube.com/results?search_query={}',
+    "DEFAULT": "https://google.com/search?q={}",
+    "aur": "https://aur.archlinux.org/packages/?K={}",
+    "aw": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
+    "bc": "https://www.bitchute.com/search?q={}&sort=date_created%20desc",
+    "ddg": "https://duckduckgo.com/?q={}",
+    "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
+    "eb": "https://ebay.com/sch/{}",
+    "i": "https://www.google.be/search?q={}&source=lnms&tbm=isch",
+    "mtp": "http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}",
+    "osm": "http://www.openstreetmap.org/search?query={}",
+    "red": "https://reddit.com/r/{}",
+    "syn": "https://synoniemen.net/index.php?zoekterm={}",
+    "syn2": "https://www.mijnwoordenboek.nl/synoniemen/{}",
+    "synen": "https://www.thesaurus.com/browse/{}",
+    "thw": "http://www.thinkwiki.org/w/index.php?search={}&title=Special%3ASearch",
+    "tpb": "http://pirateproxy.gdn/search/{}",
+    "tw": "https://twitter.com/{}",
+    "viw": "http://vim.wikia.com/wiki/Special:Search?fulltext=Search&query={}",
+    "vw": "https://wiki.voidlinux.eu/index.php?search={}&title=Special%3ASearch",
+    "w": "https://www.wikipedia.org/search-redirect.php?family=wikipedia&language=en&search={}&language=en&go=Go",
+    "wt": "http://en.wiktionary.org/?search={}",
+    "yt": "https://www.youtube.com/results?search_query={}",
+    "ytv": "https://hooktube.com/results?search_query={}",
 }
 
 
 # The page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = ['www.google.com']
+c.url.start_pages = ["www.google.com"]
 
 # The URL parameters to strip with `:yank url`.
 # Type: List of String
 c.url.yank_ignored_parameters = [
-    'ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+    "ref",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+]
 
 # Hide the window decoration when using wayland (requires restart)
 # Type: Bool
@@ -910,16 +944,32 @@ c.url.yank_ignored_parameters = [
 # the current web page. * `{backend}`: Either ''webkit'' or
 # ''webengine'' * `{private}` : Indicates when private mode is enabled.
 # Type: FormatString
-c.window.title_format = '{perc}{title}{title_sep}qutebrowser'
+c.window.title_format = "{perc}{title}{title_sep}qutebrowser"
 
 # The default zoom level.
 # Type: Perc
-c.zoom.default = '100%'
+c.zoom.default = "100%"
 
 # The available zoom levels.
 # Type: List of Perc
-c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%',
-                 '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
+c.zoom.levels = [
+    "25%",
+    "33%",
+    "50%",
+    "67%",
+    "75%",
+    "90%",
+    "100%",
+    "110%",
+    "125%",
+    "150%",
+    "175%",
+    "200%",
+    "250%",
+    "300%",
+    "400%",
+    "500%",
+]
 
 # How much to divide the mouse wheel movements to translate them into
 # zoom increments.
@@ -929,268 +979,264 @@ c.zoom.mouse_divider = 512
 # Bindings for normal mode
 c.bindings.commands = {
     "normal": {
-        "'": 'enter-mode jump_mark',
-        '+': 'zoom-in',
-        '-': 'zoom-out',
-        '.': 'repeat-command',
-        '/': 'set-cmd-text /',
-        ':': 'set-cmd-text :',
-        ';I': 'hint images tab',
-        ';O': 'hint links fill :open -t -r {hint-url}',
-        ';R': 'hint --rapid links window',
-        ';Y': 'hint links yank-primary',
-        ';b': 'hint all tab-bg',
-        ';d': 'hint links download',
-        ';f': 'hint all tab-fg',
-        ';h': 'hint all hover',
-        ';i': 'hint images',
-        ';o': 'hint links fill :open {hint-url}',
-        ';r': 'hint --rapid links tab-bg',
-        ';t': 'hint inputs',
-        ';y': 'hint links yank',
-        ';m': 'hint links spawn mpv {hint-url}',
-        '<Alt-1>': 'tab-focus 1',
-        '<Alt-2>': 'tab-focus 2',
-        '<Alt-3>': 'tab-focus 3',
-        '<Alt-4>': 'tab-focus 4',
-        '<Alt-5>': 'tab-focus 5',
-        '<Alt-6>': 'tab-focus 6',
-        '<Alt-7>': 'tab-focus 7',
-        '<Alt-8>': 'tab-focus 8',
-        '<Alt-9>': 'tab-focus -1',
-        '<Ctrl-A>': 'navigate increment',
-        '<Ctrl-Alt-p>': 'print',
-        '<Ctrl-B>': 'scroll-page 0 -1',
-        '<Ctrl-D>': 'scroll-page 0 0.5',
-        '<Ctrl-k>': 'tab-move +',
-        '<Ctrl-j>': 'tab-move -',
-        '<Ctrl-F5>': 'reload -f',
-        '<Ctrl-F>': 'scroll-page 0 1',
-        '<Ctrl-N>': 'open -w',
-        '<Ctrl-PgDown>': 'tab-next',
-        '<Ctrl-PgUp>': 'tab-prev',
-        '<Ctrl-Q>': 'quit',
-        '<Ctrl-Return>': 'follow-selected -t',
-        '<Ctrl-Shift-N>': 'open -p',
-        '<Ctrl-Shift-T>': 'undo',
-        '<Ctrl-Shift-W>': 'close',
-        '<Ctrl-T>': 'open -t',
-        '<Ctrl-Tab>': 'tab-focus last',
-        '<Ctrl-U>': 'scroll-page 0 -0.5',
-        '<Ctrl-V>': 'enter-mode passthrough',
-        '<Ctrl-W>': 'tab-close',
-        '<Ctrl-X>': 'navigate decrement',
-        '<Ctrl-h>': 'home',
-        '<Ctrl-p>': 'tab-pin',
-        '<Ctrl-s>': 'stop',
-        '<Escape>': 'clear-keychain ;; search ;; fullscreen --leave',
-        '<F11>': 'fullscreen',
-        '<F5>': 'reload',
-        '<Return>': 'follow-selected',
-        '<back>': 'back',
-        '<forward>': 'forward',
-        '=': 'zoom',
-        '?': 'set-cmd-text ?',
-        '@': 'run-macro',
-        'B': 'set-cmd-text -s :quickmark-load -t',
-        'D': 'tab-close -o',
-        'E': 'edit-url',
-        'F': 'hint all tab',
-        'G': 'scroll-to-perc',
-        'H': 'back',
-        'J': 'tab-prev',
-        'K': 'tab-next',
-        'L': 'forward',
-        'M': 'bookmark-add',
-        'N': 'search-prev',
-        'O': 'set-cmd-text -s :open -t',
-        'PP': 'open -t -- {primary}',
-        'Pp': 'open -t -- {clipboard}',
-        'Pm': 'spawn mpv {primary}',
-        'PM': 'spawn mpv {clipboard}',
-        'pm': 'spawn mpv {primary}',
-        'pM': 'spawn mpv {clipboard}',
-        'R': 'reload -f',
-        'Sb': 'open qute://bookmarks#bookmarks',
-        'Sh': 'open qute://history',
-        'Sq': 'open qute://bookmarks',
-        'Ss': 'open qute://settings',
-        'T': 'tab-focus',
-        '[[': 'navigate prev',
-        ']]': 'navigate next',
-        'ad': 'download-cancel',
-        'Cd': 'download-cancel',
-        'b': 'set-cmd-text -s :quickmark-load',
-        'cd': 'download-clear',
-        'co': 'tab-only',
-        'd': 'scroll-page 0 0.5',
-        'f': 'hint',
-        'g$': 'tab-focus -1',
-        'g0': 'tab-focus 1',
-        'gB': 'set-cmd-text -s :bookmark-load -t',
-        'gC': 'tab-clone',
-        'gO': 'set-cmd-text :open -t -r {url:pretty}',
-        'gU': 'navigate up -t',
-        'g^': 'tab-focus 1',
-        'ga': 'open -t',
-        'gb': 'set-cmd-text -s :bookmark-load',
-        'gd': 'download-open',
-        'gf': 'view-source',
-        'gg': 'scroll-to-perc 0',
-        'gm': 'tab-move',
-        'go': 'set-cmd-text :open {url:pretty}',
-        'gt': 'set-cmd-text -s :buffer',
-        'gu': 'navigate up',
-        'h': 'scroll left',
-        'i': 'enter-mode insert',
-        'j': 'scroll down',
-        'k': 'scroll up',
-        'l': 'scroll right',
-        'm': 'quickmark-save',
-        'n': 'search-next',
-        'o': 'set-cmd-text -s :open',
-        'pP': 'open -- {primary}',
-        'pp': 'open -- {clipboard}',
-        'q': 'record-macro',
-        'r': 'reload',
-        'sf': 'save',
-        'sk': 'set-cmd-text -s :bind',
-        'sl': 'set-cmd-text -s :set -t',
-        'ss': 'set-cmd-text -s :set',
-        'th': 'back -t',
-        'tl': 'forward -t',
-        'u': 'scroll-page 0 -0.5',
-        'U': 'undo',
-        'v': 'enter-mode caret',
-        'wB': 'set-cmd-text -s :bookmark-load -w',
-        'wO': 'set-cmd-text :open -w {url:pretty}',
-        'wP': 'open -w -- {primary}',
-        'wb': 'set-cmd-text -s :quickmark-load -w',
-        'wf': 'hint all window',
-        'wh': 'back -w',
-        'wi': 'inspector',
-        'wl': 'forward -w',
-        'wo': 'set-cmd-text -s :open -w',
-        'wp': 'open -w -- {clipboard}',
-        'x': 'tab-close',
-        'xO': 'set-cmd-text :open -b -r {url:pretty}',
-        'xb': 'config-cycle statusbar.hide',
-        'xo': 'set-cmd-text -s :open -b',
-        'xt': 'config-cycle tabs.show always switching',
-        'xx': 'config-cycle statusbar.hide ;; config-cycle tabs.show always switching',
-        'yD': 'yank domain -s',
-        'yP': 'yank pretty-url -s',
-        'yT': 'yank title -s',
-        'yY': 'yank -s',
-        'yd': 'yank domain',
-        'ym': 'yank markdown',
-        'yp': 'yank pretty-url',
-        'yt': 'yank title',
-        'yy': 'yank',
-        '{{': 'navigate prev -t',
-        '}}': 'navigate next -t',
-        ';;': 'hint links download'
+        "'": "enter-mode jump_mark",
+        "+": "zoom-in",
+        "-": "zoom-out",
+        ".": "repeat-command",
+        "/": "set-cmd-text /",
+        ":": "set-cmd-text :",
+        ";I": "hint images tab",
+        ";O": "hint links fill :open -t -r {hint-url}",
+        ";R": "hint --rapid links window",
+        ";Y": "hint links yank-primary",
+        ";b": "hint all tab-bg",
+        ";d": "hint links download",
+        ";f": "hint all tab-fg",
+        ";h": "hint all hover",
+        ";i": "hint images",
+        ";o": "hint links fill :open {hint-url}",
+        ";r": "hint --rapid links tab-bg",
+        ";t": "hint inputs",
+        ";y": "hint links yank",
+        ";m": "hint links spawn mpv {hint-url}",
+        "<Alt-1>": "tab-focus 1",
+        "<Alt-2>": "tab-focus 2",
+        "<Alt-3>": "tab-focus 3",
+        "<Alt-4>": "tab-focus 4",
+        "<Alt-5>": "tab-focus 5",
+        "<Alt-6>": "tab-focus 6",
+        "<Alt-7>": "tab-focus 7",
+        "<Alt-8>": "tab-focus 8",
+        "<Alt-9>": "tab-focus -1",
+        "<Ctrl-A>": "navigate increment",
+        "<Ctrl-Alt-p>": "print",
+        "<Ctrl-B>": "scroll-page 0 -1",
+        "<Ctrl-D>": "scroll-page 0 0.5",
+        "<Ctrl-k>": "tab-move +",
+        "<Ctrl-j>": "tab-move -",
+        "<Ctrl-F5>": "reload -f",
+        "<Ctrl-F>": "scroll-page 0 1",
+        "<Ctrl-N>": "open -w",
+        "<Ctrl-PgDown>": "tab-next",
+        "<Ctrl-PgUp>": "tab-prev",
+        "<Ctrl-Q>": "quit",
+        "<Ctrl-Return>": "follow-selected -t",
+        "<Ctrl-Shift-N>": "open -p",
+        "<Ctrl-Shift-T>": "undo",
+        "<Ctrl-Shift-W>": "close",
+        "<Ctrl-T>": "open -t",
+        "<Ctrl-Tab>": "tab-focus last",
+        "<Ctrl-U>": "scroll-page 0 -0.5",
+        "<Ctrl-V>": "enter-mode passthrough",
+        "<Ctrl-W>": "tab-close",
+        "<Ctrl-X>": "navigate decrement",
+        "<Ctrl-h>": "home",
+        "<Ctrl-p>": "tab-pin",
+        "<Ctrl-s>": "stop",
+        "<Escape>": "clear-keychain ;; search ;; fullscreen --leave",
+        "<F11>": "fullscreen",
+        "<F5>": "reload",
+        "<Return>": "follow-selected",
+        "<back>": "back",
+        "<forward>": "forward",
+        "=": "zoom",
+        "?": "set-cmd-text ?",
+        "@": "run-macro",
+        "B": "set-cmd-text -s :quickmark-load -t",
+        "D": "tab-close -o",
+        "E": "edit-url",
+        "F": "hint all tab",
+        "G": "scroll-to-perc",
+        "H": "back",
+        "J": "tab-prev",
+        "K": "tab-next",
+        "L": "forward",
+        "M": "bookmark-add",
+        "N": "search-prev",
+        "O": "set-cmd-text -s :open -t",
+        "PP": "open -t -- {primary}",
+        "Pp": "open -t -- {clipboard}",
+        "Pm": "spawn mpv {primary}",
+        "PM": "spawn mpv {clipboard}",
+        "pm": "spawn mpv {primary}",
+        "pM": "spawn mpv {clipboard}",
+        "R": "reload -f",
+        "Sb": "open qute://bookmarks#bookmarks",
+        "Sh": "open qute://history",
+        "Sq": "open qute://bookmarks",
+        "Ss": "open qute://settings",
+        "T": "tab-focus",
+        "[[": "navigate prev",
+        "]]": "navigate next",
+        "ad": "download-cancel",
+        "Cd": "download-cancel",
+        "b": "set-cmd-text -s :quickmark-load",
+        "cd": "download-clear",
+        "co": "tab-only",
+        "d": "scroll-page 0 0.5",
+        "f": "hint",
+        "g$": "tab-focus -1",
+        "g0": "tab-focus 1",
+        "gB": "set-cmd-text -s :bookmark-load -t",
+        "gC": "tab-clone",
+        "gO": "set-cmd-text :open -t -r {url:pretty}",
+        "gU": "navigate up -t",
+        "g^": "tab-focus 1",
+        "ga": "open -t",
+        "gb": "set-cmd-text -s :bookmark-load",
+        "gd": "download-open",
+        "gf": "view-source",
+        "gg": "scroll-to-perc 0",
+        "gm": "tab-move",
+        "go": "set-cmd-text :open {url:pretty}",
+        "gt": "set-cmd-text -s :buffer",
+        "gu": "navigate up",
+        "h": "scroll left",
+        "i": "enter-mode insert",
+        "j": "scroll down",
+        "k": "scroll up",
+        "l": "scroll right",
+        "m": "quickmark-save",
+        "n": "search-next",
+        "o": "set-cmd-text -s :open",
+        "pP": "open -- {primary}",
+        "pp": "open -- {clipboard}",
+        "q": "record-macro",
+        "r": "reload",
+        "sf": "save",
+        "sk": "set-cmd-text -s :bind",
+        "sl": "set-cmd-text -s :set -t",
+        "ss": "set-cmd-text -s :set",
+        "th": "back -t",
+        "tl": "forward -t",
+        "u": "scroll-page 0 -0.5",
+        "U": "undo",
+        "v": "enter-mode caret",
+        "wB": "set-cmd-text -s :bookmark-load -w",
+        "wO": "set-cmd-text :open -w {url:pretty}",
+        "wP": "open -w -- {primary}",
+        "wb": "set-cmd-text -s :quickmark-load -w",
+        "wf": "hint all window",
+        "wh": "back -w",
+        "wi": "inspector",
+        "wl": "forward -w",
+        "wo": "set-cmd-text -s :open -w",
+        "wp": "open -w -- {clipboard}",
+        "x": "tab-close",
+        "xO": "set-cmd-text :open -b -r {url:pretty}",
+        "xb": "config-cycle statusbar.hide",
+        "xo": "set-cmd-text -s :open -b",
+        "xt": "config-cycle tabs.show always switching",
+        "xx": "config-cycle statusbar.hide ;; config-cycle tabs.show always switching",
+        "yD": "yank domain -s",
+        "yP": "yank pretty-url -s",
+        "yT": "yank title -s",
+        "yY": "yank -s",
+        "yd": "yank domain",
+        "ym": "yank markdown",
+        "yp": "yank pretty-url",
+        "yt": "yank title",
+        "yy": "yank",
+        "{{": "navigate prev -t",
+        "}}": "navigate next -t",
+        ";;": "hint links download",
     },
     "caret": {
-        '$': 'move-to-end-of-line',
-        '0': 'move-to-start-of-line',
-        '<Ctrl-Space>': 'drop-selection',
-        '<Escape>': 'leave-mode',
-        '<Return>': 'yank selection',
-        '<Space>': 'toggle-selection',
-        'G': 'move-to-end-of-document',
-        'H': 'scroll left',
-        'J': 'scroll down',
-        'K': 'scroll up',
-        'L': 'scroll right',
-        'Y': 'yank selection -s',
-        '[': 'move-to-start-of-prev-block',
-        ']': 'move-to-start-of-next-block',
-        'b': 'move-to-prev-word',
-        'c': 'enter-mode normal',
-        'e': 'move-to-end-of-word',
-        'gg': 'move-to-start-of-document',
-        'h': 'move-to-prev-char',
-        'j': 'move-to-next-line',
-        'k': 'move-to-prev-line',
-        'l': 'move-to-next-char',
-        'v': 'toggle-selection',
-        'w': 'move-to-next-word',
-        'y': 'yank selection',
-        '{': 'move-to-end-of-prev-block',
-        '}': 'move-to-end-of-next-block'
+        "$": "move-to-end-of-line",
+        "0": "move-to-start-of-line",
+        "<Ctrl-Space>": "drop-selection",
+        "<Escape>": "leave-mode",
+        "<Return>": "yank selection",
+        "<Space>": "toggle-selection",
+        "G": "move-to-end-of-document",
+        "H": "scroll left",
+        "J": "scroll down",
+        "K": "scroll up",
+        "L": "scroll right",
+        "Y": "yank selection -s",
+        "[": "move-to-start-of-prev-block",
+        "]": "move-to-start-of-next-block",
+        "b": "move-to-prev-word",
+        "c": "enter-mode normal",
+        "e": "move-to-end-of-word",
+        "gg": "move-to-start-of-document",
+        "h": "move-to-prev-char",
+        "j": "move-to-next-line",
+        "k": "move-to-prev-line",
+        "l": "move-to-next-char",
+        "v": "toggle-selection",
+        "w": "move-to-next-word",
+        "y": "yank selection",
+        "{": "move-to-end-of-prev-block",
+        "}": "move-to-end-of-next-block",
     },
     "command": {
-        '<Alt-B>': 'rl-backward-word',
-        '<Alt-Backspace>': 'rl-backward-kill-word',
-        '<Alt-D>': 'rl-kill-word',
-        '<Alt-F>': 'rl-forward-word',
-        '<Ctrl-?>': 'rl-delete-char',
-        '<Ctrl-A>': 'rl-beginning-of-line',
-        '<Ctrl-B>': 'rl-backward-char',
-        '<Ctrl-D>': 'completion-item-del',
-        '<Ctrl-E>': 'rl-end-of-line',
-        '<Ctrl-F>': 'rl-forward-char',
-        '<Ctrl-H>': 'rl-backward-delete-char',
-        '<Ctrl-K>': 'rl-kill-line',
-        '<Ctrl-N>': 'command-history-next',
-        '<Ctrl-P>': 'command-history-prev',
-        '<Ctrl-Shift-Tab>': 'completion-item-focus prev-category',
-        '<Ctrl-Tab>': 'completion-item-focus next-category',
-        '<Ctrl-U>': 'rl-unix-line-discard',
-        '<Ctrl-W>': 'rl-unix-word-rubout',
-        '<Ctrl-Y>': 'rl-yank',
-        '<Down>': 'command-history-next',
-        '<Escape>': 'leave-mode',
-        '<Return>': 'command-accept',
-        '<Shift-Delete>': 'completion-item-del',
-        '<Shift-Tab>': 'completion-item-focus prev',
-        '<Tab>': 'completion-item-focus next',
-        '<Up>': 'command-history-prev'
+        "<Alt-B>": "rl-backward-word",
+        "<Alt-Backspace>": "rl-backward-kill-word",
+        "<Alt-D>": "rl-kill-word",
+        "<Alt-F>": "rl-forward-word",
+        "<Ctrl-?>": "rl-delete-char",
+        "<Ctrl-A>": "rl-beginning-of-line",
+        "<Ctrl-B>": "rl-backward-char",
+        "<Ctrl-D>": "completion-item-del",
+        "<Ctrl-E>": "rl-end-of-line",
+        "<Ctrl-F>": "rl-forward-char",
+        "<Ctrl-H>": "rl-backward-delete-char",
+        "<Ctrl-K>": "rl-kill-line",
+        "<Ctrl-N>": "command-history-next",
+        "<Ctrl-P>": "command-history-prev",
+        "<Ctrl-Shift-Tab>": "completion-item-focus prev-category",
+        "<Ctrl-Tab>": "completion-item-focus next-category",
+        "<Ctrl-U>": "rl-unix-line-discard",
+        "<Ctrl-W>": "rl-unix-word-rubout",
+        "<Ctrl-Y>": "rl-yank",
+        "<Down>": "command-history-next",
+        "<Escape>": "leave-mode",
+        "<Return>": "command-accept",
+        "<Shift-Delete>": "completion-item-del",
+        "<Shift-Tab>": "completion-item-focus prev",
+        "<Tab>": "completion-item-focus next",
+        "<Up>": "command-history-prev",
     },
     "hint": {
-        '<Ctrl-B>': 'hint all tab-bg',
-        '<Ctrl-F>': 'hint links',
-        '<Ctrl-R>': 'hint --rapid links tab-bg',
-        '<Escape>': 'leave-mode',
-        '<Return>': 'follow-hint'
+        "<Ctrl-B>": "hint all tab-bg",
+        "<Ctrl-F>": "hint links",
+        "<Ctrl-R>": "hint --rapid links tab-bg",
+        "<Escape>": "leave-mode",
+        "<Return>": "follow-hint",
     },
     "insert": {
-        '<Ctrl-E>': 'open-editor',
-        '<Escape>': 'leave-mode',
-        '<Shift-Ins>': 'insert-text {primary}'
+        "<Ctrl-E>": "open-editor",
+        "<Escape>": "leave-mode",
+        "<Shift-Ins>": "insert-text {primary}",
     },
-    "passthrough": {
-        '<Ctrl-V>': 'leave-mode'
-    },
+    "passthrough": {"<Ctrl-V>": "leave-mode"},
     "prompt": {
-        '<Alt-B>': 'rl-backward-word',
-        '<Alt-Backspace>': 'rl-backward-kill-word',
-        '<Alt-D>': 'rl-kill-word',
-        '<Alt-F>': 'rl-forward-word',
-        '<Ctrl-?>': 'rl-delete-char',
-        '<Ctrl-A>': 'rl-beginning-of-line',
-        '<Ctrl-B>': 'rl-backward-char',
-        '<Ctrl-E>': 'rl-end-of-line',
-        '<Ctrl-F>': 'rl-forward-char',
-        '<Ctrl-H>': 'rl-backward-delete-char',
-        '<Ctrl-K>': 'rl-kill-line',
-        '<Ctrl-U>': 'rl-unix-line-discard',
-        '<Ctrl-W>': 'rl-unix-word-rubout',
-        '<Ctrl-X>': 'prompt-open-download',
-        '<Ctrl-Y>': 'rl-yank',
-        '<Down>': 'prompt-item-focus next',
-        '<Escape>': 'leave-mode',
-        '<Return>': 'prompt-accept',
-        '<Shift-Tab>': 'prompt-item-focus prev',
-        '<Tab>': 'prompt-item-focus next',
-        '<Up>': 'prompt-item-focus prev',
-        'n': 'prompt-accept no',
-        'y': 'prompt-accept yes'
+        "<Alt-B>": "rl-backward-word",
+        "<Alt-Backspace>": "rl-backward-kill-word",
+        "<Alt-D>": "rl-kill-word",
+        "<Alt-F>": "rl-forward-word",
+        "<Ctrl-?>": "rl-delete-char",
+        "<Ctrl-A>": "rl-beginning-of-line",
+        "<Ctrl-B>": "rl-backward-char",
+        "<Ctrl-E>": "rl-end-of-line",
+        "<Ctrl-F>": "rl-forward-char",
+        "<Ctrl-H>": "rl-backward-delete-char",
+        "<Ctrl-K>": "rl-kill-line",
+        "<Ctrl-U>": "rl-unix-line-discard",
+        "<Ctrl-W>": "rl-unix-word-rubout",
+        "<Ctrl-X>": "prompt-open-download",
+        "<Ctrl-Y>": "rl-yank",
+        "<Down>": "prompt-item-focus next",
+        "<Escape>": "leave-mode",
+        "<Return>": "prompt-accept",
+        "<Shift-Tab>": "prompt-item-focus prev",
+        "<Tab>": "prompt-item-focus next",
+        "<Up>": "prompt-item-focus prev",
+        "n": "prompt-accept no",
+        "y": "prompt-accept yes",
     },
-    "register": {
-        '<Escape>': 'leave-mode'
-    }
+    "register": {"<Escape>": "leave-mode"},
 }
 
 # config.source('shortcuts.py')
