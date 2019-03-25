@@ -555,13 +555,15 @@ let g:UltiSnipsEditSplit="vertical"
 " ------
 colorscheme wombat256mod
 
-hi SpellBad ctermfg=1 ctermbg=234
+hi clear SpellBad
+hi SpellBad ctermfg=203
+hi SpellBad cterm=underline
+
 hi SpellCap ctermfg=1 ctermbg=234
 hi IndentGuidesOdd  guibg=red   ctermbg=3
 hi IndentGuidesEven guibg=green ctermbg=4
 hi CursorLineNr guifg=yellow ctermfg=11
 hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=12
-
 
 " ------
 " Commands
