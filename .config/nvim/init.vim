@@ -330,6 +330,14 @@ autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 autocmd VimLeave *.tex !texclear %
 
 " ------
+" TEMPLATES
+" ------
+
+:au BufNewFile *.html r ~/.config/nvim/templates/skeleton.html
+:au BufNewFile *.go r ~/.config/nvim/templates/skeleton.go
+:au BufNewFile *.py r ~/.config/nvim/templates/skeleton.py
+
+" ------
 " OTHER
 " ------
 autocmd VimResized * :wincmd =
