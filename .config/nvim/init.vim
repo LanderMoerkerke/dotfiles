@@ -328,6 +328,7 @@ autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
 autocmd VimLeave *.tex !texclear %
+
 " ------
 " OTHER
 " ------
@@ -335,6 +336,7 @@ autocmd VimResized * :wincmd =
 
 " Add todo
 nnoremap <leader><leader>t OTODO:<Esc>:TComment<CR>A
+
 " ------
 " Remapping
 " ------
@@ -506,7 +508,7 @@ let g:ale_completion_enabled = 1
 let g:ale_lint_fix_on_save = 1
 
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['gofmt']}
-let g:ale_fixers = {'python': ['black', ], 'javascript': ['eslint'], 'go': ['golangci-lint run', 'gofmt']}
+let g:ale_fixers = {'python': ['black', ], 'javascript': ['eslint'], 'go': ['golangci-lint run', 'gofmt'], 'html': ['prettier']}
 " 'isort'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '!'
