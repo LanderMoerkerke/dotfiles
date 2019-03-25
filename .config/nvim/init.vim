@@ -615,6 +615,7 @@ function! <SID>ToggleSpell()
         let &spell = 1
         let selection = inputlist(string)
         let &spelllang = spelllang_list[selection-1]
+        set spellfile=./nl.utf-8.add
     else
         let &spell = 0
         echo "'spell' disabled..."
