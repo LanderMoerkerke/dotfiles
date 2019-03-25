@@ -327,6 +327,7 @@ autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 
+autocmd VimLeave *.tex !texclear %
 " ------
 " OTHER
 " ------
