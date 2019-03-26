@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Neomutt
+Icon=email
+Exec=neomutt %u
+Terminal=true
+StartupNotify=true
+Categories=Internet;
