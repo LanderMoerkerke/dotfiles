@@ -37,6 +37,7 @@ Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Ma
 
 " Completion
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'ColinKennedy/vim-python-function-expander'
 
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
@@ -285,6 +286,7 @@ map <leader>² <Esc>/<++><Enter>"_c4l
 map <F1> :Autoformat <CR>
 
 map <F2> :ALEFix<CR>
+
 " Get line, word and character counts with F3:
 map <F3> :!wc <C-R>%<CR>
 
@@ -543,6 +545,7 @@ nnoremap <leader>b :call fzf#run({
 " ------
 " Snippets
 " ------
+let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "~/.config/nvim/snippets/"]
 
 let g:UltiSnipsExpandTrigger="<tab>"
