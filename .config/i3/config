@@ -22,7 +22,7 @@ popup_during_fullscreen smart
 # -----------------------------------------------------------------------------------------------------------------------------
 
 for_window [instance="scratch_tmux"] floating enable
-for_window [instance="scratch_tmux"] resize set 700 700
+for_window [instance="scratch_tmux"] resize set 1000 900
 for_window [instance="scratch_tmux"] move scratchpad
 for_window [instance="scratch_tmux"] border pixel 0
 for_window [instance="scratch_tmux"] sticky enable
