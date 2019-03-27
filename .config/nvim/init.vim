@@ -36,10 +36,7 @@ Plug 'lvht/tagbar-markdown'                                         " Tagbar for
 Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
 
 " Completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
-Plug 'zchee/deoplete-jedi'                                          " Autocomplete python
-Plug 'zchee/deoplete-clang'											" Autocomplete c
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}                " Autocomplete go
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
@@ -460,40 +457,35 @@ let g:formatters_yaml = ["custom_yaml"]
 " let g:formatdef_custom_python = '"autopep8 --global-config ~/.config/.pycodestyle"'
 " let g:formatters_python = ["custom_python"]
 
-" Deoplete
-" General
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#max_list = 15
-let g:deoplete#async_timeout = 100
+" CoC
 
-" let deoplete#ignore_sources = {
-"
-" }
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
 
-" yarp = true
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-" Disable deoplete when in multi cursor mode
-function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 1
-    " deoplete#disable()
-    set foldmethod=manual
-endfunction
-function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete = 0
-    " deoplete#enable()
-    set foldmethod=syntax
-endfunction
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gm <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" Deoplete tab
-highlight Pmenu ctermbg=8 guibg=#606060
-highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
-highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" Deoplete
-" Clang
-let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header='/usr/lib/clang'
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 
 " Indentline
 let g:airline#extensions#tabline#enabled = 1
