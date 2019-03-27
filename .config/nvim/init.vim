@@ -282,8 +282,9 @@ map <leader>² <Esc>/<++><Enter>"_c4l
 
 " FUNCTION KEYS
 " AutoFromat
-map <F2> :Autoformat <CR>
+map <F1> :Autoformat <CR>
 
+map <F2> :ALEFix<CR>
 " Get line, word and character counts with F3:
 map <F3> :!wc <C-R>%<CR>
 
