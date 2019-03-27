@@ -55,6 +55,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 export LFS="/mnt/lfs"
 export ZSH=~/.oh-my-zsh
+export RTV_BROWSER=w3m
 export TMOUT=9600
 export PAGER=less
 export fpath=($HOME/.zsh-completions $fpath)
