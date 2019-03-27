@@ -563,7 +563,8 @@ let g:UltiSnipsEditSplit="vertical"
 " ------
 " Appearance
 " ------
-colorscheme wombat256mod
+colorscheme minimalist
+" colorscheme wombat256mod
 
 hi clear SpellBad
 hi SpellBad ctermfg=203
