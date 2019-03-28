@@ -444,6 +444,9 @@ let g:gitgutter_max_signs = 1000
 nnoremap ]h :GitGutterNextHunk<CR>
 nnoremap [h :GitGutterPrevHunk<CR>
 
+nnoremap ghn :GitGutterNextHunk<CR>
+nnoremap ghp :GitGutterPrevHunk<CR>
+
 " stage hunks
 nmap <Leader>ha :GitGutterStageHunk<CR>
 nmap <Leader>hr :GitGutterUndoHunk<CR>
