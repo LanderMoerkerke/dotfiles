@@ -600,48 +600,53 @@ command! W w suda://%
 " ------
 " Functions
 " ------
-" Execute
-" Python
-autocmd FileType python call Run_Python()
-fun! Run_Python()
-    nnoremap <buffer> <F4> :exec '!python3.7' shellescape(@%, 1)<cr>
-    nnoremap <buffer> <F5> :exec '!pipenv run python' shellescape(@%, 1)<cr>
-endf
+augroup autocomnds
+    " Execute
+    " Python
+    autocmd FileType python call Run_Python()
+    fun! Run_Python()
+        nnoremap <buffer> <F4> :exec '!python3.7' shellescape(@%, 1)<cr>
+        nnoremap <buffer> <F5> :exec '!pipenv run python' shellescape(@%, 1)<cr>
+        nnoremap <leader><leader>s :e '!pipenv run python' shellescape(@%, 1)<cr>
+    endf
 
-" Go
-autocmd FileType go call Run_Go()
-fun! Run_Go()
-    nnoremap <buffer> <F5> :exec '!go run' shellescape(@%, 1)<cr>
-endf
+    " Go
+    autocmd FileType go call Run_Go()
+    fun! Run_Go()
+        nnoremap <buffer> <F5> :exec '!go run' shellescape(@%, 1)<cr>
+    endf
 
-" JS
-autocmd FileType javascript call Run_Js()
-fun! Run_Js()
-    nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
-endf
+    " JS
+    autocmd FileType javascript call Run_Js()
+    fun! Run_Js()
+        nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
+    endf
 
-" CPP
-autocmd FileType cpp call Run_CPP()
-fun! Run_CPP()
-    nnoremap <buffer> <F5> :exec '!g++ % -o run && ./run' shellescape(@%, 1)<cr>
-endf
+    " CPP
+    autocmd FileType cpp call Run_CPP()
+    fun! Run_CPP()
+        nnoremap <buffer> <F5> :exec '!g++ % -o run && ./run' shellescape(@%, 1)<cr>
+    endf
 
-" Spellcheck
-function! <SID>ToggleSpell()
-    let spelllang_list = ['nl', 'en', 'fr']
-    let string = []
+    " Spellcheck
+    function! <SID>ToggleSpell()
+        let spelllang_list = ['nl', 'en', 'fr']
+        let string = []
 
-    for i in range(len(spelllang_list))
-        call add(string, i+1 . ") " . spelllang_list[i])
-    endfor
+        for i in range(len(spelllang_list))
+            call add(string, i+1 . ") " . spelllang_list[i])
+        endfor
 
-    if ! &spell
-        let &spell = 1
-        let selection = inputlist(string)
-        let &spelllang = spelllang_list[selection-1]
-        set spellfile=./nl.utf-8.add
-    else
-        let &spell = 0
-        echo "'spell' disabled..."
-    endif
-endfunction
+        if ! &spell
+            let &spell = 1
+            let selection = inputlist(string)
+            let &spelllang = spelllang_list[selection-1]
+            set spellfile=./nl.utf-8.add
+        else
+            let &spell = 0
+            echo "'spell' disabled..."
+        endif
+    endfunction
+
+
+augroup END
