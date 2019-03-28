@@ -558,16 +558,22 @@ nnoremap <leader>b :call fzf#run({
 " ------
 " Snippets
 " ------
+
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "~/.config/nvim/snippets/"]
+
+" Edit custom snippets
+nnoremap <leader>e :UltiSnipsEdit<cr>
+let g:UltiSnipsEditSplit="vertical"
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
+" General autocomplete variables
+let g:snips_author = "Lander Moerkerke"
+let g:snips_email = "lander.moerkerke@telenet.be"
+let g:snips_github = "https://github.com/MoerkerkeLander"
 
 " ------
 " Appearance
