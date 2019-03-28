@@ -160,6 +160,9 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
+" Paste over visual but keep clipboard
+vnoremap <leader>p "_dP
+
 " Behave like other capitals
 nnoremap Y y$
 
