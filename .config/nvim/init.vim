@@ -330,7 +330,6 @@ autocmd BufWritePre *.go,*.py,*.js ALEFix
 autocmd BufWritePost * GitGutter
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
 autocmd BufWritePost .snippets :call UltiSnips#RefreshSnippets()<cr>
-" autocmd BufWritePost *.py,*.c,*.cpp,*.h,*go silent! !eval 'ctags -R -o newtags; mv newtags tags' &
 
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
@@ -607,7 +606,6 @@ augroup autocomnds
     fun! Run_Python()
         nnoremap <buffer> <F4> :exec '!python3.7' shellescape(@%, 1)<cr>
         nnoremap <buffer> <F5> :exec '!pipenv run python' shellescape(@%, 1)<cr>
-        nnoremap <leader><leader>s :e '!pipenv run python' shellescape(@%, 1)<cr>
     endf
 
     " Go
