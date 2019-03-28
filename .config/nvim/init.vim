@@ -36,7 +36,7 @@ Plug 'lvht/tagbar-markdown'                                         " Tagbar for
 Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
 
 " Completion
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'ColinKennedy/vim-python-function-expander'
 
 " Snippets
@@ -461,6 +461,8 @@ let g:formatters_yaml = ["custom_yaml"]
 " let g:formatters_python = ["custom_python"]
 
 " CoC
+
+let g:coc_force_debug = 1
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
