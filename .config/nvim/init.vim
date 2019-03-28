@@ -143,22 +143,10 @@ set encoding=utf-8
 " ------
 
 " Reload vim
-nnoremap <leader>r :source $NVIM<cr>
+nnoremap <leader>rv :source $NVIM<cr>
 
-" Copy to clipboard
-nnoremap  <leader>r  :e % <CR>
-
-" Copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
-nnoremap  <leader>yy  "+yy
-
-" Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
+" Reload current file
+nnoremap  <leader>rf  :e % <CR>
 
 " Paste over visual but keep clipboard
 vnoremap <leader>p "_dP
