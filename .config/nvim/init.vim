@@ -89,9 +89,6 @@ set wildmenu                                    " show command line completions
 set wildmode=longest:full                       " complete mode for wildmenu
 set wildmode+=full
 
-" set paste
-
-" Wrapping
 set linebreak                                   " only wrap after words, not inside words
 set nowrap
 set fo-=t
@@ -126,17 +123,11 @@ set tags=./tags;
 set splitright
 set splitbelow
 
-" 80 character
-" set tw=79
-" set colorcolumn=80
-" highlight ColorColumn ctermbg=255
-
 set undofile                                   " Save undo's after file closes
 set undodir=$HOME/.vim/undo                    " where to save undo histories
 set undolevels=1000                            " How many undos
 set undoreload=10000                           " number of lines to save for undo
 
-" set nocompatible
 set encoding=utf-8
 
 " ------
@@ -213,23 +204,13 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap k gk
 nnoremap j gj
 
-" Scrolling using arrows
-" nmap <Down> 3<C-E>
-" nmap <Up> 3<C-Y>
-" vmap <Down> 3<C-E>
-" vmap <Up> 3<C-Y>
-" imap <Down> <C-O>3<C-E>
-" imap <Up> <C-O>3<C-Y>
-
 " Split navigation
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-" Tabs
-" nnoremap <c-n> gt
-" nnoremap <c-m> gT
+" Buffers
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprevious<cr>
 
@@ -250,10 +231,7 @@ noremap <down>  <C-W>-
 noremap <left>  3<C-W><
 noremap <right> 3<C-W>>
 
-" C-t for new tab / buffer
-" nnoremap <C-t> :tabnew<cr>
-" nnoremap <C-t> :enew<cr>
-
+" Remove buffer
 nnoremap <leader>x :bp\|bd #<CR>
 
 " Go to tab by number
@@ -270,14 +248,17 @@ noremap <leader>0 :tablast<cr>
 
 " Go to last active tab
 au TabLeave * let g:lasttab = tabpagenr()
-nnoremap <silent> <leader><Tab> :exe "tabn ".g:lasttab<cr>
-vnoremap <silent> <leader><Tab> :exe "tabn ".g:lasttab<cr>
+nnoremap <silent><leader><Tab> :exe "tabn ".g:lasttab<cr>
+vnoremap <silent><leader><Tab> :exe "tabn ".g:lasttab<cr>
 
 " Navigating with guides
 vnoremap <leader>j <Esc>/<++><Enter>"_c4l
 nnoremap <leader>j <Esc>/<++><Enter>"_c4l
 
-" FUNCTION KEYS
+" ------
+" Function Keys
+" ------
+
 " AutoFromat
 map <F1> :Autoformat <CR>
 
@@ -291,11 +272,11 @@ map <F3> :!wc <C-R>%<CR>
 " F5: execute code
 
 " Spell-check picker
-noremap <F6> :call <SID>ToggleSpell()<CR>
+map <F6> :call <SID>ToggleSpell()<CR>
 
-" Scrolling buffers
-map <F8> :bprevious<CR>
-map <F9> :bnext<CR>
+" map <F7>
+" map <F8>
+" map <F9>
 
 " F10: Linting
 map <F10> :ALEToggleBuffer<CR>
@@ -303,17 +284,19 @@ map <F10> :ALEToggleBuffer<CR>
 " F11: Goyo
 map <F11> :Goyo<CR>:set wrap<CR>
 
+" F12: Tagbar
 map <F12> :TagbarToggle<CR>
+
 " ------
 " Buffer Actions
 " ------
-" After buffer
+
+" Enter buffer
 au BufEnter stories.md,intents* hi Error NONE
 
 " Before saving
-" Automatically deletes all tralling whitespace on save.
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre *.go,*.py,*.js ALEFix
+autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
+autocmd BufWritePre *.go,*.py,*.js ALEFix           " format
 
 " After saving
 autocmd BufWritePost * GitGutter
@@ -326,47 +309,31 @@ autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
 autocmd VimLeave *.tex !texclear %
 
 " ------
-" TEMPLATES
+" Templates
 " ------
 
-:au BufNewFile *.html r ~/.config/nvim/templates/skeleton.html
-:au BufNewFile *.go r ~/.config/nvim/templates/skeleton.go
-:au BufNewFile *.py r ~/.config/nvim/templates/skeleton.py
+autocmd BufNewFile *.html r ~/.config/nvim/templates/skeleton.html
+autocmd BufNewFile *.go r ~/.config/nvim/templates/skeleton.go
+autocmd BufNewFile *.py r ~/.config/nvim/templates/skeleton.py
 
 " ------
-" OTHER
+" Other
 " ------
+
+" Resize vim
 autocmd VimResized * :wincmd =
 
 " Add todo
 nnoremap <leader><leader>t OTODO:<Esc>:TComment<CR>A
 
 " ------
-" Remapping
-" ------
-
-" SetTitleMatchMode,2
-" #IfWinActive,VIM
-"    CAPSLOCK::ESC
-" return
-"
-" #IfWinActive
-"    CAPSLOCK::CTRL
-" return
-
-" ------
-" RipGrep
-" ------
-
-set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-nnoremap <Leader>g :silent lgrep<Space>
-
-nnoremap <silent> [f :lprevious<CR>
-nnoremap <silent> ]f :lnext<CR>
-
-" ------
 " Plugins
 " ------
+
+" RipGrep
+nnoremap <Leader>rg :Rg<Space>
+let g:rg_highlight = 1
+let g:rg_derive_root = 1
 
 " Easy-align
 xmap ga <Plug>(EasyAlign)
@@ -374,7 +341,6 @@ nmap ga <Plug>(EasyAlign)
 
 " FuzzyFind
 nnoremap <leader>p :FZF <cr>
-" let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Commenting
 nnoremap <C-c> :TComment<cr>
@@ -393,7 +359,6 @@ let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_inside_quotes = 1
 
 " Nerdtree
-" nnoremap <leader>f :NERDTreeToggle<CR>
 nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
 
 function! g:WorkaroundNERDTreeToggle()
@@ -408,7 +373,6 @@ autocmd FileType nerdtree noremap <buffer> <c-p> <nop>
 nnoremap <leader>t :TagbarToggle<CR>
 
 " Color
-" let g:colorizer_auto_color = 1
 let g:colorizer_auto_filetype='html,css,xdefaults,i3'
 
 " Multiple Cursors
@@ -459,8 +423,13 @@ let g:formatters_yaml = ["custom_yaml"]
 " let g:formatdef_custom_python = '"autopep8 --global-config ~/.config/.pycodestyle"'
 " let g:formatters_python = ["custom_python"]
 
-" CoC
+" " Deoplete
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_smart_case = 1
+" let g:deoplete#max_list = 15
+" let g:deoplete#async_timeout = 100
 
+" CoC
 let g:coc_force_debug = 1
 
 " Smaller updatetime for CursorHold & CursorHoldI
@@ -482,14 +451,16 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" " Use tab for trigger completion with characters ahead and navigate.
+" " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" python function expander
+nmap <leader>ya <Plug>(trimmer-mapping)  " Where `<leader>ya` is the mapping you want
 
 " Indentline
 let g:airline#extensions#tabline#enabled = 1
@@ -513,7 +484,7 @@ let g:ale_lint_fix_on_save = 1
 
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['gofmt']}
 let g:ale_fixers = {'python': ['black', ], 'javascript': ['eslint'], 'go': ['golangci-lint run', 'gofmt'], 'html': ['prettier']}
-" 'isort'
+
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '*'
@@ -566,6 +537,7 @@ let g:snips_github = "https://github.com/MoerkerkeLander"
 " ------
 " Appearance
 " ------
+
 colorscheme minimalist
 " colorscheme wombat256mod
 
@@ -582,13 +554,14 @@ hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=12
 " ------
 " Commands
 " ------
-command! W w suda://%
 
+command! W w suda://%
 
 " ------
 " Functions
 " ------
-augroup autocomnds
+
+augroup autocommands
     " Execute
     " Python
     autocmd FileType python call Run_Python()
@@ -634,6 +607,4 @@ augroup autocomnds
             echo "'spell' disabled..."
         endif
     endfunction
-
-
 augroup END
