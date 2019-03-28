@@ -273,9 +273,8 @@ nnoremap <silent> <leader><Tab> :exe "tabn ".g:lasttab<cr>
 vnoremap <silent> <leader><Tab> :exe "tabn ".g:lasttab<cr>
 
 " Navigating with guides
-" inoremap <leader>² <Esc>/<++><Enter>"_c4l
-vnoremap <leader>² <Esc>/<++><Enter>"_c4l
-map <leader>² <Esc>/<++><Enter>"_c4l
+vnoremap <leader>j <Esc>/<++><Enter>"_c4l
+nnoremap <leader>j <Esc>/<++><Enter>"_c4l
 
 " FUNCTION KEYS
 " AutoFromat
