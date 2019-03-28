@@ -174,7 +174,8 @@ nnoremap <C-w> <C-a>
 nnoremap <esc> :noh<cr>
 
 " Sorting selection
-map <leader>s :sort<cr>
+nnoremap <leader>s :sort<cr>
+vnoremap <leader>s :sort<cr>
 
 " Replace all
 nnoremap S :%s//g<Left><Left>
