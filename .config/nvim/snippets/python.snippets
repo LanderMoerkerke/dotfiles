@@ -3,8 +3,26 @@
 ###########################################################################
 
 #############
+#  General  #
+#############
+
+snippet printf "Print formatted"
+	print(f"${1:${VISUAL:variable}} {${2:${VISUAL:variable}}}")
+
+snippet printbr "Print breakline"
+	print("---------------------------------------")${0}
+
+#############
 #  Imports  #
 #############
 
 # snippet pprint "import pprint as pprint" b
 # 	import pprint as pprint
+
+#############
+#   Class   #
+#############
+
+snippet posti "Post init function"
+	def __post_init__(self):
+		${3:${VISUAL:pass}}
