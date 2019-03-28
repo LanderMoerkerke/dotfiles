@@ -18,6 +18,7 @@ Plug 'junegunn/vim-easy-align'                                      " Easy align
 Plug 'jamessan/vim-gnupg'                                           " GPG viewer
 Plug 'tpope/vim-eunuch'                                             " Unix operations inside vim
 Plug 'lambdalisue/suda.vim'                                         " Sudo
+Plug 'jremmen/vim-ripgrep'                                          " RipGrep
 
 " Appearance
 Plug 'mhinz/vim-startify'                                           " Fancy startup
