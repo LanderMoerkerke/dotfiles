@@ -141,6 +141,10 @@ set encoding=utf-8
 " ------
 " Key bindings
 " ------
+
+" Reload vim
+nnoremap <leader>r :source $NVIM<cr>
+
 " Copy to clipboard
 nnoremap  <leader>r  :e % <CR>
 
