@@ -67,6 +67,7 @@ let mapleader = " "
 " Some basics
 syntax on
 filetype plugin indent on
+let g:loaded_python3_provider=1
 
 set showtabline=2
 set number
@@ -257,6 +258,7 @@ nnoremap <leader>j <Esc>/<++><Enter>"_c4l
 
 vnoremap <leader>k <Esc>?<++><Enter>"_c4l
 nnoremap <leader>k <Esc>?<++><Enter>"_c4l
+
 " ------
 " Function Keys
 " ------
@@ -334,6 +336,7 @@ nnoremap <leader><leader>t OTODO:<Esc>:TComment<CR>A
 
 " RipGrep
 nnoremap <Leader>rg :Rg<Space>
+vnoremap <Leader>rg <C-w>:Rg<Space>
 let g:rg_highlight = 1
 let g:rg_derive_root = 1
 
@@ -466,7 +469,7 @@ nmap <leader>ya <Plug>(trimmer-mapping)  " Where `<leader>ya` is the mapping you
 
 " Indentline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme="minimalist"
 let g:airline#extensions#tabline#formatter = 'default'
