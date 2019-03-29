@@ -255,6 +255,8 @@ vnoremap <silent><leader><Tab> :exe "tabn ".g:lasttab<cr>
 vnoremap <leader>j <Esc>/<++><Enter>"_c4l
 nnoremap <leader>j <Esc>/<++><Enter>"_c4l
 
+vnoremap <leader>k <Esc>?<++><Enter>"_c4l
+nnoremap <leader>k <Esc>?<++><Enter>"_c4l
 " ------
 " Function Keys
 " ------
