@@ -1122,7 +1122,6 @@ c.bindings.commands = {
         "wl": "forward -w",
         "wo": "set-cmd-text -s :open -w",
         "wp": "open -w -- {clipboard}",
-        "x": "tab-close",
         "xO": "set-cmd-text :open -b -r {url:pretty}",
         "xb": "config-cycle statusbar.hide",
         "xo": "set-cmd-text -s :open -b",
