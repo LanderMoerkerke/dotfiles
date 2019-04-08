@@ -274,6 +274,8 @@ bindsym $mod+Insert		            exec --no-startup-id showclip
 bindsym $mod+g                      exec echo $EMAIL_PRIMARY | xclip -selection clipboard -selection clipboard
 bindsym $mod+Shift+g                exec echo $EMAIL_SECONDARY | xclip -selection clipboard -selection clipboard
 
+bindsym $mod+Shift+f                fullscreen disable; floating enable; resize set 670 380; sticky enable; move window to position 1250 700; border none
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # AUTOSTART APPLICATIONS
 # -----------------------------------------------------------------------------------------------------------------------------
