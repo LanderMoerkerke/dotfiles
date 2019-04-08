@@ -65,6 +65,12 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export JUPYTER_CONFIG_DIR="$HOME/.jupyter/"
 export NLTK_DATA="$HOME/.local/lib/nltk_data"
 
+# PIPENV
+export PIPENV_DEFAULT_PYTHON_VERSION=3.7
+export PIPENV_MAX_DEPTH=2
+export PIPENV_SKIP_LOCK=1
+export PIPENV_SPINNER=pong
+
 # SCHOOL
 export HOW=~/Documents/Howest/3NMCT/S5/
 export CRT=~/Documents/Howest/3NMCT/S5/Create_V/
