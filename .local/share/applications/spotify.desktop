@@ -1,6 +1,7 @@
 [Desktop Entry]
-Name=Spotify
-Comment=A chatplatform of WeGroupWolves for shit
+Name=Spotify Web
+GenericName=Music Webplayer
+Comment=Spotify streaming music client
 Icon=spotify
 Type=Application
 Categories=Network;WebBrowser;
