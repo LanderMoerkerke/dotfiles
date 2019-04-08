@@ -68,10 +68,16 @@ snippet ul "Unordered List"
 	*	${3}
 	*	${4}
 
+snippet ui "Unordered Item"
+	*	${4}
+
 snippet cl "Check List"
 	-	[ ] ${1}
 	-	[ ] ${2}
 	-	[ ] ${3}
+	-	[ ] ${4}
+
+snippet ci "Check Item"
 	-	[ ] ${4}
 
 snippet lb "Linebreak"
@@ -106,13 +112,21 @@ snippet idef "Reference-style Image ID"
 #  Tables  #
 ############
 
-snippet table "Table"
-	${1:First Header}   | ${6:First Header}
-	--------------------|--------------------
-	${2:Content Cell}   | ${7:Content Cell}
-	${3:Content Cell}   | ${8:Content Cell}
-	${4:Content Cell}   | ${9:Content Cell}
-	${5:Content Cell}   | ${10:Content Cell}
+snippet t2 "Table"
+	${1:First Header}   | ${2:First Header}
+	---------------|---------------
+	${3:Content Cell}   | ${4:Content Cell}
+	${5:Content Cell}   | ${6:Content Cell}
+	${7:Content Cell}   | ${8:Content Cell}
+	${9:Content Cell}   | ${10:Content Cell}
+
+snippet t3 "Table"
+	${1:First Header}   | ${2:First Header}  | ${3:First Header}
+	---------------|---------------|---------------
+	${4:Content Cell}   | ${5:Content Cell}  | ${6:Content Cell}
+	${7:Content Cell}   | ${8:Content Cell}  | ${9:Content Cell}
+	${10:Content Cell}  | ${11:Content Cell} | ${12:Content Cell}
+	${13:Content Cell}  | ${14:Content Cell} | ${15:Content Cell}
 
 ##########
 #  Code  #
