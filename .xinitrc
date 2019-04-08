@@ -11,16 +11,14 @@ xrdb ~/.Xresources
 
 numlockx on
 
-trackpad="SynPS/2 Synaptics TouchPad"
-
 # faster mouse speed
-xinput --set-prop $trackpad --type=int --format=8 "Device Accel Profile" "2"
+xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=8 "Device Accel Profile" "2"
 
 # scrolling both ways
-xinput --set-prop $trackpad --type=int --format=8 "Synaptics Two-Finger Scrolling" 1, 1
+xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=8 "Synaptics Two-Finger Scrolling" 1, 1
 
 # natural scrolling
-xinput --set-prop $trackpad --type=int --format=32 "Synaptics Scrolling Distance" -100, -100
+xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=32 "Synaptics Scrolling Distance" -100, -100
 
 keyboard-setup
 
