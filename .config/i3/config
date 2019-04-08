@@ -161,7 +161,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 bindsym $mod+p exec passmenu -i
-bindsym $mod+Shift+p exec enpass showassistant
+bindsym $mod+Shift+p exec gpgconf --reload gpg-agent
 
 bindsym $mod+Next exec variety -n
 bindsym $mod+Prior exec variety -p
@@ -268,7 +268,6 @@ bindsym Control+Shift+Print     	exec maim -s -u --format=png /dev/stdout | xcli
 bindsym $mod+Insert		            exec --no-startup-id showclip
 bindsym $mod+g                      exec echo $EMAIL_PRIMARY | xclip -selection clipboard -selection clipboard
 bindsym $mod+Shift+g                exec echo $EMAIL_SECONDARY | xclip -selection clipboard -selection clipboard
-bindsym $mod+Shift+f                exec gpgconf --reload gpg-agent
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # AUTOSTART APPLICATIONS
