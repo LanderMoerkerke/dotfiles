@@ -13,7 +13,6 @@ x-scheme-handler/http=qutebrowser.desktop;
 x-scheme-handler/https=qutebrowser.desktop;
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
 x-scheme-handler/magnet=transmission-remote.desktop;
-x-scheme-handler/mailto=neomutt.desktop;
 x-scheme-handler/unknown=nvim.desktop;
 
 [Added Associations]
