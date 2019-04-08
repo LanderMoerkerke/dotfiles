@@ -20,6 +20,15 @@ snippet syse "Sys exit"
 	__import__("sys").exit(${1:${VISUAL:1}})${2}
 
 #############
+#    Iter   #
+#############
+
+snippet while "while"
+	while ${1:${VISUAL:True}}:
+		${2:${VISUAL:pass}}
+	${3}
+
+#############
 #   Class   #
 #############
 
