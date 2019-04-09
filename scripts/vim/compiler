@@ -29,7 +29,7 @@ textype() { \
 	$command --output-directory="$dir" "$base"
 
     texclear $file
-    pdftotext $base.pdf - | tr " " "\n"  | sort | wc -l
+    pdftotext $base.pdf - | tr " " "\n" | tr "" "." | sort | wc -l
 	}
 
 shebangtest() {
@@ -46,8 +46,9 @@ case "$file" in
 	*\.tex) textype "$file" ;;
 	*\.md) pandoc "$file" --pdf-engine=xelatex -V geometry:margin=1in -o "$base".pdf ;;
 	*config.h) make && sudo make install ;;
-        *\.c) cc "$file" -o "$base" && "$base" ;;
+    *\.c) cc "$file" -o "$base" && "$base" ;;
 	*\.py) python "$file" ;;
 	*\.go) go run "$file" ;;
-	*) shebangtest ;;
+	*\.sent) setsid sent "$file" 2>/dev/null & ;;
+	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac
