@@ -455,7 +455,14 @@ let g:ale_completion_enabled = 1
 let g:ale_lint_fix_on_save = 1
 
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['gofmt']}
-let g:ale_fixers = {'python': ['black', ], 'javascript': ['eslint'], 'go': ['golangci-lint run', 'gofmt'], 'html': ['prettier']}
+let g:ale_fixers = {
+    \ 'python': ['black', ],
+    \ 'javascript': ['eslint'],
+    \ 'go': ['golangci-lint run', 'gofmt'],
+    \ 'html': ['prettier'],
+    \ 'cpp': ['clang-format'],
+    \ 'markdown': ['prettier']
+\}
 
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '!'
