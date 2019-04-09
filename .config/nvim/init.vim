@@ -38,9 +38,13 @@ Plug 'lvht/tagbar-markdown'                                         " Tagbar for
 Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
 
 " Completion
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'ColinKennedy/vim-python-function-expander'
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
 Plug 'honza/vim-snippets'                                           " Extra snippets
@@ -429,45 +433,6 @@ let g:formatters_yaml = ["custom_yaml"]
 " let g:formatdef_custom_python = '"autopep8 --global-config ~/.config/.pycodestyle"'
 " let g:formatters_python = ["custom_python"]
 
-" " Deoplete
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#enable_smart_case = 1
-" let g:deoplete#max_list = 15
-" let g:deoplete#async_timeout = 100
-
-" CoC
-let g:coc_force_debug = 1
-
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gm <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" " Use tab for trigger completion with characters ahead and navigate.
-" " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" python function expander
-nmap <leader>ya <Plug>(trimmer-mapping)  " Where `<leader>ya` is the mapping you want
-
 " Indentline
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -498,6 +463,56 @@ let g:ale_sign_warning = '*'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" LanguageClient
+let g:LanguageClient_serverCommands = {
+            \ 'python':     ['pyls'],
+            \ 'go':         ['go-langserver'],
+            \ 'dockerfile': ['docker-langserver'],
+            \ 'c':          ['clangd'],
+            \ 'cpp':        ['clangd'],
+            \ 'sh':         ['bash-language-server'],
+\ }
+let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
+
+" \ 'python': ['dotnet', 'exec', '/home/lander/Programs/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer.dll'],
+
+" let g:LanguageClient_loggingLevel="DEBUG"
+" let g:LanguageClient_loggingFile=expand("~/Logs/test")
+
+function LC_maps()
+    if has_key(g:LanguageClient_serverCommands, &filetype)
+        nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+        nnoremap <silent> gD :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>zz
+        nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>zz
+        nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+        nnoremap <silent> gx :call LanguageClient_contextMenu()<CR>
+        nnoremap <leader>rn :call LanguageClient#textDocument_rename()<CR>
+
+        " nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+        nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+        nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+        nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+        nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+
+
+    endif
+endfunction
+
+autocmd FileType * call LC_maps()
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#max_list = 25
+let g:deoplete#async_timeout = 100
+
+" highlight Pmenu ctermbg=8 guibg=#606060
+" highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
+" highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+
+" Python Function Expander
+nmap <leader>ya <Plug>(trimmer-mapping)  " Where `<leader>ya` is the mapping you want
 
 " Zeal
 nmap <leader>Z <Plug>Zeavim
