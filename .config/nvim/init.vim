@@ -307,7 +307,8 @@ au BufEnter stories.md,intents* hi Error NONE
 
 " Before saving
 autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
-autocmd BufWritePre *.go,*.py,*.js ALEFix           " format
+autocmd BufWritePre *.go,*.py,*.jsd ALEFix           " format
+" autocmd BufWritePre *.md           Autoformat       " format
 
 " After saving
 autocmd BufWritePost * GitGutter
@@ -326,6 +327,8 @@ autocmd VimLeave *.tex !texclear %
 autocmd BufNewFile *.html r ~/.config/nvim/templates/skeleton.html
 autocmd BufNewFile *.go r ~/.config/nvim/templates/skeleton.go
 autocmd BufNewFile *.py r ~/.config/nvim/templates/skeleton.py
+
+
 
 " ------
 " Other
