@@ -13,6 +13,7 @@ Plug 'terryma/vim-multiple-cursors'                                 " Multiple C
 Plug 'tpope/vim-surround'                                           " Surround
 Plug 'KabbAmine/zeavim.vim'											" Zeal integration
 Plug 'junegunn/vim-easy-align'                                      " Easy align
+Plug 'tpope/vim-repeat'                                             " Repeat custom plugins
 
 " Unix related
 Plug 'jamessan/vim-gnupg'                                           " GPG viewer
