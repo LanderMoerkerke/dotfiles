@@ -45,6 +45,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
+
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
 Plug 'honza/vim-snippets'                                           " Extra snippets
@@ -180,13 +181,13 @@ vnoremap <leader>s :sort<cr>
 nnoremap S :%s//g<Left><Left>
 
 " Open the selected text in a split (i.e. should be a file).
-map <leader>o "oyaW:sp <C-R>o<CR>
-xnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
-vnoremap <leader>o "oy<esc>:sp <C-R>o<CR>
+map <leader>o "oyaW:vsp <C-R>o<CR>
+xnoremap <leader>o "oy<esc>:vsp <C-R>o<CR>
+vnoremap <leader>o "oy<esc>:vsp <C-R>o<CR>
 
-map <leader>O "oyaW:vsp <C-R>o<CR>
-xnoremap <leader>O "oy<esc>:vsp <C-R>o<CR>
-vnoremap <leader>O "oy<esc>:vsp <C-R>o<CR>
+map <leader>O "oyaW:sp <C-R>o<CR>
+xnoremap <leader>O "oy<esc>:sp <C-R>o<CR>
+vnoremap <leader>O "oy<esc>:sp <C-R>o<CR>
 
 " Folding
 nnoremap <leader>z :set wrap!<cr>
@@ -358,8 +359,8 @@ nnoremap <C-c> :TComment<cr>
 vnoremap <C-c> :TComment<cr>
 inoremap <C-c> <Esc>:TComment<cr>A
 
-nnoremap <C-S> :Snippets<cr>
-inoremap <C-S> <Esc>:Snippets<cr>
+" nnoremap <C-S> :Snippets<cr>
+" inoremap <C-S> <Esc>:Snippets<cr>
 
 " DelimitMate
 let g:delimitMate_autoclose = 1
