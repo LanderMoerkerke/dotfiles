@@ -465,3 +465,5 @@ zle-line-init () {
   zle -K viins
   echo -ne "\033]12;Grey\007"
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
