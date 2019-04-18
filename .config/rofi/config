@@ -1,17 +1,31 @@
-! Rofi config file
+! -----------------------------------------------
+! Rofi
+! -----------------------------------------------
+
+! Appearance
 rofi.monitor: -1
 rofi.lines: 12
 rofi.font: Source Sans Pro 10
 rofi.show-icons: true
 rofi.theme: /usr/share/rofi/themes/oxide.rasi
+
+! Matching
+rofi.matching: normal
+ofi.drun-match-fields: name,generic,categories,comment
+
+! Style
 rofi.display-window: Window
 rofi.display-drun: Search
 rofi.separator-style: none
 rofi.hide-scrollbar: true
 
+! Colours
 rofi.color-normal: #fdf6e3,  #002b36,  #eee8d5,  #586e75,  #eee8d5
 rofi.color-urgent: #fdf6e3,  #dc322f,  #eee8d5,  #dc322f,  #fdf6e3
 rofi.color-active: #fdf6e3,  #268bd2,  #eee8d5,  #268bd2,  #fdf6e3
 rofi.color-window: #fdf6e3,      #002b36,  #002b36
+
+! Misc
+rofi.auto-select: true
 
 ! vim: ft=xdefaults
