@@ -1073,6 +1073,7 @@ c.bindings.commands = {
         "b": "set-cmd-text -s :quickmark-load",
         "cd": "download-clear",
         "co": "tab-only",
+        "e": "set-cmd-text :open {url:pretty}",
         "d": "scroll-page 0 0.5",
         "f": "hint",
         "g$": "tab-focus -1",
