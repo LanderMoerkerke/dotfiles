@@ -618,6 +618,12 @@ augroup autocommands
         nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
     endf
 
+    " shell
+    autocmd FileType sh call Run_Sh()
+    fun! Run_Sh()
+        nnoremap <buffer> <F5> :exec '!sh' shellescape(@%, 1)<cr>
+    endf
+
     " CPP
     autocmd FileType cpp call Run_CPP()
     fun! Run_CPP()
