@@ -30,7 +30,7 @@ padding-left = 1
 padding-right = 1
 
 module-margin = 2
-modules-left = i3 eth wlan
+modules-left = i3 eth wlan vpn
 modules-center = date
 modules-right = syncing updates mail cpu memory temperature battery volume
 
@@ -82,6 +82,13 @@ interface = enp0s31f6
 [module/wireless-network]
 type = internal/network
 interface = wlp2s0
+
+[module/vpn]
+type = custom/script
+exec = echo VPN
+exec-if = pgrep -x openvpn
+interval = 5
+format-prefix = "  "
 
 [module/date]
 type = internal/date
