@@ -367,7 +367,7 @@ inoremap <C-c> <Esc>:TComment<cr>A
 
 " DelimitMate
 let g:delimitMate_autoclose = 1
-let g:delimitMate_matchpairs = "(:),[:],{:},<:>"
+let g:delimitMate_matchpairs = "(:),[:],{:}"
 let g:delimitMate_jump_expansion = 1
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_cr = 2
