@@ -7,10 +7,18 @@
 #############
 
 snippet printf "Print formatted"
-	print(f"${1:${VISUAL:variable}} {${2:${VISUAL:variable}}}")
+	print(f"${1:text} {${2:variable}}${3}")
 
 snippet printbr "Print breakline"
-	print("---------------------------------------")${0}
+	print("---------------------------------------")
+
+snippet ts "Time end"
+	t0 = time.time()
+
+snippet te "Time end"
+	print("---------------------------------------")
+	print(f"Code finished in {time.time() - t0:.4f}")
+	print("---------------------------------------")
 
 #############
 #  Imports  #
@@ -35,3 +43,20 @@ snippet while "while"
 snippet posti "Post init function"
 	def __post_init__(self):
 		${3:${VISUAL:pass}}
+
+#############
+#  Comments #
+#############
+
+snippet sec "Section with breaklines"
+	# ---------------------------------------
+	# ${1}
+	# ---------------------------------------
+
+snippet br "Breakline"
+	# ---------------------------------------${0}
+
+#############
+#   Others  #
+#############
+

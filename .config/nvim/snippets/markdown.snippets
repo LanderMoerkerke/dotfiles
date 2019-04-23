@@ -3,6 +3,29 @@
 ###########################################################################
 
 #############
+#  Startup  #
+#############
+
+snippet toc "Add table of contents"
+	## Table of Contents
+
+	<!-- vim-markdown-toc GitLab -->
+
+	<!-- vim-markdown-toc -->
+
+snippet start "Start of an document"
+	# ${1:title}
+
+	## Table of Contents
+
+	<!-- vim-markdown-toc GitLab -->
+
+	<!-- vim-markdown-toc -->
+
+	## ${2:heading}
+
+
+#############
 #  Headers  #
 #############
 
@@ -57,30 +80,30 @@ snippet > "Quote" !b
 ###########
 
 snippet ol "Ordered List"
-	1.	${1}
-	2.	${2}
-	3.	${3}
-	4.	${4}
+	1.	${1:item}
+	2.	${2:item}
+	3.	${3:item}
+	4.	${4:item}
 
 snippet ul "Unordered List"
-	*	${1}
-	*	${2}
-	*	${3}
-	*	${4}
+	-	${1:item}
+	-	${2:item}
+	-	${3:item}
+	-	${4:item}
 
 snippet ui "Unordered Item"
-	*	${4}
+	-	${4:item}
 
 snippet cl "Check List"
-	-	[ ] ${1}
-	-	[ ] ${2}
-	-	[ ] ${3}
-	-	[ ] ${4}
+	-	[ ] ${1:item}
+	-	[ ] ${2:item}
+	-	[ ] ${3:item}
+	-	[ ] ${4:item}
 
 snippet ci "Check Item"
-	-	[ ] ${4}
+	-	[ ] ${4:item}
 
-snippet lb "Linebreak"
+snippet br "Linebreak"
 	<br>${1}
 
 ######################
@@ -90,10 +113,13 @@ snippet lb "Linebreak"
 snippet dl "Definition List" !b
 	${1:Word 1}
 	: ${2:Definition}
+
 	${3:Word 2}
 	: ${4:Definition}
+
 	${5:Word 3}
 	: ${6:Definition}
+
 	${7:Word 4}
 	: ${8:Definition}
 
@@ -132,12 +158,12 @@ snippet t3 "Table"
 #  Code  #
 ##########
 
-snippet ` "Inline code"
+snippet ic "Inline code"
 	\`${1:code}\` $0
-snippet ~ "Code" b
-	~~~
+snippet bc "Code" b
+	\`\`\`
 	${1:${VISUAL:Code}}
-	~~~
+	\`\`\`
 
 #####################
 #  Horizontal Rule  #
