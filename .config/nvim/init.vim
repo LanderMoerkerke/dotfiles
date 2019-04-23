@@ -40,11 +40,7 @@ Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Ma
 " Completion
 Plug 'ColinKennedy/vim-python-function-expander'
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }       " Deoplete
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
@@ -74,7 +70,6 @@ let mapleader = " "
 " Some basics
 syntax on
 filetype plugin indent on
-let g:loaded_python3_provider=1
 
 set showtabline=2
 set number
@@ -328,8 +323,6 @@ autocmd BufNewFile *.html r ~/.config/nvim/templates/skeleton.html
 autocmd BufNewFile *.go r ~/.config/nvim/templates/skeleton.go
 autocmd BufNewFile *.py r ~/.config/nvim/templates/skeleton.py
 
-
-
 " ------
 " Other
 " ------
@@ -402,15 +395,10 @@ let g:multi_cursor_prev_key            = '<A-z>'
 let g:multi_cursor_skip_key            = '<C-z>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-" Vim Surround
-" ysw word
-" yss line
-" ds delete
-"
 " Indentline
 let g:indentLine_color_tty_light = 200  " (default: 4)
-let g:indentLine_color_dark = 210       " (default: 2)
-let g:indentLine_setConceal = 0         " (default: 2)
+let g:indentLine_color_dark      = 210  " (default: 2)
+let g:indentLine_setConceal      = 0    " (default: 2)
 
 " GitGutter
 let g:gitgutter_max_signs = 1000
@@ -479,48 +467,27 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " Quickfix pane
 let g:lt_height = 3
 
-" LanguageClient
-let g:LanguageClient_serverCommands = {
-            \ 'python':     ['pyls'],
-            \ 'go':         ['go-langserver'],
-            \ 'dockerfile': ['docker-langserver'],
-            \ 'c':          ['clangd'],
-            \ 'cpp':        ['clangd'],
-            \ 'sh':         ['bash-language-server'],
-\ }
-let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
+" CoC
+" let g:coc_force_debug = 1
 
-" \ 'python': ['dotnet', 'exec', '/home/lander/Programs/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer.dll'],
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
 
-" let g:LanguageClient_loggingLevel="DEBUG"
-" let g:LanguageClient_loggingFile=expand("~/Logs/test")
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-function LC_maps()
-    if has_key(g:LanguageClient_serverCommands, &filetype)
-        nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-        nnoremap <silent> gD :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>zz
-        nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>zz
-        nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-        nnoremap <silent> gx :call LanguageClient_contextMenu()<CR>
-        nnoremap <leader>rn :call LanguageClient#textDocument_rename()<CR>
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gm <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-        " nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-        nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-        nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-        nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-        nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-
-    endif
-endfunction
-
-autocmd FileType * call LC_maps()
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#max_list = 25
-let g:deoplete#async_timeout = 100
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 
 " highlight Pmenu ctermbg=8 guibg=#606060
 " highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
