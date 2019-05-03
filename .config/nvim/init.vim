@@ -368,6 +368,10 @@ nmap ga <Plug>(EasyAlign)
 " FuzzyFind
 nnoremap <leader>p :FZF <cr>
 
+" Esc closes FZF
+au TermOpen * tnoremap <Esc> <c-\><c-n>
+au FileType fzf tunmap <Esc>
+
 " Echodoc
 " set cmdheight=2
 let g:echodoc#enable_at_startup = 1
