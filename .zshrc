@@ -259,6 +259,10 @@ alias vmware_stop="sudo systemctl stop vmware-hostd-certificates.service vmware-
 # FUNCTIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
+cop () {
+    cat "$1" | xsel -ib
+}
+
 wificonnect () {
 
     # TODO: append
