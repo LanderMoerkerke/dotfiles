@@ -196,6 +196,7 @@ alias python3="python3.6"
 alias pip="pip3.7"
 alias pip3="pip3.6"
 alias pe="pipenv"
+alias peinit="pipenv install pynvim 'python-language-server[all]' --dev"
 alias jn="jupyter notebook --browser=Chromium"
 
 ## one letter aliasses
