@@ -54,6 +54,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+Plug 'Shougo/echodoc.vim'                                           " Show doc when typing a function
+
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
 Plug 'honza/vim-snippets'                                           " Extra snippets
@@ -361,6 +363,11 @@ nmap ga <Plug>(EasyAlign)
 
 " FuzzyFind
 nnoremap <leader>p :FZF <cr>
+
+" Echodoc
+" set cmdheight=2
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'signature'
 
 " Commenting
 nnoremap <C-c> :TComment<cr>
