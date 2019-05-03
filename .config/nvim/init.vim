@@ -95,10 +95,10 @@ set nobackup
 
 set laststatus=2                                " always show the statusline
 
-set nofoldenable								" disable folding
-set foldmethod=indent
-set foldnestmax=2
-set foldlevel=1
+" set nofoldenable								" disable folding
+set foldmethod=marker
+" set foldnestmax=2
+" set foldlevel=1
 
 set rtp^=~/.config/nvim
 set mouse-=a                                    " disable mouse
