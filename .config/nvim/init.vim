@@ -320,7 +320,7 @@ au BufEnter stories.md,intents* hi Error NONE
 
 " Before saving
 autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
-autocmd BufWritePre *.go,*.py,*.jsd ALEFix           " format
+autocmd BufWritePre *.go,*.py,*.jsd,*.md ALEFix           " format
 " autocmd BufWritePre *.md           Autoformat       " format
 
 " After saving
@@ -469,16 +469,19 @@ let g:ale_lint_on_enter = 0
 let g:ale_completion_enabled = 0
 let g:ale_lint_fix_on_save = 1
 
-let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['gofmt']}
+let g:ale_linters = {'python': ['flake8', 'pyls', 'pyflakes', 'bandit', 'pyre'], 'javascript': ['eslint'], 'go': ['golint']}
 let g:ale_fixers = {
-    \ 'python': ['black', ],
-    \ 'javascript': ['eslint'],
-    \ 'go': ['golangci-lint run', 'gofmt'],
-    \ 'html': ['prettier'],
     \ 'cpp': ['clang-format'],
-    \ 'markdown': ['prettier']
+    \ 'go': ['golangci-lint run', 'gofmt', 'goimports', 'gomod'],
+    \ 'html': ['prettier'],
+    \ 'javascript': ['eslint', 'prettier', 'eslint'],
+    \ 'json': ['fixjson', 'prettier'],
+    \ 'markdown': ['prettier', 'remark'],
+    \ 'python': ['black', ],
+    \ 'sh': ['shfmt'],
 \}
-
+" golangci-lint run
+" remark
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '*'
