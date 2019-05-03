@@ -394,6 +394,9 @@ let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_inside_quotes = 1
 
 " Nerdtree
+let NERDTreeShowHidden=1
+let g:NERDTreeWinSize=25
+
 nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
 
 function! g:WorkaroundNERDTreeToggle()
