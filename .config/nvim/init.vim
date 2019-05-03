@@ -84,6 +84,7 @@ let mapleader = " "
 " Some basics
 syntax on
 filetype plugin indent on
+set signcolumn=yes
 
 set showtabline=2
 set number
@@ -110,9 +111,11 @@ set linebreak                                   " only wrap after words, not ins
 set nowrap
 set fo-=t
 
+set noshowmode                                  " don't show the mode
 set ignorecase                                  " ignore case in (search) patterns
 set smartcase                                   " when the (search) pattern contains uppercase chars, don't ignore case
 set hlsearch                                    " highlight all the matches for the search
+set inccommand=split                            " preview commands such as sed
 set t_Co=256
 set showcmd
 
