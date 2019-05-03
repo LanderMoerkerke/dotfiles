@@ -430,6 +430,11 @@ let g:indentLine_color_tty_light = 200  " (default: 4)
 let g:indentLine_color_dark      = 210  " (default: 2)
 let g:indentLine_setConceal      = 0    " (default: 2)
 
+" ToC markdown
+let g:vmt_fence_text = 'TOC'
+let g:vmt_fence_closing_text = '/TOC'
+let g:vmt_list_item_char = "-  "
+
 " GitGutter
 let g:gitgutter_max_signs = 1000
 
