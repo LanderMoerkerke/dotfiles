@@ -1,11 +1,18 @@
 {
-    "suggest.snippetIndicator": " [S]",
-    "pyls.plugins.rope_completion.enabled": true,
-    "pyls.plugins.pyflakes.enabled": false,
-    "pyls.plugins.jedi_completion.enabled": true,
-    "pyls.plugins.jedi_definition.follow_imports": true,
-    "pyls.plugins.pycodestyle.enabled": false,
-    "pyls.plugins.yapf.enabled": false,
+    "suggest.snippetIndicator": " ►",
+
+    "python.autoComplete.addBrackets": true,
+    "diagnostic.displayByAle": true,
+
+    "suggest.noselect": false,
+    "suggest.enablePreview": true,
+    "suggest.minTriggerInputLength": 2,
+
+    "codeLens.enable": true,
+    "diagnostic.virtualText": true,
+
+    "coc.preferences.codeLens.enable": true,
+
     "languageserver": {
         "golang": {
             "command": "go-langserver",
