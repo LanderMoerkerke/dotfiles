@@ -40,7 +40,19 @@ Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Ma
 " Completion
 Plug 'ColinKennedy/vim-python-function-expander'
 
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'ncm2/ncm2'                                                    " Completion using NCM2
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-go'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
@@ -467,34 +479,94 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " Quickfix pane
 let g:lt_height = 3
 
-" CoC
-" let g:coc_force_debug = 1
+" " CoC
+" " let g:coc_force_debug = 1
+"
+" " Smaller updatetime for CursorHold & CursorHoldI
+" set updatetime=300
+"
+" " Use `[c` and `]c` for navigate diagnostics
+" nmap <silent> [c <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]c <Plug>(coc-diagnostic-next)
+"
+" " Remap keys for gotos
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gm <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+"
+" " Use K for show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+" " Remap for rename current word
+" nmap <leader>rn <Plug>(coc-rename)
 
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
+" LanguageClient
 
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" \ 'go':         ['go-langserver'],
 
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gm <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
+let g:LanguageClient_hasSnippetSupport = 1
 
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+let g:LanguageClient_serverCommands = {
+            \ 'c':          ['clangd'],
+            \ 'cpp':        ['clangd'],
+            \ 'cs':         ['css-languageserver', '--stdio'],
+            \ 'dockerfile': ['docker-langserver'],
+            \ 'go':         ['gopls'],
+            \ 'html':       ['html-languageserver', '--stdio'],
+            \ 'json':       ['json-languageserver', '--stdio'],
+            \ 'python':     ['pyls'],
+            \ 'sh':         ['bash-language-server'],
+\ }
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+function LC_maps()
+    if has_key(g:LanguageClient_serverCommands, &filetype)
+        nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+        nnoremap <silent> gD :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>zz
+        nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>zz
+        nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+        nnoremap <silent> gx :call LanguageClient_contextMenu()<CR>
+        nnoremap <leader>rn :call LanguageClient#textDocument_rename()<CR>
+        " nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+        nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+        nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+        nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+        nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+    endif
+endfunction
+
+autocmd FileType * call LC_maps()
+
+" NCM2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+" set shortmess+=c
+
+let g:ncm2#popup_delay = 211
+let g:ncm2#complete_delay = 61
+let g:ncm2#popup_limit = 21
+let g:ncm2#total_popup_limit = 41
+
+let g:UltiSnipsRemoveSelectModeMappings = 1
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <C-Tab> ncm2#complete()
+
+" let g:UltiSnipsExpandTrigger		= "<tab>"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 " highlight Pmenu ctermbg=8 guibg=#606060
 " highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
 " highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 
 " Python Function Expander
-nmap <leader>ya <Plug>(trimmer-mapping)  " Where `<leader>ya` is the mapping you want
+nmap <leader>ya <Plug>(trimmer-mapping)
 
 " Zeal
 nmap <leader>Z <Plug>Zeavim
