@@ -69,7 +69,6 @@ Plug 'Valloric/ListToggle'                                          " quickfix a
 Plug 'w0rp/ale'                                                     " Linting engine
 
 " Filetypes / syntax
-Plug 'leafgarland/typescript-vim'                                   " Typescript
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
 Plug 'sheerun/vim-polyglot'
 
