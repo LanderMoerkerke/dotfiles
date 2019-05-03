@@ -1,0 +1,22 @@
+# unsetting the keys bound to next/previous image by stating it without assigning any keys:
+next_img
+prev_img
+
+# further unsetting:
+scroll_right
+scroll_left
+scroll_up
+scroll_down
+toggle_filenames
+
+# custom key mapping:
+# vim movement
+scroll_up Up k
+scroll_down Down j
+scroll_left Left h
+scroll_right Right l
+
+next_img space K
+prev_img BackSpace J
+
+toggle_filenames F
