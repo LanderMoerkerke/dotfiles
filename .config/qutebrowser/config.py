@@ -13,7 +13,14 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {"w": "session-save", "q": "quit", "wq": "quit --save"}
+c.aliases = {
+    "w": "session-save",
+    "q": "quit",
+    "wq": "quit --save",
+    "burp": "set content.proxy http://127.0.0.1:8080/",
+    "tor": "set content.proxy socks://localhost:9050/",
+    "noproxy": "set content.proxy system",
+}
 
 # How often (in milliseconds) to auto-save config/cookies/etc.
 # Type: Int
