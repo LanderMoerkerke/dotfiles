@@ -71,6 +71,7 @@ Plug 'w0rp/ale'                                                     " Linting en
 " Filetypes / syntax
 Plug 'leafgarland/typescript-vim'                                   " Typescript
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
