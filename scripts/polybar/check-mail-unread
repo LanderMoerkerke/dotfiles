@@ -2,7 +2,11 @@
 
 check_unread () {
     # unread=$(find ~/.mail/*/INBOX/new | grep new/ | wc | awk '{print $1;}')
-    unread=$(find ~/.mail/*/INBOX/new | grep new/ | wc -l)
+    if [[ $1 ]]; then
+        unread=$(find ~/.mail/$1/INBOX/new | grep new/ | wc -l)
+    else
+        unread=$(find ~/.mail/*/INBOX/new | grep new/ | wc -l)
+    fi
 
     if [ "$unread" != "0" ]; then
         echo $unread
@@ -11,4 +15,4 @@ check_unread () {
     fi
 }
 
-check_unread
+check_unread $1
