@@ -751,3 +751,18 @@ augroup autocommands
         endif
     endfunction
 augroup END
+
+" ------
+" Functions
+" ------
+
+if &diff
+    set cursorline
+    map ] ]c
+    map [ [c
+
+    map <leader>sh :diffget 1<cr>
+    map <leader>sl :diffget 2<cr>
+
+    let g:LanguageClient_diagnosticsEnable = 0
+endif
