@@ -114,7 +114,7 @@ c.completion.web_history.max_items = -1
 # - multiple-tabs: Show a confirmation if multiple tabs are opened.
 # - downloads: Show a confirmation if downloads are running
 # - never: Never show a confirmation.
-c.confirm_quit = ["never"]
+c.confirm_quit = ["multiple-tabs", "downloads"]
 
 # Size of the HTTP network cache. Null to use the default value. With
 # QtWebEngine, the maximum supported value is 2147483647 (~2 GB).
