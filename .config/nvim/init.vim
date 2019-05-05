@@ -65,7 +65,6 @@ Plug 'Chiel92/vim-autoformat'                                       " Autoformat
 Plug 'tell-k/vim-autopep8'											" Autopep8 formatter
 
 " Linting
-Plug 'Valloric/ListToggle'                                          " quickfix and loclist panes
 Plug 'w0rp/ale'                                                     " Linting engine
 
 " Filetypes / syntax
@@ -513,8 +512,7 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
-" Quickfix pane
-let g:lt_height = 3
+let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
 
 " " CoC
 " " let g:coc_force_debug = 1
