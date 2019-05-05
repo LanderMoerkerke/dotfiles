@@ -558,7 +558,9 @@ let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
 " LanguageClient
 
 " \ 'go':         ['go-langserver'],
+" \ 'go':         ['go'],
 
+let g:LanguageClient_diagnosticsList = "Location"
 let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
 let g:LanguageClient_hasSnippetSupport = 1
 
@@ -567,7 +569,7 @@ let g:LanguageClient_serverCommands = {
             \ 'cpp':        ['clangd'],
             \ 'cs':         ['css-languageserver', '--stdio'],
             \ 'dockerfile': ['docker-langserver'],
-            \ 'go':         ['gopls'],
+            \ 'go':         ['go-langserver'],
             \ 'html':       ['html-languageserver', '--stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
             \ 'python':     ['pyls'],
