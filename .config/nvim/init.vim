@@ -650,7 +650,7 @@ nnoremap <leader>b :call fzf#run({
 " ------
 
 let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsSnippetDirectories = ["UltiSnips", "~/.config/nvim/snippets/"]
+let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/snippets/"]
 
 " Edit custom snippets
 nnoremap <leader>e :UltiSnipsEdit<cr>
