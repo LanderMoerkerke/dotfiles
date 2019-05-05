@@ -515,7 +515,7 @@ let g:ale_lint_fix_on_save = 1
 let g:ale_linters = {'python': ['flake8', 'pyls', 'pyflakes', 'bandit', 'pyre'], 'javascript': ['eslint'], 'go': ['golint']}
 let g:ale_fixers = {
     \ 'cpp': ['clang-format'],
-    \ 'go': ['golangci-lint run', 'gofmt', 'goimports', 'gomod'],
+    \ 'go': ['gofmt', 'goimports', 'gomod'],
     \ 'html': ['prettier'],
     \ 'javascript': ['eslint', 'prettier', 'eslint'],
     \ 'json': ['fixjson', 'prettier'],
