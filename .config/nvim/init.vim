@@ -153,6 +153,9 @@ set encoding=utf-8
 " Key bindings
 " ------
 
+" Unbindings
+map Q <Nop>
+
 " Reload vim
 nnoremap <leader>rv :source $NVIM<cr>
 
