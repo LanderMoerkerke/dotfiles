@@ -6,7 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }   " Fuzzy Find
 Plug 'junegunn/fzf.vim'                                             " Fuzzy Find
 Plug 'tpope/vim-fugitive'                                           " Fuzzy Find Commits
-Plug 'tomtom/tcomment_vim'                                          " Commenting with g <
+Plug 'tpope/vim-commentary'                                         " Commenting with motions
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
 Plug 'Raimondi/delimitMate'                                         " Autoclose symbols
 Plug 'terryma/vim-multiple-cursors'                                 " Multiple Cursors
@@ -348,7 +348,7 @@ autocmd BufNewFile *.py r ~/.config/nvim/templates/skeleton.py
 autocmd VimResized * :wincmd =
 
 " Add todo
-nnoremap <leader><leader>t OTODO:<Esc>:TComment<CR>A
+nnoremap <leader><leader>t OTODO:<Esc>:Commentary<CR>A
 
 " ------
 " Plugins
@@ -377,9 +377,9 @@ let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'signature'
 
 " Commenting
-nnoremap <C-c> :TComment<cr>
-vnoremap <C-c> :TComment<cr>
-inoremap <C-c> <Esc>:TComment<cr>A
+nnoremap <C-c> :Commentary<cr>
+vnoremap <C-c> :Commentary<cr>
+inoremap <C-c> <Esc>:Commentary<cr>A
 
 " nnoremap <C-S> :Snippets<cr>
 " inoremap <C-S> <Esc>:Snippets<cr>
