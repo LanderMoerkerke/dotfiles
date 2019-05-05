@@ -20,6 +20,7 @@ c.aliases = {
     "burp": "set content.proxy http://127.0.0.1:8080/",
     "tor": "set content.proxy socks://localhost:9050/",
     "noproxy": "set content.proxy system",
+    "mpv": "spawn -d mpv --force-window=immediate {url}",
 }
 
 # How often (in milliseconds) to auto-save config/cookies/etc.
