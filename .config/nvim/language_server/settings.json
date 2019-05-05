@@ -1,0 +1,75 @@
+{
+    "go.useLanguageServer": true,
+    "go.alternateTools": {
+        "go-langserver": "gopls"
+    },
+    "go.languageServerExperimentalFeatures": {
+        "format": true,
+        "autoComplete": true
+    },
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true,
+        "enhancedHover": true
+    },
+
+    "enabled": true,
+    "initializationOptions": {
+        "displayOptions": {
+            "preferredFormat": "plaintext",
+            "trimDocumentationLines": true,
+            "maxDocumentationLineLength": 0,
+            "trimDocumentationText": true,
+            "maxDocumentationTextLength": 0
+        },
+        "interpreter": {
+            "properties": {
+                "InterpreterPath": "/usr/bin/python",
+                "UseDefaultDatabase": true,
+                "Version": "3.7.2"
+            }
+        },
+        "GoInitializationOptions": {
+            "formatTool": "gofmt",
+            "gocodeCompletionEnabled": true,
+            "diagnosticsEnabled": true,
+            "lintTool": "none",
+            "maxParallelism": 2
+        },
+
+        "plugins.pycodestyle.ignore": ["E501"],
+        "plugins.pycodestyle.maxLineLength": 160,
+
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint",
+
+        "deprecatedMaintainer": "warning",
+        "directiveCasing": "warning",
+        "emptyContinuationLine": "warning",
+        "instructionCasing": "warning",
+        "instructionCmdMultiple": "warning",
+        "instructionEntrypointMultiple": "warning",
+        "instructionHealthcheckMultiple": "warning",
+        "instructionJSONInSingleQuotes": "warning"
+    },
+
+    "pyls": {
+        "plugins": {
+            "pyflakes": {
+                "enabled": true
+            },
+            "pydocstyle": {
+                "enabled": false,
+                "ignore": ["E501", "D213"],
+                "maxLineLength": 160
+            }
+        }
+    }
+}
