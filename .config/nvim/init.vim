@@ -670,18 +670,23 @@ let g:snips_github = "https://github.com/MoerkerkeLander"
 " Appearance
 " ------
 
-colorscheme minimalist
+colorscheme              minimalist
 " colorscheme wombat256mod
 
-hi clear SpellBad
-hi SpellBad ctermfg=203
-hi SpellBad cterm=underline
+hi clear                 SpellBad
+hi SpellBad              ctermfg=203
+hi SpellBad              cterm=underline
+hi SpellCap              ctermfg=1     ctermbg=234
 
-hi SpellCap ctermfg=1 ctermbg=234
-hi IndentGuidesOdd  guibg=red   ctermbg=3
-hi IndentGuidesEven guibg=green ctermbg=4
-hi CursorLineNr guifg=yellow ctermfg=11
-hi Visual gui=NONE guibg=White guifg=Black ctermfg=7 ctermbg=12
+hi IndentGuidesOdd       guibg=red     ctermbg=3
+hi IndentGuidesEven      guibg=green   ctermbg=4
+hi CursorLineNr          guifg=yellow  ctermfg=11
+hi Visual                ctermfg=black ctermbg=194
+
+hi GitGutterAdd          ctermbg=150   ctermfg=black
+hi GitGutterChange       ctermbg=74    ctermfg=black
+hi GitGutterDelete       ctermbg=167   ctermfg=black
+hi GitGutterChangeDelete ctermbg=74    ctermfg=black
 
 " ------
 " Commands
