@@ -175,7 +175,7 @@ nnoremap N Nzz
 " Reselect text you just entered
 nnoremap gV `[v`]
 
-map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+map <leader><leader>c :w! \| !compiler <c-r>%<CR><CR>
 
 " Exit terminal with shift esc
 tnoremap <C-\<> <C-\><C-n>
