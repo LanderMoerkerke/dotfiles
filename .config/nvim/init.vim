@@ -368,6 +368,24 @@ nnoremap <leader><leader>t OTODO:<Esc>:Commentary<CR>A
 " Plugins
 " ------
 
+" Fugitive
+nnoremap <leader>ga  :Git add %:p<CR><CR>
+nnoremap <leader>gbl :Gblame<CR>
+nnoremap <leader>gbr :Git branch<Space>
+nnoremap <leader>gc  :Gcommit -v -q<CR>
+nnoremap <leader>gd  :Gdiff<CR>
+nnoremap <leader>ge  :Gedit<CR>
+nnoremap <leader>gl  :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>gm  :Gmove<Space>
+nnoremap <leader>go  :Git checkout<Space>
+nnoremap <leader>gp  :Ggrep<Space>
+nnoremap <leader>gpl :Dispatch! git pull<CR>
+nnoremap <leader>gps :Dispatch! git push<CR>
+nnoremap <leader>gr  :Gread<CR>
+nnoremap <leader>gs  :Gstatus<CR>
+nnoremap <leader>gt  :Gcommit -v -q %:p<CR>
+nnoremap <leader>gw  :Gwrite<CR><CR>
+
 " RipGrep
 nnoremap <Leader>rg :Rg<Space>
 vnoremap <Leader>rg <C-w>:Rg<Space>
