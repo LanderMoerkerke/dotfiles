@@ -397,6 +397,7 @@ nmap ga <Plug>(EasyAlign)
 
 " Polyglot
 let g:polyglot_disabled = ['markdown']
+
 " FuzzyFind
 nnoremap <leader>p :FZF <cr>
 
@@ -508,6 +509,7 @@ let g:airline_section_c =
 
 " ALE
 let g:ale_set_highlights = 0
+
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_fix_on_save = 1
@@ -561,7 +563,6 @@ let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
 " \ 'go':         ['go-langserver'],
 " \ 'go':         ['go'],
 
-let g:LanguageClient_diagnosticsList = "Location"
 let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
 let g:LanguageClient_hasSnippetSupport = 1
 
