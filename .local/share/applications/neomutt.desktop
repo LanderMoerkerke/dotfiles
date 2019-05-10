@@ -2,7 +2,7 @@
 Type=Application
 Name=Neomutt
 Icon=email
-Exec=neomutt %u
-Terminal=true
+Exec=/usr/bin/urxvt -e neomutt %u
+Terminal=false
 StartupNotify=true
 Categories=Internet;
