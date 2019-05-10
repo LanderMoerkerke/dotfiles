@@ -43,9 +43,6 @@
             "maxParallelism": 2
         },
 
-        "plugins.pycodestyle.ignore": ["E501"],
-        "plugins.pycodestyle.maxLineLength": 160,
-
         "gocodeCompletionEnabled": true,
         "diagnosticsEnabled": true,
         "lintTool": "golint",
@@ -69,6 +66,12 @@
                 "enabled": false,
                 "ignore": ["E501", "D213"],
                 "maxLineLength": 160
+            },
+            "mypy": {
+                "enabled": false
+            },
+            "isort": {
+                "enabled": true
             }
         }
     }
