@@ -798,8 +798,8 @@ if &diff
     map ] ]c
     map [ [c
 
-    map <leader>sh :diffget 1<cr>
-    map <leader>sl :diffget 2<cr>
+    map <leader>sl :diffget LO<cr>
+    map <leader>sr :diffget RE<cr>
 
     let g:LanguageClient_diagnosticsEnable = 0
 endif
