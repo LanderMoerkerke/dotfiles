@@ -1,6 +1,6 @@
 " Plugins
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('/home/lander/.config/nvim/plugged')
 
 " General
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }   " Fuzzy Find
