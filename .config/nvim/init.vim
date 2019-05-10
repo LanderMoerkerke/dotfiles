@@ -284,11 +284,11 @@ nnoremap <leader>k <Esc>?<++><Enter>"_c4l
 " Quickfix
 " ------
 
-nnoremap <leader>qq <Esc>:copen<CR>
+nnoremap <leader>qq <Esc>:copen 5<CR>
 nnoremap <leader>qn <Esc>:cnext<CR>
 nnoremap <leader>qp <Esc>:cprev<CR>
 
-nnoremap <leader>Qq <Esc>:lopen<CR>
+nnoremap <leader>Qq <Esc>:lopen 5<CR>
 nnoremap <leader>Qn <Esc>:lnext<CR>
 nnoremap <leader>Qp <Esc>:lprev<CR>
 
