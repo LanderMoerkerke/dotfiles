@@ -50,6 +50,14 @@ snippet while "while"
 #   Class   #
 #############
 
+snippet classd "Dataclass"
+	@dataclass
+	class ${1:class}:
+
+		"""Docstring for $1. """
+
+		${2:pass}
+
 snippet posti "Post init function"
 	def __post_init__(self):
 		${3:${VISUAL:pass}}
