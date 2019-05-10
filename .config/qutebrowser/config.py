@@ -1003,6 +1003,7 @@ c.bindings.commands = {
         ";h": "hint all hover",
         ";i": "hint images",
         ";o": "hint links fill :open {hint-url}",
+        ";x": "hint links fill :spawn xdg-open {hint-url}",
         ";r": "hint --rapid links tab-bg",
         ";t": "hint inputs",
         ";y": "hint links yank",
