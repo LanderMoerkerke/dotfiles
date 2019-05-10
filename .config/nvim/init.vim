@@ -507,7 +507,7 @@ let g:airline_section_c =
       \"%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"
 
 " ALE
-let g:ale_set_quickfix = 1
+let g:ale_set_highlights = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_completion_enabled = 0
@@ -527,8 +527,7 @@ let g:ale_fixers = {
 " golangci-lint run
 " remark
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '!'
-let g:ale_sign_warning = '*'
+let g:ale_set_signs = 0
 
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -564,6 +563,40 @@ let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
 let g:LanguageClient_diagnosticsList = "Location"
 let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
 let g:LanguageClient_hasSnippetSupport = 1
+
+" let g:LanguageClient_selectionUI = "fzf"
+
+let g:LanguageClient_diagnosticsList = "Disabled"
+let g:LanguageClient_diagnosticsDisplay = {
+\        1: {
+\            "name": "Error",
+\            "texthl": "ALEError",
+\            "signText": "!",
+\            "signTexthl": "ALEErrorSign",
+\            "virtualTexthl": "LCError",
+\        },
+\        2: {
+\            "name": "Warning",
+\            "texthl": "ALEWarning",
+\            "signText": "*",
+\            "signTexthl": "ALEInfoSign",
+\            "virtualTexthl": "LCWarning",
+\        },
+\        3: {
+\            "name": "Information",
+\            "texthl": "ALEInfo",
+\            "signText": "i",
+\            "signTexthl": "ALEInfoSign",
+\            "virtualTexthl": "Todo",
+\        },
+\        4: {
+\            "name": "Hint",
+\            "texthl": "ALEInfo",
+\            "signText": "h",
+\            "signTexthl": "ALEInfoSign",
+\            "virtualTexthl": "None",
+\        },
+\    }
 
 let g:LanguageClient_serverCommands = {
             \ 'c':          ['clangd'],
@@ -675,14 +708,15 @@ colorscheme              minimalist
 " colorscheme wombat256mod
 
 hi clear                 SpellBad
-hi SpellBad              ctermfg=203
-hi SpellBad              cterm=underline
-hi SpellCap              ctermfg=1     ctermbg=234
+hi SpellBad              ctermfg=203   ctermbg=233
+
+hi LCError               ctermfg=203   ctermbg=233
+hi LCWarning             ctermfg=230   ctermbg=24
 
 hi IndentGuidesOdd       guibg=red     ctermbg=3
 hi IndentGuidesEven      guibg=green   ctermbg=4
 hi CursorLineNr          guifg=yellow  ctermfg=11
-hi Visual                ctermfg=black ctermbg=194
+hi Visual                ctermfg=black ctermbg=244
 
 hi GitGutterAdd          ctermbg=150   ctermfg=black
 hi GitGutterChange       ctermbg=74    ctermfg=black
