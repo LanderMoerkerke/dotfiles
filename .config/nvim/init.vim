@@ -395,6 +395,8 @@ let g:rg_highlight = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" Polyglot
+let g:polyglot_disabled = ['markdown']
 " FuzzyFind
 nnoremap <leader>p :FZF <cr>
 
