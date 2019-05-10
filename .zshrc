@@ -144,11 +144,6 @@ if [[ -n "$SSH_CONNECTION" ]] ; then
     export EDITOR="vim"
     export TERM="xterm"
 
-
-elif [[ $TTY == "/dev/tty1" ]]; then
-
-    exec startx
-
 else
 
     alias vim='nvim'
