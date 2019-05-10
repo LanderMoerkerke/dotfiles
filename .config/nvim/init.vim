@@ -510,10 +510,11 @@ let g:airline_section_c =
 let g:ale_set_highlights = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-let g:ale_completion_enabled = 0
 let g:ale_lint_fix_on_save = 1
 
-let g:ale_linters = {'python': ['flake8', 'pyls', 'pyflakes', 'bandit', 'pyre'], 'javascript': ['eslint'], 'go': ['golint']}
+let g:ale_completion_enabled = 0
+
+let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['golint']}
 let g:ale_fixers = {
     \ 'cpp': ['clang-format'],
     \ 'go': ['gofmt', 'goimports', 'gomod'],
@@ -521,7 +522,7 @@ let g:ale_fixers = {
     \ 'javascript': ['eslint', 'prettier', 'eslint'],
     \ 'json': ['fixjson', 'prettier'],
     \ 'markdown': ['prettier', 'remark'],
-    \ 'python': ['black', ],
+    \ 'python': ['black', 'isort', 'add_blank_lines_for_python_control_statements'],
     \ 'sh': ['shfmt'],
 \}
 " golangci-lint run
