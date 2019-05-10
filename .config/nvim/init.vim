@@ -390,7 +390,6 @@ nnoremap <leader>gw  :Gwrite<CR><CR>
 nnoremap <Leader>rg :Rg<Space>
 vnoremap <Leader>rg <C-w>:Rg<Space>
 let g:rg_highlight = 1
-let g:rg_derive_root = 1
 
 " Easy-align
 xmap ga <Plug>(EasyAlign)
