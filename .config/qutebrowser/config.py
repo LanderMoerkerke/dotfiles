@@ -1050,6 +1050,7 @@ c.bindings.commands = {
         "=": "zoom",
         "?": "set-cmd-text ?",
         "@": "run-macro",
+        "A": "set-cmd-text :open {url:pretty}",
         "B": "set-cmd-text -s :quickmark-load -t",
         "D": "tab-close -o",
         "E": "edit-url",
