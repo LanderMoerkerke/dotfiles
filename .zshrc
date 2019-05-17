@@ -137,6 +137,9 @@ bindkey '^[[Z' reverse-menu-complete
 # ALIASES
 # -----------------------------------------------------------------------------------------------------------------------------
 
+alias vim='nvim'
+alias v='nvim'
+
 if [[ -n "$SSH_CONNECTION" ]] ; then
 
     alias v='vim'
@@ -144,10 +147,28 @@ if [[ -n "$SSH_CONNECTION" ]] ; then
     export EDITOR="vim"
     export TERM="xterm"
 
-else
+elif [[ $TTY != "/dev/tty1" ]]; then
 
-    alias vim='nvim'
-    alias v='nvim'
+    zle-keymap-select () {
+        if [ $KEYMAP = vicmd ]; then
+
+            echo -ne '\e[1 q'
+
+        else
+
+            echo -ne '\e[5 q'
+
+        fi
+    }
+
+    zle-line-init () {
+
+        zle -K viins
+        echo -ne "\033]12;Grey\007"
+
+    }
+
+else
 
 fi
 
@@ -453,19 +474,5 @@ alias sudo='nocorrect sudo'
 
 # dir colors cd
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-# zprof
-
-zle-keymap-select () {
-  if [ $KEYMAP = vicmd ]; then
-        echo -ne '\e[1 q'
-    else
-        echo -ne '\e[5 q'
-  fi
-}
-zle-line-init () {
-  zle -K viins
-  echo -ne "\033]12;Grey\007"
-}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
