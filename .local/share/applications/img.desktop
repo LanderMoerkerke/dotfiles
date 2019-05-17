@@ -2,5 +2,5 @@
 Type=Application
 Name=Image viewer
 GenericName=Sxiv
-Icon=Sxiv
+Icon=sxiv
 Exec=/usr/bin/sxiv -a %u
