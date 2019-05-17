@@ -98,6 +98,9 @@ set foldmethod=marker
 " set foldnestmax=2
 " set foldlevel=1
 
+set completeopt=noinsert,menuone,noselect       " completion menu actions
+set shortmess+=c                                " surpress match x of x msg
+
 set rtp^=~/.config/nvim
 set mouse-=a                                    " disable mouse
 set path+=**                                    " able to search subdirs recursive
@@ -632,10 +635,6 @@ autocmd FileType * call LC_maps()
 
 " NCM2
 autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-" set shortmess+=c
 
 let g:ncm2#popup_delay = 211
 let g:ncm2#complete_delay = 61
