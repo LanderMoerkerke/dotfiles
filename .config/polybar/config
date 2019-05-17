@@ -32,7 +32,7 @@ padding-right = 1
 module-margin = 2
 modules-left = i3 eth wlan vpn
 modules-center = date
-modules-right = syncing updates mail cpu memory temperature battery volume
+modules-right = gpg syncing updates mail cpu memory temperature battery volume
 
 tray-position = right
 
@@ -144,6 +144,13 @@ type = internal/xwindow
 format-foreground = #f0c674
 format-padding = 1
 label-maxlen = 50
+
+[module/gpg]
+type = custom/script
+exec = check-gpg-cached
+tail = true
+interval = 5
+label = "    |"
 
 [module/syncing]
 type = custom/script
