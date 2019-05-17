@@ -161,7 +161,6 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 bindsym $mod+p exec passmenu -i
-bindsym $mod+Shift+p exec gpgconf --reload gpg-agent
 
 bindsym $mod+Next exec variety -n
 bindsym $mod+Prior exec variety -p
@@ -205,6 +204,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+Shift+p workspace prev
+bindsym $mod+Shift+n workspace next
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # EXECUTION
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -213,7 +215,6 @@ bindsym $mod+x              exec --no-startup-id lockscreen
 bindsym $mod+Shift+x		exec --no-startup-id lockscreen
 bindsym $mod+Shift+e		exec --no-startup-id rofi-emoji
 bindsym $mod+r              exec $TERMINAL -e "ranger"
-bindsym $mod+Shift+n        exec $TERMINAL -e "neomutt"
 bindsym $mod+Shift+v        exec $TERMINAL -e "nvim"
 bindsym $mod+b              exec $BROWSER
 bindsym $mod+Shift+b        exec $BROWSER2
