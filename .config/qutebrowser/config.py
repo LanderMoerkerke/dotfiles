@@ -1099,6 +1099,8 @@ c.bindings.commands = {
         "gf": "view-source",
         "gg": "scroll-to-perc 0",
         "gm": "tab-move",
+        "gp": "navigate prev",
+        "gn": "navigate next",
         "go": "set-cmd-text :open {url:pretty}",
         "gt": "set-cmd-text -s :buffer",
         "gu": "navigate up",
