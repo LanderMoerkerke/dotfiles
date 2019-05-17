@@ -215,6 +215,7 @@ alias pe="pipenv"
 alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-isort' --dev"
 alias jn="jupyter notebook --browser=Chromium"
 alias jl="jupyter-lab --browser=Chromium"
+alias jls="jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
 
 ## one letter aliasses
 
