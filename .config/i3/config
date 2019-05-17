@@ -160,7 +160,7 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-bindsym $mod+p exec passmenu -i
+bindsym $mod+p exec gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
 
 bindsym $mod+Next exec variety -n
 bindsym $mod+Prior exec variety -p
