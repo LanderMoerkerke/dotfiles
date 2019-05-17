@@ -223,10 +223,10 @@ bindsym $mod+Shift+b        exec $BROWSER2
 # RESIZE
 # -----------------------------------------------------------------------------------------------------------------------------
 
-bindsym $mod+y resize shrink width 5 px or 5 ppt
-bindsym $mod+u resize grow height 5 px or 5 ppt
+bindsym $mod+y resize shrink width  5 px or 5 ppt
+bindsym $mod+u resize grow   height 5 px or 5 ppt
 bindsym $mod+i resize shrink height 5 px or 5 ppt
-bindsym $mod+o resize grow width 5 px or 5 ppt
+bindsym $mod+o resize grow   width  5 px or 5 ppt
 
 # Gaps
 bindsym $mod+Shift+w mode "$mode_gaps"
