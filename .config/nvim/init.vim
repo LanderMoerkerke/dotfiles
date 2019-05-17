@@ -569,8 +569,6 @@ let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
 let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
 let g:LanguageClient_hasSnippetSupport = 1
 
-" let g:LanguageClient_selectionUI = "fzf"
-
 let g:LanguageClient_diagnosticsList = "Disabled"
 let g:LanguageClient_diagnosticsDisplay = {
 \        1: {
