@@ -102,7 +102,7 @@ set completeopt=noinsert,menuone,noselect       " completion menu actions
 set shortmess+=c                                " surpress match x of x msg
 
 set rtp^=~/.config/nvim
-set mouse-=a                                    " disable mouse
+set mouse=a                                     " enable mouse
 set path+=**                                    " able to search subdirs recursive
 set nocompatible                                " no compatibility with old-skool vi
 set wildmenu                                    " show command line completions
