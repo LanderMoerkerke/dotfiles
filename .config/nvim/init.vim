@@ -527,7 +527,7 @@ let g:ale_fixers = {
     \ 'javascript': ['eslint', 'prettier', 'eslint'],
     \ 'json': ['fixjson', 'prettier'],
     \ 'markdown': ['prettier', 'remark'],
-    \ 'python': ['black', 'isort', 'add_blank_lines_for_python_control_statements'],
+    \ 'python': ['black', 'isort'],
     \ 'sh': ['shfmt'],
 \}
 " golangci-lint run
