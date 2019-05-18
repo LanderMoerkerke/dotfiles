@@ -220,6 +220,14 @@ nnoremap <S-Tab> V<LT>gv<esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" insert word of the line above
+inoremap <C-Y> <C-C>:let @z = @"<CR>mz
+			\:exec 'normal!' (col('.')==1 && col('$')==1 ? 'k' : 'kl')<CR>
+			\:exec (col('.')==col('$') - 1 ? 'let @" = @_' : 'normal! yw')<CR>
+			\`zp:let @" = @z<CR>a
+
+com! DiffSaved call s:DiffWithSaved()
+
 " ------
 " Navigation
 " ------
@@ -313,7 +321,9 @@ map <F3> :!wc <C-R>%<CR>
 " Spell-check picker
 map <F6> :call <SID>ToggleSpell()<CR>
 
-" map <F7>
+" Vimdiff current with saved buffer
+map <F7> call s:DiffWithSaved()
+
 " map <F8>
 " map <F9>
 
@@ -730,6 +740,14 @@ command! W w suda://%
 " ------
 " Functions
 " ------
+
+function! s:DiffWithSaved()
+    let filetype=&ft
+    diffthis
+    vnew | r # | normal! 1Gdd
+    diffthis
+    exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
 
 augroup autocommands
     " Execute
