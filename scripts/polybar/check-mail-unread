@@ -2,7 +2,7 @@
 
 check_unread () {
     # unread=$(find ~/.mail/*/INBOX/new | grep new/ | wc | awk '{print $1;}')
-    if [[ $1 ]]; then
+    if [ $1 ]; then
         unread=$(find ~/.mail/$1/INBOX/new | grep new/ | wc -l)
     else
         unread=$(find ~/.mail/*/INBOX/new | grep new/ | wc -l)

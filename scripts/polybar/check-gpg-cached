@@ -3,7 +3,7 @@
 out=$(gpg-connect-agent 'keyinfo --list' /bye | awk '{print $7}' | uniq | wc -l)
 # echo $out
 
-if [[ $out -gt 2 ]]; then
+if [ $out -gt 2 ]; then
     echo ""
 else
     echo "gpg agent is cached"
