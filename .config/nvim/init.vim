@@ -62,7 +62,6 @@ Plug 'honza/vim-snippets'                                           " Extra snip
 
 " Formatting
 Plug 'Chiel92/vim-autoformat'                                       " Autoformat
-Plug 'tell-k/vim-autopep8'											" Autopep8 formatter
 
 " Linting
 Plug 'w0rp/ale'                                                     " Linting engine
