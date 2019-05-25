@@ -1,0 +1,82 @@
+# Basic {{{1 -
+super + d
+    rofi -show drun -terminal $TERMINAL -width 25
+super + BackSpace
+    flash-active
+super + shift + BackSpace
+    transset-df -a -t 0.9
+super + Tab
+    rofi -show window -width 25
+super + shift + e
+    rofi-emoji
+super + shift + x
+    lockscreen
+# 1}}} -
+
+# Applications {{{1 -
+super + Return
+    $TERMINAL
+super + shift + Return
+    samedir
+super + r
+    $TERMINAL -e lf
+super + shift + r
+    $TERMINAL -e ranger
+super + shift + v
+    $TERMINAL -e nvim
+super + b
+    $BROWSER
+super + shift + b
+    $BROWSER2
+super + p
+    gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
+# 1}}} -
+
+# Specials {{{1 -
+super + Next
+    variety -n
+super + Prior
+    variety -p
+super + Insert
+    showclip
+Print
+    scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+shift + Print
+    scrot -u ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
+control + Print
+    maim -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+control + shift + Print
+    maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+# 1}}} -
+
+# Other {{{1 -
+super + g
+    echo $EMAIL_PRIMARY | xclip -selection clipboard -selection clipboard
+super + shift + g
+    echo $EMAIL_SECONDARY | xclip -selection clipboard -selection clipboard
+# 1}}} -
+
+# Mediakeys {{{1 -
+XF86PowerOff
+    power-menu
+XF86AudioRaiseVolume
+    pactl -- set-sink-volume 0 +1%
+XF86AudioLowerVolume
+    pactl -- set-sink-volume 0 -1%
+XF86AudioMute
+    pactl set-sink-mute 0 toggle
+XF86AudioNext
+    playerctl next
+XF86AudioPrev
+    playerctl previous
+XF86AudioPause
+    playerctl pause
+XF86AudioPlay
+    playerctl play
+XF86MonBrightnessUp
+    light -A 3
+XF86MonBrightnessDown
+    light -U 3
+XF86Display
+    displayselect
+# 1}}} -
