@@ -103,21 +103,7 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 bindsym Mod1+F4             kill
 bindsym $mod+c              kill
 
-bindsym $mod+Return         exec $TERMINAL
-bindsym $mod+Shift+Return	exec --no-startup-id samedir
-
-Bindsym $mod+BackSpace          exec flash-active
-Bindsym $mod+Shift+BackSpace    exec transset-df -a -t 0.9
-# bindsym $mod+d              exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -modi run -bw 0 -bc "$bgcolor" -bg "$bgcolor" -fg "$txtcolor" -font "open-sans 9" -terminal urxvt -hlbg "$bgcolor" -hlfg "#9575CD"
-bindsym $mod+d exec --no-startup-id rofi -show drun -terminal $TERMINAL -width 25
-
-# switching window with win+tab
-bindsym $mod+Tab exec --no-startup-id rofi -show window -width 25
-
-# bindsym $mod+Tab            workspace next
-# bindsym $mod+Shift+Tab      workspace prev
 bindsym Mod1+Tab workspace back_and_forth
-
 
 # change focus
 bindsym $mod+h              focus       left
@@ -160,11 +146,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-bindsym $mod+p exec gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
-
-bindsym $mod+Next exec variety -n
-bindsym $mod+Prior exec variety -p
-
 # -----------------------------------------------------------------------------------------------------------------------------
 # WORKSPACES
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -191,7 +172,6 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-# bindsym $mod+Shift+d workspace $desktop
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -206,18 +186,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+Shift+p workspace prev
 bindsym $mod+Shift+n workspace next
-
-# -----------------------------------------------------------------------------------------------------------------------------
-# EXECUTION
-# -----------------------------------------------------------------------------------------------------------------------------
-
-bindsym $mod+x              exec --no-startup-id lockscreen
-bindsym $mod+Shift+x		exec --no-startup-id lockscreen
-bindsym $mod+Shift+e		exec --no-startup-id rofi-emoji
-bindsym $mod+r              exec $TERMINAL -e "ranger"
-bindsym $mod+Shift+v        exec $TERMINAL -e "nvim"
-bindsym $mod+b              exec $BROWSER
-bindsym $mod+Shift+b        exec $BROWSER2
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # RESIZE
@@ -241,39 +209,8 @@ mode "$mode_gaps" {
 }
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# FUNCTIONS KEYS
-# -----------------------------------------------------------------------------------------------------------------------------
-
-bindsym XF86PowerOff                exec power-menu
-
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume        exec --no-startup-id pactl -- set-sink-volume 0 +1% #increase sound volume
-bindsym XF86AudioLowerVolume        exec --no-startup-id pactl -- set-sink-volume 0 -1% #decrease sound volume
-bindsym XF86AudioMute               exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-bindsym XF86AudioNext               exec --no-startup-id playerctl next
-bindsym XF86AudioPrev               exec --no-startup-id playerctl previous
-bindsym XF86AudioPause              exec --no-startup-id playerctl pause
-bindsym XF86AudioPlay               exec --no-startup-id playerctl play
-
-bindsym XF86MonBrightnessUp         exec light -A 3 # increase screen brightness
-bindsym XF86MonBrightnessDown       exec light -U 3 # decrease screen brightness
-
-bindsym XF86Display	            	exec --no-startup-id displayselect
-bindsym Print 		            	exec --no-startup-id scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
-bindsym Shift+Print             	exec --no-startup-id scrot -u ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png
-
-bindsym Control+Print 		    	exec maim -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
-bindsym Control+Shift+Print     	exec maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
-
-
-# -----------------------------------------------------------------------------------------------------------------------------
 # MISC
 # -----------------------------------------------------------------------------------------------------------------------------
-
-bindsym $mod+Insert		            exec --no-startup-id showclip
-bindsym $mod+g                      exec echo $EMAIL_PRIMARY | xclip -selection clipboard -selection clipboard
-bindsym $mod+Shift+g                exec echo $EMAIL_SECONDARY | xclip -selection clipboard -selection clipboard
 
 bindsym $mod+Shift+f                fullscreen disable; floating enable; resize set 670 380; sticky enable; move window to position 1250 700; border none
 
@@ -281,13 +218,5 @@ bindsym $mod+Shift+f                fullscreen disable; floating enable; resize 
 # AUTOSTART APPLICATIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-exec_always  --no-startup-id feh --bg-fill $HOME/Pictures/bg.jpg
-exec_always --no-startup-id launch-polybar &
-exec --no-startup-id /usr/lib/kdeconnectd
-exec --no-startup-id battery-popup -L 20 -n -i $HOME/Pictures/Notifications/low-battery.png
-exec --no-startup-id xss-lock -l -- lockscreen
-exec compton -f --config ~/.config/compton/compton.conf -b
 exec dunst
-exec redshift -l 51.01:4.03
-exec udiskie &
-exec variety
+exec_always --no-startup-id launch-polybar &
