@@ -20,12 +20,15 @@ snippet printf "Print formatted"
 	print(f"${1:text} {${2:variable}}${3}")
 
 snippet printbr "Print breakline"
-	print("---------------------------------------")
+	print("-" * 39)
 
-snippet ts "Time end"
+snippet ts "Time start"
 	t0 = time.time()
 
 snippet te "Time end"
+	print(f"${0} - finished in {time.time() - t0:.4f}")
+
+snippet tes "Time end section"
 	print("---------------------------------------")
 	print(f"Code finished in {time.time() - t0:.4f}")
 	print("---------------------------------------")
