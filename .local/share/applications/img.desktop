@@ -3,4 +3,4 @@ Type=Application
 Name=Image viewer
 GenericName=Sxiv
 Icon=sxiv
-Exec=/usr/bin/sxiv -a %u
+Exec=/usr/local/bin/sxiv-rifle %u
