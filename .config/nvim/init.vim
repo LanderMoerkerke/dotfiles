@@ -352,6 +352,7 @@ autocmd BufWritePre *.go,*.py,*.jsd,*.md ALEFix           " format
 autocmd BufWritePost * GitGutter
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
 autocmd BufWritePost .snippets :call UltiSnips#RefreshSnippets()<cr>
+autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
