@@ -96,6 +96,7 @@ set laststatus=2                                " always show the statusline
 set foldmethod=marker
 " set foldnestmax=2
 " set foldlevel=1
+set foldlevelstart=20
 
 set completeopt=noinsert,menuone,noselect       " completion menu actions
 set shortmess+=c                                " surpress match x of x msg
