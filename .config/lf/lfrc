@@ -91,6 +91,14 @@ cmd paste_symlink %{{
     lf -remote 'send clear'
 }}
 
+cmd delete ${{
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/n]"
+	read ans
+	[ $ans = "y" ] && rm -rf $fx
+}}
+
 cmd open ${{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
@@ -186,6 +194,7 @@ map i $~/.config/lf/pv.sh $f | less -R
 # Delete
 map dD trash
 map dd cut
+map D delete
 
 # Copy
 map yy copy
