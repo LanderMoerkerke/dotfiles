@@ -1,0 +1,8 @@
+#!/bin/sh
+# convert: A general handler for converting a file's.
+
+basename="${1%.*}"
+
+case "$1" in
+	*.ipynb) jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | black -q - > $basename.py;;
+esac

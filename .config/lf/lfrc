@@ -109,6 +109,13 @@ cmd open ${{
     esac
 }}
 
+cmd convert ${{
+    set -f
+    case $f in
+        *.ipynb) convert-scripts "$f";;
+    esac
+}}
+
 # extract the current file with the right command
 cmd extract ${{
     set -f
