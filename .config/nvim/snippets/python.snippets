@@ -75,11 +75,11 @@ snippet witho "With open file"
 
 snippet jsond "Dump contents to json file"
 	with open(f"${1:output}.json", "${2:w}") as f:
-		json.dump(${3:object}, f, indent=2)
+		json.dump(${3:data}, f, indent=2)
 
 snippet jsonl "Load contents from json file"
 	with open(f"${1:input}.json") as f:
-		${2:object} = json.load(f)
+		${2:data} = json.load(f)
 
 #############
 #  Comments #
