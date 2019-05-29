@@ -82,6 +82,40 @@ snippet jsonl "Load contents from json file"
 		${2:data} = json.load(f)
 
 #############
+#   Async   #
+#############
+
+snippet amain "Async main"
+	import asyncio
+
+	async def main():
+		"""${1:TODO: Docstring for main.}"""
+		${2:# code}
+		pass
+
+
+	if __name__ == "__main__":
+		asyncio.run(main())
+
+snippet witho "With open file"
+	with open(f"${1:filename}", "${2:r}") as f:
+		${3:pass}
+
+snippet aread "Async read file"
+	import aiofiles
+
+	async with aiofiles.open(f"${1:filename}", "${2:r}") as f:
+		${3:data = await f.read()}
+		# ${3:data = await f.read()}
+
+snippet areq "Async request"
+	import aiohttp
+
+	async with aiohttp.ClientSession(${1:headers=headers, cookies=cookies}) as session:
+		async with session.${2:get}(${3:url}) as resp:
+			${4:return await resp}
+
+#############
 #  Comments #
 #############
 
