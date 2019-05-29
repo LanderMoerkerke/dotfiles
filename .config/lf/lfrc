@@ -37,7 +37,7 @@ set previewer ~/.config/lf/pv.sh
 #  Commands {{{1 #
 # ---------------------------
 
-cmd trash &trash-put $fx
+cmd trash $mv $fx ~/.local/share/Trash
 
 cmd go-symlink %cd $(readlink "$fx")
 
