@@ -282,33 +282,18 @@ cop () {
 
 wificonnect () {
 
-    # TODO: append
-
     if [ "$1" = "" ]; then
 
-        echo "specify /etc/wpa_supplicant/<FILE>"
+        echo "specify a SSID"
         return
 
     fi
 
-    if [ "$(ps aux | grep dhcpcd | wc -l)" -eq 1 ]; then
+    sudo grep ssid=\"$1\" /etc/wpa_supplicant/wpa_supplicant.conf > /dev/null && echo "SSID already saved" && return
 
-        sudo dhcpcd
+    wpa_passphrase "$1" | sudo tee -a /etc/wpa_supplicant/wpa_supplicant.conf
 
-    fi
-
-    if [ "$(ps aux | grep wpa_supplicant | wc -l)" -gt 1 ]; then
-
-        echo "already connected"
-        sudo killall wpa_supplicant
-        sleep 3
-        sudo wpa_supplicant -B -i wlp2s0 -c "$1"
-
-    else
-
-        sudo wpa_supplicant -B -i wlp4s0 -c "$1"
-
-    fi
+    sudo systemctl restart dhcpd.service
 
 }
 
