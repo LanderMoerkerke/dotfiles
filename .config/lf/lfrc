@@ -53,7 +53,7 @@ cmd yank_name &basename $f | xsel -ipb
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
 # Get progress of copynig
-cmd paste &{{
+cmd paste_rsync &{{
     load=$(lf -remote 'load')
     mode=$(echo "$load" | sed -n '1p')
     list=$(echo "$load" | sed '1d')
@@ -211,6 +211,7 @@ map yp yank_path
 
 # Paste
 map pp paste
+map pP paste_rsync
 map po paste_overwrite
 map pa paste_append
 map pl paste_symlink
