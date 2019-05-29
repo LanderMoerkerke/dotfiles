@@ -224,6 +224,8 @@ map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
 
+map W &nemo $f
+
 # FuzzyFind
 map f $vi $(fzf)
 map F $lf -remote "send $id select '$(fzf)'"
