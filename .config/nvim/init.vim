@@ -179,6 +179,7 @@ nnoremap N Nzz
 nnoremap gV `[v`]
 
 map <leader><leader>c :w! \| !compiler <c-r>%<CR><CR>
+map <leader><leader>o :w! \| !opout <c-r>%<CR><CR>
 
 " Exit terminal with shift esc
 tnoremap <C-\<> <C-\><C-n>
