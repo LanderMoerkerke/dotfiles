@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Notebook viewer
+Icon=jupyter
+Exec=jupyter nbconvert --stdout --to python %f
+Terminal=false

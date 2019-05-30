@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Word documents
+Icon=document
+Exec=open-word-document %f
+Terminal=false
+StartupNotify=true
