@@ -1,22 +1,30 @@
 [Default Applications]
-inode/x-empty=nvim.desktop;
+
 application/json=nvim.desktop;
 application/pdf=zathura.desktop;
-image/jpeg=sxiv.desktop;
-image/png=sxiv.desktop;
-new-latex.pdf=zathura.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=document.desktop;
+application/x-ipynb+json=notebook.desktop;
+application/xhtml+xml=qutebrowser.desktop;
+image/jpeg=img.desktop;
+image/png=img.desktop;
+inode/x-empty=nvim.desktop;
+new-latex.pdf=zathura.desktop;
 text/html=qutebrowser.desktop;
 text/plain=nvim.desktop;
+text/x-python=editor.desktop;
+text/x-shellscript=nvim.desktop;
 text/x=nvim.desktop;
 x-scheme-handler/about=qutebrowser.desktop;
+x-scheme-handler/discord-409416265891971072=discord-409416265891971072.desktop;
 x-scheme-handler/http=qutebrowser.desktop;
 x-scheme-handler/https=qutebrowser.desktop;
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop;
-x-scheme-handler/magnet=transmission-remote.desktop;
+x-scheme-handler/magnet=torrent.desktop;
+x-scheme-handler/mailto=neomutt.desktop;
 x-scheme-handler/unknown=nvim.desktop;
-x-scheme-handler/mailto=neomutt.desktop
 
 [Added Associations]
+
 application/pdf=zathura.desktop;
 text/1d-interleaved-parityfec=nvim.desktop;
 text/RED=nvim.desktop;
@@ -36,4 +44,5 @@ text/html=nvim.desktop;
 text/markdown=nvim.desktop;
 text/plain=nvim.desktop;
 text/rtf=nvim.desktop;
+text/x-python3=nvim.desktop;
 text/xml=nvim.desktop;
