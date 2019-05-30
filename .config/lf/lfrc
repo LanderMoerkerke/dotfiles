@@ -244,12 +244,14 @@ map br bulk-rename
 map gL cd $(readlink $f)
 map gG $lf -remote "send $id cd $GOPATH"
 
+map gr cd /
 map ge cd /etc
 map gu cd /usr
 map gM cd /mnt
-map gr cd /
+
 map gR cd /run/media/lander
 map gP cd /run/media/lander/
+
 map gt cd ~/.local/share/Trash/files/
 map gT cd ~/.local/share/Trash/
 
