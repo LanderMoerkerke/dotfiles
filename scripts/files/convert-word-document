@@ -1,17 +1,18 @@
 #!/bin/sh
 
-if [ -z "$1" ]; then
-    echo "Provide a word document"
-    echo "- Options: .docx, .odt"
-    exit
-fi
-
 ext=${1##*.}
+out=${2:-/tmp}
+extensions="doc docx odt"
 
-if [ "$ext" = "docx " ] || [ "$ext" = "odt " ]; then
-    echo "Not a valid word document"
-    echo "- Options: .docx, .odt"
-    exit
+if [ -z "$1" ]; then
+    echo "- Options: .doc, .docx, .odt"
+    exit 1
 fi
 
-/usr/bin/libreoffice --headless --convert-to pdf --outdir /tmp/ "$1"
+if ! echo $extensions | grep -w $ext > /dev/null; then
+    echo "Provide a word document"
+    echo "- Options: .doc, .docx, .odt"
+    exit 1
+fi
+
+/usr/bin/libreoffice --headless --convert-to pdf --outdir $out "$1"
