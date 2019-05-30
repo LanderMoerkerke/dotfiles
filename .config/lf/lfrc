@@ -113,6 +113,7 @@ cmd convert ${{
     set -f
     case $f in
         *.ipynb) convert-scripts "$f";;
+        *.docx|*.odt) convert-word-document "$f" ".";;
     esac
 }}
 
