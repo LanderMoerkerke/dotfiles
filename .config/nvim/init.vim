@@ -538,7 +538,7 @@ let g:ale_fixers = {
     \ 'html': ['prettier'],
     \ 'javascript': ['eslint', 'prettier', 'eslint'],
     \ 'json': ['fixjson', 'prettier'],
-    \ 'markdown': ['prettier', 'remark'],
+    \ 'markdown': ['remark'],
     \ 'python': ['black', 'isort'],
     \ 'sh': ['shfmt'],
 \}
