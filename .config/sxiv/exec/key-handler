@@ -27,6 +27,8 @@ do
             convert -rotate -90 "$file" "$file" ;;
         "f")
             convert -flop "$file" "$file" ;;
+        "w")
+            feh --bg-center "$file";;
         "G")
             gimp "$file" & ;;
     esac
