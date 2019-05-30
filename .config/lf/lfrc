@@ -256,6 +256,8 @@ map gt cd ~/.local/share/Trash/files/
 map gT cd ~/.local/share/Trash/
 
 map gH cd ~
+map gc cd ~/.config
+map gl cd ~/.local
 map gs cd ~/Share
 map gd cd ~/Documents
 map gD cd ~/Downloads
