@@ -39,7 +39,11 @@ set previewer file-preview
 
 cmd trash $mv $fx ~/.local/share/Trash
 
-cmd go-symlink %cd $(readlink "$fx")
+cmd go-symlink ${{
+    link=$(readlink $f)
+    path=$(dirname "$link")
+    lf -remote "send $id cd $path"
+}}
 
 cmd usage $du -h -d1 | less
 
