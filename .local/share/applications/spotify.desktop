@@ -1,12 +1,9 @@
 [Desktop Entry]
-Name=Spotify Web
+Name=Spotify
 GenericName=Music Webplayer
 Comment=Spotify streaming music client
 Icon=spotify
 Type=Application
 Categories=Network;WebBrowser;
-Exec=qutebrowser --target window https://open.spotify.com/
-Terminal=false
-StartupNotify=false
-MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/qute;
+Exec=spotify
 Keywords=Spotify
