@@ -548,7 +548,7 @@ let g:ale_fixers = {
     \ 'cpp': ['clang-format'],
     \ 'go': ['gofmt', 'goimports', 'gomod'],
     \ 'html': ['prettier'],
-    \ 'javascript': ['eslint', 'prettier', 'eslint'],
+    \ 'javascript': ['eslint', 'prettier'],
     \ 'json': ['fixjson', 'prettier'],
     \ 'markdown': ['remark'],
     \ 'python': ['black', 'isort'],
