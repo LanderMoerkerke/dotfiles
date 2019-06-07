@@ -253,8 +253,7 @@ map V push $nvim<space>
 map br bulk-rename
 
 # Movements
-# map gL go-symlink
-map gL cd $(readlink $f)
+map gL go-symlink
 map gG $lf -remote "send $id cd $GOPATH"
 
 map gr cd /
