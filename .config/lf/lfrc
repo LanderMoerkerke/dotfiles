@@ -47,6 +47,8 @@ cmd go-symlink ${{
 
 cmd usage $du -h -d1 | less
 
+cmd count !echo $f && find . | wc -l
+
 cmd mkdir %mkdir -p "$@"
 
 cmd yank_path &echo -n $f | xsel -ipb
