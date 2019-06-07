@@ -213,6 +213,7 @@ alias mp3="youtube-dl --extract-audio --audio-format mp3"
 alias jn="$HOME/Pipenv/jupyter/.venv/bin/jupyter notebook --browser=Chromium"
 alias jl="$HOME/Pipenv/jupyter/.venv/bin/jupyter-lab --browser=Chromium"
 alias jls="$HOME/Pipenv/jupyter/.venv/bin/jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
+alias fo="fuzzy-open"
 
 ## Pipenv
 
@@ -228,7 +229,9 @@ alias j="joplin"
 alias l='ls -latrFi'
 alias m='neomutt'
 alias p="python"
+alias p2="python2"
 alias r='lf'
+alias s="weechat"
 alias t="tree"
 
 ## xrandr
