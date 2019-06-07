@@ -1,0 +1,20 @@
+#!/bin/sh
+
+out=$(
+    fzf --height 100% --expect=ctrl-o,ctrl-e --preview '
+        (file-preview {})
+        2> /dev/null | head -500'
+)
+
+key="$(head -1 <<< "${out[@]}")"
+file="$(head -2 <<< "${out[@]}" | tail -1)" || return
+
+if [ -z "$file" ]; then
+    exit 1
+fi
+
+if [ "$key" == "ctrl-o" ]; then
+    xdg-open "$file"
+else
+    $EDITOR "$file"
+fi
