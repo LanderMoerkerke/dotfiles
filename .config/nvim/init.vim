@@ -62,7 +62,7 @@ Plug 'honza/vim-snippets'                                           " Extra snip
 
 " Formatting
 Plug 'Chiel92/vim-autoformat'                                       " Autoformat
-
+Plug 'tell-k/vim-autoflake'                                         " AutoFlake
 " Linting
 Plug 'w0rp/ale'                                                     " Linting engine
 
@@ -550,6 +550,12 @@ let g:ale_set_signs = 0
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
+
+" Autoflake
+let g:autoflake_cmd = "/home/lander/Pipenv/neovim/.venv/bin/autoflake"
+let g:autoflake_remove_all_unused_imports=1
+let g:autoflake_remove_unused_variables=1
+let g:autoflake_disable_show_diff=1
 
 " " CoC
 " " let g:coc_force_debug = 1
