@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case "$1" in
+    *.tar|*.tar.gz|*.zip|*.rar|*.7z) atool --list -- "$1";;
+    *.pdf) pdftotext "$1" -;;
+    *.ipynb) $HOME/Pipenv/jupyter/.venv/bin/jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | $HOME/Pipenv/jupyter/.venv/bin/black -q - | highlight --syntax python -O xterm256 -D $HONE/.config/highlight/ -s rdark;;
+    *.mkv|*.mp4) mediainfo "$1";;
+    *.jpg|*.png|*.jpeg) exiv2 "$1";;
+    *) highlight -O xterm256 -D $HOME/.config/highlight/ -s rdark --force -- "$1" || cat "$1";;
+esac
