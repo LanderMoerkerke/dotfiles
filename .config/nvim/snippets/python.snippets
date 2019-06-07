@@ -97,16 +97,11 @@ snippet amain "Async main"
 	if __name__ == "__main__":
 		asyncio.run(main())
 
-snippet witho "With open file"
-	with open(f"${1:filename}", "${2:r}") as f:
-		${3:pass}
-
 snippet aread "Async read file"
 	import aiofiles
 
 	async with aiofiles.open(f"${1:filename}", "${2:r}") as f:
 		${3:data = await f.read()}
-		# ${3:data = await f.read()}
 
 snippet areq "Async request"
 	import aiohttp
