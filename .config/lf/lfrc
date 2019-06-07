@@ -248,7 +248,7 @@ map r push :rename<space>
 map A $lf -remote "send $id push :rename<space>$f"
 map E $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
 
-map V push !nvim<space>
+map V push $nvim<space>
 
 map br bulk-rename
 
