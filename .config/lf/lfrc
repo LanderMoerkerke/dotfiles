@@ -120,6 +120,7 @@ cmd convert !{{
     case $f in
         *.ipynb) convert-scripts "$f";;
         *.docx|*.odt) convert-word-document "$f" ".";;
+        *) echo "No converter for $f";;
     esac
 }}
 
