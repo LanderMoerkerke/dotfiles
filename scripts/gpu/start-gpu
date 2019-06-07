@@ -1,0 +1,7 @@
+#!/bin/sh
+
+sudo tee /proc/acpi/bbswitch <<<ON
+
+dmesg | tail -2
+
+echo "GPU started"
