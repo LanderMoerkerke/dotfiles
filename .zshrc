@@ -213,11 +213,14 @@ alias mp3="youtube-dl --extract-audio --audio-format mp3"
 alias python3="python3.6"
 alias pip="pip3.7"
 alias pip3="pip3.6"
+
+## Pipenv
+
 alias pe="pipenv"
 alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-isort' --dev"
-alias jn="jupyter notebook --browser=Chromium"
-alias jl="jupyter-lab --browser=Chromium"
-alias jls="jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
+
+alias pytorch="source $HOME/Pipenv/pytorch/.venv/bin/activate"
+alias tensorflow="source $HOME/Pipenv/tensorflow/.venv/bin/activate"
 
 ## one letter aliasses
 
