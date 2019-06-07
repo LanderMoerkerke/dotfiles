@@ -41,7 +41,7 @@
 
 [shortcuts]
     close = ctrl+space
-    history = ctrl+²
+    history = ctrl+shift+space
     context = ctrl+shift+period
 
 [urgency_low]
