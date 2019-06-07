@@ -210,9 +210,6 @@ alias we='curl wttr.in/Gent'
 alias pdf='zathura'
 alias soundcloud="scdl"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
-alias python3="python3.6"
-alias pip="pip3.7"
-alias pip3="pip3.6"
 
 ## Pipenv
 
@@ -224,19 +221,12 @@ alias tensorflow="source $HOME/Pipenv/tensorflow/.venv/bin/activate"
 
 ## one letter aliasses
 
-alias e='emacs -nw'
-alias i='feh --geometry 400x400'
 alias j="joplin"
 alias l='ls -latrFi'
 alias m='neomutt'
-alias n='/usr/bin/newsboat'
-alias o='cd /run/media/$USER/'
 alias p="python"
-alias p3="python3"
 alias r='lf'
-alias s="slack-term"
 alias t="tree"
-alias u="unzip"
 
 ## xrandr
 
