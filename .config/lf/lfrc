@@ -115,7 +115,7 @@ cmd open ${{
     esac
 }}
 
-cmd convert ${{
+cmd convert !{{
     set -f
     case $f in
         *.ipynb) convert-scripts "$f";;
