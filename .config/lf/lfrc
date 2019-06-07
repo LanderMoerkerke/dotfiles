@@ -241,6 +241,7 @@ map f $fuzzy-open
 map F $lf -remote "send $id select '$(fzf)'"
 
 # Usage
+map u count
 map U usage
 
 map r push :rename<space>
