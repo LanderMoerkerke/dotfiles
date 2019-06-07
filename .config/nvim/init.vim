@@ -639,7 +639,7 @@ let g:LanguageClient_serverCommands = {
             \ 'go':         ['go-langserver'],
             \ 'html':       ['html-languageserver', '--stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
-            \ 'python':     ['pyls'],
+            \ 'python':     ['/home/lander/Pipenv/neovim/.venv/bin/pyls'],
             \ 'sh':         ['bash-language-server'],
 \ }
 
