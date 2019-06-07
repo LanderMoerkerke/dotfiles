@@ -153,6 +153,13 @@ set undoreload=10000                           " number of lines to save for und
 set encoding=utf-8
 
 " ------
+" Environment
+" ------
+
+" let g:python3_host_prog = '/usr/bin/python3.7'
+let g:python3_host_prog = '/home/lander/Pipenv/neovim/.venv/bin/python'
+
+" ------
 " Key bindings
 " ------
 
