@@ -27,7 +27,7 @@ set drawbox on
 
 set scrolloff 5
 
-set previewer ~/.config/lf/pv.sh
+set previewer file-preview
 
 # ---------------------------
 #  1}}} #
