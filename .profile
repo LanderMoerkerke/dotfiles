@@ -3,7 +3,7 @@
 
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
-export PATH="$HOME/.local/bin/:$HOME/.npm-global/bin:/usr/lib/ruby/gems/2.6.0:$HOME/.gem/ruby/2.6.0:$HOME/.gem/ruby/2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.go/bin:/usr/bin/vendor_perl:$HOME/.local/bin:/opt/google-cloud-sdk/bin:$PATH"
+export PATH="$HOME/.local/bin/:$HOME/.npm-global/bin:/usr/lib/ruby/gems/2.6.0:$HOME/.gem/ruby/2.6.0:$HOME/.gem/ruby/2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.go/bin:/usr/bin/vendor_perl:$HOME/.local/bin:/opt/google-cloud-sdk/bin:$HOME/.go/bin:$PATH"
 
 # default programs
 export BROWSER="qutebrowser"
