@@ -14,7 +14,7 @@ if [ -z "$file" ]; then
 fi
 
 if [ "$key" == "ctrl-o" ]; then
-    xdg-open "$file"
+    xdg-open "$file" &
 else
     $EDITOR "$file"
 fi
