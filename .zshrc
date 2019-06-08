@@ -366,17 +366,6 @@ mtpfs_op () {
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file .gitignore_global ."
 export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border'
 
-# Vim
-xf() { fzf | xargs -r -I % xdg-open % &;}
-
-# Try highlight, coderay, rougify in turn, then fall back to cat
-vf() { fzf --height 100% --preview '[[ $(file --mime {}) =~ binary ]] &&
-                 echo {} is a binary file ||
-                 (highlight -O ansi -l {} ||
-                  coderay {} ||
-                  rougify {} ||
-                  cat {}) 2> /dev/null | head -500' | xargs -r -I % $EDITOR % ;}
-
 # fkill - kill process
 killf() {
   local pid
