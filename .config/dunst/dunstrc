@@ -61,4 +61,4 @@
     foreground = "#f0e0e0"
     frame_color = "#d64e4e"
     timeout = 0
-    icon = /usr/share/icons/Flat-Remix/status/symbolic/dialog-warning-symbolic.svg
+    icon = /usr/share/icons/Flat-Remix-Red/status/symbolic/dialog-warning-symbolic.svg
