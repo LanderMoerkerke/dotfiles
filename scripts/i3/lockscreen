@@ -9,7 +9,7 @@ convert /tmp/screen.png ~/.config/i3/circlelock.png -gravity center -composite /
 # i3lock -efi /tmp/screen.png
 
 # forget gpg passwords
-gpgconf --reload gpg-agent
+# gpgconf --reload gpg-agent
 
 pkill -u "$USER" -USR1 dunst
 
