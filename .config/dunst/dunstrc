@@ -1,6 +1,7 @@
 [global]
     monitor = 0
     browser = "/usr/bin/qutebrowser"
+    follow = keyboard
     geometry = "320x5-10+35"
     indicate_hidden = yes
     shrink = no
