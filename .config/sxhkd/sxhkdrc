@@ -11,6 +11,8 @@ super + shift + e
     rofi-emoji
 super + x
     lockscreen
+super + shift + x
+    systemctl suspend
 # 1}}} -
 
 # Applications {{{1 -
