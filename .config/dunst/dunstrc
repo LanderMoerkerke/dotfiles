@@ -1,3 +1,5 @@
+# vim: ft=dosini
+
 [global]
     monitor = 0
     browser = "/usr/bin/qutebrowser"
@@ -28,7 +30,7 @@
     hide_duplicate_count = false
     show_indicators = yes
     icon_position = left
-    max_icon_size = 32
+    max_icon_size = 36
     icon_path = /usr/share/icons/Paper/16x16/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/16x16/apps/
     sticky_history = yes
     history_length = 20
