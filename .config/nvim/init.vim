@@ -543,6 +543,8 @@ let g:ale_python_flake8_executable = "/home/lander/Pipenv/neovim/.venv/bin/flake
 let g:ale_python_autopep8_executable  = "/home/lander/Pipenv/neovim/.venv/bin/autopep8"
 let g:ale_python_black_executable  = "/home/lander/Pipenv/neovim/.venv/bin/black"
 let g:ale_python_isort_executable  = "/home/lander/Pipenv/neovim/.venv/bin/isort"
+let g:ale_python_autoflake_executable  = "/home/lander/Pipenv/neovim/.venv/bin/autoflake"
+let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-imports --remove-unused-variables --remove-duplicate-keys -s'
 
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['golint']}
 let g:ale_fixers = {
@@ -552,7 +554,7 @@ let g:ale_fixers = {
     \ 'javascript': ['eslint', 'prettier'],
     \ 'json': ['fixjson', 'prettier'],
     \ 'markdown': ['remark'],
-    \ 'python': ['black', 'isort'],
+    \ 'python': ['autoflake', 'isort', 'black'],
     \ 'sh': ['shfmt'],
 \}
 " golangci-lint run
