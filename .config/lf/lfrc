@@ -14,8 +14,8 @@
 # ---------------------------
 
 set shell sh
-
 set shellopts '-eu'
+
 set ifs "\n"
 
 set color256 on
@@ -111,7 +111,7 @@ cmd open ${{
         *zip) atool --list -- $f | less;;
         *tar) atool --list -- $f | less;;
         *compressed) atool --list -- $f | less;;
-        *) xdg-open $fx;;
+        *) xdg-open $fx &;;
     esac
 }}
 
