@@ -442,7 +442,7 @@ function dsf() {
 # -----------------------------------------------------------------------------------------------------------------------------
 
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
-complete -C '/usr/sbin/aws_completer' aws
+source /usr/bin/aws_zsh_completer.sh
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC
