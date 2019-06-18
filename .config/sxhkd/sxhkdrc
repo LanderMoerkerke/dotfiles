@@ -22,6 +22,8 @@ super + shift + Return
     samedir
 super + r
     $TERMINAL -e lf
+super + w
+   $FILEMANAGER2
 super + shift + r
     $TERMINAL -e ranger
 super + shift + v
