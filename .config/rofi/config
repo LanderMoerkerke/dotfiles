@@ -5,7 +5,7 @@
 ! Appearance
 rofi.monitor: -1
 rofi.lines: 12
-rofi.font: Source Sans Pro 10
+rofi.font: Noto Sans 9
 rofi.show-icons: true
 rofi.theme: /usr/share/rofi/themes/oxide.rasi
 
