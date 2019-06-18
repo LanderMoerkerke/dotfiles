@@ -9,7 +9,7 @@ super + Tab
     rofi -show window -width 25
 super + shift + e
     rofi-emoji
-super + shift + x
+super + x
     lockscreen
 # 1}}} -
 
