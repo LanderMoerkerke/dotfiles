@@ -64,7 +64,8 @@ Plug 'honza/vim-snippets'                                           " Extra snip
 Plug 'Chiel92/vim-autoformat'                                       " Autoformat
 Plug 'tell-k/vim-autoflake'                                         " AutoFlake
 " Linting
-Plug 'w0rp/ale'                                                     " Linting engine
+" Plug 'w0rp/ale'                                                     " Linting engine
+Plug 'MoerkerkeLander/ale'
 
 " Filetypes / syntax
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
