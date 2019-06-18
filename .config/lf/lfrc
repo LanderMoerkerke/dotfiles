@@ -205,7 +205,7 @@ map M mark-save
 map <enter> shell
 
 map P :set preview!
-map i $~/.config/lf/pv.sh $f | less -R
+map i $file-preview $f | less -R
 
 map C convert
 
