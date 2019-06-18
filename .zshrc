@@ -105,6 +105,7 @@ ZSH_DISABLE_COMPFIX=true
 
 ZSH_THEME="powerzeesh"
 plugins=(
+docker
 git
 notify
 vi-mode
@@ -443,6 +444,7 @@ function dsf() {
 
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
 source /usr/bin/aws_zsh_completer.sh
+fpath=(~/.zsh/completion $fpath)
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC
