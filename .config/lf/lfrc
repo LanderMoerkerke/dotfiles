@@ -234,7 +234,7 @@ map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
 
-map W &nemo $f
+map W &xdg-open .
 
 # FuzzyFind
 map f $fuzzy-open
