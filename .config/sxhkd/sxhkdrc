@@ -50,7 +50,7 @@ shift + Print
 control + Print
     maim -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 control + shift + Print
-    maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+    crop-screenshot
 # 1}}} -
 
 # Function keys - super {{{1 -
