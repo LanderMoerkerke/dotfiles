@@ -211,9 +211,9 @@ alias we='curl wttr.in/Gent'
 alias pdf='zathura'
 alias soundcloud="scdl"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
-alias jn="$HOME/Pipenv/jupyter/.venv/bin/jupyter notebook --browser=Chromium"
-alias jl="$HOME/Pipenv/jupyter/.venv/bin/jupyter-lab --browser=Chromium"
-alias jls="$HOME/Pipenv/jupyter/.venv/bin/jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
+alias jn="jupyter notebook --browser=Chromium"
+alias jl="jupyter-lab --browser=Chromium"
+alias jls="jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
 alias fo="fuzzy-open"
 
 ## Pipenv
