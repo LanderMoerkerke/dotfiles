@@ -60,6 +60,15 @@ super + shift + F1
     notify-send "DUNST_COMMAND_RESUME"
 # 1}}} -
 
+# Function keys - mod1 {{{1 -
+mod1 + F1
+    pactl set-sink-mute 1 toggle
+mod1 + F2
+    pactl -- set-sink-volume 1 -1%
+mod1 + F3
+    pactl -- set-sink-volume 1 +1%
+# 1}}} -
+
 # Other {{{1 -
 super + g
     echo $EMAIL_PRIMARY | xclip -selection clipboard -selection clipboard
