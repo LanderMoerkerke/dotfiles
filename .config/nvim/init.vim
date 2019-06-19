@@ -157,7 +157,7 @@ set encoding=utf-8
 " ------
 
 " let g:python3_host_prog = '/usr/bin/python3.7'
-let g:python3_host_prog = '/home/lander/Pipenv/neovim/.venv/bin/python'
+let g:python3_host_prog = '/home/lander/Pipenv/python3-venv/.venv/bin/python'
 
 " ------
 " Key bindings
