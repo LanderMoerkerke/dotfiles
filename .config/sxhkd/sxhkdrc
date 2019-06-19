@@ -93,6 +93,8 @@ XF86AudioPause
     playerctl pause
 XF86AudioPlay
     playerctl play
+XF86AudioMicMute
+    pactl set-source-mute 1 toggle
 XF86MonBrightnessUp
     light -A 3
 XF86MonBrightnessDown
