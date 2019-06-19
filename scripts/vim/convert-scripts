@@ -2,8 +2,7 @@
 # convert: A general handler for converting a file's.
 
 basename="${1%.*}"
-python_env="$HOME/Pipenv/jupyter/.venv/bin"
 
 case "$1" in
-    *.ipynb) $python_env/jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | $python_env/black -q - >$basename.py ;;
+    *.ipynb) jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | $python_env/black -q - >$basename.py ;;
 esac
