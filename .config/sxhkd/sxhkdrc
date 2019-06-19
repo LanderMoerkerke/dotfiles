@@ -53,7 +53,7 @@ control + shift + Print
     maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 # 1}}} -
 
-# Function keys {{{1 -
+# Function keys - super {{{1 -
 super + F1
     notify-send "DUNST_COMMAND_PAUSE"
 super + shift + F1
