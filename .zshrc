@@ -221,9 +221,8 @@ alias fo="fuzzy-open"
 alias pe="pipenv"
 alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-isort' --dev"
 
-alias pytorch="source $HOME/Pipenv/pytorch/.venv/bin/activate"
-alias py-env="source $HOME/Pipenv/python3/.venv/bin/activate"
-alias tensorflow="source $HOME/Pipenv/tensorflow/.venv/bin/activate"
+alias py3-env="source $HOME/Pipenv/python3-venv/.venv/bin/activate"
+alias py2-env="source $HOME/Pipenv/python2-venv/.venv/bin/activate"
 
 ## one letter aliasses
 
