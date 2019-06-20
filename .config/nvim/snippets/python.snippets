@@ -97,10 +97,6 @@ snippet amain "Async main"
 	if __name__ == "__main__":
 		asyncio.run(main())
 
-snippet witho "With open file"
-	with open(f"${1:filename}", "${2:r}") as f:
-		${3:pass}
-
 snippet aread "Async read file"
 	import aiofiles
 
@@ -108,12 +104,40 @@ snippet aread "Async read file"
 		${3:data = await f.read()}
 		# ${3:data = await f.read()}
 
+snippet awrite "Async write file"
+	import aiofiles
+
+	async with aiofiles.open(f"${1:filename}", "${2:w}") as f:
+		await f.write(str("\n").join(${2:data}))
+
 snippet areq "Async request"
 	import aiohttp
 
 	async with aiohttp.ClientSession(${1:headers=headers, cookies=cookies}) as session:
 		async with session.${2:get}(${3:url}) as resp:
 			${4:return await resp}
+
+snippet achunck "Async list chunking"
+
+	amount_per_iteration = 100
+	amount_of_iterations = len(${1:lst}) // amount_per_iteration + 1
+	index = 0
+
+	t0 = time.time()
+	for _ in range(amount_of_iterations):
+
+	    subset = $1[index : min(index + amount_per_iteration, len($1))]
+	    index += amount_per_iteration
+
+	    tasks = [
+	        asyncio.create_task(${2:function}(sub))
+	        for sub in subset
+	    ]
+
+	    for t in tasks:
+	        await t
+
+	print(f"Done - finished in {time.time() - t0:.4f}")
 
 #############
 #  Comments #
