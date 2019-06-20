@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ ! -f /tmp/crontab.lock ]; then
+    touch /tmp/crontab.lock && notify-send "Crontab" "Scripts are now disabled!"
+else
+    notify-send "Crontab" "Scripts were already disabled!"
+fi

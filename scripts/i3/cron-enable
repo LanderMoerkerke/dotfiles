@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ ! -f /tmp/crontab.lock ]; then
+    notify-send "Crontab" "Scripts were already running!"
+else
+    rm /tmp/crontab.lock && notify-send "Crontab" "Scripts are now running!"
+fi
