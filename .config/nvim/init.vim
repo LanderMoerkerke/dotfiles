@@ -24,7 +24,6 @@ Plug 'jremmen/vim-ripgrep'                                          " RipGrep
 " Appearance
 Plug 'mhinz/vim-startify'                                           " Fancy startup
 Plug 'scrooloose/nerdtree'                                          " Nerdtree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                      " Nerdtree colors
 Plug 'Xuyuanp/nerdtree-git-plugin'                                  " Nerdtree git
 Plug 'ryanoasis/vim-devicons'                                       " Icons
 Plug 'vim-airline/vim-airline'										" Statusbar
@@ -62,9 +61,10 @@ Plug 'honza/vim-snippets'                                           " Extra snip
 
 " Formatting
 Plug 'Chiel92/vim-autoformat'                                       " Autoformat
-
+Plug 'tell-k/vim-autoflake'                                         " AutoFlake
 " Linting
-Plug 'w0rp/ale'                                                     " Linting engine
+" Plug 'w0rp/ale'                                                     " Linting engine
+Plug 'MoerkerkeLander/ale'
 
 " Filetypes / syntax
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
@@ -151,6 +151,13 @@ set undolevels=1000                            " How many undos
 set undoreload=10000                           " number of lines to save for undo
 
 set encoding=utf-8
+
+" ------
+" Environment
+" ------
+
+" let g:python3_host_prog = '/usr/bin/python3.7'
+let g:python3_host_prog = '/home/lander/Pipenv/python3-venv/.venv/bin/python'
 
 " ------
 " Key bindings
@@ -531,16 +538,18 @@ let g:ale_lint_fix_on_save = 1
 
 let g:ale_completion_enabled = 0
 
+let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-imports --remove-unused-variables --remove-duplicate-keys -s'
+
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['golint']}
 let g:ale_fixers = {
     \ 'cpp': ['clang-format'],
     \ 'css': ['prettier'],
     \ 'go': ['gofmt', 'goimports', 'gomod'],
     \ 'html': ['prettier'],
-    \ 'javascript': ['eslint', 'prettier', 'eslint'],
+    \ 'javascript': ['eslint', 'prettier'],
     \ 'json': ['fixjson', 'prettier'],
     \ 'markdown': ['remark'],
-    \ 'python': ['black', 'isort'],
+    \ 'python': ['autoflake', 'isort', 'black'],
     \ 'sh': ['shfmt'],
 \}
 " golangci-lint run
@@ -551,6 +560,12 @@ let g:ale_set_signs = 0
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
+
+" Autoflake
+let g:autoflake_cmd = "/home/lander/Pipenv/neovim/.venv/bin/autoflake"
+let g:autoflake_remove_all_unused_imports=1
+let g:autoflake_remove_unused_variables=1
+let g:autoflake_disable_show_diff=1
 
 " " CoC
 " " let g:coc_force_debug = 1

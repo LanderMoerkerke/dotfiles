@@ -1,4 +1,5 @@
 #!/bin/sh
 
-ptpython
+# ptpython
+python
 # /usr/bin/R -q --no-save

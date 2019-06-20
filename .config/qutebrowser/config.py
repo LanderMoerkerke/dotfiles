@@ -371,39 +371,39 @@ c.editor.encoding = "utf-8"
 
 # Font used in the completion categories.
 # Type: Font
-c.fonts.completion.category = "bold 10pt monospace"
+c.fonts.completion.category = "bold 9pt monospace"
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = "10pt monospace"
+c.fonts.completion.entry = "9pt monospace"
 
 # Font used for the debugging console.
 # Type: QtFont
-c.fonts.debug_console = "10pt monospace"
+c.fonts.debug_console = "9pt monospace"
 
 # Font used for the downloadbar.
 # Type: Font
-c.fonts.downloads = "10pt monospace"
+c.fonts.downloads = "9pt monospace"
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = "bold 10pt monospace"
+c.fonts.hints = "bold 9pt monospace"
 
 # Font used in the keyhint widget.
 # Type: Font
-c.fonts.keyhint = "10pt monospace"
+c.fonts.keyhint = "9pt monospace"
 
 # Font used for error messages.
 # Type: Font
-c.fonts.messages.error = "10pt monospace"
+c.fonts.messages.error = "9pt monospace"
 
 # Font used for info messages.
 # Type: Font
-c.fonts.messages.info = "10pt monospace"
+c.fonts.messages.info = "9pt monospace"
 
 # Font used for warning messages.
 # Type: Font
-c.fonts.messages.warning = "10pt monospace"
+c.fonts.messages.warning = "9pt monospace"
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
@@ -412,15 +412,15 @@ c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", M
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = "10pt sans-serif"
+c.fonts.prompts = "9pt sans-serif"
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = "10pt monospace"
+c.fonts.statusbar = "9pt monospace"
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = "10pt monospace"
+c.fonts.tabs = "9pt monospace"
 
 # Font family for cursive fonts.
 # Type: FontFamily

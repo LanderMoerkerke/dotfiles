@@ -14,8 +14,8 @@
 # ---------------------------
 
 set shell sh
-
 set shellopts '-eu'
+
 set ifs "\n"
 
 set color256 on
@@ -27,7 +27,7 @@ set drawbox on
 
 set scrolloff 5
 
-set previewer ~/.config/lf/pv.sh
+set previewer file-preview
 
 # ---------------------------
 #  1}}} #
@@ -39,9 +39,15 @@ set previewer ~/.config/lf/pv.sh
 
 cmd trash $mv $fx ~/.local/share/Trash
 
-cmd go-symlink %cd $(readlink "$fx")
+cmd go-symlink ${{
+    link=$(readlink $f)
+    path=$(dirname "$link")
+    lf -remote "send $id cd $path"
+}}
 
 cmd usage $du -h -d1 | less
+
+cmd count !echo $f && find . | wc -l
 
 cmd mkdir %mkdir -p "$@"
 
@@ -105,15 +111,16 @@ cmd open ${{
         *zip) atool --list -- $f | less;;
         *tar) atool --list -- $f | less;;
         *compressed) atool --list -- $f | less;;
-        *) xdg-open $fx;;
+        *) xdg-open $fx &;;
     esac
 }}
 
-cmd convert ${{
+cmd convert !{{
     set -f
     case $f in
         *.ipynb) convert-scripts "$f";;
         *.docx|*.odt) convert-word-document "$f" ".";;
+        *) echo "No converter for $f";;
     esac
 }}
 
@@ -198,7 +205,7 @@ map M mark-save
 map <enter> shell
 
 map P :set preview!
-map i $~/.config/lf/pv.sh $f | less -R
+map i $file-preview $f | less -R
 
 map C convert
 
@@ -227,24 +234,26 @@ map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
 
-map W &nemo $f
+map W &xdg-open .
 
 # FuzzyFind
-map f $vi $(fzf)
+map f $fuzzy-open
 map F $lf -remote "send $id select '$(fzf)'"
 
 # Usage
+map u count
 map U usage
 
 map r push :rename<space>
+map A $lf -remote "send $id push :rename<space>$f"
+map E $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
 
-map V push !nvim<space>
+map V push $nvim<space>
 
 map br bulk-rename
 
 # Movements
-# map gL go-symlink
-map gL cd $(readlink $f)
+map gL go-symlink
 map gG $lf -remote "send $id cd $GOPATH"
 
 map gr cd /

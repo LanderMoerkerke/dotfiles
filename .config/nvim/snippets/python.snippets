@@ -102,7 +102,6 @@ snippet aread "Async read file"
 
 	async with aiofiles.open(f"${1:filename}", "${2:r}") as f:
 		${3:data = await f.read()}
-		# ${3:data = await f.read()}
 
 snippet awrite "Async write file"
 	import aiofiles

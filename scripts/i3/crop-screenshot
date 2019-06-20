@@ -1,0 +1,24 @@
+#!/bin/sh
+
+choice=$(echo "Clipboard\nFile" | dmenu -i -p "Where to copy screenshot?")
+
+echo "$choice"
+
+if [ "$choice" = "File" ]; then
+    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
+
+    maim -s -u --format=png /tmp/$NAME || exit 1
+
+    FILENAME=$(echo $NAME | dmenu -i -p "Select a filename")
+    FILENAME=${FILENAME:-$NAME}
+
+    cp /tmp/$NAME ~/Pictures/Screenshots/$FILENAME.png
+    rm /tmp/$NAME
+
+    notify-send "Printscreen" "Saved to ~/Pictures/Screenshots/$FILENAME.png" -i ~/Pictures/Screenshots/$FILENAME.png
+    echo ~/Pictures/Screenshots/$FILENAME.png | xclip -selection clipboard
+
+elif [ "$choice" = "Clipboard" ]; then
+    maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+    notify-send "Printscreen" "Crop copied to clipboard"
+fi

@@ -1,0 +1,10 @@
+#!/bin/env bash
+
+sudo modprobe -rf nvidia_uvm
+sudo modprobe -rf nvidia
+
+sudo tee /proc/acpi/bbswitch <<<OFF
+
+dmesg | tail -2
+
+echo "GPU stopped"

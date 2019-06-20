@@ -97,12 +97,15 @@ setopt NO_BEEP
 setopt NO_CASE_GLOB
 setopt EXTENDED_GLOB
 
+ZSH_DISABLE_COMPFIX=true
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # OHMYZSH
 # -----------------------------------------------------------------------------------------------------------------------------
 
 ZSH_THEME="powerzeesh"
 plugins=(
+docker
 git
 notify
 vi-mode
@@ -209,30 +212,29 @@ alias we='curl wttr.in/Gent'
 alias pdf='zathura'
 alias soundcloud="scdl"
 alias mp3="youtube-dl --extract-audio --audio-format mp3"
-alias python3="python3.6"
-alias pip="pip3.7"
-alias pip3="pip3.6"
-alias pe="pipenv"
-alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-isort' --dev"
 alias jn="jupyter notebook --browser=Chromium"
 alias jl="jupyter-lab --browser=Chromium"
 alias jls="jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
+alias fo="fuzzy-open"
+
+## Pipenv
+
+alias pe="pipenv"
+alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-isort' --dev"
+
+alias py3-env="source $HOME/Pipenv/python3-venv/.venv/bin/activate"
+alias py2-env="source $HOME/Pipenv/python2-venv/.venv/bin/activate"
 
 ## one letter aliasses
 
-alias e='emacs -nw'
-alias i='feh --geometry 400x400'
 alias j="joplin"
 alias l='ls -latrFi'
 alias m='neomutt'
-alias n='/usr/bin/newsboat'
-alias o='cd /run/media/$USER/'
 alias p="python"
-alias p3="python3"
+alias p2="python2"
 alias r='lf'
-alias s="slack-term"
+alias s="weechat"
 alias t="tree"
-alias u="unzip"
 
 ## xrandr
 
@@ -364,18 +366,7 @@ mtpfs_op () {
 [ -f ~/.fzf/.fzf.zsh ] && source ~/.fzf/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file .gitignore_global ."
-export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border'
-
-# Vim
-xf() { fzf | xargs -r -I % xdg-open % &;}
-
-# Try highlight, coderay, rougify in turn, then fall back to cat
-vf() { fzf --height 100% --preview '[[ $(file --mime {}) =~ binary ]] &&
-                 echo {} is a binary file ||
-                 (highlight -O ansi -l {} ||
-                  coderay {} ||
-                  rougify {} ||
-                  cat {}) 2> /dev/null | head -500' | xargs -r -I % $EDITOR % ;}
+export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up'
 
 # fkill - kill process
 killf() {
@@ -452,7 +443,8 @@ function dsf() {
 # -----------------------------------------------------------------------------------------------------------------------------
 
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
-complete -C '/usr/sbin/aws_completer' aws
+source /usr/bin/aws_zsh_completer.sh
+fpath=(~/.zsh/completion $fpath)
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # MISC

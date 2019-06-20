@@ -9,8 +9,10 @@ super + Tab
     rofi -show window -width 25
 super + shift + e
     rofi-emoji
-super + shift + x
+super + x
     lockscreen
+super + shift + x
+    systemctl suspend
 # 1}}} -
 
 # Applications {{{1 -
@@ -20,6 +22,8 @@ super + shift + Return
     samedir
 super + r
     $TERMINAL -e lf
+super + w
+   $FILEMANAGER2
 super + shift + r
     $TERMINAL -e ranger
 super + shift + v
@@ -46,7 +50,23 @@ shift + Print
 control + Print
     maim -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 control + shift + Print
-    maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+    crop-screenshot
+# 1}}} -
+
+# Function keys - super {{{1 -
+super + F1
+    notify-send "DUNST_COMMAND_PAUSE"
+super + shift + F1
+    notify-send "DUNST_COMMAND_RESUME"
+# 1}}} -
+
+# Function keys - mod1 {{{1 -
+mod1 + F1
+    pactl set-sink-mute 1 toggle
+mod1 + F2
+    pactl -- set-sink-volume 1 -1%
+mod1 + F3
+    pactl -- set-sink-volume 1 +1%
 # 1}}} -
 
 # Other {{{1 -
@@ -73,6 +93,8 @@ XF86AudioPause
     playerctl pause
 XF86AudioPlay
     playerctl play
+XF86AudioMicMute
+    pactl set-source-mute 1 toggle
 XF86MonBrightnessUp
     light -A 3
 XF86MonBrightnessDown

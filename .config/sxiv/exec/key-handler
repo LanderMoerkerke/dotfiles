@@ -29,6 +29,8 @@ do
             convert -flop "$file" "$file" ;;
         "w")
             feh --bg-center "$file";;
+        "b")
+            feh --bg-fill "$file";;
         "G")
             gimp "$file" & ;;
         "C-x")

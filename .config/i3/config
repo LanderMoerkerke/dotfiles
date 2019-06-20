@@ -21,37 +21,37 @@ popup_during_fullscreen smart
 # SCRATPAD tmux
 # -----------------------------------------------------------------------------------------------------------------------------
 
-for_window [instance="scratch_tmux"] floating enable
-for_window [instance="scratch_tmux"] resize set 1000 900
-for_window [instance="scratch_tmux"] move scratchpad
-for_window [instance="scratch_tmux"] border pixel 0
-for_window [instance="scratch_tmux"] sticky enable
+for_window [instance="scratch-tmux"] floating enable
+for_window [instance="scratch-tmux"] resize set 1000 900
+for_window [instance="scratch-tmux"] move scratchpad
+for_window [instance="scratch-tmux"] border pixel 0
+for_window [instance="scratch-tmux"] sticky enable
 
-bindsym $mod+t		        	exec --no-startup-id ddspawn scratch_tmux
+bindsym $mod+t		        	exec --no-startup-id ddspawn scratch-tmux
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # SCRATPAD nvim
 # -----------------------------------------------------------------------------------------------------------------------------
 
-for_window [instance="scratch_nvim"] floating enable
-for_window [instance="scratch_nvim"] resize set 1500 900
-for_window [instance="scratch_nvim"] move scratchpad
-for_window [instance="scratch_nvim"] border pixel 0
-for_window [instance="scratch_nvim"] sticky enable
+for_window [instance="scratch-nvim"] floating enable
+for_window [instance="scratch-nvim"] resize set 1500 900
+for_window [instance="scratch-nvim"] move scratchpad
+for_window [instance="scratch-nvim"] border pixel 0
+for_window [instance="scratch-nvim"] sticky enable
 
-bindsym $mod+Shift+t		     exec --no-startup-id ddspawn scratch_nvim
+bindsym $mod+Shift+t		     exec --no-startup-id ddspawn scratch-nvim
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # SCRATPAD math
 # -----------------------------------------------------------------------------------------------------------------------------
 
-for_window [instance="scratch_math"] floating enable
-for_window [instance="scratch_math"] resize set 700 450
-for_window [instance="scratch_math"] move scratchpad
-for_window [instance="scratch_math"] border pixel 0
-for_window [instance="scratch_math"] sticky enable
+for_window [instance="scratch-math"] floating enable
+for_window [instance="scratch-math"] resize set 700 450
+for_window [instance="scratch-math"] move scratchpad
+for_window [instance="scratch-math"] border pixel 0
+for_window [instance="scratch-math"] sticky enable
 
-bindsym $mod+m		        	exec --no-startup-id ddspawn scratch_math
+bindsym $mod+m		        	exec --no-startup-id ddspawn scratch-math
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # SCRATPAD caprine
@@ -100,7 +100,6 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 # GENERAL BINDINGS AND MOVEMENTS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-bindsym Mod1+F4             kill
 bindsym $mod+c              kill
 
 bindsym Mod1+Tab workspace back_and_forth
