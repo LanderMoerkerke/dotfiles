@@ -2,4 +2,4 @@
 
 ext=${1##*.}
 
-convert-word-document "$1" && $READER /tmp/$(basename "$1" ".$ext").pdf
+convert-word-document "$1" && $READER "/tmp/$(basename "$1" ".$ext").pdf"

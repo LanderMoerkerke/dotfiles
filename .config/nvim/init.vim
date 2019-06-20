@@ -543,6 +543,7 @@ let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['golint']}
 let g:ale_fixers = {
     \ 'cpp': ['clang-format'],
+    \ 'css': ['prettier'],
     \ 'go': ['gofmt', 'goimports', 'gomod'],
     \ 'html': ['prettier'],
     \ 'javascript': ['eslint', 'prettier'],

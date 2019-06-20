@@ -33,5 +33,9 @@ do
             feh --bg-fill "$file";;
         "G")
             gimp "$file" & ;;
+        "C-x")
+                lf -remote "send select '$file'"
+                lf -remote "send toggle"
+            ;;
     esac
 done
