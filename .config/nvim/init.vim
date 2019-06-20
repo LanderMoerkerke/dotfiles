@@ -534,6 +534,7 @@ let g:ale_completion_enabled = 0
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['golint']}
 let g:ale_fixers = {
     \ 'cpp': ['clang-format'],
+    \ 'css': ['prettier'],
     \ 'go': ['gofmt', 'goimports', 'gomod'],
     \ 'html': ['prettier'],
     \ 'javascript': ['eslint', 'prettier', 'eslint'],
