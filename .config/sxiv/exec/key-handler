@@ -31,5 +31,9 @@ do
             feh --bg-center "$file";;
         "G")
             gimp "$file" & ;;
+        "C-x")
+                lf -remote "send select '$file'"
+                lf -remote "send toggle"
+            ;;
     esac
 done
