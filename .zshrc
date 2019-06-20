@@ -178,6 +178,7 @@ function chpwd() {
 }
 
 alias cdh="cd $HOME"
+alias cdl="cd $(readlink '$1')"
 alias up="cd .."
 alias chmod_num="stat --format '%a'"
 alias password16="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1"
