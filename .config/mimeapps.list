@@ -7,6 +7,7 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document=document
 application/x-ipynb+json=notebook.desktop;
 application/xhtml+xml=qutebrowser.desktop;
 image/jpeg=img.desktop;
+image/gif=img.desktop;
 image/png=img.desktop;
 image/tiff=img.desktop;
 inode/x-empty=nvim.desktop;
