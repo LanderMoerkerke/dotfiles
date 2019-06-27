@@ -245,6 +245,7 @@ map u count
 map U usage
 
 map r push :rename<space>
+map a $lf -remote "send $id push :rename<space>$f<a-b><left>"
 map A $lf -remote "send $id push :rename<space>$f"
 map E $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
 
