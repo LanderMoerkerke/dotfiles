@@ -244,6 +244,8 @@ map F $lf -remote "send $id select '$(fzf)'"
 map u count
 map U usage
 
+map R $lf -remote "send $id redraw"
+
 map r push :rename<space>
 map a $lf -remote "send $id push :rename<space>$f<a-b><left>"
 map A $lf -remote "send $id push :rename<space>$f"
