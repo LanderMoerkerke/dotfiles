@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=CSV viewer
+GenericName=Sc-im
+Icon=csv
+Exec=/usr/bin/sc-im %f
