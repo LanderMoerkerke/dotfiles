@@ -52,6 +52,7 @@ text/xml=nvim.desktop;
 video/3gp=mpv.desktop;
 video/3gpp2=mpv.desktop;
 video/3gpp=mpv.desktop;
+video/mpeg=mpv.desktop;
 video/avi=mpv.desktop;
 video/divx=mpv.desktop;
 video/dv=mpv.desktop;
