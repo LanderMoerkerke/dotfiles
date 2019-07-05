@@ -106,6 +106,7 @@ ZSH_DISABLE_COMPFIX=true
 ZSH_THEME="powerzeesh"
 plugins=(
 docker
+docker-compose
 git
 notify
 vi-mode
