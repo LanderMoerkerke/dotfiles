@@ -222,8 +222,8 @@ noremap < <gv
 noremap > >gv
 
 " Indent using Shift + S-Shift
-nnoremap <Tab> V>gv<esc>
-nnoremap <S-Tab> V<LT>gv<esc>
+" nnoremap <Tab> V>gv<esc>
+" nnoremap <S-Tab> V<LT>gv<esc>
 
 " Move visual block
 vnoremap J :m '>+1<CR>gv=gv
