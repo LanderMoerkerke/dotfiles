@@ -633,13 +633,13 @@ let g:LanguageClient_diagnosticsDisplay = {
 let g:LanguageClient_serverCommands = {
             \ 'c':          ['clangd'],
             \ 'cpp':        ['clangd'],
-            \ 'cs':         ['css-languageserver', '--stdio'],
-            \ 'dockerfile': ['docker-langserver'],
+            \ 'css':        ['css-languageserver', '--stdio'],
+            \ 'dockerfile': ['docker-langserver', '--stdio'],
             \ 'go':         ['go-langserver'],
             \ 'html':       ['html-languageserver', '--stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
             \ 'python':     ['pyls'],
-            \ 'sh':         ['bash-language-server'],
+            \ 'sh':         ['bash-language-server', 'start'],
 \ }
 
 function LC_maps()
