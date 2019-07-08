@@ -182,6 +182,9 @@ nnoremap Y y$
 nnoremap n nzz
 nnoremap N Nzz
 
+" Keep jumping in middle
+nnoremap <C-o> <C-o>zz
+
 " Reselect text you just entered
 nnoremap gV `[v`]
 
