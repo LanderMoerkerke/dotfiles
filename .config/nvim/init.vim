@@ -123,7 +123,7 @@ set showcmd
 
 set title
 set ruler
-" set relativenumber
+set relativenumber
 set conceallevel=2                              " conceals
 
 set autoread                                    " automatically reload the file when modified outside and not modified inside
