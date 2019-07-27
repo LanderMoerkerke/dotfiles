@@ -1145,7 +1145,7 @@ c.bindings.commands = {
         "yT": "yank title -s",
         "yY": "yank -s",
         "yd": "yank domain",
-        "ym": "yank markdown",
+        "ym": "yank inline [{title}]({url})",
         "yp": "yank pretty-url",
         "yt": "yank title",
         "yy": "yank",
