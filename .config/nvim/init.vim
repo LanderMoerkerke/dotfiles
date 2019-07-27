@@ -533,6 +533,16 @@ let g:airline_section_c =
       \"%<%f%m %#__accent_red#".
       \"%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#"
 
+let g:airline#extensions#wordcount#formatter#default#fmt = '%d w'
+
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+let g:airline#extensions#virtualenv#enabled = 0
+let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#vimagit#enabled = 0
+let g:airline#extensions#hunks#enabled = 0
+
 " ALE
 let g:ale_set_highlights = 0
 
