@@ -107,8 +107,8 @@ ZSH_THEME="powerzeesh"
 plugins=(
 docker
 docker-compose
-git
 kubectl
+# git
 notify
 vi-mode
 zsh-autosuggestions
