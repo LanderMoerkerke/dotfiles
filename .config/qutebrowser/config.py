@@ -841,7 +841,7 @@ c.tabs.title.alignment = "left"
 # Either ''webkit'' or ''webengine'' * `{private}` : Indicates when
 # private mode is enabled.
 # Type: FormatString
-c.tabs.title.format = "{index}: {title}"
+# c.tabs.current_title.format = "{index}: {title}"
 
 # The format to use for the tab title for pinned tabs. The same
 # placeholders like for `tabs.title.format` are defined.
@@ -950,7 +950,7 @@ c.url.yank_ignored_parameters = [
 # the current web page. * `{backend}`: Either ''webkit'' or
 # ''webengine'' * `{private}` : Indicates when private mode is enabled.
 # Type: FormatString
-c.window.title_format = "{perc}{title}{title_sep}qutebrowser"
+# c.window.current_title_format = "{perc}{title}{title_sep}qutebrowser"
 
 # The default zoom level.
 # Type: Perc
