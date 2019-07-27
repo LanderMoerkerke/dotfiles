@@ -568,6 +568,9 @@ let g:ale_fixers = {
     \ 'python': ['autoflake', 'isort', 'black'],
     \ 'sh': ['shfmt'],
 \}
+
+let g:ale_python_black_options = "-l 120"
+
 " golangci-lint run
 " remark
 let g:ale_sign_column_always = 1
