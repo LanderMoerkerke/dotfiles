@@ -108,6 +108,7 @@ plugins=(
 docker
 docker-compose
 git
+kubectl
 notify
 vi-mode
 zsh-autosuggestions
@@ -420,6 +421,52 @@ function cd() {
         [[ ${#dir} == 0 ]] && ls && return 0
         builtin cd "$dir" &> /dev/null
     done
+}
+
+khelm () {
+
+    helm template . | kubectl apply -f -
+
+}
+
+khelm_delete () {
+
+    helm template . | kubectl delete -f -
+
+}
+
+khelm_all () {
+
+    for i in $(ls); do
+
+        if [ -d "$i" ]; then
+
+            if [ "$i" != "shared" ]; then
+
+                helm template "$i" | kubectl apply -f -
+
+            fi
+
+        fi
+
+    done
+
+}
+
+klogs () {
+
+    namespace="$1"
+    pod="$2"
+    container="$3"
+    POD=$(kubectl -n "$namespace" get pod -l app="$pod" -o jsonpath="{.items[0].metadata.name}")
+    echo $POD
+
+    if [[ "$container" != "" ]]; then
+        kubectl -n "$namespace" logs "$POD" -c "$container" -f
+    else
+        kubectl -n "$namespace" logs "$POD" -f
+    fi
+
 }
 
 # DOCKER
