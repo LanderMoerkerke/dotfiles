@@ -425,6 +425,7 @@ let g:polyglot_disabled = ['markdown']
 
 " FuzzyFind
 nnoremap <leader>p :FZF <cr>
+nnoremap <leader>P :Buffers <cr>
 
 " Esc closes FZF
 au TermOpen * tnoremap <Esc> <c-\><c-n>
