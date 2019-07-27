@@ -222,6 +222,8 @@ alias fo="fuzzy-open"
 ## Pipenv
 
 alias pe="pipenv"
+alias pes="pipenv shell"
+alias peg="pipenv graph | less"
 alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-isort' --dev"
 
 alias py3-env="source $HOME/Pipenv/python3-venv/.venv/bin/activate"
