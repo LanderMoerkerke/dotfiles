@@ -525,8 +525,6 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme="minimalist"
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:airline_section_c =
       \"%{bufnr('%')}: ".
@@ -542,6 +540,9 @@ let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#vimagit#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
+
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ALE
 let g:ale_set_highlights = 0
