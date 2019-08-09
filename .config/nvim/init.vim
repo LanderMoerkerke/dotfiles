@@ -588,28 +588,6 @@ let g:autoflake_remove_all_unused_imports=1
 let g:autoflake_remove_unused_variables=1
 let g:autoflake_disable_show_diff=1
 
-" " CoC
-" " let g:coc_force_debug = 1
-"
-" " Smaller updatetime for CursorHold & CursorHoldI
-" set updatetime=300
-"
-" " Use `[c` and `]c` for navigate diagnostics
-" nmap <silent> [c <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]c <Plug>(coc-diagnostic-next)
-"
-" " Remap keys for gotos
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gm <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-"
-" " Use K for show documentation in preview window
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-"
-" " Remap for rename current word
-" nmap <leader>rn <Plug>(coc-rename)
-
 " LanguageClient
 
 " \ 'go':         ['go-langserver'],
