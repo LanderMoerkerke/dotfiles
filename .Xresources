@@ -111,3 +111,5 @@ URxvt.letterSpace:          -1
 
 URxvt.foreground:           veru6
 URxvt*background:           [96]veru0
+
+Xcursor*size: 15
