@@ -15,19 +15,14 @@ snippet main "Main declaration and execution"
 
 	if __name__ == "__main__":
 		main()
-
 snippet printf "Print formatted"
 	print(f"${1:text} {${2:variable}}${3}")
-
 snippet printbr "Print breakline"
 	print("-" * 39)
-
 snippet ts "Time start"
 	t0 = time.time()
-
 snippet te "Time end"
 	print(f"${0} - finished in {time.time() - t0:.4f}")
-
 snippet tes "Time end section"
 	print("---------------------------------------")
 	print(f"Code finished in {time.time() - t0:.4f}")
@@ -60,7 +55,6 @@ snippet classd "Dataclass"
 		"""Docstring for $1. """
 
 		${2:pass}
-
 snippet posti "Post init function"
 	def __post_init__(self):
 		${3:${VISUAL:pass}}
