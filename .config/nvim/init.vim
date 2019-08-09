@@ -566,7 +566,9 @@ let g:ale_fixers = {
     \ 'json': ['fixjson', 'prettier'],
     \ 'markdown': ['remark'],
     \ 'python': ['autoflake', 'isort', 'black'],
+    \ 'rust': ['rustfmt'],
     \ 'sh': ['shfmt'],
+    \ 'sql': ['pgformatter'],
 \}
 
 let g:ale_python_black_options = "-l 120"
