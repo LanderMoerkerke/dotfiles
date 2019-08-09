@@ -145,6 +145,13 @@ format-foreground = #f0c674
 format-padding = 1
 label-maxlen = 50
 
+[module/camera]
+type = custom/script
+exec = check-usage-camera
+tail = true
+interval = 5
+label = "    |"
+
 [module/gpg]
 type = custom/script
 exec = check-gpg-cached
