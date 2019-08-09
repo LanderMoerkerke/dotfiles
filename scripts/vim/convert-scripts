@@ -4,5 +4,5 @@
 basename="${1%.*}"
 
 case "$1" in
-    *.ipynb) jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | $python_env/black -q - >$basename.py ;;
+    *.ipynb) jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | black -q - >$basename.py ;;
 esac
