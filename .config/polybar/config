@@ -159,6 +159,11 @@ tail = true
 interval = 5
 label = "  %output%  |"
 
+[module/system-nvidia-smi]
+type = custom/script
+exec = ~/.scripts/polybar/check-gpu-usage
+interval = 10
+
 [module/updates]
 type = custom/script
 exec = check-updates-packages

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+gpu_stats=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits) || exit
+echo $gpu_stats | awk '{ print "GPU",""$1"","%"}'
