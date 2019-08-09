@@ -70,6 +70,8 @@ Plug 'MoerkerkeLander/ale'
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
 Plug 'sheerun/vim-polyglot'
 
+Plug 'chrisbra/csv.vim'
+
 call plug#end()
 
 " Leader
