@@ -637,7 +637,10 @@ let g:LanguageClient_serverCommands = {
             \ 'html':       ['html-languageserver', '--stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
             \ 'python':     ['pyls'],
+            \ 'rust':       ['rls'],
             \ 'sh':         ['bash-language-server', 'start'],
+            \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
+            \ 'yaml':       ['yaml-language-server', '--stdio']
 \ }
 
 function LC_maps()
