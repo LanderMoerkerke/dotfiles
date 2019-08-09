@@ -377,7 +377,7 @@ mtpfs_op () {
 
 [ -f ~/.fzf/.fzf.zsh ] && source ~/.fzf/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file .gitignore_global ."
+export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file .gitignore_global ."
 export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up'
 
 # fkill - kill process
