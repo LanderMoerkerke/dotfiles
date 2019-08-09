@@ -359,8 +359,9 @@ au BufEnter stories.md,intents* hi Error NONE
 
 " Before saving
 autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
-" autocmd BufWritePre *.go,*.py,*.jsd,*.md ALEFix           " format
-" autocmd BufWritePre *.md           Autoformat       " format
+
+autocmd BufWritePre *.go,*.jsd,*.md ALEFix           " format
+autocmd BufWritePre *.py ALEFix isort black
 
 " After saving
 autocmd BufWritePost * GitGutter
