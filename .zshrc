@@ -197,12 +197,14 @@ alias gc="git checkout"
 alias gp="git pull"
 alias gda="git diff -a"
 alias docka="docker run --rm -it alpine sh"
+alias dcu="docker-compose up"
 alias temp='cat /sys/bus/acpi/drivers/thermal/LNXTHERM\:00/thermal_zone/temp'
 alias dus='du -sh *'
 alias tree='tree -Csuh'
 alias more='less'
 alias L='less'
 alias lg='lazygit'
+alias ld='lazydocker'
 alias browse='w3m -F -graph -o auto_image=TRUE'
 alias music='echo "press enter to play" && mocp -n -T alldefault'
 alias rtv='rtv --enable-media'
@@ -237,6 +239,7 @@ alias p_clean="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
 ## one letter aliasses
 
 alias j="joplin"
+alias g="gcloud"
 alias l='ls -latrFi'
 alias m='neomutt'
 alias p="python"
