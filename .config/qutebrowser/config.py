@@ -7,6 +7,10 @@
 #
 #
 #
+# pylint: disable=C0111
+c = c  # noqa: F821 pylint: disable=E0602,C0103
+config = config  # noqa: F821 pylint: disable=E0602,C0103
+
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
@@ -227,12 +231,7 @@ c.content.javascript.enabled = True
 # logged, the corresponding dictionary value selects the qutebrowser
 # logger to use. On QtWebKit, the "unknown" setting is always used.
 # Type: Dict
-c.content.javascript.log = {
-    "unknown": "debug",
-    "info": "debug",
-    "warning": "debug",
-    "error": "debug",
-}
+c.content.javascript.log = {"unknown": "debug", "info": "debug", "warning": "debug", "error": "debug"}
 
 # Use the standard JavaScript modal dialog for `alert()` and `confirm()`
 # Type: Bool
@@ -503,24 +502,11 @@ c.hints.mode = "letter"
 
 # A comma-separated list of regexes to use for 'next' links.
 # Type: List of Regex
-c.hints.next_regexes = [
-    "\\bnext\\b",
-    "\\bmore\\b",
-    "\\bnewer\\b",
-    "\\b[>→≫]\\b",
-    "\\b(>>|»)\\b",
-    "\\bcontinue\\b",
-]
+c.hints.next_regexes = ["\\bnext\\b", "\\bmore\\b", "\\bnewer\\b", "\\b[>→≫]\\b", "\\b(>>|»)\\b", "\\bcontinue\\b"]
 
 # A comma-separated list of regexes to use for 'prev' links.
 # Type: List of Regex
-c.hints.prev_regexes = [
-    "\\bprev(ious)?\\b",
-    "\\bback\\b",
-    "\\bolder\\b",
-    "\\b[<←≪]\\b",
-    "\\b(<<|«)\\b",
-]
+c.hints.prev_regexes = ["\\bprev(ious)?\\b", "\\bback\\b", "\\bolder\\b", "\\b[<←≪]\\b", "\\b(<<|«)\\b"]
 
 # Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
 # number hints.
@@ -847,6 +833,7 @@ c.tabs.title.alignment = "left"
 # placeholders like for `tabs.title.format` are defined.
 # Type: FormatString
 c.tabs.title.format_pinned = "{index}"
+c.colors.tabs.pinned.even.bg = "grey"
 
 # The width of the tab bar if it's vertical, in px or as percentage of
 # the window.
@@ -928,14 +915,7 @@ c.url.start_pages = ["www.google.com"]
 
 # The URL parameters to strip with `:yank url`.
 # Type: List of String
-c.url.yank_ignored_parameters = [
-    "ref",
-    "utm_source",
-    "utm_medium",
-    "utm_campaign",
-    "utm_term",
-    "utm_content",
-]
+c.url.yank_ignored_parameters = ["ref", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
 
 # Hide the window decoration when using wayland (requires restart)
 # Type: Bool
@@ -1122,6 +1102,7 @@ c.bindings.commands = {
         "ss": "set-cmd-text -s :set",
         "th": "back -t",
         "tl": "forward -t",
+        "tm": "tab-mute",
         "u": "scroll-page 0 -0.5",
         "v": "enter-mode caret",
         "wB": "set-cmd-text -s :bookmark-load -w",
@@ -1216,11 +1197,7 @@ c.bindings.commands = {
         "<Escape>": "leave-mode",
         "<Return>": "follow-hint",
     },
-    "insert": {
-        "<Ctrl-E>": "open-editor",
-        "<Escape>": "leave-mode",
-        "<Shift-Ins>": "insert-text {primary}",
-    },
+    "insert": {"<Ctrl-E>": "open-editor", "<Escape>": "leave-mode", "<Shift-Ins>": "insert-text {primary}"},
     "passthrough": {"<Ctrl-V>": "leave-mode"},
     "prompt": {
         "<Alt-B>": "rl-backward-word",
