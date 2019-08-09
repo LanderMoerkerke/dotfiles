@@ -67,6 +67,8 @@ mod1 + F2
     pactl -- set-sink-volume 1 -1%
 mod1 + F3
     pactl -- set-sink-volume 1 +1%
+mod1 + F4
+    echo "power on\nconnect CC:98:8B:93:3A:17" | bluetoothctl
 # 1}}} -
 
 # Other {{{1 -
