@@ -281,6 +281,8 @@ map gp cd ~/Pictures
 map gv cd ~/Videos
 
 map gw cd ~/Documents/Work/WeGroup
+map gb cd ~/Documents/Work/WeGroup/Bitbucket
+
 map gV cd ~/Documents/VEST
 
 map gH cd ~/Documents/Howest/
