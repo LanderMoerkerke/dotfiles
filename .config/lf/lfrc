@@ -271,7 +271,7 @@ map gP cd /run/media/lander/
 map gt cd ~/.local/share/Trash/files/
 map gT cd ~/.local/share/Trash/
 
-map gH cd ~
+map gh cd ~
 map gc cd ~/.config
 map gl cd ~/.local
 map gs cd ~/Share
@@ -283,10 +283,7 @@ map gv cd ~/Videos
 map gw cd ~/Documents/Work/WeGroup
 map gV cd ~/Documents/VEST
 
-map gh
-map ghh cd ~/Documents/Howest/3NMCT/S6
-map ghs cd ~/Documents/Howest/3NMCT/S6/Stage
-map ghb cd ~/Documents/Howest/3NMCT/S6/Bachelorproef
+map gH cd ~/Documents/Howest/
 
 # ---------------------------
 #  1}}} #
