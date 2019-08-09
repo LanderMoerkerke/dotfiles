@@ -206,6 +206,7 @@ map <enter> shell
 
 map P :set preview!
 map i $file-preview $f | less -R
+map I $file-preview $f | nvim -
 
 map C convert
 
