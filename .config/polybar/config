@@ -32,7 +32,7 @@ padding-right = 1
 module-margin = 2
 modules-left = i3 eth wlan vpn
 modules-center = date
-modules-right = gpg syncing updates mail cpu memory temperature battery volume
+modules-right = gpg syncing updates mail system-nvidia-smi cpu memory temperature battery volume
 
 tray-position = right
 
