@@ -24,8 +24,6 @@ super + r
     $TERMINAL -e lf
 super + w
    $FILEMANAGER2
-super + shift + r
-    $TERMINAL -e ranger
 super + shift + v
     $TERMINAL -e nvim
 super + b
