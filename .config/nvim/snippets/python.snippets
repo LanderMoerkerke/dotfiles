@@ -27,6 +27,8 @@ snippet tes "Time end section"
 	print("---------------------------------------")
 	print(f"Code finished in {time.time() - t0:.4f}")
 	print("---------------------------------------")
+snippet jprint "JSON print"
+	print(__import__("json").dumps(${1}, indent=4))${2}
 
 #############
 #  Imports  #
@@ -34,6 +36,10 @@ snippet tes "Time end section"
 
 snippet syse "Sys exit"
 	__import__("sys").exit(${1:${VISUAL:1}})${2}
+snippet idc "Import dataclass"
+	from wg_py_models import DataClass, GlobalConfig, dataclass
+snippet ity "Import typing"
+	from typing import Any, List, Tuple, Dict, Optional
 
 #############
 #    Iter   #
@@ -48,9 +54,9 @@ snippet while "while"
 #   Class   #
 #############
 
-snippet classd "Dataclass"
-	@dataclass
-	class ${1:class}:
+snippet dc "Dataclass"
+	@dataclass(config=GlobalConfig)
+	class ${1:classname}(DataClass):
 
 		"""Docstring for $1. """
 
@@ -72,7 +78,7 @@ snippet jsond "Dump contents to json file"
 		json.dump(${3:data}, f, indent=2)
 
 snippet jsonl "Load contents from json file"
-	with open(f"${1:input}.json") as f:
+	with open(f"${1:file}") as f:
 		${2:data} = json.load(f)
 
 #############
@@ -90,6 +96,11 @@ snippet amain "Async main"
 
 	if __name__ == "__main__":
 		asyncio.run(main())
+
+snippet afor "Async for"
+	async for ${1:item} in ${2:iterator}:
+		${2:${VISUAL:pass}}
+	${3}
 
 snippet aread "Async read file"
 	import aiofiles
@@ -145,8 +156,39 @@ snippet br "Breakline"
 	# ---------------------------------------${0}
 
 #############
+#  Logging  #
+#############
+
+snippet linfo "logger info"
+	logger.info(f"${1:header}")
+snippet lerror "logger error"
+	logger.error(f"${1:header}")
+snippet ldebug "logger debug"
+	logger.debug(f"${1:header}")
+
+#############
 #   Others  #
 #############
 
 snippet sub "Subscriptable item"
 	["${1:key}"]${2}
+
+snippet auth "wegroup auth"
+	import requests
+
+	HOST = "https://api.phoenix.dev.qa.wegroup.be"
+	DEFAULT_TYPE = "application/vnd.api+json"
+
+	headers = {"content-type": DEFAULT_TYPE, "Accept": DEFAULT_TYPE}
+
+	path = "/v1/api/aut/v1/api/auth"
+	payload = {"email": "admin@wegroup.be", "password": "${1:password}"}
+
+	r = requests.post(HOST + path, headers=headers, json=payload)
+	print(r.json())
+
+	access_token = r.json()["access_token"]
+	refresh_token = r.json()["refresh_token"]
+
+	headers["authorization"] = f"Bearer {access_token}"
+	print(headers)
