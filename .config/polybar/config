@@ -1,9 +1,6 @@
 [bar/bar]
-
-; FONTS
 font-0 = "Open sans:pixelsize=10;2.25"
 font-1 = "Overpass Mono Light:pixelsize=10;2.25"
-# font-1 = MaterialIcons:size=13:dpi=180;3
 font-2 = FontAwesome5Pro:size=9:dpi=138;2
 font-3 = FontAwesome:size=9:dpi=138;2
 
@@ -17,7 +14,6 @@ fixed-center = true
 width = 100%
 height = 25
 
-; background = #2F343F
 background = #1c1c1c
 foreground = #d0d0d0
 
@@ -36,52 +32,43 @@ modules-right = gpg syncing updates mail system-nvidia-smi cpu memory temperatur
 
 tray-position = right
 
-
 [module/i3]
-type			= internal/i3
-format			= <label-state>
-index-sort		= true
-pin-workspaces  = true
-strip-wsnumbers	= true
-fuzzy-match		= true
+type = internal/i3
+format = <label-state>
+index-sort = true
+pin-workspaces = true
+strip-wsnumbers = true
+fuzzy-match	= true
 
-label-visible               = %icon%
-label-visible-foreground    = #aaaaaa
-label-visible-padding       = 1
-label-visible-underline     = #eee8d5
+label-visible = %icon%
+label-visible-foreground = #aaaaaa
+label-visible-padding = 1
+label-visible-underline = #eee8d5
 
 label-focused = %icon%
-label-focused-foreground    = #eee8d5
-label-focused-padding       = 1
-label-focused-underline     = #eee8d5
-label-focused-background    = #e11d1f22
+label-focused-foreground = #eee8d5
+label-focused-padding = 1
+label-focused-underline = #eee8d5
+label-focused-background = #e11d1f22
 
 label-unfocused = %icon%
-label-unfocused-foreground  = #eee8d5
-label-unfocused-padding	    = 1
+label-unfocused-foreground = #eee8d5
+label-unfocused-padding = 1
 
 label-urgent = %icon%
-label-urgent-foreground	    = #FF5F5F
-label-urgent-padding	    = 1
+label-urgent-foreground = #FF5F5F
+label-urgent-padding = 1
 
-ws-icon-0		= 1;
-ws-icon-1		= 2;
-ws-icon-2		= 3;
-ws-icon-3		= 4;
-ws-icon-4		= 5;
-ws-icon-5		= 6;
-ws-icon-6		= 7;
-ws-icon-7		= 8;
-ws-icon-8		= 9;
-ws-icon-9		= 0;
-
-[module/wired-network]
-type = internal/network
-interface = enp0s31f6
-
-[module/wireless-network]
-type = internal/network
-interface = wlp2s0
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 0;
 
 [module/vpn]
 type = custom/script
@@ -98,49 +85,30 @@ format =  <label>
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = net0
 accumulate-stats = true
 
 format-connected = <label-connected>
 label-connected  = "%linkspeed%   %local_ip%      %downspeed%      %upspeed%    |"
 
 format-disconnected = <label-disconnected>
-# label-connected = " %linkspeed%  %downspeed%  %upspeed%"
-
 
 [module/wlan]
+type = internal/network
+interface = wifi0
+interval = 3
 
-type        = internal/network
-interface   = wlp2s0
-interval    = 3
+label-connected = "%essid%  %signal%%     %local_ip%      %downspeed%      %upspeed%"
+label-disconnected = "  offline"
 
-format-connected                = <label-connected>
-# format-connected-foreground     = ${colors.color12}
-# format-disconnected-underline   = ${colors.alert}
-
-label-connected                 = "%essid%  %signal%%     %local_ip%      %downspeed%      %upspeed%"
-label-disconnected              = "  offline"
-
-
-# label-disconnected-foreground   = ${colors.alert}
-# ramp-signal-foreground          = ${colors.foreground-alt}
-
-[module/ssid]
-
-type = custom/script
-exec = echo "$(iw dev wlp2s0 link | grep SSID | cut -d " " -f 2- | cut -c1-20)"
-
-# format-foreground = ${colors.color3}
+format-connected = <label-connected>
 
 [module/ip]
-
 type = custom/script
 exec = ip -4 addr show enp0s31f6 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
 
-
 [module/title]
 type = internal/xwindow
-# format-background = #f00
 format-foreground = #f0c674
 format-padding = 1
 label-maxlen = 50
@@ -180,36 +148,15 @@ label = "  %output%   |"
 
 [module/mail]
 type = custom/script
-
-; Available tokens:
-;   %counter%
-; Command to be executed (using "/usr/bin/env sh -c [command]")
-; exec = mailcheck
 exec = check-mail-unread
-
-; Conditional command that, if defined, needs to exit successfully
-; before the main exec command is invoked.
-; Default: ""
-; exec-if = pgrep -x myservice
-
-; Will the script output continous content?
-; Default: false
 tail = true
-
-; Seconds to sleep between updates
-; Default: 2 (0 if `tail = true`)
 interval = 10
-
 label = "  %output%   |"
 
-
 [module/memory]
-
 type = internal/memory
 interval = 2
-# format-prefix-foreground = ${colors.foreground-alt}
 format-foreground = #10a4c9
-# format = <bar-used>
 format = <ramp-used>
 
 ramp-used-0 = ▁
@@ -228,46 +175,32 @@ interval = 2
 
 format-padding = 1
 
-format = <ramp-coreload>
-# format-prefix-foreground = ${colors.foreground-alt}
-# label = " %percentage%%"
-# format-foreground = ${colors.color12}
+format = <bar-load>
+format-prefix-foreground = #00FF00
+format-foreground = #FF3300
 
-ramp-coreload-0-foreground = #a3be8c
-ramp-coreload-1-foreground = #859900
-ramp-coreload-2-foreground = #859900
-ramp-coreload-3-foreground = #ffcc66
-ramp-coreload-4-foreground = #ffcc66
-ramp-coreload-5-foreground = #ba4443
-ramp-coreload-6-foreground = #ba4443
-ramp-coreload-7-foreground = #cb4b16
-
-ramp-coreload-0 = ▁
-ramp-coreload-1 = ▂
-ramp-coreload-2 = ▃
-ramp-coreload-3 = ▄
-ramp-coreload-4 = ▅
-ramp-coreload-5 = ▆
-ramp-coreload-6 = ▇
-ramp-coreload-7 = █
+bar-load-indicator =
+bar-load-width = 8
+bar-load-foreground-0 = #a3be8c
+bar-load-foreground-1 = #ffcc66
+bar-load-foreground-2 = #ba4443
+bar-load-foreground-3 = #cb4b16
+bar-load-fill = ▐
+bar-load-empty = ▐
+bar-load-empty-foreground = #555
 
 [module/temperature]
-
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
 format = <label>
-# format-foreground= ${colors.color12}
 format-warn = <label-warn>
-# format-warn-underline = ${colors.color9}
 
 label = "  %temperature-c%"
 label-warn =   %temperature-c%
-# label-warn-foreground = ${colors.color1}
 
 [module/battery]
-
 type = internal/battery
 battery = BAT0
 full-at = 99
@@ -293,39 +226,23 @@ ramp-capacity-2-foreground = #ffcc66
 ramp-capacity-3-foreground = #ba4443
 ramp-capacity-4-foreground = #cb4b16
 
-# format-foreground= ${colors.color12}
-# format-discharging-foreground=${colors.color10}
-# format-charging-foreground=${colors.color2}
-
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
-
 [module/volume]
-; type = internal/volume
 type = internal/alsa
 padding = 100, 100
 
 format-volume = <label-volume> <bar-volume>
 label-volume = ♪
 
-# label-volume-foreground = ${colors.color7}
-
 format-muted-prefix = " "
-# format-muted-foreground = ${colors.color5}
 label-muted = ♪ muted
 
 bar-volume-width = 5
-# bar-volume-foreground-0 = ${colors.color2}
-# bar-volume-foreground-1 = ${colors.color2}
-# bar-volume-foreground-2 = ${colors.color2}
-# bar-volume-foreground-3 = ${colors.color10}
-# bar-volume-foreground-4 = ${colors.color3}
-# bar-volume-foreground-5 = ${colors.color11}
-# bar-volume-foreground-6 = ${colors.color1}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -333,6 +250,5 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-# bar-volume-empty-foreground = ${colors.foreground-alt}
 
 ; vim:ft=dosini
