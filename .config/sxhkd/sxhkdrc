@@ -34,6 +34,11 @@ super + p
     gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
 # 1}}} -
 
+# Scripts {{{1 -
+super + shift + c
+    open-config
+# 1}}} -
+
 # Specials {{{1 -
 super + Next
     variety -n

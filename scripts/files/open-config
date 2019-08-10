@@ -1,0 +1,22 @@
+#!/bin/sh
+
+config_files="
+    $HOME/.config/compton/compton.conf\n
+    $HOME/.config/dunst/dunstrc\n
+    $HOME/.config/i3/config\n
+    $HOME/.config/lf/lfrc\n
+    $HOME/.config/msmtp/config\n
+    $HOME/.config/mutt/muttrc\n
+    $NVIM\n
+    $HOME/.config/mutt/muttrc\n
+    $HOME/.config/polybar/config\n
+    $HOME/.config/qutebrowser/config.py\n
+    $HOME/.config/rofi/config\n
+    $HOME/.config/sxhkd/sxhkdrc\n
+    $HOME/.config/zathura/zathurarc\n
+    $ZSHRC
+"
+
+file=$(echo $config_files | dmenu -i) || exit
+
+urxvt -e nvim $file
