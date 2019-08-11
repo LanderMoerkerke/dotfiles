@@ -42,7 +42,6 @@
 *.color14: veru7
 *.color15: veru6
 
-
 ! -----------------------------------------------------------------------------------------------------------------------------
 ! URXVT
 ! -----------------------------------------------------------------------------------------------------------------------------
@@ -75,6 +74,7 @@ URxvt.url-select.underline: true
 
 !! keyboard-select:
 URxvt.keysym.M-v:           perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
 
 !! resize-font
 URxvt.resize-font.smaller:  M-J
