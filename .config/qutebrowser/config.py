@@ -891,6 +891,7 @@ c.url.searchengines = {
     "eb": "https://ebay.com/sch/{}",
     "i": "https://www.google.be/search?q={}&source=lnms&tbm=isch",
     "imdb": "https://www.imdb.com/find?s=all&q={}",
+    "maps": "http://maps.google.com/?q={}",
     "mtp": "http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}",
     "osm": "http://www.openstreetmap.org/search?query={}",
     "red": "https://reddit.com/r/{}",
