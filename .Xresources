@@ -61,7 +61,7 @@ URxvt*insecure:             false
 URxvt*depth:                32
 
 ! clickable links
-! URxvt.matcher.button:       1
+urxvt.matcher.button: C1
 
 ! extensions
 URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select
