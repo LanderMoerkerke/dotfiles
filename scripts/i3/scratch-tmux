@@ -1,3 +1,5 @@
 #!/bin/sh
 
-tmux a || tmux
+TMUX_SESSION=scratch_tmux
+
+tmux a -t $TMUX_SESSION || tmux new -s $TMUX_SESSION
