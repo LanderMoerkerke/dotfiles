@@ -7,7 +7,6 @@ for file in "/etc/profile" "$HOME/.profile"; do
     fi
 done
 
-numlockx on &
 feh --bg-fill $HOME/Pictures/bg.jpg
 
 # keybindings
@@ -29,4 +28,3 @@ xss-lock -l -- lockscreen &
 udiskie &
 
 exec i3
-# exec dwm
