@@ -14,15 +14,7 @@ numlockx on &
 # keybindings
 sxhkd &
 
-# faster mouse speed
-xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=8 "Device Accel Profile" "2" &
-
-# scrolling both ways
-xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=8 "Synaptics Two-Finger Scrolling" 1, 1 &
-
-# natural scrolling
-xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=32 "Synaptics Scrolling Distance" -100, -100 &
-
+trackpad-setup
 keyboard-setup &
 
 # appearance
