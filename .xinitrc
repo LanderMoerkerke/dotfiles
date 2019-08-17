@@ -7,8 +7,6 @@ for file in "/etc/profile" "$HOME/.profile"; do
     fi
 done
 
-xrdb ~/.Xresources &
-
 numlockx on &
 
 # keybindings
