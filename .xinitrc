@@ -8,6 +8,7 @@ for file in "/etc/profile" "$HOME/.profile"; do
 done
 
 feh --bg-fill $HOME/Pictures/bg.jpg
+xrandr --dpi 100
 
 # keybindings
 sxhkd &
