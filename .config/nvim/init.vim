@@ -501,9 +501,6 @@ let g:vmt_list_item_char = "-  "
 let g:gitgutter_max_signs = 1000
 
 " navigate to hunks
-nnoremap ]h :GitGutterNextHunk<CR>
-nnoremap [h :GitGutterPrevHunk<CR>
-
 nnoremap ghn :GitGutterNextHunk<CR>
 nnoremap ghp :GitGutterPrevHunk<CR>
 
