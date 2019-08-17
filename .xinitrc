@@ -19,7 +19,7 @@ keyboard-setup &
 # appearance
 compton -f --config ~/.config/compton/compton.conf -b
 redshift -l 51.01:4.03 &
-variety &
+# variety &
 
 # notifications
 /usr/lib/kdeconnectd &
