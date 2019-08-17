@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# tapping
+xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=8 "libinput Tapping Enabled" "1"
+
+# faster mouse speed
+xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=float --format=32 "libinput Accel Speed" ".5"
+
+# scrolling both ways
+xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=8 "Synaptics Two-Finger Scrolling" 1, 1 &
+
+# natural scrolling
+xinput --set-prop "SynPS/2 Synaptics TouchPad" --type=int --format=8 "libinput Natural Scrolling Enabled" 1
