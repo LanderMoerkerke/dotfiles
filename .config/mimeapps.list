@@ -2,6 +2,7 @@
 
 application/json=nvim.desktop;
 application/pdf=zathura.desktop;
+application/pgp-encrypted=nvim.desktop;
 application/vnd.oasis.opendocument.text=document.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=document.desktop;
 application/x-ipynb+json=notebook.desktop;
