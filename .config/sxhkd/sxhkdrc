@@ -12,7 +12,7 @@ super + shift + e
 super + x
     lockscreen
 super + shift + x
-    systemctl suspend
+    systemctl hibernate
 # 1}}} -
 
 # Applications {{{1 -
