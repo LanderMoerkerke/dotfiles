@@ -8,6 +8,7 @@ for file in "/etc/profile" "$HOME/.profile"; do
 done
 
 numlockx on &
+feh --bg-fill $HOME/Pictures/bg.jpg
 
 # keybindings
 sxhkd &
@@ -16,8 +17,7 @@ trackpad-setup
 keyboard-setup &
 
 # appearance
-compton -f --config ~/.config/compton/compton.conf -b &
-feh --bg-fill $HOME/Pictures/bg.jpg &
+compton -f --config ~/.config/compton/compton.conf -b
 redshift -l 51.01:4.03 &
 variety &
 
