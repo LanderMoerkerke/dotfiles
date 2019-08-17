@@ -113,6 +113,8 @@ cmd open ${{
         *compressed) atool --list -- $f | less;;
         *) xdg-open $fx &;;
     esac
+    wait
+    lf -remote "send $id redraw"
 }}
 
 cmd convert !{{
