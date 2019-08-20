@@ -141,6 +141,14 @@ prompt_dir () {
 
 }
 
+prompt_shell_depth () {
+
+    # SHLVL
+    depth="$SHLVL"
+    prompt_segment $color_prompt_git_orange $color_prompt_git_orange " [$depth]"
+
+}
+
 prompt_virtualenv () {
 
     if [[ -n $VIRTUAL_ENV ]]; then
@@ -195,6 +203,7 @@ prompt () {
 
     CURRENT_BG="NONE"
     prompt_context
+    prompt_shell_depth
     prompt_virtualenv
     prompt_vpn
     prompt_dir
@@ -229,4 +238,3 @@ prompt_setup () {
 }
 
 prompt_setup "$@"
-
