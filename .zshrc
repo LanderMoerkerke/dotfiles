@@ -221,6 +221,7 @@ alias jn="jupyter notebook --browser=Chromium"
 alias jl="jupyter-lab --browser=Chromium"
 alias jls="jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
 alias fo="fuzzy-open"
+alias R="R --quiet --no-save"
 
 ## Pipenv
 
@@ -244,7 +245,6 @@ alias l='ls -latrFi'
 alias m='neomutt'
 alias p="python"
 alias p2="python2"
-alias r='lf'
 alias s="weechat"
 alias t="tree"
 
