@@ -42,7 +42,7 @@ shebangtest() {
 case "$file" in
 	*\.ms) refer -PS -e "$file" | groff -me -ms -kejpt -T pdf > "$base".pdf ;;
 	*\.mom) refer -PS -e "$file" | groff -mom -kejpt -T pdf > "$base".pdf ;;
-	*\.rmd) echo "require(rmarkdown); render('$file')" | R -q --vanilla ;;
+	*\.Rmd | *\.Rmd) echo "require(rmarkdown); render('$file')" | R -q --no-save;;
 	*\.tex) textype "$file" ;;
 	# *\.md) pandoc "$file" --pdf-engine=xelatex -V geometry:margin=1in -o "$base".pdf ;;
     *\.md) pandoc -H $COMPILE/Themes/markdown/github-header.css -s "$file" | wkhtmltopdf - "$base".pdf ;;
