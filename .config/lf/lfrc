@@ -209,7 +209,7 @@ map <enter> shell
 
 map P :set preview!
 map i $file-preview $f | less -R
-map I $file-preview $f | nvim -
+# map I $file-preview $f | nvim -
 
 map C convert
 
@@ -254,6 +254,7 @@ map r push :rename<space>
 map a $lf -remote "send $id push :rename<space>$f<a-b><left>"
 map A $lf -remote "send $id push :rename<space>$f"
 map E $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
+map I $lf -remote "send $id push :rename<space>$f<a-b><a-b>"
 
 map V push $nvim<space>
 
