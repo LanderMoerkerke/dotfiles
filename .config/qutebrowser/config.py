@@ -894,6 +894,7 @@ c.url.searchengines = {
     "maps": "http://maps.google.com/?q={}",
     "mtp": "http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}",
     "osm": "http://www.openstreetmap.org/search?query={}",
+    "py": "https://docs.python.org/3.7/search.html?q={}",
     "red": "https://reddit.com/r/{}",
     "syn": "https://synoniemen.net/index.php?zoekterm={}",
     "syn2": "https://www.mijnwoordenboek.nl/synoniemen/{}",
