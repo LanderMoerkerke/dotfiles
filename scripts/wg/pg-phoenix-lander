@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cmd='gopass WeGroup/Postgres-Phoenix-lander'
+
+PGHOSTADDR=$($cmd | grep 'host' | cut -d ':' -f 2)
+PGUSER=$($cmd | grep 'login' | cut -d ':' -f 2)
+
+export PGPASSWORD=$($cmd | sed 1q)
+
+pgcli -u $PGUSER -h $PGHOSTADDR -d geographic
