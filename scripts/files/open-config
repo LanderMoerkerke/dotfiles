@@ -8,7 +8,7 @@ config_files="
     $HOME/.config/msmtp/config\n
     $HOME/.config/mutt/muttrc\n
     $NVIM\n
-    $HOME/.config/mutt/muttrc\n
+    $HOME/.config/newsboat/config\n
     $HOME/.config/polybar/config\n
     $HOME/.config/qutebrowser/config.py\n
     $HOME/.config/rofi/config\n
