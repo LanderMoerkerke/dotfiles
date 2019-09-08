@@ -1,0 +1,15 @@
+#!/bin/sh
+
+namespace="$1"
+pod="$2"
+container="$3"
+
+POD=$(kubectl -n "$namespace" get pod -l app="$pod" -o jsonpath="{.items[0].metadata.name}")
+
+echo $POD
+
+if [ $container  != "" ]; then
+    kubectl -n "$namespace" logs "$POD" -c "$container" -f
+else
+    kubectl -n "$namespace" logs "$POD" -f
+fi
