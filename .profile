@@ -16,6 +16,13 @@ export RTV_BROWSER="w3m"
 export TERMINAL="urxvt"
 export TERMINAL2="st"
 
+# VEST
+export VEST=~/Documents/VEST/
+
+# WORK
+export WG=$HOME/Documents/Work/WeGroup
+export BITBUCKET=$WG/Bitbucket
+
 export COMPILE="$HOME/Documents/LaTeX"
 export BIB="$COMPILE/uni.bib"
 

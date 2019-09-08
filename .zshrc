@@ -72,17 +72,6 @@ export PIPENV_SKIP_LOCK=1
 export PIPENV_SPINNER=pong
 export PIPENV_DOTENV_LOCATION=~/Pipenv/.env
 
-# SCHOOL
-export HOW=~/Documents/Howest/3NMCT/S5/
-export CRT=~/Documents/Howest/3NMCT/S5/Create_V/
-export DL=~/Documents/Howest/3NMCT/S5/Deep_Learning/
-export IOT=~/Documents/Howest/3NMCT/S5/IoT/
-export SU=~/Documents/Howest/3NMCT/S5/Start-Up/
-export PRO=~/Documents/Howest/3NMCT/S5/Project_IV/
-
-# VEST
-export VEST=~/Documents/VEST/
-
 # DOTFILES
 export ZSHRC=~/.zshrc
 export NVIM=~/.config/nvim/init.vim
