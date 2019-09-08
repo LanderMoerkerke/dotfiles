@@ -64,7 +64,7 @@ URxvt*depth:                32
 urxvt.matcher.button: C1
 
 ! extensions
-URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select
+URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select,clipboard
 URxvt.colorUL:	    	    #4682B4
 
 !! url-select
@@ -84,6 +84,7 @@ URxvt.resize-font.step:     1
 
 ! keybindings
 URxvt.keysym.M-p:           eval:paste_clipboard
+URxvt.keysym.M-c:           perl:clipboard:copy
 
 !! scrolling
 URxvt.keysym.M-k:           command:\033]720;1\007
