@@ -1,0 +1,48 @@
+"    Newsfeeds"
+http://rss.cnn.com/rss/cnn_topstories.rss "~CNN Top stories" "news"
+http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml "news"
+
+"    Sporza"
+https://sporza.be/nl.rss.xml "~Home" "sports"
+https://sporza.be/nl/categorie/voetbal.rss.xml "~Voetbal" "sports"
+https://sporza.be/nl/categorie/wielrennen.rss.xml "~Wielrennen" "sports"
+https://sporza.be/nl/categorie/tennis.rss.xml "~Tennis" "sports"
+https://sporza.be/nl/categorie/auto-motor.rss.xml "~Auto-motor" "sports"
+https://sporza.be/nl/categorie/atletiek.rss.xml "~Atletiek" "sports"
+
+"    Tech"
+https://www.archlinux.org/feeds/news/ "tech"
+https://opensource.com/feed "~Opensource.com" "tech"
+
+"    Programming - Python"
+http://feeds.feedburner.com/PythonSoftwareFoundationNews "programming"
+http://planetpython.org/rss20.xml "programming"
+https://importpython.com/blog/feed/ "programming"
+http://pbpython.com/feeds/all.atom.xml?format=xml "programming"
+# http://www.pythonblogs.com/rss.php?summary=1 "programming"
+
+"    Programming - Golang"
+https://blog.learngoprogramming.com/feed
+
+"    Reddit - Programming"
+https://www.reddit.com/r/python.rss "~r/python" "reddit" "programming"
+https://www.reddit.com/r/golang.rss "~r/golang" "reddit" "programming"
+
+"    Reddit - Linux"
+https://www.reddit.com/r/linux.rss "~r/linux" "reddit" "tech"
+https://www.reddit.com/r/unixporn.rss "~r/unixporn" "reddit" "tech"
+https://www.reddit.com/r/commandline.rss "~r/commandline" "reddit" "tech"
+https://www.reddit.com/r/linux4noobs.rss "~r/linux4noobs" "reddit" "tech"
+https://www.reddit.com/r/linuxquestions.rss "~r/linuxquestions" "reddit" "tech"
+https://www.reddit.com/r/linuxmasterrace.rss "~r/linuxmasterrace" "reddit" "tech"
+https://www.reddit.com/r/linux_gaming.rss "~r/linux_gaming" "reddit" "tech"
+https://www.reddit.com/r/linuxaudio.rss "~r/linuxaudio" "reddit" "tech"
+https://www.reddit.com/r/archlinux.rss "~r/archlinux" "reddit" "tech"
+https://www.reddit.com/r/ubuntu.rss "~r/ubuntu" "reddit" "tech"
+https://www.reddit.com/r/vim.rss "~r/vim" "reddit" "tech"
+
+"    Arch Linux"
+https://www.archlinux.org/feeds/packages/added/ "~Packages Added" "tech"
+https://www.archlinux.org/feeds/packages/removed/ "~Packages Removed" "tech"
+https://aur.archlinux.org/rss/ "~Packages Added (AUR)" "tech"
+https://wiki.archlinux.org/api.php?hidebots=1&urlversion=1&days=7&limit=50&action=feedrecentchanges&feedformat=rss "~Arch Wiki" "tech"
