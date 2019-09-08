@@ -1,0 +1,9 @@
+#!/bin/sh
+
+TMUX_SESSION=mail
+
+tmux a -t $TMUX_SESSION && exit 0
+
+tmux new -s $TMUX_SESSION -d 'neomutt'
+tmux split-window -h 'weechat'
+tmux -2 attach-session -d
