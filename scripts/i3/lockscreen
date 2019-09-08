@@ -2,7 +2,7 @@
 
 notify-send "DUNST_COMMAND_PAUSE"
 
-scrot /tmp/screen.png
+scrot -o /tmp/screen.png
 
 convert /tmp/screen.png -paint 1 /tmp/screen.png
 # [[ -f ~/.config/i3/circlelock.png ]] && convert /tmp/screen.png ~/.config/i3/circlelock.png -gravity Center -composite -matte /tmp/screen.png
