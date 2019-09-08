@@ -1,0 +1,2 @@
+#!/bin/sh
+$WG/Cloud/cloud_sql_proxy -instances=sapient-tracer-168309:europe-west1:wg-phoenix=tcp:5432
