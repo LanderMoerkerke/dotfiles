@@ -1,0 +1,11 @@
+#!/bin/sh
+
+SIZE=${1:-1G}
+LOCATION=${2:-/swapfile}
+
+sudo fallocate -l $SIZE $LOCATION
+sudo chmod 600 $LOCATION
+sudo mkswap $LOCATION
+sudo swapon $LOCATION
+
+swapon --show
