@@ -42,7 +42,7 @@ color info red black bold
 color article cyan default
 
 # Links
-browser linkhandler
+browser newsboathandler
 macro , open-in-browser
 macro t set browser "tsp youtube-dl --add-metadata -ic"; open-in-browser ; set browser linkhandler
 macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best"; open-in-browser ; set browser linkhandler
