@@ -202,6 +202,8 @@ map p
 map <bs2> :set hidden!
 map <esc> clear
 
+map t push $touch<space>
+
 map m push :mkdir<space>
 map M mark-save
 
