@@ -1018,6 +1018,7 @@ c.bindings.commands = {
         "<Ctrl-V>": "enter-mode passthrough",
         "<Ctrl-W>": "tab-close",
         "<Ctrl-X>": "navigate decrement",
+        "<Ctrl-f>": "hint --rapid links tab-bg",
         "<Ctrl-h>": "home",
         "<Ctrl-j>": "tab-move -",
         "<Ctrl-k>": "tab-move +",
@@ -1194,8 +1195,7 @@ c.bindings.commands = {
     },
     "hint": {
         "<Ctrl-B>": "hint all tab-bg",
-        "<Ctrl-F>": "hint links",
-        "<Ctrl-R>": "hint --rapid links tab-bg",
+        "<Ctrl-F>": "hint --rapid links tab-bg",
         "<Escape>": "leave-mode",
         "<Return>": "follow-hint",
     },
