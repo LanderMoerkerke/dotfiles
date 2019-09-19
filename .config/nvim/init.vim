@@ -569,6 +569,7 @@ let g:ale_fixers = {
     \ 'rust': ['rustfmt'],
     \ 'sh': ['shfmt'],
     \ 'sql': ['pgformatter'],
+    \ 'xml': ['xmllint'],
 \}
 
 let g:ale_python_black_options = "-l 120"
