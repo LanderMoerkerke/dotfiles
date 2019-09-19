@@ -597,6 +597,8 @@ let g:autoflake_disable_show_diff=1
 let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
 let g:LanguageClient_hasSnippetSupport = 1
 
+let g:LanguageClient_hoverPreview = 'Always'
+
 let g:LanguageClient_diagnosticsList = "Disabled"
 let g:LanguageClient_diagnosticsDisplay = {
 \        1: {
