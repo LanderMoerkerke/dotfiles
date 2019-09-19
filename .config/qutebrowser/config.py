@@ -1252,8 +1252,6 @@ c.bindings.commands = {
         "<Shift-Tab>": "prompt-item-focus prev",
         "<Tab>": "prompt-item-focus next",
         "<Up>": "prompt-item-focus prev",
-        "n": "prompt-accept no",
-        "y": "prompt-accept yes",
     },
     "register": {"<Escape>": "leave-mode"},
 }
