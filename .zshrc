@@ -225,7 +225,7 @@ alias py2-env="source $HOME/Pipenv/python2-venv/.venv/bin/activate"
 
 alias pc="pre-commit run --all-files"
 
-alias p_clean="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
+alias py-clean="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
 
 ## one letter aliasses
 
