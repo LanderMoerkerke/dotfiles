@@ -186,6 +186,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+p workspace prev
 bindsym $mod+Shift+n workspace next
 
+bindsym $mod+grave exec --no-startup-id move-empty-workspace
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # RESIZE
 # -----------------------------------------------------------------------------------------------------------------------------
