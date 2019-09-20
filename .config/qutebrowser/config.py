@@ -191,6 +191,10 @@ c.content.host_blocking.lists = [
     "http://winhelp2002.mvps.org/hosts.zip",
     "http://malwaredomains.lehigh.edu/files/justdomains.zip",
     "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext",
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://easylist.to/easylist/fanboy-annoyance.txt",
+    "https://easylist.to/easylist/fanboy-social.txt",
 ]
 
 # List of domains that should always be loaded, despite being ad-
