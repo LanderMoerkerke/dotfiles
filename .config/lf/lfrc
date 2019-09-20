@@ -24,6 +24,7 @@ set dircounts on
 set dirfirst on
 
 set drawbox on
+set icons on
 
 set scrolloff 5
 

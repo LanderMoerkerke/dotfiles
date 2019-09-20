@@ -33,3 +33,4 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 xrdb ./.Xresources
 
 . ./.profile_appendix
+. $HOME/.icons/term-icons
