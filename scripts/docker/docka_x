@@ -4,10 +4,22 @@ DOCKER_IMAGE=ubuntu_x11
 
 docker build -t $DOCKER_IMAGE - << __EOF__
     FROM ubuntu
+
     RUN apt-get update
-    RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy x11-apps tmux zsh hollywood
+
+    ENV DEBIAN_FRONTEND noninteractive
+
+    RUN apt-get install -y \
+        x11-apps \
+        tmux \
+        zsh \
+        hollywood \
+        firefox
+
     RUN useradd -ms /bin/zsh user
+
     ENV DISPLAY :0
+
     CMD /usr/bin/tmux
 __EOF__
 
