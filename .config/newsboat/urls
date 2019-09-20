@@ -46,3 +46,7 @@ https://www.archlinux.org/feeds/packages/added/ "~Packages Added" "tech"
 https://www.archlinux.org/feeds/packages/removed/ "~Packages Removed" "tech"
 https://aur.archlinux.org/rss/ "~Packages Added (AUR)" "tech"
 https://wiki.archlinux.org/api.php?hidebots=1&urlversion=1&days=7&limit=50&action=feedrecentchanges&feedformat=rss "~Arch Wiki" "tech"
+
+
+"    VEST"
+https://us11.campaign-archive.com/feed?u=ba6938e42c4bbf84673af6936&id=4b77156697 "~Mailchimp" "VEST"
