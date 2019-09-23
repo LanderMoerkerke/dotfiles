@@ -1,0 +1,9 @@
+#!/bin/sh
+
+EXECNAME=${1:-'python run.py 500'}
+
+PROCESSES=`ps -ef | grep "$EXECNAME" | awk '{print $2}' | tr '\012' ' '`
+
+kill -9 $PROCESSES
+
+echo "Killed $PROCESSES"
