@@ -1,8 +1,0 @@
-#!/bin/sh
-
-namespaces="phoenix-qa\nphoenix-staging\nphoenix"
-namespace=$(echo $namespaces | dmenu -i -p 'Select a namespace:') || exit
-
-repo=$(find $BITBUCKET/wg-config/cluster-1/wg-frontend $BITBUCKET/wg-config/cluster-1/wg-backend -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | dmenu -i -p "Select a project:") || exit
-
-$TERMINAL -e klogs $namespace $repo $repo

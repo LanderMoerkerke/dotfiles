@@ -172,23 +172,3 @@ snippet ldebug "logger debug"
 
 snippet sub "Subscriptable item"
 	["${1:key}"]${2}
-
-snippet auth "wegroup auth"
-	import requests
-
-	HOST = "https://api.phoenix.dev.qa.wegroup.be"
-	DEFAULT_TYPE = "application/vnd.api+json"
-
-	headers = {"content-type": DEFAULT_TYPE, "Accept": DEFAULT_TYPE}
-
-	path = "/v1/api/aut/v1/api/auth"
-	payload = {"email": "admin@wegroup.be", "password": "${1:password}"}
-
-	r = requests.post(HOST + path, headers=headers, json=payload)
-	print(r.json())
-
-	access_token = r.json()["access_token"]
-	refresh_token = r.json()["refresh_token"]
-
-	headers["authorization"] = f"Bearer {access_token}"
-	print(headers)
