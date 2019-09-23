@@ -7,14 +7,14 @@ config_files="
     $HOME/.config/lf/lfrc\n
     $HOME/.config/msmtp/config\n
     $HOME/.config/mutt/muttrc\n
-    $NVIM\n
+    $HOME/.config/nvim/init.vim\n
     $HOME/.config/newsboat/config\n
     $HOME/.config/polybar/config\n
     $HOME/.config/qutebrowser/config.py\n
     $HOME/.config/rofi/config\n
     $HOME/.config/sxhkd/sxhkdrc\n
     $HOME/.config/zathura/zathurarc\n
-    $ZSHRC
+    $HOME/.config/zsh/.zshrc
 "
 
 file=$(echo $config_files | dmenu -i) || exit
