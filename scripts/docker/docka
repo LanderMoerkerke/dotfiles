@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DOCKER_IMAGE=alpine
+
+docker run --rm -it $DOCKER_IMAGE sh
