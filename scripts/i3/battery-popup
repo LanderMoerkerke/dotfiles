@@ -211,7 +211,7 @@ main (){
 }
 
 
-LOCK_FILE="${HOME}/.i3-battery-popup.lock"
+LOCK_FILE="/tmp/.i3-battery-popup.lock"
 
 release_lock() {
     # This shouldn't be necessary but it seems
