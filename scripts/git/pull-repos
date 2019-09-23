@@ -1,0 +1,15 @@
+#!/bin/sh
+
+for repo in *; do
+
+    echo "CHECKING $repo"
+
+    if test -n "$(git -C $repo status --porcelain --ignore-submodules)"; then
+
+        echo "=====>> \tdirty repo: $repo"
+
+    fi
+
+    git -C $repo pull
+
+done
