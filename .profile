@@ -16,8 +16,14 @@ export RTV_BROWSER="w3m"
 export TERMINAL="urxvt"
 export TERMINAL2="st"
 
+export GOPATH="$HOME/.go"
+
+# dotfiles
+export ZDOTDIR="$HOME/.config/zsh"
+export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
+
 # VEST
-export VEST=~/Documents/VEST/
+export VEST=$HOME/Documents/VEST/
 
 # WORK
 export WG=$HOME/Documents/Work/WeGroup
