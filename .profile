@@ -36,7 +36,5 @@ export SANE_CONFIG_DIR=hpaio:/net/Officejet_6700?ip=192.168.0.20
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-xrdb ./.Xresources
-
 . $HOME/.icons/term-icons
 . $HOME/.profile_appendix

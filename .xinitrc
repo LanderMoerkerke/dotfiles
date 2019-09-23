@@ -7,6 +7,8 @@ for file in "/etc/profile" "$HOME/.profile"; do
     fi
 done
 
+xrdb ./.Xresources
+
 feh --bg-fill $HOME/Pictures/bg.jpg
 xrandr --dpi 100
 
@@ -26,6 +28,7 @@ redshift -l 51.01:4.03 &
 battery-popup -L 20 -n -i $HOME/Pictures/Notifications/low-battery.png &
 
 xss-lock -l -- lockscreen &
+
 udiskie &
 
 exec i3
