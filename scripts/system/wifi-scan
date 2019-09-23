@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+wifi_list=$(sudo iw dev wifi0 scan)
+
+echo $wifi_list
+echo
+echo $wifi_list | grep -E "SSID:|BSS"
