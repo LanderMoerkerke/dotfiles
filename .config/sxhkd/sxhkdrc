@@ -39,8 +39,6 @@ super + shift + c
     open-config
 super + shift + w
     wg-actions
-super + shift + s
-    launch-project
 # 1}}} -
 
 # Specials {{{1 -
