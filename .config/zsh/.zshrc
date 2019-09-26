@@ -6,7 +6,7 @@ TERM=xterm-256color
 
 export COLORTERM=24bit
 
-export ZSH=~/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 export RTV_BROWSER=w3m
 export TMOUT=9600
 export PAGER=less
@@ -40,7 +40,7 @@ ZSH_DISABLE_COMPFIX=true
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=$HOME/.cache/zsh/history
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -137,7 +137,7 @@ export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k
 
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
 source /usr/bin/aws_zsh_completer.sh
-fpath=(~/.zsh/completion $fpath)
+fpath=($HOME/.zsh/completion $fpath)
 
 
 # -----------------------------------------------------------------------------------------------------------------------------
