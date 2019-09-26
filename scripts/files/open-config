@@ -28,4 +28,4 @@ config_files="
 
 file=$(echo $config_files | dmenu -i) || exit
 
-urxvt -e nvim $file
+$TERMINAL -e $EDITOR $file
