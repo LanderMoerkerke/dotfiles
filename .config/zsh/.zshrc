@@ -1,6 +1,3 @@
-# zmodload zsh/zprof
-
-# Created by newuser for 5.5.1
 TERM=xterm-256color
 
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -13,8 +10,6 @@ export ZSH=~/.oh-my-zsh
 export RTV_BROWSER=w3m
 export TMOUT=9600
 export PAGER=less
-# export fpath=($HOME/.zsh-completions $fpath)
-# export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 export JUPYTER_CONFIG_DIR="$HOME/.jupyter/"
 export NLTK_DATA="$HOME/.local/lib/nltk_data"
