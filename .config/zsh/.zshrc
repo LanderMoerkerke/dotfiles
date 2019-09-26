@@ -21,6 +21,10 @@ export PIPENV_SKIP_LOCK=1
 export PIPENV_SPINNER=pong
 export PIPENV_DOTENV_LOCATION="$HOME/Pipenv/.env"
 
+# LESS
+export LESS='-R'
+export LESSOPEN='|file-preview %s'
+
 # -----------------------------------------------------------------------------------------------------------------------------
 # GENERAL
 # -----------------------------------------------------------------------------------------------------------------------------
