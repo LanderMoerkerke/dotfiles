@@ -9,7 +9,7 @@ done
 
 xrdb ./.Xresources
 
-feh --bg-fill $HOME/Pictures/bg.jpg
+feh --no-fehbg --bg-fill $HOME/Pictures/bg.jpg
 xrandr --dpi 100
 
 # keybindings
