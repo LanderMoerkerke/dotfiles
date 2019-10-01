@@ -1,6 +1,7 @@
 #!/bin/sh
 
 config_files="
+    $HOME/.Xresources\n
     $HOME/.config/compton/compton.conf\n
     $HOME/.config/dunst/dunstrc\n
     $HOME/.config/gopass/config.yml\n
@@ -24,8 +25,16 @@ config_files="
     $HOME/.config/udiskie/config.yml\n
     $HOME/.config/zathura/zathurarc\n
     $HOME/.config/zsh/.zshrc
+    $HOME/.gitconfig\n
+    $HOME/.password-store/.\n
+    $HOME/.profile\n
+    $HOME/.profile_appendix\n
+    $HOME/.tmux.conf\n
+    $HOME/.xinitrc\n
 "
 
 file=$(echo $config_files | dmenu -i) || exit
+
+cd $(dirname "$file")
 
 $TERMINAL -e $EDITOR $file
