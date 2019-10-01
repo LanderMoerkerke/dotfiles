@@ -1,13 +1,9 @@
 #!/bin/sh
 
-check_updates_packages () {
-    unread=$(checkupdates | wc -l)
+unread=$(checkupdates | wc -l)
 
-    if [ "$unread" != "0" ]; then
-        echo $unread
-    else
-        echo ""
-    fi
-}
-
-check_updates_packages
+if [ "$unread" != "0" ]; then
+    echo "  $unread"
+else
+    exit 1
+fi

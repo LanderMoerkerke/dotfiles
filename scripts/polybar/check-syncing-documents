@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ $(pgrep -x unison | wc -l) != "0" ]; then
-    echo "Syncing"
+    echo "  Syncing"
 else
-    echo ""
+    exit 1
 fi

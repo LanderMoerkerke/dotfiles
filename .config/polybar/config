@@ -118,21 +118,21 @@ type = custom/script
 exec = check-usage-camera
 tail = true
 interval = 5
-label = "    |"
+label = " |"
 
 [module/gpg]
 type = custom/script
 exec = check-gpg-cached
 tail = true
 interval = 5
-label = "    |"
+label = " |"
 
 [module/syncing]
 type = custom/script
 exec = check-syncing-documents
 tail = true
 interval = 5
-label = "  %output%  |"
+label = "%output%  |"
 
 [module/system-nvidia-smi]
 type = custom/script
@@ -144,14 +144,14 @@ type = custom/script
 exec = check-updates-packages
 tail = true
 interval = 20
-label = "  %output%   |"
+label = "%output%   |"
 
 [module/mail]
 type = custom/script
 exec = check-mail-unread
 tail = true
 interval = 10
-label = "  %output%   |"
+label = "%output%   |"
 
 [module/memory]
 type = internal/memory
