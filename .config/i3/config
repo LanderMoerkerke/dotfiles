@@ -231,4 +231,4 @@ bindsym $mod+Shift+f                fullscreen disable; floating enable; resize 
 # -----------------------------------------------------------------------------------------------------------------------------
 
 exec dunst
-exec_always --no-startup-id launch-polybar &
+exec_always --no-startup-id polybar-launch &
