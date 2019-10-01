@@ -2,6 +2,7 @@
 
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export DISPLAY=:0.0
+export UNISON=$HOME/.config/unison
 
 unison documents -logfile /tmp/sync-documents.log  >&1 | tee /tmp/out
 
