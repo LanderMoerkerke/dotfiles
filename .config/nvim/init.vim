@@ -368,6 +368,7 @@ autocmd BufWritePost * GitGutter
 autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
 autocmd BufWritePost .snippets :call UltiSnips#RefreshSnippets()<cr>
 autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+autocmd BufWritePost *dwmbar-launch !killall dwmbar-launch; setsid dwmbar-launch &
 
 " Exiting
 autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+delim="    "
+
+status() {
+    check-gpg-cached && echo "$delim"
+    check-syncing-documents && echo "$delim"
+    check-updates-packages && echo "$delim"
+    check-mail-unread && echo "$delim"
+    # cpu
+    # mem
+    # temp
+    # battery
+    # volume
+    check-battery && echo "$delim"
+    check-datetime && echo " "
+}
+
+while true; do
+	xsetroot -name "$(status | tr '\n' ' ')" &
+    sleep 3
+done
