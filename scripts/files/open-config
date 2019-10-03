@@ -24,7 +24,7 @@ config_files="
     $HOME/.config/sxhkd/sxhkdrc\n
     $HOME/.config/udiskie/config.yml\n
     $HOME/.config/zathura/zathurarc\n
-    $HOME/.config/zsh/.zshrc
+    $HOME/.config/zsh/.zshrc\n
     $HOME/.gitconfig\n
     $HOME/.password-store/.\n
     $HOME/.profile\n
