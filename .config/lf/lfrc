@@ -106,7 +106,7 @@ cmd delete ${{
 	[ $ans = "y" ] && rm -rf $fx
 }}
 
-cmd open ${{
+cmd open &{{
     case $(file --mime-type $f -b) in
         text/*) $EDITOR $fx;;
         *zip) atool --list -- $f | less;;
