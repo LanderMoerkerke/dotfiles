@@ -49,6 +49,8 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit_comp_options+=(globdots)		# Include hidden files.
 
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
