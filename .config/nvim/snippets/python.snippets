@@ -18,7 +18,7 @@ snippet main "Main declaration and execution"
 snippet printf "Print formatted"
 	print(f"${1:text} {${2:variable}}${3}")
 snippet printbr "Print breakline"
-	print("-" * 39)
+	print("${0:-}" * 39)
 snippet ts "Time start"
 	t0 = time.time()
 snippet te "Time end"
