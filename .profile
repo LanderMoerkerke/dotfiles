@@ -55,7 +55,10 @@ export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/xcompose
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export QUTE_DATA_DIR="$XDG_DATA_HOME"/qutebrowser
+export QUTE_CONFIG_DIR="$XDG_CONFIG_HOME"/qutebrowser
 
 # VEST
 export VEST=$HOME/Documents/VEST/
