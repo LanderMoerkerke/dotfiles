@@ -7,19 +7,21 @@ for file in "/etc/profile" "$HOME/.profile"; do
     fi
 done
 
-xrdb ./.Xresources
+xrdb ./.Xresources &
 
-feh --no-fehbg --bg-fill $HOME/Pictures/bg.jpg
-xrandr --dpi 100
+feh --no-fehbg --bg-fill $HOME/Pictures/bg.jpg &
+xrandr --dpi 100 &
+
+pulseaudio &
 
 # keybindings
 sxhkd &
 
-trackpad-setup
+trackpad-setup &
 keyboard-setup &
 
 # appearance
-compton -f --config ~/.config/compton/compton.conf -b
+compton -f --config ~/.config/compton/compton.conf -b &
 redshift -l 51.01:4.03 &
 # variety &
 
@@ -32,3 +34,5 @@ xss-lock -l -- lockscreen &
 udiskie &
 
 exec i3
+dunst &
+
