@@ -3,4 +3,4 @@ Type=Application
 Name=Surf
 GenericName=Suckless Web Browser
 Icon=surf
-Exec=/usr/bin/surf %u
+Exec=/usr/local/bin/surf %u
