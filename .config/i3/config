@@ -230,5 +230,4 @@ bindsym $mod+Shift+f                fullscreen disable; floating enable; resize 
 # AUTOSTART APPLICATIONS
 # -----------------------------------------------------------------------------------------------------------------------------
 
-exec dunst
 exec_always --no-startup-id polybar-launch &
