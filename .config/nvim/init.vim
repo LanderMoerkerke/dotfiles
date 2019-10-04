@@ -11,7 +11,6 @@ Plug 'alvan/vim-closetag'                                           " Autoclose 
 Plug 'Raimondi/delimitMate'                                         " Autoclose symbols
 Plug 'terryma/vim-multiple-cursors'                                 " Multiple Cursors
 Plug 'tpope/vim-surround'                                           " Surround
-Plug 'KabbAmine/zeavim.vim'											" Zeal integration
 Plug 'junegunn/vim-easy-align'                                      " Easy align
 Plug 'tpope/vim-repeat'                                             " Repeat custom plugins
 
@@ -690,27 +689,6 @@ inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 " Python Function Expander
 nmap <leader>ya <Plug>(trimmer-mapping)
-
-" Zeal
-nmap <leader>Z <Plug>Zeavim
-vmap <leader>Z <Plug>ZVVisSelection
-nmap gz <Plug>ZVOperator
-nmap <leader><leader>z <Plug>ZVKeyDocset
-
-" LaTeX - Biber
-" let $FZF_BIBTEX_CACHEDIR = '~/.vim/'
-let $FZF_BIBTEX_SOURCES = $BIB
-
-function! s:bibtex_cite_sink(lines)
-    let r=system("bibtex-cite ", a:lines)
-    execute ':normal! i\cite{' . r'}'
-endfunction
-
-nnoremap <leader>b :call fzf#run({
-                        \ 'source': 'bibtex-ls',
-                        \ 'sink*': function('<sid>bibtex_cite_sink'),
-                        \ 'up': '20%',
-                        \ 'options': '--ansi  --multi --prompt "Cite> "'}) <CR><CR>
 
 " ------
 " Snippets
