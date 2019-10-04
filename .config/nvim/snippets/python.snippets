@@ -27,8 +27,6 @@ snippet tes "Time end section"
 	print("---------------------------------------")
 	print(f"Code finished in {time.time() - t0:.4f}")
 	print("---------------------------------------")
-snippet jprint "JSON print"
-	print(__import__("json").dumps(${1}, indent=4))${2}
 
 #############
 #  Imports  #
@@ -69,17 +67,24 @@ snippet posti "Post init function"
 #  Context  #
 #############
 
-snippet witho "With open file"
+snippet read "With open file"
 	with open(f"${1:filename}", "${2:r}") as f:
 		${3:pass}
 
-snippet jsond "Dump contents to json file"
+snippet jdump "Dump contents to json file"
 	with open(f"${1:output}.json", "${2:w}") as f:
 		json.dump(${3:data}, f, indent=2)
 
-snippet jsonl "Load contents from json file"
+#############
+#   Json    #
+#############
+
+snippet jread "Load contents from json file"
 	with open(f"${1:file}") as f:
 		${2:data} = json.load(f)
+
+snippet jprint "JSON print"
+	print(__import__("json").dumps(${1}, indent=4))${2}
 
 #############
 #   Async   #
@@ -147,11 +152,13 @@ snippet achunck "Async list chunking"
 #  Comments #
 #############
 
-snippet sec "Section with breaklines"
+snippet h1 "Header 1 with breaklines"
 	# ---------------------------------------
 	# ${1}
 	# ---------------------------------------
-
+snippet h2 "Header 2"
+	# ${1}
+	# -----------------
 snippet br "Breakline"
 	# ---------------------------------------${0}
 
@@ -160,11 +167,11 @@ snippet br "Breakline"
 #############
 
 snippet linfo "logger info"
-	logger.info(f"${1:header}")
+	self.logger.info(f"${1:header}")
 snippet lerror "logger error"
-	logger.error(f"${1:header}")
+	self.logger.error(f"${1:header}")
 snippet ldebug "logger debug"
-	logger.debug(f"${1:header}")
+	self.logger.debug(f"${1:header}")
 
 #############
 #   Others  #
