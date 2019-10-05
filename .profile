@@ -78,5 +78,15 @@ export SANE_CONFIG_DIR=hpaio:/net/Officejet_6700?ip=192.168.0.20
 # Appearance
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
+# Less
+export LESS=-R
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so=$(printf '\33[5;30;43m')
+export LESS_TERMCAP_se=$(printf '\33[m')
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+
 . $HOME/.icons/term-icons
 . $HOME/.profile_appendix
