@@ -29,11 +29,14 @@ Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
 Plug 'chrisbra/Colorizer'                                           " Color codes to color
 Plug 'Yggdroot/indentLine'                                          " Indent
-Plug 'airblade/vim-gitgutter'                                       " Gitgutter
 Plug 'junegunn/goyo.vim'                                            " Distraction free
 Plug 'majutsushi/tagbar'                                            " Tagbar
 Plug 'lvht/tagbar-markdown'                                         " Tagbar for Markdown
 Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
+
+" Git
+Plug 'airblade/vim-gitgutter'                                       " Gitgutter
+Plug 'rhysd/git-messenger.vim'
 
 " Completion
 Plug 'ColinKennedy/vim-python-function-expander'
@@ -413,6 +416,9 @@ nnoremap <leader>gr  :Gread<CR>
 nnoremap <leader>gs  :Gstatus<CR>
 nnoremap <leader>gt  :Gcommit -v -q %:p<CR>
 nnoremap <leader>gw  :Gwrite<CR><CR>
+
+" Git messenger
+let g:git_messenger_always_into_popup = 1
 
 " RipGrep
 nnoremap <Leader>rg :Rg<Space>
