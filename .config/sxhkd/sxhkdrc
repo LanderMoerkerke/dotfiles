@@ -26,6 +26,8 @@ super + w
    $FILEMANAGER2
 super + shift + v
     $TERMINAL -e nvim
+super + shift + s
+    systray-toggle
 super + b
     $BROWSER
 super + shift + b
