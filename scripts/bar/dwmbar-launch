@@ -1,6 +1,6 @@
 #!/bin/sh
 
-delim="    "
+delim=" | "
 
 status() {
     check-gpg-cached && echo "$delim"
@@ -9,11 +9,12 @@ status() {
     check-mail-unread && echo "$delim"
     # cpu
     # mem
-    # temp
-    # battery
+    check-interface-speed && echo "$delim"
+    check-cpu-temperature && echo "$delim"
     # volume
     check-battery && echo "$delim"
     check-datetime && echo " "
+    echo $time
 }
 
 while true; do
