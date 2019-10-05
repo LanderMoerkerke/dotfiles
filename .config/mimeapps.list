@@ -12,6 +12,7 @@ image/jpeg=img.desktop;
 image/png=img.desktop;
 image/tiff=img.desktop;
 inode/x-empty=nvim.desktop;
+message/rfc822=eml.desktop;
 new-latex.pdf=org.pwmt.zathura.desktop;
 text/csv-schema=csv.desktop;
 text/csv=csv.desktop;
