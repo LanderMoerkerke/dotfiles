@@ -64,15 +64,16 @@ Plug 'honza/vim-snippets'                                           " Extra snip
 " Formatting
 Plug 'Chiel92/vim-autoformat'                                       " Autoformat
 Plug 'tell-k/vim-autoflake'                                         " AutoFlake
+
+Plug 'chrisbra/csv.vim'                                             " Tabularize content
+
 " Linting
-" Plug 'w0rp/ale'                                                     " Linting engine
-Plug 'MoerkerkeLander/ale'
+Plug 'MoerkerkeLander/ale'                                          " Linting engine
 
 " Filetypes / syntax
 Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
 Plug 'sheerun/vim-polyglot'
 
-Plug 'chrisbra/csv.vim'
 
 call plug#end()
 
@@ -200,7 +201,7 @@ tnoremap <C-\<> <C-\><C-n>
 tnoremap <Esc> <C-\><C-n>
 
 " Increment decrement under cursor
-nnoremap <C-w> <C-a>
+nnoremap <C-s> <C-a>
 
 " Getting rid of the search highlights
 nnoremap <esc> :noh<cr>
@@ -227,10 +228,6 @@ nnoremap <leader>z :set wrap!<cr>
 " Reselect when indenting
 noremap < <gv
 noremap > >gv
-
-" Indent using Shift + S-Shift
-" nnoremap <Tab> V>gv<esc>
-" nnoremap <S-Tab> V<LT>gv<esc>
 
 " Move visual block
 vnoremap J :m '>+1<CR>gv=gv
@@ -362,7 +359,7 @@ au BufEnter stories.md,intents* hi Error NONE
 " Before saving
 autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
 
-autocmd BufWritePre *.go,*.jsd,*.md ALEFix           " format
+autocmd BufWritePre *.go,*.jsd ALEFix           " format
 autocmd BufWritePre *.py ALEFix isort black
 
 " After saving
@@ -410,8 +407,6 @@ nnoremap <leader>gl  :silent! Glog<CR>:bot copen<CR>
 nnoremap <leader>gm  :Gmove<Space>
 nnoremap <leader>go  :Git checkout<Space>
 nnoremap <leader>gp  :Ggrep<Space>
-nnoremap <leader>gpl :Dispatch! git pull<CR>
-nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gr  :Gread<CR>
 nnoremap <leader>gs  :Gstatus<CR>
 nnoremap <leader>gt  :Gcommit -v -q %:p<CR>
@@ -496,7 +491,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " Indentline
 let g:indentLine_color_tty_light = 200  " (default: 4)
 let g:indentLine_color_dark      = 210  " (default: 2)
-let g:indentLine_setConceal      = 0    " (default: 2)
+" let g:indentLine_setConceal      = 0    " (default: 2)
 
 " ToC markdown
 let g:vmt_fence_text = 'TOC'
@@ -531,6 +526,8 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme="minimalist"
+
+" let g:airline#extensions#tabline#ignore_bufadd_pat = ""
 
 let g:airline_section_c =
       \"%{bufnr('%')}: ".
@@ -651,6 +648,8 @@ let g:LanguageClient_serverCommands = {
             \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
             \ 'yaml':       ['yaml-language-server', '--stdio']
 \ }
+            " \ 'python':     ['dotnet', '/home/lander/Programs/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer.dll'],
+            " \ 'python':     ['pyls'],
 
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
@@ -729,6 +728,7 @@ hi SpellBad              ctermfg=203   ctermbg=233
 
 hi LCError               ctermfg=203   ctermbg=233
 hi LCWarning             ctermfg=230   ctermbg=24
+" hi LCWarning             ctermfg=7     ctermbg=233
 
 hi IndentGuidesOdd       guibg=red     ctermbg=3
 hi IndentGuidesEven      guibg=green   ctermbg=4
@@ -789,6 +789,12 @@ augroup autocommands
     autocmd FileType cpp call Run_CPP()
     fun! Run_CPP()
         nnoremap <buffer> <F5> :exec '!g++ % -o run && ./run' shellescape(@%, 1)<cr>
+    endf
+
+    " Rust
+    autocmd FileType rust call Run_Rust()
+    fun! Run_Rust()
+        nnoremap <buffer> <F5> :exec '!rustc % -o run && ./run' shellescape(@%, 1)<cr>
     endf
 
     " Spellcheck
