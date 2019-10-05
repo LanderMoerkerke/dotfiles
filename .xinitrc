@@ -12,6 +12,8 @@ xrdb ./.Xresources &
 feh --no-fehbg --bg-fill $HOME/Pictures/bg.jpg &
 xrandr --dpi 100 &
 
+urxvtd -q &
+
 pulseaudio &
 
 # keybindings
