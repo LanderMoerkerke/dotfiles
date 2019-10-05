@@ -11,7 +11,7 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$(find $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
-export PATH="$HOME/.local/bin/:$HOME/.config/fzf/bin:$XDG_CONFIG_HOME/npm/bin:/usr/lib/ruby/gems/2.6.0:$XDG_DATA_HOME/gem/ruby/2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/bin/vendor_perl:$HOME/.local/bin:/opt/google-cloud-sdk/bin:$XDG_DATA_HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin/:$HOME/.config/fzf/bin:$XDG_CONFIG_HOME/npm/bin:/usr/lib/ruby/gems/2.6.0:$XDG_DATA_HOME/gem/ruby/2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/bin/vendor_perl:$HOME/.local/bin:/opt/google-cloud-sdk/bin:$XDG_DATA_HOME/go/bin:$PATH:$HOME/.local/share/cargo/bin"
 
 # default programs
 export BROWSER="qutebrowser"
