@@ -235,12 +235,7 @@ c.content.javascript.enabled = True
 # logged, the corresponding dictionary value selects the qutebrowser
 # logger to use. On QtWebKit, the "unknown" setting is always used.
 # Type: Dict
-c.content.javascript.log = {
-    "unknown": "debug",
-    "info": "debug",
-    "warning": "debug",
-    "error": "debug",
-}
+c.content.javascript.log = {"unknown": "debug", "info": "debug", "warning": "debug", "error": "debug"}
 
 # Use the standard JavaScript modal dialog for `alert()` and `confirm()`
 # Type: Bool
@@ -511,24 +506,11 @@ c.hints.mode = "letter"
 
 # A comma-separated list of regexes to use for 'next' links.
 # Type: List of Regex
-c.hints.next_regexes = [
-    "\\bnext\\b",
-    "\\bmore\\b",
-    "\\bnewer\\b",
-    "\\b[>→≫]\\b",
-    "\\b(>>|»)\\b",
-    "\\bcontinue\\b",
-]
+c.hints.next_regexes = ["\\bnext\\b", "\\bmore\\b", "\\bnewer\\b", "\\b[>→≫]\\b", "\\b(>>|»)\\b", "\\bcontinue\\b"]
 
 # A comma-separated list of regexes to use for 'prev' links.
 # Type: List of Regex
-c.hints.prev_regexes = [
-    "\\bprev(ious)?\\b",
-    "\\bback\\b",
-    "\\bolder\\b",
-    "\\b[<←≪]\\b",
-    "\\b(<<|«)\\b",
-]
+c.hints.prev_regexes = ["\\bprev(ious)?\\b", "\\bback\\b", "\\bolder\\b", "\\b[<←≪]\\b", "\\b(<<|«)\\b"]
 
 # Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
 # number hints.
@@ -939,14 +921,7 @@ c.url.start_pages = ["www.google.com"]
 
 # The URL parameters to strip with `:yank url`.
 # Type: List of String
-c.url.yank_ignored_parameters = [
-    "ref",
-    "utm_source",
-    "utm_medium",
-    "utm_campaign",
-    "utm_term",
-    "utm_content",
-]
+c.url.yank_ignored_parameters = ["ref", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
 
 # Hide the window decoration when using wayland (requires restart)
 # Type: Bool
@@ -1234,11 +1209,7 @@ c.bindings.commands = {
         "<Escape>": "leave-mode",
         "<Return>": "follow-hint",
     },
-    "insert": {
-        "<Ctrl-E>": "open-editor",
-        "<Escape>": "leave-mode",
-        "<Shift-Ins>": "insert-text {primary}",
-    },
+    "insert": {"<Ctrl-E>": "open-editor", "<Escape>": "leave-mode", "<Shift-Ins>": "insert-text {primary}"},
     "passthrough": {"<Ctrl-V>": "leave-mode"},
     "prompt": {
         "<Alt-B>": "rl-backward-word",
