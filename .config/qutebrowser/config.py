@@ -1159,7 +1159,7 @@ c.bindings.commands = {
         "xo": "set-cmd-text -s :open -b",
         "xt": "config-cycle tabs.show always switching",
         "xx": "config-cycle statusbar.hide ;; config-cycle tabs.show always switching",
-        "yD": "yank domain -s",
+        "yD": "download-open copy-to-lf",
         "yP": "yank pretty-url -s",
         "yT": "yank title -s",
         "yY": "yank -s",

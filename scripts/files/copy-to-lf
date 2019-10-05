@@ -1,0 +1,9 @@
+#!/bin/sh
+
+file="$1"
+
+cmd=$(printf "save\ncopy\n$file\n")
+
+lf -remote "$cmd"
+
+notify-send "Copied to lf" "$file"
