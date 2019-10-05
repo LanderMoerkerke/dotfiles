@@ -60,6 +60,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export QUTE_DATA_DIR="$XDG_DATA_HOME"/qutebrowser
 export QUTE_CONFIG_DIR="$XDG_CONFIG_HOME"/qutebrowser
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
 # VEST
 export VEST=$HOME/Documents/VEST/
