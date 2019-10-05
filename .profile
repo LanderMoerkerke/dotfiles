@@ -1,6 +1,6 @@
 #!/bin/sh
-# Profile file. Runs on login.
 
+# XDG Directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -9,6 +9,7 @@ export XDG_RUNTIME_DIR="$HOME/.local/share"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
+# Path
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$(find $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
 export PATH="$HOME/.local/bin/:$HOME/.config/fzf/bin:$XDG_CONFIG_HOME/npm/bin:/usr/lib/ruby/gems/2.6.0:$XDG_DATA_HOME/gem/ruby/2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/bin/vendor_perl:$HOME/.local/bin:/opt/google-cloud-sdk/bin:$XDG_DATA_HOME/go/bin:$PATH:$HOME/.local/share/cargo/bin"
@@ -67,11 +68,14 @@ export VEST=$HOME/Documents/VEST/
 export WG=$HOME/Documents/Work/WeGroup
 export BITBUCKET=$WG/Bitbucket
 
+# Biber
 export COMPILE="$HOME/Documents/LaTeX"
 export BIB="$COMPILE/uni.bib"
 
+# Printer
 export SANE_CONFIG_DIR=hpaio:/net/Officejet_6700?ip=192.168.0.20
 
+# Appearance
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 . $HOME/.icons/term-icons
