@@ -1,12 +1,18 @@
 #!/bin/sh
 
+chg=$(cat /sys/class/power_supply/BAT?/status)
+
+if [ "Charging" = $chg ]; then
+    prefix="   "
+fi
+
 for x in /sys/class/power_supply/BAT?/capacity; do
     percentage=$(cat $x)
     case "$percentage" in
-    100 | 9[0-9])    echo "  $percentage%" ;;
-    8[0-9] | 7[0-9]) echo "  $percentage%" ;;
-    6[0-9] | 5[0-9]) echo "  $percentage%" ;;
-    4[0-9] | 3[0-9]) echo "  $percentage%" ;;
+    100 | 9[0-9])    echo "$prefix  $percentage%" ;;
+    8[0-9] | 7[0-9]) echo "$prefix  $percentage%" ;;
+    6[0-9] | 5[0-9]) echo "$prefix  $percentage%" ;;
+    4[0-9] | 3[0-9]) echo "$prefix  $percentage%" ;;
     *) echo "  $percentage%" ;;
     esac
 done
