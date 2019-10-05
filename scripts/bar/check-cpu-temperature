@@ -1,6 +1,6 @@
 #!/bin/sh
 
-temp=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp2_input)
+temp=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input)
 celcius=$(( temp / 1000 ))
 
 case "$celcius" in
