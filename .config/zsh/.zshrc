@@ -6,7 +6,7 @@ TERM=xterm-256color
 
 export COLORTERM=24bit
 
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.config/oh-my-zsh
 export ZDOTDIR=$HOME/.config/zsh
 export RTV_BROWSER=w3m
 export TMOUT=9600
