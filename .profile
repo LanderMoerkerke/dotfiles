@@ -22,7 +22,7 @@ export FILEMANAGER="lf"
 export FILEMANAGER2="nautilus"
 export READER="zathura"
 export RTV_BROWSER="w3m"
-export TERMINAL="urxvtc"
+export TERMINAL="urxvt"
 export TERMINAL2="st"
 
 # dotfiles
@@ -65,6 +65,7 @@ export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+# export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
 
 # VEST
 export VEST=$HOME/Documents/VEST/
