@@ -459,6 +459,7 @@ let g:delimitMate_expand_inside_quotes = 1
 " Nerdtree
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=25
+let NERDTreeBookmarksFile='~/.config/nvim/NERDTreeBookmarks.txt'
 
 nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
 
