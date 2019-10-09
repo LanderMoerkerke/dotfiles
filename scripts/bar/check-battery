@@ -13,6 +13,6 @@ for x in /sys/class/power_supply/BAT?/capacity; do
     8[0-9] | 7[0-9]) echo "$prefix  $percentage%" ;;
     6[0-9] | 5[0-9]) echo "$prefix  $percentage%" ;;
     4[0-9] | 3[0-9]) echo "$prefix  $percentage%" ;;
-    *) echo "  $percentage%" ;;
+    *) echo "$prefix  $percentage%" ;;
     esac
 done
