@@ -32,6 +32,8 @@ super + b
     $BROWSER
 super + shift + b
     $BROWSER2
+super + shift + m
+    caprine
 super + p
     gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
 # 1}}} -
