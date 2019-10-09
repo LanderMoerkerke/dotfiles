@@ -12,6 +12,7 @@ xrdb ./.Xresources &
 feh --no-fehbg --bg-fill $HOME/Pictures/bg.jpg &
 xrandr --dpi 100 &
 
+dwmbar-launch &
 
 pulseaudio &
 
@@ -34,6 +35,13 @@ xss-lock -l -- lockscreen &
 
 udiskie &
 
-exec i3
 dunst &
 
+# exec i3
+# exec dwm
+
+# while :; do
+# 	ssh-agent dwm
+# done
+
+exec selectwm -c $XDG_CONFIG_HOME/selectwm/selectwmrc
