@@ -67,8 +67,12 @@ snippet posti "Post init function"
 #  Context  #
 #############
 
-snippet read "With open file"
+snippet read "With open file to read"
 	with open(f"${1:filename}", "${2:r}") as f:
+		${3:pass}
+
+snippet write "With open file to write"
+	with open(f"${1:filename}", "${2:w}") as f:
 		${3:pass}
 
 snippet jdump "Dump contents to json file"
