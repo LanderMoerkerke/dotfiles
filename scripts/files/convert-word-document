@@ -2,10 +2,10 @@
 
 ext=${1##*.}
 out=${2:-/tmp}
-extensions="doc docx odt pptx"
+extensions="doc docx odt pptx xls xlsx"
 
 if [ -z "$1" ]; then
-    echo "- Options: .doc, .docx, .odt"
+    echo "- Options: .doc, .docx, .odt .xls .xlsx"
     exit 1
 fi
 
