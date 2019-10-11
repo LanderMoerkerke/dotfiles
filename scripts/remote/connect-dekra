@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ssh -Y dekra-rdp-passtrough "./connect-dekra"
+ssh -Y dekra-rdp-passtrough "./connect-dekra $DEKRA_USER $DEKRA_PASS $DEKRA_SERVER $DEKRA_DOMAIN"
 
 # xfreerdp \
 #     /u:$DEKRA_USER \
