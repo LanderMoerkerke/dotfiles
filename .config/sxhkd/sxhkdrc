@@ -71,11 +71,11 @@ super + shift + F1
 
 # Function keys - mod1 {{{1 -
 mod1 + F1
-    pactl set-sink-mute 1 toggle
+    pactl set-sink-mute bluez_sink.CC_98_8B_93_3A_17.a2dp_sink toggle
 mod1 + F2
-    pactl -- set-sink-volume 1 -1%
+    pactl -- set-sink-volume bluez_sink.CC_98_8B_93_3A_17.a2dp_sink -1%
 mod1 + F3
-    pactl -- set-sink-volume 1 +1%
+    pactl -- set-sink-volume bluez_sink.CC_98_8B_93_3A_17.a2dp_sink +1%
 mod1 + F4
     echo "power on\nconnect CC:98:8B:93:3A:17" | bluetoothctl
 mod1 + F5
