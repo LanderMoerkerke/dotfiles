@@ -643,7 +643,7 @@ let g:LanguageClient_serverCommands = {
             \ 'go':         ['go-langserver'],
             \ 'html':       ['html-languageserver', '--stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
-            \ 'python':     ['pyls'],
+            \ 'python':     ['pyls', '-v', '--log-file', '/tmp/pyls.log'],
             \ 'rust':       ['rls'],
             \ 'sh':         ['bash-language-server', 'start'],
             \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
