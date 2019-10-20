@@ -6,4 +6,6 @@ cmd=$(printf "save\ncopy\n$file\n")
 
 lf -remote "$cmd"
 
+echo "$file" | xclip -selection clipboard
+
 notify-send "Copied to lf" "$file"
