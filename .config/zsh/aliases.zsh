@@ -32,8 +32,6 @@ alias ld='lazydocker'
 
 # python
 
-alias jl="jupyter-lab --browser=Chromium"
-alias jls="jupyter-lab --no-browser --port=8888 --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.password=''"
 alias jn="jupyter notebook --browser=Chromium"
 
 alias ll='ls -latrFi'
