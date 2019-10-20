@@ -9,10 +9,32 @@ export XDG_RUNTIME_DIR="$HOME/.local/share"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
-# Path
+# PATH
+
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$(find $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
-export PATH="$HOME/.local/bin/:$HOME/.config/fzf/bin:$XDG_CONFIG_HOME/npm/bin:/usr/lib/ruby/gems/2.6.0:$XDG_DATA_HOME/gem/ruby/2.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/bin/vendor_perl:$HOME/.local/bin:/opt/google-cloud-sdk/bin:$XDG_DATA_HOME/go/bin:$PATH:$HOME/.local/share/cargo/bin"
+
+# system
+export PATH="$PATH:\
+/usr/local/sbin:\
+/usr/local/bin:\
+/usr/sbin:\
+/usr/bin:\
+/sbin:\
+/usr/bin/vendor_perl\
+/opt/google-cloud-sdk/bin:\
+"
+
+# user
+export PATH="\
+$PATH:\
+$HOME/.local/bin/:\
+$XDG_DATA_HOME/fzf/bin:\
+$XDG_DATA_HOME/npm/bin:\
+$XDG_DATA_HOME/gem/ruby/2.6.0/bin:\
+$XDG_DATA_HOME/go/bin:\
+$XDG_DATA_HOME/cargo/bin\
+"
 
 # default programs
 export BROWSER="qutebrowser"
@@ -41,9 +63,8 @@ export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter/"
 export NLTK_DATA="$XDG_DATA_HOME/lib/nltk_data"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NPM_CONFIG_USERCONFIG="$XDG_DATA_HOME/npm/npmrc"
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
-# export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export UNISON="$XDG_CONFIG_HOME"/unison
