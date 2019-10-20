@@ -1,39 +1,8 @@
 #!/bin/sh
 
-config_files="
-    $HOME/.Xresources\n
-    $HOME/.config/compton/compton.conf\n
-    $HOME/.config/dunst/dunstrc\n
-    $HOME/.config/gopass/config.yml\n
-    $HOME/.config/i3/config\n
-    $HOME/.config/isync/mbsyncrc\n
-    $HOME/.config/lf/lfrc\n
-    $HOME/.config/mimeapps.list\n
-    $HOME/.config/msmtp/config\n
-    $HOME/.config/msmtp/config\n
-    $HOME/.config/mutt/etc/mail-sync\n
-    $HOME/.config/mutt/muttrc\n
-    $HOME/.config/newsboat/config\n
-    $HOME/.config/notmuch-config\n
-    $HOME/.config/nvim/init.vim\n
-    $HOME/.config/pgcli/config\n
-    $HOME/.config/polybar/config\n
-    $HOME/.config/qutebrowser/config.py\n
-    $HOME/.config/rofi/config\n
-    $HOME/.config/rtv/rtv.cfg\n
-    $HOME/.config/sxhkd/sxhkdrc\n
-    $HOME/.config/udiskie/config.yml\n
-    $HOME/.config/zathura/zathurarc\n
-    $HOME/.config/zsh/.zshrc\n
-    $HOME/.gitconfig\n
-    $HOME/.password-store/.\n
-    $HOME/.profile\n
-    $HOME/.profile_appendix\n
-    $HOME/.tmux.conf\n
-    $HOME/.xinitrc\n
-"
+config_files=$(find $HOME/.scripts $HOME/dotfiles -type f -not -path "*/.git/*" -not -path "*/.oh-my-zsh/*" | sort | uniq)
 
-file=$(echo $config_files | dmenu -i) || exit
+file=$(echo "$config_files" | dmenu -i) || exit
 
 cd $(dirname "$file")
 
