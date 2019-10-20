@@ -14,6 +14,8 @@ xrandr --dpi 100 &
 
 dwmbar-launch &
 
+lf -server &
+
 pulseaudio &
 
 # keybindings
