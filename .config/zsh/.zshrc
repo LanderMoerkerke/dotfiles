@@ -150,8 +150,8 @@ fpath=($HOME/.zsh/completion $fpath)
 # dir colors cd
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-source "$HOME/.config/fzf/shell/key-bindings.zsh"
-source "$HOME/.config/fzf/shell/completion.zsh"
+source "$XDG_DATA_HOME/fzf/shell/key-bindings.zsh"
+source "$XDG_DATA_HOME/fzf/shell/completion.zsh"
 
 source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/aliases.zsh"

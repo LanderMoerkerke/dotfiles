@@ -3,7 +3,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " General
-Plug 'junegunn/fzf', { 'dir': '~/.config/fzf' }                     " Fuzzy Find
+Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }                " Fuzzy Find
 Plug 'junegunn/fzf.vim'                                             " Fuzzy Find
 Plug 'tpope/vim-fugitive'                                           " Fuzzy Find Commits
 Plug 'tpope/vim-commentary'                                         " Commenting with motions
