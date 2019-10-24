@@ -263,13 +263,6 @@ nnoremap <c-p> :bprevious<cr>
 nnoremap <leader>nn :split <cr>
 nnoremap <leader>vn :vsplit <cr>
 
-" Simpler resize
-nnoremap <silent> <Leader>v+ :vertical resize +5<CR>
-nnoremap <silent> <Leader>v- :vertical resize -5<CR>
-
-nnoremap <silent> <Leader>n+ :res +5<CR>
-nnoremap <silent> <Leader>n- :res -5<CR>
-
 " Resize windows using arrow keys
 noremap <up>    <C-W>+
 noremap <down>  <C-W>-
@@ -279,29 +272,10 @@ noremap <right> 3<C-W>>
 " Remove buffer
 nnoremap <leader>x :bp\|bd #<CR>
 
-" Go to tab by number
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
-
 " Go to last active tab
 au TabLeave * let g:lasttab = tabpagenr()
 nnoremap <silent><leader><Tab> :exe "tabn ".g:lasttab<cr>
 vnoremap <silent><leader><Tab> :exe "tabn ".g:lasttab<cr>
-
-" Navigating with guides
-vnoremap <leader>j <Esc>/<++><Enter>"_c4l
-nnoremap <leader>j <Esc>/<++><Enter>"_c4l
-
-vnoremap <leader>k <Esc>?<++><Enter>"_c4l
-nnoremap <leader>k <Esc>?<++><Enter>"_c4l
 
 " ------
 " Quickfix
@@ -352,9 +326,6 @@ map <F12> :TagbarToggle<CR>
 " ------
 " Buffer Actions
 " ------
-
-" Enter buffer
-au BufEnter stories.md,intents* hi Error NONE
 
 " Before saving
 autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
