@@ -62,6 +62,15 @@ control + shift + Print
     crop-screenshot
 # 1}}} -
 
+mod1 + Home
+    playerctl previous
+mod1 + End
+    playerctl pause
+mod1 + shift + End
+    playerctl play
+mod1 + Insert
+    playerctl next
+
 # Function keys - super {{{1 -
 super + F1
     notify-send "DUNST_COMMAND_PAUSE"
