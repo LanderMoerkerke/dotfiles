@@ -100,6 +100,7 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 # GENERAL BINDINGS AND MOVEMENTS
 # -----------------------------------------------------------------------------------------------------------------------------
 
+bindsym $mod+Shift+q        exit
 bindsym $mod+c              kill
 
 bindsym Mod1+Tab workspace back_and_forth
