@@ -1,0 +1,27 @@
+{
+  "pyls": {
+    "rope_completion": true,
+    "plugins": {
+      "pyflakes": {
+        "enabled": true
+      },
+      "pydocstyle": {
+        "enabled": false
+      },
+      "pylint": {
+        "enabled": true
+      },
+      "pyls_mypy": {
+        "enabled": true
+      },
+      "isort": {
+        "enabled": true
+      },
+      "rope": {
+        "completion": {
+          "enabled": true
+        }
+      }
+    }
+  }
+}

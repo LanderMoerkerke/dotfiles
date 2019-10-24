@@ -1,0 +1,6 @@
+{
+  "rust": {
+    "build_on_save": true,
+    "racer_completion": true
+  }
+}

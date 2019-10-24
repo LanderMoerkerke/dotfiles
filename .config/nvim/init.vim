@@ -569,7 +569,6 @@ let g:autoflake_disable_show_diff=1
 " \ 'go':         ['go-langserver'],
 " \ 'go':         ['go'],
 
-let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
 let g:LanguageClient_hasSnippetSupport = 1
 
 let g:LanguageClient_hoverPreview = 'Always'
@@ -735,13 +734,16 @@ augroup autocommands
     " Python
     autocmd FileType python call Run_Python()
     fun! Run_Python()
-        nnoremap <buffer> <F4> :exec '!python3.7' shellescape(@%, 1)<cr>
-        nnoremap <buffer> <F5> :exec '!pipenv run python' shellescape(@%, 1)<cr>
+        let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings-python.json')
+
+        nnoremap <buffer> <F5> :exec '!python3.7' shellescape(@%, 1)<cr>
     endf
 
     " Go
     autocmd FileType go call Run_Go()
     fun! Run_Go()
+        let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings-go.json')
+
         nnoremap <buffer> <F5> :exec '!go run' shellescape(@%, 1)<cr>
     endf
 
@@ -766,6 +768,8 @@ augroup autocommands
     " Rust
     autocmd FileType rust call Run_Rust()
     fun! Run_Rust()
+        let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings-rust.json')
+
         nnoremap <buffer> <F5> :exec '!rustc % -o run && ./run' shellescape(@%, 1)<cr>
     endf
 

@@ -1,0 +1,10 @@
+{
+  "gopls": {
+    "go.languageServerExperimentalFeatures": {
+      "format": true,
+      "autoComplete": true
+    },
+    "usePlaceholders": true,
+    "enhancedHover": true
+  }
+}
