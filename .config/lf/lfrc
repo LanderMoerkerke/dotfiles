@@ -122,7 +122,7 @@ cmd convert !{{
     set -f
     case $f in
         *.ipynb) convert-scripts "$f";;
-        *.docx|*.odt) convert-word-document "$f" ".";;
+        *.docx|*.odt|*.doc|*.docx|*.odt|*.pptx|*.xls|*.xlsx) convert-word-document "$f" ".";;
         *) echo "No converter for $f";;
     esac
 }}
