@@ -8,6 +8,7 @@ export COLORTERM=24bit
 
 export ZSH=$HOME/.config/oh-my-zsh
 export ZDOTDIR=$HOME/.config/zsh
+export XDG_DATA_HOME=$HOME/.local/share
 export RTV_BROWSER=w3m
 export TMOUT=9600
 export PAGER=less
