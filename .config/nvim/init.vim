@@ -245,8 +245,8 @@ com! DiffSaved call s:DiffWithSaved()
 " ------
 
 " Basic navigation
-nnoremap k gk
-nnoremap j gj
+" nnoremap k gk
+" nnoremap j gj
 
 " Split navigation
 nnoremap <c-h> <c-w>h
@@ -309,6 +309,7 @@ map <F6> :call <SID>ToggleSpell()<CR>
 
 " Vimdiff current with saved buffer
 map <F7> call s:DiffWithSaved()
+
 
 " map <F8>
 " map <F9>
@@ -450,7 +451,6 @@ let g:colorizer_auto_filetype='html,css,xdefaults,i3'
 " Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
 
-" Default mapping
 let g:multi_cursor_select_all_word_key = '<A-a>'
 let g:multi_cursor_start_key           = 'g<C-a>'
 let g:multi_cursor_select_all_key      = 'g<A-a>'
@@ -523,7 +523,7 @@ let g:ale_set_highlights = 0
 
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
-let g:ale_lint_fix_on_save = 1
+let g:ale_lint_fix_on_save = 0
 
 let g:ale_completion_enabled = 0
 
@@ -564,9 +564,6 @@ let g:autoflake_remove_unused_variables=1
 let g:autoflake_disable_show_diff=1
 
 " LanguageClient
-
-" \ 'go':         ['go-langserver'],
-" \ 'go':         ['go'],
 
 let g:LanguageClient_hasSnippetSupport = 1
 
@@ -618,8 +615,6 @@ let g:LanguageClient_serverCommands = {
             \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
             \ 'yaml':       ['yaml-language-server', '--stdio']
 \ }
-            " \ 'python':     ['dotnet', '/home/lander/Programs/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer.dll'],
-            " \ 'python':     ['pyls'],
 
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
@@ -653,7 +648,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <C-Tab> ncm2#complete()
 
-" let g:UltiSnipsExpandTrigger		= "<tab>"
+let g:UltiSnipsExpandTrigger		= "<tab>"
 let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
@@ -675,11 +670,6 @@ let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/snippets/", "UltiSnips"]
 " Edit custom snippets
 nnoremap <leader>e :UltiSnipsEdit<cr>
 let g:UltiSnipsEditSplit="vertical"
-
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsExpandTrigger="<c-l>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " General autocomplete variables
 let g:snips_author = "Lander Moerkerke"
