@@ -754,7 +754,7 @@ c.tabs.last_close = "close"
 
 # Switch between tabs using the mouse wheel.
 # Type: Bool
-c.tabs.mousewheel_switching = True
+c.tabs.mousewheel_switching = False
 
 # How new tabs opened from another tab are positioned.
 # Type: NewTabPosition
