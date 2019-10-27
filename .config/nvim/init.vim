@@ -429,7 +429,7 @@ let g:delimitMate_expand_inside_quotes = 1
 " Nerdtree
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=25
-let NERDTreeBookmarksFile='~/.config/nvim/NERDTreeBookmarks.txt'
+let NERDTreeBookmarksFile=expand('~/.config/nvim/NERDTreeBookmarks.txt')
 
 nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
 
@@ -558,7 +558,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
 
 " Autoflake
-let g:autoflake_cmd = "/home/lander/Pipenv/neovim/.venv/bin/autoflake"
+let g:autoflake_cmd = expand("~/Pipenv/neovim/.venv/bin/autoflake")
 let g:autoflake_remove_all_unused_imports=1
 let g:autoflake_remove_unused_variables=1
 let g:autoflake_disable_show_diff=1
