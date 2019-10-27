@@ -23,7 +23,6 @@ Plug 'jremmen/vim-ripgrep'                                          " RipGrep
 " Appearance
 Plug 'mhinz/vim-startify'                                           " Fancy startup
 Plug 'scrooloose/nerdtree'                                          " Nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'                                  " Nerdtree git
 Plug 'ryanoasis/vim-devicons'                                       " Icons
 Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
