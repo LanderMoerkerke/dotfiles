@@ -114,7 +114,7 @@ set wildmode=longest:full                       " complete mode for wildmenu
 set wildmode+=full
 
 set linebreak                                   " only wrap after words, not inside words
-set nowrap
+" set nowrap
 set fo-=t
 
 set noshowmode                                  " don't show the mode
