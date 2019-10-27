@@ -700,7 +700,7 @@ c.session.default_name = None
 # - tr-TR: Turkish (Turkey)
 # - uk-UA: Ukrainian (Ukraine)
 # - vi-VN: Vietnamese (Viet Nam)
-c.spellcheck.languages = []
+c.spellcheck.languages = ["en-GB", "nl-NL"]
 
 # Hide the statusbar unless a message is shown.
 # Type: Bool
