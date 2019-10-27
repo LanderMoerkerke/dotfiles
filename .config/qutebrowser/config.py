@@ -807,7 +807,7 @@ c.tabs.show = "multiple"
 # Time to show the tab bar before hiding it when tabs.show is set to
 # 'switching'.
 # Type: Int
-c.tabs.show_switching_delay = 800
+c.tabs.show_switching_delay = 3000
 
 # Open a new window for every tab.
 # Type: Bool
@@ -837,7 +837,9 @@ c.tabs.title.alignment = "left"
 # placeholders like for `tabs.title.format` are defined.
 # Type: FormatString
 c.tabs.title.format_pinned = "{index}"
+
 c.colors.tabs.pinned.even.bg = "grey"
+c.colors.tabs.pinned.odd.bg = "grey"
 
 # The width of the tab bar if it's vertical, in px or as percentage of
 # the window.
