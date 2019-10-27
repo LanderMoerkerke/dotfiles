@@ -12,7 +12,8 @@
         "enabled": true
       },
       "pyls_mypy": {
-        "enabled": true
+        "enabled": true,
+        "live_mode": true
       },
       "isort": {
         "enabled": true
