@@ -370,7 +370,6 @@ nnoremap <leader><leader>t OTODO:<Esc>:Commentary<CR>A
 " Fugitive
 nnoremap <leader>ga  :Git add %:p<CR><CR>
 nnoremap <leader>gbl :Gblame<CR>
-nnoremap <leader>gbr :Git branch<Space>
 nnoremap <leader>gc  :Gcommit -v -q<CR>
 nnoremap <leader>gd  :Gdiff<CR>
 nnoremap <leader>ge  :Gedit<CR>
@@ -381,7 +380,6 @@ nnoremap <leader>gp  :Ggrep<Space>
 nnoremap <leader>gr  :Gread<CR>
 nnoremap <leader>gs  :Gstatus<CR>
 nnoremap <leader>gt  :Gcommit -v -q %:p<CR>
-nnoremap <leader>gw  :Gwrite<CR><CR>
 
 " Git messenger
 let g:git_messenger_always_into_popup = 1
