@@ -1,27 +1,55 @@
 {
   "pyls": {
-    "rope_completion": true,
     "plugins": {
-      "pyflakes": {
+      "jedi_completion": {
+        "enabled": true
+      },
+      "jedi_hover": {
+        "enabled": true
+      },
+      "jedi_references": {
+        "enabled": true
+      },
+      "jedi_signature_help": {
+        "enabled": true
+      },
+      "jedi_symbols": {
+        "enabled": true,
+        "all_scopes": true
+      },
+      "mccabe": {
+        "enabled": true,
+        "threshold": 15
+      },
+      "preload": {
+        "enabled": true
+      },
+      "pycodestyle": {
         "enabled": true
       },
       "pydocstyle": {
-        "enabled": false
+        "enabled": false,
+        "match": "(?!test_).*\\.py",
+        "matchDir": "[^\\.].*"
+      },
+      "pyflakes": {
+        "enabled": true
+      },
+      "rope_completion": {
+        "enabled": true
+      },
+      "yapf": {
+        "enabled": true
       },
       "pylint": {
         "enabled": true
       },
       "pyls_mypy": {
         "enabled": true,
-        "live_mode": true
+        "live_mode": false
       },
       "isort": {
-        "enabled": true
-      },
-      "rope": {
-        "completion": {
-          "enabled": true
-        }
+        "enabled": false
       }
     }
   }
