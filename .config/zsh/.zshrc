@@ -40,8 +40,8 @@ setopt EXTENDED_GLOB
 ZSH_DISABLE_COMPFIX=true
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=10000000
+SAVEHIST=10000000
 HISTFILE=$HOME/.cache/zsh/history
 
 # Basic auto/tab complete:
