@@ -595,7 +595,7 @@ let g:LanguageClient_diagnosticsDisplay = {
 \        4: {
 \            "name": "Hint",
 \            "texthl": "ALEInfo",
-\            "signText": "h",
+\            "signText": "?",
 \            "signTexthl": "ALEInfoSign",
 \            "virtualTexthl": "None",
 \        },
