@@ -471,6 +471,10 @@ let g:vmt_list_item_char = "-  "
 
 " GitGutter
 let g:gitgutter_max_signs = 1000
+let g:gitgutter_preview_win_floating = 1
+
+" fold changes
+nnoremap ghf :GitGutterFold<CR>
 
 " navigate to hunks
 nnoremap ghn :GitGutterNextHunk<CR>
