@@ -15,8 +15,8 @@ Plug 'junegunn/vim-easy-align'                                      " Easy align
 Plug 'tpope/vim-repeat'                                             " Repeat custom plugins
 
 " Unix related
-Plug 'jamessan/vim-gnupg', { 'for': 'gpg' }                          " GPG viewer
 Plug 'tpope/vim-eunuch'                                             " Unix operations inside vim
+Plug 'jamessan/vim-gnupg'                                            " GPG viewer
 Plug 'lambdalisue/suda.vim'                                         " Sudo
 Plug 'jremmen/vim-ripgrep'                                          " RipGrep
 
