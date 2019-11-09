@@ -272,8 +272,7 @@ map ge cd /etc
 map gu cd /usr
 map gM cd /mnt
 
-map gR cd /run/media/lander
-map gP cd /run/media/lander/
+map gR $lf -remote "send $id cd /run/media/$USER"
 
 map gt cd ~/.local/share/Trash/files/
 map gT cd ~/.local/share/Trash/
