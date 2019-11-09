@@ -48,7 +48,7 @@ cmd go-symlink ${{
 
 cmd usage $du -h -d1 | less
 
-cmd count !echo $f && find . | wc -l
+cmd count !echo  "Amount of files in dir:" $(dirname $f) && find . | wc -l
 
 cmd mkdir %mkdir -p "$@"
 
