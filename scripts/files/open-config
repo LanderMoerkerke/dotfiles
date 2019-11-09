@@ -1,6 +1,6 @@
 #!/bin/sh
 
-config_files=$(find $HOME/.scripts $HOME/dotfiles -type f -not -path "*/.git/*" -not -path "*/.oh-my-zsh/*" | sort | uniq)
+config_files=$(find $HOME/.scripts $HOME/dotfiles $HOME/Git/mutt -type f -not -path "*/.git/*" -not -path "*/.oh-my-zsh/*" | sort | uniq)
 
 file=$(echo "$config_files" | dmenu -i) || exit
 
