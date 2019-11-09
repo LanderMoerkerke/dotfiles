@@ -195,9 +195,10 @@ cmd bulk-rename ${{
 # ---------------------------
 
 # Unmappings
+map c
 map d
-map y
 map p
+map y
 
 map <bs2> :set hidden!
 map <esc> clear
@@ -287,6 +288,23 @@ map gv cd ~/Videos
 
 map gw cd ~/Documents/Work/WeGroup
 map gb cd ~/Documents/Work/WeGroup/Bitbucket
+
+map cba $lf -remote "send $id cd $(go-project ba)"
+map cbc $lf -remote "send $id cd $(go-project bc)"
+map cbd $lf -remote "send $id cd $(go-project bd)"
+map cbe $lf -remote "send $id cd $(go-project be)"
+map cbf $lf -remote "send $id cd $(go-project bf)"
+map cbh $lf -remote "send $id cd $(go-project bh)"
+map cbm $lf -remote "send $id cd $(go-project bm)"
+map cbp $lf -remote "send $id cd $(go-project bp)"
+map cbq $lf -remote "send $id cd $(go-project bq)"
+map cfc $lf -remote "send $id cd $(go-project fc)"
+map cfd $lf -remote "send $id cd $(go-project fd)"
+map cfm $lf -remote "send $id cd $(go-project fm)"
+map cfw $lf -remote "send $id cd $(go-project fw)"
+map coc $lf -remote "send $id cd $(go-project oc)"
+map cod $lf -remote "send $id cd $(go-project od)"
+map com $lf -remote "send $id cd $(go-project om)"
 
 map gV cd ~/Documents/VEST
 
