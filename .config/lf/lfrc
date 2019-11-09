@@ -108,11 +108,10 @@ cmd delete ${{
 
 cmd open &{{
     case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
         *zip) atool --list -- $f | less;;
         *tar) atool --list -- $f | less;;
         *compressed) atool --list -- $f | less;;
-        *) xdg-open $fx &;;
+        *) nohup xdg-open $fx &;;
     esac
     wait
     lf -remote "send $id redraw"
