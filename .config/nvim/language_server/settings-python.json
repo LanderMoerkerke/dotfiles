@@ -45,7 +45,7 @@
         "enabled": true
       },
       "pyls_mypy": {
-        "enabled": true,
+        "enabled": false,
         "live_mode": false
       },
       "isort": {
