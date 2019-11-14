@@ -1,5 +1,5 @@
 #!/bin/sh
 
-DOCKER_IMAGE=alpine
+DOCKER_IMAGE=${1:-python:3.8-alpine}
 
 docker run --rm -it $DOCKER_IMAGE sh
