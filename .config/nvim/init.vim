@@ -667,7 +667,7 @@ nmap <leader>ya <Plug>(trimmer-mapping)
 " ------
 
 let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/snippets/", "UltiSnips"]
+let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/UltiSnips/"]
 
 " Edit custom snippets
 nnoremap <leader>e :UltiSnipsEdit<cr>
