@@ -7,179 +7,223 @@
 #############
 
 snippet main "Main declaration and execution"
-	def main():
-		"""${1:TODO: Docstring for main.}"""
-		${2:# code}
-		pass
+def main():
+	"""${1:TODO: Docstring for main.}"""
+	${2:# code}
+	pass
 
 
-	if __name__ == "__main__":
-		main()
+if __name__ == "__main__":
+	main()
+endsnippet
+
 snippet printf "Print formatted"
-	print(f"${1:text} {${2:variable}}${3}")
+print(f"${1:text} {${2:variable}}${3}")
+endsnippet
+
 snippet printbr "Print breakline"
-	print("${0:-}" * 39)
+print("${0:-}" * 39)
+endsnippet
+
 snippet ts "Time start"
-	t0 = time.time()
+t0 = time.time()
+endsnippet
+
 snippet te "Time end"
-	print(f"${0} - finished in {time.time() - t0:.4f}")
+print(f"${0} - finished in {time.time() - t0:.4f}")
+endsnippet
+
 snippet tes "Time end section"
-	print("---------------------------------------")
-	print(f"Code finished in {time.time() - t0:.4f}")
-	print("---------------------------------------")
+print("---------------------------------------")
+print(f"Code finished in {time.time() - t0:.4f}")
+print("---------------------------------------")
+endsnippet
 
 #############
 #  Imports  #
 #############
 
 snippet syse "Sys exit"
-	__import__("sys").exit(${1:${VISUAL:1}})${2}
+__import__("sys").exit(${1:${VISUAL:1}})${2}
+endsnippet
+
 snippet idc "Import dataclass"
-	from wg_py_models import DataClass, GlobalConfig, dataclass
+from wg_py_models import DataClass, GlobalConfig, dataclass
+endsnippet
+
 snippet ity "Import typing"
-	from typing import Any, List, Tuple, Dict, Optional, Union, Optional
+from typing import Any, List, Tuple, Dict, Optional, Union, Optional
+endsnippet
 
 #############
 #    Iter   #
 #############
 
 snippet while "while"
-	while ${1:${VISUAL:True}}:
-		${2:${VISUAL:pass}}
-	${3}
+while ${1:${VISUAL:True}}:
+	${2:${VISUAL:pass}}
+${3}
+endsnippet
 
 #############
 #   Class   #
 #############
 
 snippet dc "Dataclass"
-	@dataclass(config=GlobalConfig)
-	class ${1:classname}(DataClass):
+@dataclass(config=GlobalConfig)
+class ${1:classname}(DataClass):
 
-		"""Docstring for $1. """
+	"""Docstring for $1. """
 
-		${2:pass}
+	${2:pass}
+endsnippet
+
 snippet posti "Post init function"
-	def __post_init__(self):
-		${3:${VISUAL:pass}}
+def __post_init__(self):
+	${3:${VISUAL:pass}}
+endsnippet
 
 #############
 #  Context  #
 #############
 
 snippet read "With open file to read"
-	with open(f"${1:filename}", "${2:r}") as f:
-		${3:pass}
+with open(f"${1:filename}", "${2:r}") as f:
+	${3:pass}
+endsnippet
 
 snippet write "With open file to write"
-	with open(f"${1:filename}", "${2:w}") as f:
-		${3:pass}
+with open(f"${1:filename}", "${2:w}") as f:
+	${3:pass}
+endsnippet
 
 snippet jdump "Dump contents to json file"
-	with open(f"${1:output}.json", "${2:w}") as f:
-		json.dump(${3:data}, f, indent=2)
+with open(f"${1:output}.json", "${2:w}") as f:
+	json.dump(${3:data}, f, indent=2)
+endsnippet
 
 #############
 #   Json    #
 #############
 
 snippet jread "Load contents from json file"
-	with open(f"${1:file}") as f:
-		${2:data} = json.load(f)
+with open(f"${1:file}") as f:
+	${2:data} = json.load(f)
+endsnippet
 
 snippet jprint "JSON print"
-	print(__import__("json").dumps(${1}, indent=4))${2}
+print(__import__("json").dumps(${1}, indent=4))${2}
+endsnippet
 
 #############
 #   Async   #
 #############
 
 snippet amain "Async main"
-	import asyncio
+import asyncio
 
-	async def main():
-		"""${1:TODO: Docstring for main.}"""
-		${2:# code}
-		pass
+async def main():
+	"""${1:TODO: Docstring for main.}"""
+	${2:# code}
+	pass
 
 
-	if __name__ == "__main__":
-		asyncio.run(main())
+if __name__ == "__main__":
+	asyncio.run(main())
+endsnippet
 
 snippet afor "Async for"
-	async for ${1:item} in ${2:iterator}:
-		${2:${VISUAL:pass}}
-	${3}
+async for ${1:item} in ${2:iterator}:
+	${2:${VISUAL:pass}}
+${3}
+endsnippet
 
 snippet aread "Async read file"
-	import aiofiles
+import aiofiles
 
-	async with aiofiles.open(f"${1:filename}", "${2:r}") as f:
-		${3:data = await f.read()}
+async with aiofiles.open(f"${1:filename}", "${2:r}") as f:
+	${3:data = await f.read()}
+endsnippet
 
 snippet awrite "Async write file"
-	import aiofiles
+import aiofiles
 
-	async with aiofiles.open(f"${1:filename}", "${2:w}") as f:
-		await f.write(str("\n").join(${2:data}))
+async with aiofiles.open(f"${1:filename}", "${2:w}") as f:
+	await f.write(str("\n").join(${2:data}))
+endsnippet
 
 snippet areq "Async request"
-	import aiohttp
+import aiohttp
 
-	async with aiohttp.ClientSession(${1:headers=headers, cookies=cookies}) as session:
-		async with session.${2:get}(${3:url}) as resp:
-			${4:return await resp}
+async with aiohttp.ClientSession(${1:headers=headers, cookies=cookies}) as session:
+	async with session.${2:get}(${3:url}) as resp:
+		${4:return await resp}
+endsnippet
 
 snippet achunck "Async list chunking"
 
-	amount_per_iteration = 100
-	amount_of_iterations = len(${1:lst}) // amount_per_iteration + 1
-	index = 0
+amount_per_iteration = 100
+amount_of_iterations = len(${1:lst}) // amount_per_iteration + 1
+index = 0
 
-	t0 = time.time()
-	for _ in range(amount_of_iterations):
+t0 = time.time()
+for _ in range(amount_of_iterations):
 
-	    subset = $1[index : min(index + amount_per_iteration, len($1))]
-	    index += amount_per_iteration
+	subset = $1[index : min(index + amount_per_iteration, len($1))]
+	index += amount_per_iteration
 
-	    tasks = [
-	        asyncio.create_task(${2:function}(sub))
-	        for sub in subset
-	    ]
+	tasks = [
+		asyncio.create_task(${2:function}(sub))
+		for sub in subset
+	]
 
-	    for t in tasks:
-	        await t
+	for t in tasks:
+		await t
 
-	print(f"Done - finished in {time.time() - t0:.4f}")
+print(f"Done - finished in {time.time() - t0:.4f}")
+endsnippet
 
 #############
 #  Comments #
 #############
 
 snippet h1 "Header 1 with breaklines"
-	# ---------------------------------------
-	# ${1}
-	# ---------------------------------------
+# ---------------------------------------
+# ${1}
+# ---------------------------------------
+endsnippet
+
 snippet h2 "Header 2"
-	# ${1}
-	# -----------------
+# ${1}
+# -----------------
+endsnippet
+
 snippet br "Breakline"
-	# ---------------------------------------${0}
+# ---------------------------------------${0}
+endsnippet
 
 #############
 #  Logging  #
 #############
 
 snippet linfo "logger info"
-	self.logger.info(f"${1:header}")
+self.logger.info(f"${1:header}")
+endsnippet
+
 snippet lerror "logger error"
-	self.logger.error(f"${1:header}")
+self.logger.error(f"${1:header}")
+endsnippet
+
 snippet ldebug "logger debug"
-	self.logger.debug(f"${1:header}")
+self.logger.debug(f"${1:header}")
+endsnippet
 
 #############
 #   Others  #
 #############
 
 snippet sub "Subscriptable item"
-	["${1:key}"]${2}
+["${1:key}"]${2}
+endsnippet
+
+# vim: ft=snippets

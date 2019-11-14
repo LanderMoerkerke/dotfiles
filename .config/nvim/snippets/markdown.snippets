@@ -7,22 +7,24 @@
 #############
 
 snippet toc "Add table of contents"
-	## Table of Contents
+## Table of Contents
 
-	<!-- TOC GFM -->
+<!-- TOC GFM -->
 
-	<!-- /TOC -->
+<!-- /TOC -->
+endsnippet
 
 snippet start "Start of an document"
-	# ${1:title}
+# ${1:title}
 
-	## Table of Contents
+## Table of Contents
 
-	<!-- TOC GFM -->
+<!-- TOC GFM -->
 
-	<!-- /TOC -->
+<!-- /TOC -->
 
-	## ${2:heading}
+## ${2:heading}
+endsnippet
 
 
 #############
@@ -30,160 +32,208 @@ snippet start "Start of an document"
 #############
 
 snippet h1 "Header h1" b
-	# ${1:Header name}
+# ${1:Header name}
+endsnippet
+
 snippet h2 "Header h2" b
-	## ${1:Header name}
+## ${1:Header name}
+endsnippet
+
 snippet h3 "Header h3" b
-	### ${1:Header name}
+### ${1:Header name}
+endsnippet
+
 snippet h4 "Header h4" b
-	#### ${1:Header name}
+#### ${1:Header name}
+endsnippet
+
 snippet h5 "Header h5" b
-	##### ${1:Header name}
+##### ${1:Header name}
+endsnippet
+
 snippet h6 "Header h6" b
-	###### ${1:Header name}
+###### ${1:Header name}
+endsnippet
+
 snippet hrlnk "Header ID Link"
-	[${1:Text}](#${2:Header ID})$0
+[${1:Text}](#${2:Header ID})$0
+endsnippet
 
 ###########
 #  Links  #
 ###########
 
 snippet lnk "Inline Link"
-	[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}}${4/.+/ "/}${4:opt title}${4/.+/"/})$0
+[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}}${4/.+/ "/}${4:opt title}${4/.+/"/})$0
+endsnippet
+
 snippet rlnk "Reference-style link"
-	[${1:${VISUAL:Text}}][${2:Reference}]$0
+[${1:${VISUAL:Text}}][${2:Reference}]$0
+endsnippet
+
 snippet rdef "Reference-style link ID"
-	[${1}]: ${3:http://${2:www.url.com}}
+[${1}]: ${3:http://${2:www.url.com}}
+endsnippet
+
 snippet flnk "Fast link"
-	<http://${1:url}>$0
+<http://${1:url}>$0
 
 ##############
 #  Emphasis  #
 ##############
 
 snippet * "Italic"
-	*${1:${VISUAL:Text}}*$0
+*${1:${VISUAL:Text}}*$0
+endsnippet
+
 snippet _ "Strong"
-	__${1:${VISUAL:Text}}__$0
+__${1:${VISUAL:Text}}__$0
+endsnippet
+
 snippet *_ "Italic and Strong"
-	***${1:${VISUAL:Text}}***$0
+***${1:${VISUAL:Text}}***$0
+endsnippet
 
 ############
 #  Quotes  #
 ############
 
 snippet > "Quote" !b
-	> ${1:${VISUAL:Text}:${VISUAL:Text}}
+> ${1:${VISUAL:Text}:${VISUAL:Text}}
+endsnippet
 
 ###########
 #  Lists  #
 ###########
 
 snippet ol "Ordered List"
-	1.	${1:item}
-	2.	${2:item}
-	3.	${3:item}
-	4.	${4:item}
+1.	${1:item}
+2.	${2:item}
+3.	${3:item}
+4.	${4:item}
+endsnippet
 
 snippet ul "Unordered List"
-	-	${1:item}
-	-	${2:item}
-	-	${3:item}
-	-	${4:item}
+-	${1:item}
+-	${2:item}
+-	${3:item}
+-	${4:item}
+endsnippet
 
 snippet ui "Unordered Item"
-	-	${4:item}
+-	${4:item}
+endsnippet
 
 snippet cl "Check List"
-	-	[ ] ${1:item}
-	-	[ ] ${2:item}
-	-	[ ] ${3:item}
-	-	[ ] ${4:item}
+-	[ ] ${1:item}
+-	[ ] ${2:item}
+-	[ ] ${3:item}
+-	[ ] ${4:item}
+endsnippet
 
 snippet ci "Check Item"
-	-	[ ] ${4:item}
+-	[ ] ${4:item}
+endsnippet
+
 
 snippet br "Linebreak"
-	<br>${1}
+<br>${1}
+endsnippet
 
 ######################
 #  Definition Lists  #
 ######################
 
 snippet dl "Definition List" !b
-	${1:Word 1}
-	: ${2:Definition}
+${1:Word 1}
+: ${2:Definition}
 
-	${3:Word 2}
-	: ${4:Definition}
+${3:Word 2}
+: ${4:Definition}
 
-	${5:Word 3}
-	: ${6:Definition}
+${5:Word 3}
+: ${6:Definition}
 
-	${7:Word 4}
-	: ${8:Definition}
+${7:Word 4}
+: ${8:Definition}
+endsnippet
 
 ############
 #  Images  #
 ############
 
 snippet img! "Image"
-	![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+endsnippet
+
 snippet ilnk "Reference-style Image"
-	![${1:${VISUAL:Text}}][${2:Reference}] $0
+![${1:${VISUAL:Text}}][${2:Reference}] $0
+endsnippet
+
 snippet idef "Reference-style Image ID"
-	[${1}]: ${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/}
+[${1}]: ${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/}
+endsnippet
 
 ############
 #  Tables  #
 ############
 
 snippet t2 "Table"
-	${1:First Header}   | ${2:First Header}
-	---------------|---------------
-	${3:Content_Cell}   | ${4:Content_Cell}
-	${5:Content_Cell}   | ${6:Content_Cell}
-	${7:Content_Cell}   | ${8:Content_Cell}
-	${9:Content_Cell}   | ${10:Content_Cell}
+${1:First Header}   | ${2:First Header}
+---------------|---------------
+${3:Content_Cell}   | ${4:Content_Cell}
+${5:Content_Cell}   | ${6:Content_Cell}
+${7:Content_Cell}   | ${8:Content_Cell}
+${9:Content_Cell}   | ${10:Content_Cell}
+endsnippet
 
 snippet t3 "Table"
-	${1:First Header}   | ${2:First Header}  | ${3:First Header}
-	---------------|---------------|---------------
-	${4:Content_Cell}   | ${5:Content_Cell}  | ${6:Content_Cell}
-	${7:Content_Cell}   | ${8:Content_Cell}  | ${9:Content_Cell}
-	${10:Content_Cell}  | ${11:Content_Cell} | ${12:Content_Cell}
-	${13:Content_Cell}  | ${14:Content_Cell} | ${15:Content_Cell}
+${1:First Header}   | ${2:First Header}  | ${3:First Header}
+---------------|---------------|---------------
+${4:Content_Cell}   | ${5:Content_Cell}  | ${6:Content_Cell}
+${7:Content_Cell}   | ${8:Content_Cell}  | ${9:Content_Cell}
+${10:Content_Cell}  | ${11:Content_Cell} | ${12:Content_Cell}
+${13:Content_Cell}  | ${14:Content_Cell} | ${15:Content_Cell}
+endsnippet
 
 ##########
 #  Code  #
 ##########
 
 snippet ic "Inline code"
-	\`${1:code}\` $0
+\`${1:code}\` $0
+endsnippet
+
 snippet bc "Code" b
-	\`\`\`
-	${1:${VISUAL:Code}}
-	\`\`\`
+\`\`\`
+${1:${VISUAL:Code}}
+\`\`\`
+endsnippet
 
 #####################
 #  Horizontal Rule  #
 #####################
 
 snippet hr "Horizontal Rule" b
-	----------
+----------
+endsnippet
 
 ###############
 #  Footnotes  #
 ###############
 
 snippet ft "Footnote Reference"
-	[^${1:Footnote label}]
+[^${1:Footnote label}]
 snippet ftd "Footnote Definition"
-	[^${1:footnote label}]: ${2:Footnote}
+[^${1:footnote label}]: ${2:Footnote}
+endsnippet
 
 ##################
 # Abbreviations  #
 ##################
 
 snippet abb "Abbreviation" b
-	*[${1:abbreviation}]: ${2:definition}
+*[${1:abbreviation}]: ${2:definition}
+endsnippet
+
+# vim: ft=snippets
