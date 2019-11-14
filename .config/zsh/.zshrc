@@ -140,7 +140,7 @@ export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k
 # -----------------------------------------------------------------------------------------------------------------------------
 
 [ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
-source /usr/bin/aws_zsh_completer.sh
+# source /usr/bin/aws_zsh_completer.sh
 fpath=($HOME/.zsh/completion $fpath)
 
 
