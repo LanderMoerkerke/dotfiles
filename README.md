@@ -5,7 +5,7 @@
 
 ## Requirements
 
--   Window manager: i3
+-   Window manager: [dwm](https://github.com/MoerkerkeLander/dwm)
 -   Status bar: polybar
 -   Hotkey daemon: sxhkd
 -   Notifcation manager: dunst
