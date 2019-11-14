@@ -2,7 +2,7 @@
 
 [global]
     monitor = 0
-    browser = "/usr/bin/qutebrowser"
+    browser = "qutebrowser"
     dmenu = "/usr/local/bin/dmenu"
     follow = keyboard
     geometry = "320x5-10+35"
