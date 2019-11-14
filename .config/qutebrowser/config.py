@@ -889,6 +889,7 @@ c.url.incdec_segments = ["path", "query"]
 
 c.url.searchengines = {
     "DEFAULT": "https://google.com/search?q={}",
+    "alp": "https://pkgs.alpinelinux.org/packages?name=*{}*",
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "aw": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
     "bc": "https://www.bitchute.com/search?q={}&sort=date_created%20desc",
