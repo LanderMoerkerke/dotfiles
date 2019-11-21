@@ -305,7 +305,6 @@ map <F6> :call <SID>ToggleSpell()<CR>
 " Vimdiff current with saved buffer
 map <F7> call s:DiffWithSaved()
 
-
 " map <F8>
 " map <F9>
 
@@ -317,43 +316,6 @@ map <F11> :Goyo<CR>:set wrap<CR>
 
 " F12: Tagbar
 map <F12> :TagbarToggle<CR>
-
-" ------
-" Buffer Actions
-" ------
-
-" Before saving
-autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
-
-autocmd BufWritePre *.go,*.jsd ALEFix           " format
-autocmd BufWritePre *.py ALEFix isort black
-
-" After saving
-autocmd BufWritePost * GitGutter
-autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
-autocmd BufWritePost .snippets :call UltiSnips#RefreshSnippets()<cr>
-autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
-autocmd BufWritePost *dwmbar-launch !killall dwmbar-launch; setsid dwmbar-launch &
-
-" Exiting
-autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
-
-autocmd VimLeave *.tex !texclear %
-
-" ------
-" Templates
-" ------
-
-autocmd BufNewFile *.html r ~/.config/nvim/templates/skeleton.html
-autocmd BufNewFile *.go r ~/.config/nvim/templates/skeleton.go
-autocmd BufNewFile *.py r ~/.config/nvim/templates/skeleton.py
-
-" ------
-" Other
-" ------
-
-" Resize vim
-autocmd VimResized * :wincmd =
 
 " Add todo
 nnoremap <leader><leader>t OTODO:<Esc>:Commentary<CR>A
@@ -431,9 +393,7 @@ function! g:WorkaroundNERDTreeToggle()
   try | NERDTreeToggle | catch | silent! NERDTree | endtry
 endfunction
 
-" disables keybindings when focussing on nerdtree
-autocmd FileType nerdtree noremap <buffer> <c-n> <nop>
-autocmd FileType nerdtree noremap <buffer> <c-p> <nop>
+
 
 " Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
@@ -623,10 +583,7 @@ function LC_maps()
     endif
 endfunction
 
-autocmd FileType * call LC_maps()
-
 " NCM2
-autocmd BufEnter * call ncm2#enable_for_buffer()
 
 let g:ncm2#popup_delay = 211
 let g:ncm2#complete_delay = 61
@@ -709,7 +666,61 @@ function! s:DiffWithSaved()
     exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 
-augroup autocommands
+" ------
+" Autocommands
+" ------
+
+augroup basic
+
+    " Resize vim
+    autocmd VimResized * :wincmd =
+
+augroup end
+
+augroup buffer_actions
+
+    " Before saving
+    autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
+
+    autocmd BufWritePre *.go,*.jsd ALEFix           " format
+    autocmd BufWritePre *.py ALEFix isort black
+
+    " After saving
+    autocmd BufWritePost * GitGutter
+    autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
+    autocmd BufWritePost .snippets :call UltiSnips#RefreshSnippets()<cr>
+    autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+    autocmd BufWritePost *dwmbar-launch !killall dwmbar-launch; setsid dwmbar-launch &
+
+    " Exiting
+    autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
+
+augroup end
+
+augroup templates
+
+    autocmd BufNewFile *.html r ~/.config/nvim/templates/skeleton.html
+    autocmd BufNewFile *.go r ~/.config/nvim/templates/skeleton.go
+    autocmd BufNewFile *.py r ~/.config/nvim/templates/skeleton.py
+
+augroup end
+
+augroup plugins
+
+    " disables keybindings when focussing on nerdtree
+    autocmd FileType nerdtree noremap <buffer> <c-n> <nop>
+    autocmd FileType nerdtree noremap <buffer> <c-p> <nop>
+
+    " LanguageClient
+    autocmd FileType * call LC_maps()
+    autocmd BufEnter *.py call ncm2#enable_for_buffer()
+
+augroup end
+
+augroup external_scripts
+
+    autocmd VimLeave *.tex !texclear %
+
     " Execute
     " Python
     autocmd FileType python call Run_Python()
@@ -772,7 +783,8 @@ augroup autocommands
             echo "'spell' disabled..."
         endif
     endfunction
-augroup END
+
+augroup end
 
 " ------
 " Functions
