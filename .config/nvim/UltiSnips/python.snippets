@@ -21,6 +21,10 @@ snippet printf "Print formatted"
 print(f"${1:text} {${2:variable}}${3}")
 endsnippet
 
+snippet printfv "Print formatted variable"
+print(f"{${2:variable}}${3}")
+endsnippet
+
 snippet printbr "Print breakline"
 print("${0:-}" * 39)
 endsnippet
@@ -55,6 +59,26 @@ snippet ity "Import typing"
 from typing import Any, List, Tuple, Dict, Optional, Union, Optional
 endsnippet
 
+snippet ie "Import enum"
+from enum import Enum
+endsnippet
+
+snippet idt "Import datetime"
+from datetime import datetime, timedelta
+endsnippet
+
+snippet ibc "Import base class"
+from pydantic import BaseModel as Base
+endsnippet
+
+#############
+# DateTime  #
+#############
+
+snippet dtn "Datetime now"
+now = datetime.now()
+endsnippet
+
 #############
 #    Iter   #
 #############
@@ -78,9 +102,30 @@ class ${1:classname}(DataClass):
 	${2:pass}
 endsnippet
 
+snippet ec "Enum class"
+class ${1:classname}(Enum):
+
+	${2:pass}
+endsnippet
+
+snippet bc "Base class"
+class ${1:classname}(Base):
+
+	"""Docstring for $1. """
+
+	${2:pass}
+endsnippet
+
 snippet posti "Post init function"
 def __post_init__(self):
 	${3:${VISUAL:pass}}
+endsnippet
+
+snippet ini "Init inheritence"
+def __init__(self, **kwargs):
+	assert kwargs.get(${1:key})
+	${2:var} = ${3:item}
+	super().__init__($2=$2, **kwargs)
 endsnippet
 
 #############
@@ -189,7 +234,12 @@ endsnippet
 
 snippet h1 "Header 1 with breaklines"
 # ---------------------------------------
-# ${1}
+# ${1} {{{1 #
+# ---------------------------------------
+endsnippet
+
+snippet h1c "Header 1 close"
+# 1}}} #
 # ---------------------------------------
 endsnippet
 
