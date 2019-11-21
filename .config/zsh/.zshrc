@@ -17,7 +17,7 @@ export JUPYTER_CONFIG_DIR="$HOME/.jupyter/"
 export NLTK_DATA="$HOME/.local/lib/nltk_data"
 
 # PIPENV
-export PIPENV_DEFAULT_PYTHON_VERSION=3.7
+export PIPENV_DEFAULT_PYTHON_VERSION=3
 export PIPENV_MAX_DEPTH=5
 export PIPENV_SKIP_LOCK=1
 export PIPENV_SPINNER=pong

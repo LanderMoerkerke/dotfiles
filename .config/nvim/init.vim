@@ -727,7 +727,7 @@ augroup external_scripts
     fun! Run_Python()
         let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings-python.json')
 
-        nnoremap <buffer> <F5> :exec '!python3.7' shellescape(@%, 1)<cr>
+        nnoremap <buffer> <F5> :exec '!python3' shellescape(@%, 1)<cr>
     endf
 
     " Go
