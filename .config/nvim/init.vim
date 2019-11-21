@@ -27,14 +27,12 @@ Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
 Plug 'chrisbra/Colorizer'                                           " Color codes to color
 Plug 'Yggdroot/indentLine'                                          " Indent
-Plug 'junegunn/goyo.vim'                                            " Distraction free
 Plug 'majutsushi/tagbar'                                            " Tagbar
 Plug 'lvht/tagbar-markdown'                                         " Tagbar for Markdown
 Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
 
 " Git
 Plug 'airblade/vim-gitgutter'                                       " Gitgutter
-Plug 'rhysd/git-messenger.vim'
 
 " Completion
 Plug 'ColinKennedy/vim-python-function-expander'
@@ -61,7 +59,6 @@ Plug 'honza/vim-snippets'                                           " Extra snip
 
 " Formatting
 Plug 'Chiel92/vim-autoformat'                                       " Autoformat
-Plug 'tell-k/vim-autoflake'                                         " AutoFlake
 
 Plug 'chrisbra/csv.vim'                                             " Tabularize content
 
@@ -69,7 +66,6 @@ Plug 'chrisbra/csv.vim'                                             " Tabularize
 Plug 'MoerkerkeLander/ale'                                          " Linting engine
 
 " Filetypes / syntax
-Plug 'PotatoesMaster/i3-vim-syntax'                                 " I3
 Plug 'sheerun/vim-polyglot'
 
 
@@ -160,7 +156,6 @@ set encoding=utf-8
 " Environment
 " ------
 
-" let g:python3_host_prog = '/usr/bin/python3.7'
 let g:python3_host_prog = '/home/lander/Pipenv/python38-venv/.venv/bin/python'
 
 " ------
@@ -558,12 +553,6 @@ let g:ale_set_signs = 0
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
-
-" Autoflake
-let g:autoflake_cmd = expand("~/Pipenv/neovim/.venv/bin/autoflake")
-let g:autoflake_remove_all_unused_imports=1
-let g:autoflake_remove_unused_variables=1
-let g:autoflake_disable_show_diff=1
 
 " LanguageClient
 
