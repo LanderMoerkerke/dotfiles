@@ -263,6 +263,9 @@ noremap <down>  <C-W>-
 noremap <left>  3<C-W><
 noremap <right> 3<C-W>>
 
+" Resize reset
+nnoremap == :wincmd = <cr>
+
 " Remove buffer
 nnoremap <leader>x :bp\|bd #<CR>
 
