@@ -88,6 +88,8 @@ export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 # export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
 
+export CUDA_HOME=/opt/cuda
+
 # VEST
 export VEST=$HOME/Documents/VEST/
 
