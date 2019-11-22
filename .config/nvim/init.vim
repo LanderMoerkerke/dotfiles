@@ -278,13 +278,15 @@ vnoremap <silent><leader><Tab> :exe "tabn ".g:lasttab<cr>
 " Quickfix
 " ------
 
-nnoremap <leader>qq <Esc>:copen 5<CR>
-nnoremap <leader>qn <Esc>:cnext<CR>
-nnoremap <leader>qp <Esc>:cprev<CR>
+" errors of LC
+nnoremap <leader>qq <Esc>:lopen 5<CR>
+nnoremap <leader>qn <Esc>:lnext<CR>
+nnoremap <leader>qp <Esc>:lprev<CR>
 
-nnoremap <leader>Qq <Esc>:lopen 5<CR>
-nnoremap <leader>Qn <Esc>:lnext<CR>
-nnoremap <leader>Qp <Esc>:lprev<CR>
+" search items of Rg
+nnoremap <leader>Qq <Esc>:copen 5<CR>
+nnoremap <leader>Qn <Esc>:cnext<CR>
+nnoremap <leader>Qp <Esc>:cprev<CR>
 
 " ------
 " Function Keys
