@@ -258,10 +258,10 @@ nnoremap <leader>nn :split <cr>
 nnoremap <leader>vn :vsplit <cr>
 
 " Resize windows using arrow keys
-noremap <up>    <C-W>+
-noremap <down>  <C-W>-
-noremap <left>  3<C-W><
-noremap <right> 3<C-W>>
+nnoremap <up>    <C-W>+
+nnoremap <down>  <C-W>-
+nnoremap <left>  3<C-W><
+nnoremap <right> 3<C-W>>
 
 " Resize reset
 nnoremap == :wincmd = <cr>
