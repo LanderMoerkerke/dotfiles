@@ -71,6 +71,11 @@ snippet ibc "Import base class"
 from pydantic import BaseModel as Base
 endsnippet
 
+snippet ij "Import json"
+import json
+endsnippet
+
+
 #############
 # DateTime  #
 #############
@@ -121,7 +126,13 @@ def __post_init__(self):
 	${3:${VISUAL:pass}}
 endsnippet
 
-snippet ini "Init inheritence"
+snippet inie "Init extend"
+def __init__(self, **kwargs):
+	super().__init__(**kwargs)
+	self.${1}
+endsnippet
+
+snippet inii "Init inheritence"
 def __init__(self, **kwargs):
 	assert kwargs.get(${1:key})
 	${2:var} = ${3:item}
@@ -232,7 +243,13 @@ endsnippet
 #  Comments #
 #############
 
-snippet h1 "Header 1 with breaklines"
+snippet h1 "Header 1"
+# ---------------------------------------
+# ${1}
+# ---------------------------------------
+endsnippet
+
+snippet h1f "Header 1 with folds"
 # ---------------------------------------
 # ${1} {{{1 #
 # ---------------------------------------
@@ -245,6 +262,16 @@ endsnippet
 
 snippet h2 "Header 2"
 # ${1}
+# -----------------
+endsnippet
+
+snippet h2f "Header 2 with folds"
+# ${1} {{{1 #
+# -----------------
+endsnippet
+
+snippet h2c "Header 2 close"
+# 1}}} #
 # -----------------
 endsnippet
 
