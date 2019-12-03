@@ -48,7 +48,8 @@ export TERMINAL="urxvt"
 export TERMINAL2="st"
 
 # dotfiles
-export GOPATH="$XDG_CONFIG_HOME/go"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOROOT="/usr/lib/go"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
