@@ -36,6 +36,9 @@ $XDG_DATA_HOME/go/bin:\
 $XDG_DATA_HOME/cargo/bin\
 "
 
+export LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH=/usr/local/lib
+
 # default programs
 export BROWSER="qutebrowser"
 export BROWSER2="chromium"
