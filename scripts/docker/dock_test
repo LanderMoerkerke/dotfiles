@@ -4,7 +4,7 @@ random_tagname=cst_$(cat /dev/urandom | tr -dc 'a-z' | fold -w 4 | head -n 1)
 
 echo "TAG: $random_tagname"
 
-docker build -t $random_tagname .
+docker build --pull -t $random_tagname .
 docker run -d --rm --name $random_tagname -p 5000:5000 $random_tagname || docker run -d --rm --name $random_tagname $random_tagname
 
 docker exec -it $random_tagname sh
