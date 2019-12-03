@@ -60,6 +60,10 @@ endsnippet
 #  VIM  #
 #########
 
+snippet ftv "Filetype vim"
+vim:ft=${1:filetype}
+endsnippet
+
 snippet fold "Insert a vim fold marker" b
 `!p snip.rv = get_comment_format()[0]` ${1:Fold description} `!p snip.rv = foldmarker()[0]`${2:1} `!p snip.rv = get_comment_format()[2]`
 endsnippet
