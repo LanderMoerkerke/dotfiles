@@ -195,6 +195,7 @@ c.content.host_blocking.lists = [
     "https://easylist.to/easylist/easyprivacy.txt",
     "https://easylist.to/easylist/fanboy-annoyance.txt",
     "https://easylist.to/easylist/fanboy-social.txt",
+    "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts",
 ]
 
 # List of domains that should always be loaded, despite being ad-
