@@ -16,8 +16,6 @@ dwmbar-launch &
 
 lf -server &
 
-pulseaudio &
-
 # keybindings
 sxhkd &
 
