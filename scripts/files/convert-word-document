@@ -2,17 +2,17 @@
 
 ext=${1##*.}
 out=${2:-/tmp}
-extensions="doc docx odt pptx xls xlsx"
+extensions="doc docx odt ppt pptx xls xlsx"
 
 if [ -z "$1" ]; then
     echo "- Options: .doc, .docx, .odt .xls .xlsx"
-    exit 1
+    exit
 fi
 
 if ! echo $extensions | grep -w $ext > /dev/null; then
-    echo "Provide a word document"
-    echo "- Options: .doc, .docx, .odt"
-    exit 1
+    echo "Provide a valid document"
+    echo "- Options: $extensions"
+    exit
 fi
 
 /usr/bin/libreoffice --headless --convert-to pdf --outdir $out "$1"
