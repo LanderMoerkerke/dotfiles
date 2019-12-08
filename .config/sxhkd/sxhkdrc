@@ -83,6 +83,8 @@ mod1 + F4
     echo "power on\nconnect CC:98:8B:93:3A:17" | bluetoothctl && pactl -- set-sink-volume bluez_sink.CC_98_8B_93_3A_17.a2dp_sink 100%
 mod1 + F5
     brightness-menu
+mod1 + F6
+    control-sonos
 # 1}}} -
 
 # Other {{{1 -
