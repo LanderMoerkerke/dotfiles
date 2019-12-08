@@ -35,6 +35,8 @@ Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Ma
 Plug 'airblade/vim-gitgutter'                                       " Gitgutter
 
 " Completion
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ColinKennedy/vim-python-function-expander'
 
 Plug 'ncm2/ncm2', { 'for': 'python' }                               " Completion using NCM2
@@ -519,6 +521,9 @@ let g:ale_set_signs = 0
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " LanguageClient
 
