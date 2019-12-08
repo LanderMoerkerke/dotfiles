@@ -40,8 +40,4 @@ dunst &
 # exec i3
 # exec dwm
 
-# while :; do
-# 	ssh-agent dwm
-# done
-
 exec selectwm -c $XDG_CONFIG_HOME/selectwm/selectwmrc
