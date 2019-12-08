@@ -568,13 +568,15 @@ let g:LanguageClient_serverCommands = {
             \ 'cpp':        ['clangd'],
             \ 'css':        ['css-languageserver', '--stdio'],
             \ 'dockerfile': ['docker-langserver', '--stdio'],
-            \ 'go':         ['go-langserver'],
+            \ 'go':         ['gopls'],
             \ 'html':       ['html-languageserver', '--stdio'],
+            \ 'javascript': ['javascript-typescript-stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
             \ 'python':     ['pyls', '-v', '--log-file', '/tmp/pyls.log'],
             \ 'rust':       ['rls'],
             \ 'sh':         ['bash-language-server', 'start'],
             \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
+            \ 'typescript': ['javascript-typescript-stdio'],
             \ 'yaml':       ['yaml-language-server', '--stdio']
 \ }
 
