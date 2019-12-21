@@ -27,6 +27,7 @@ alias tiga="tig --all"
 # docker
 
 alias dcu="docker-compose up"
+alias dbuild="docker build --pull"
 
 alias ld='lazydocker'
 
