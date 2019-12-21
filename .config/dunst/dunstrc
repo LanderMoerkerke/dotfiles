@@ -17,7 +17,7 @@
     frame_color = "#232323"
     separator_color = frame
     sort = yes
-    idle_threshold = 120
+    idle_threshold = 60
     font = Noto Sans 9
     line_height = 0
     markup = full
@@ -52,12 +52,12 @@
 [urgency_low]
     background = "#232323"
     foreground = "#a8a8a8"
-    timeout = 20
+    timeout = 30
 
 [urgency_normal]
     background = "#232323"
     foreground = "#a8a8a8"
-    timeout = 20
+    timeout = 30
 
 [urgency_critical]
     background = "#d64e4e"
