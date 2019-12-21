@@ -85,7 +85,7 @@ alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-isort'
 alias py3-env="source $HOME/Pipenv/python3-venv/.venv/bin/activate"
 alias py2-env="source $HOME/Pipenv/python2-venv/.venv/bin/activate"
 
-alias py-clean="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
+alias py-clean="find . | grep -E '(\.tox$|__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
 
 # nmap
 
