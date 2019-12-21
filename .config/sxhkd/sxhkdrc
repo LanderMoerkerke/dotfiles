@@ -62,12 +62,8 @@ control + shift + Print
     crop-screenshot
 # 1}}} -
 
-mod1 + {Home, End}
-    playerctl {previous, pause}
-mod1 + shift + End
-    playerctl play
-mod1 + Insert
-    playerctl next
+mod1 + {Home, End, Insert}
+    playerctl {previous, play-pause, next}
 
 # Function keys - super {{{1 -
 super + {_,shift +}F1
