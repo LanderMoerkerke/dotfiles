@@ -5,7 +5,7 @@ delim=" | "
 status() {
     check-gpg-cached && echo "$delim"
     check-syncing-documents && echo "$delim"
-    check-updates-packages && echo "$delim"
+    # check-updates-packages && echo "$delim"
     check-mail-unread && echo "$delim"
     # cpu
     # mem
