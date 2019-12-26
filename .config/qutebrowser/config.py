@@ -507,11 +507,11 @@ c.hints.mode = "letter"
 
 # A comma-separated list of regexes to use for 'next' links.
 # Type: List of Regex
-c.hints.next_regexes = ["\\bnext\\b", "\\bmore\\b", "\\bnewer\\b", "\\b[>→≫]\\b", "\\b(>>|»)\\b", "\\bcontinue\\b"]
+c.hints.next_regexes = ["\\bnext\\b", "\\bmore\\b", "\\bnewer\\b", "\\b[>→≫]\\b", "\\b(>>|»|>)\\b", "\\bcontinue\\b"]
 
 # A comma-separated list of regexes to use for 'prev' links.
 # Type: List of Regex
-c.hints.prev_regexes = ["\\bprev(ious)?\\b", "\\bback\\b", "\\bolder\\b", "\\b[<←≪]\\b", "\\b(<<|«)\\b"]
+c.hints.prev_regexes = ["\\bprev(ious)?\\b", "\\bback\\b", "\\bolder\\b", "\\b[<←≪]\\b", "\\b(<<|«|<)\\b"]
 
 # Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
 # number hints.
