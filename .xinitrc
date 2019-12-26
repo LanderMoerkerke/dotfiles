@@ -23,7 +23,7 @@ trackpad-setup &
 keyboard-setup &
 
 # appearance
-compton -f --config ~/.config/compton/compton.conf -b &
+picom &
 redshift -l 51.01:4.03 &
 # variety &
 
