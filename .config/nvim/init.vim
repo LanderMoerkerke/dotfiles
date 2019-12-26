@@ -494,7 +494,12 @@ let g:ale_completion_enabled = 0
 
 let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-imports --remove-unused-variables --remove-duplicate-keys -s'
 
-let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['golint']}
+let g:ale_linters = {
+    \ 'python': ['flake8'],
+    \ 'javascript': ['eslint'],
+    \ 'go': ['golint']
+\}
+
 let g:ale_fixers = {
     \ 'cpp': ['clang-format'],
     \ 'cs':  ['uncrustify'],
@@ -502,6 +507,9 @@ let g:ale_fixers = {
     \ 'go': ['gofmt', 'goimports', 'gomod'],
     \ 'html': ['prettier'],
     \ 'javascript': ['eslint', 'prettier'],
+    \ 'javascriptreact': ['eslint', 'prettier'],
+    \ 'typescript': ['eslint', 'prettier'],
+    \ 'typescriptreact': ['eslint', 'prettier'],
     \ 'json': ['fixjson', 'prettier'],
     \ 'markdown': ['remark'],
     \ 'python': ['autoflake', 'isort', 'black'],
@@ -512,6 +520,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_python_black_options = "-l 120"
+let g:ale_javascript_prettier_options = "--tab-width 2 --print-width 120 --single-quote"
 
 " golangci-lint run
 " remark
@@ -571,12 +580,14 @@ let g:LanguageClient_serverCommands = {
             \ 'go':         ['gopls'],
             \ 'html':       ['html-languageserver', '--stdio'],
             \ 'javascript': ['javascript-typescript-stdio'],
+            \ 'javascriptreact': ['javascript-typescript-stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
             \ 'python':     ['pyls', '-v', '--log-file', '/tmp/pyls.log'],
             \ 'rust':       ['rls'],
             \ 'sh':         ['bash-language-server', 'start'],
             \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
             \ 'typescript': ['javascript-typescript-stdio'],
+            \ 'typescriptreact': ['javascript-typescript-stdio'],
             \ 'yaml':       ['yaml-language-server', '--stdio']
 \ }
 
@@ -706,7 +717,7 @@ augroup buffer_actions
     " Before saving
     autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
 
-    autocmd BufWritePre *.go,*.jsd ALEFix           " format
+    autocmd BufWritePre *.go,*.js,*.rs ALEFix           " format
     autocmd BufWritePre *.py ALEFix isort black
 
     " After saving
@@ -763,8 +774,11 @@ augroup external_scripts
     endf
 
     " JS
-    autocmd FileType javascript call Run_Js()
+    autocmd FileType javascript,javascriptreact,typescript,typescriptreact call Run_Js()
     fun! Run_Js()
+        set ts=2
+        set tabstop=2
+        set shiftwidth=2
         nnoremap <buffer> <F5> :exec '!node' shellescape(@%, 1)<cr>
     endf
 
