@@ -13,7 +13,6 @@ export RTV_BROWSER=w3m
 export TMOUT=9600
 export PAGER=less
 
-export JUPYTER_CONFIG_DIR="$HOME/.jupyter/"
 export NLTK_DATA="$HOME/.local/lib/nltk_data"
 
 # PIPENV
