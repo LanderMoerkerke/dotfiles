@@ -27,8 +27,6 @@ Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
 Plug 'chrisbra/Colorizer'                                           " Color codes to color
 Plug 'Yggdroot/indentLine'                                          " Indent
-Plug 'majutsushi/tagbar'                                            " Tagbar
-Plug 'lvht/tagbar-markdown'                                         " Tagbar for Markdown
 Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
 
 " Git
@@ -321,8 +319,6 @@ map <F10> :ALEToggleBuffer<CR>
 " F11: Goyo
 map <F11> :Goyo<CR>:set wrap<CR>
 
-" F12: Tagbar
-map <F12> :TagbarToggle<CR>
 
 " Add todo
 nnoremap <leader><leader>t OTODO:<Esc>:Commentary<CR>A
@@ -399,11 +395,6 @@ nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
 function! g:WorkaroundNERDTreeToggle()
   try | NERDTreeToggle | catch | silent! NERDTree | endtry
 endfunction
-
-
-
-" Tagbar
-nnoremap <leader>t :TagbarToggle<CR>
 
 " Color
 let g:colorizer_auto_filetype='html,css,xdefaults,i3'
