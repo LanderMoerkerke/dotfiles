@@ -846,3 +846,36 @@ if &diff
 
     let g:LanguageClient_diagnosticsEnable = 0
 endif
+
+function! ExpandLspSnippet()
+    call UltiSnips#ExpandSnippetOrJump()
+    if !pumvisible() || empty(v:completed_item)
+        return ''
+    endif
+
+    " only expand Lsp if UltiSnips#ExpandSnippetOrJump not effect.
+    let l:value = v:completed_item['word']
+    let l:matched = len(l:value)
+    if l:matched <= 0
+        return ''
+    endif
+
+    " remove inserted chars before expand snippet
+    if col('.') == col('$')
+        let l:matched -= 1
+        exec 'normal! ' . l:matched . 'Xx'
+    else
+        exec 'normal! ' . l:matched . 'X'
+    endif
+
+    if col('.') == col('$') - 1
+        " move to $ if at the end of line.
+        call cursor(line('.'), col('$'))
+    endif
+
+    " expand snippet now.
+    call UltiSnips#Anon(l:value)
+    return ''
+endfunction
+
+imap <C-l> <C-R>=ExpandLspSnippet()<CR>
