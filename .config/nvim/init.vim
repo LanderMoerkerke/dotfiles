@@ -51,6 +51,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+Plug 'liuchengxu/vista.vim'                                         " Tags visualisation
+
 Plug 'Shougo/echodoc.vim'                                           " Show doc when typing a function
 
 " Snippets
@@ -319,6 +321,8 @@ map <F10> :ALEToggleBuffer<CR>
 " F11: Goyo
 map <F11> :Goyo<CR>:set wrap<CR>
 
+" F12: Vista
+map <F12> :Vista!!<CR>
 
 " Add todo
 nnoremap <leader><leader>t OTODO:<Esc>:Commentary<CR>A
@@ -469,6 +473,7 @@ let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#vimagit#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#vista#enabled = 0
 
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -622,6 +627,11 @@ inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 " Python Function Expander
 nmap <leader>ya <Plug>(trimmer-mapping)
+
+" Vista
+
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista#renderer#enable_icon = 1
 
 " ------
 " Snippets
