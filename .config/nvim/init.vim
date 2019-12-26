@@ -677,7 +677,14 @@ hi GitGutterChangeDelete ctermbg=74    ctermfg=black
 " Commands
 " ------
 
+command! SC vnew | setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
+
+" Save as root
 command! W w suda://%
+
+" Search snippets by name and description
+command! -bar -bang Snippets call fzf#vim#snippets({'options': '-n ..'}, <bang>0)
+
 
 " ------
 " Functions
