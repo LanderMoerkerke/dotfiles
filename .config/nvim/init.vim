@@ -810,6 +810,13 @@ augroup external_scripts
         nnoremap <buffer> <F5> :exec '!cargo run' shellescape(@%, 1)<cr>
     endf
 
+    " Jinja / htmldjango
+    autocmd FileType htmldjango,jinja2 call Run_jinja()
+    fun! Run_jinja()
+        setlocal commentstring={#%s#}
+        setlocal comments=s:{#,e:#}
+    endf
+
     " Spellcheck
     function! <SID>ToggleSpell()
         let spelllang_list = ['nl', 'en', 'fr']
