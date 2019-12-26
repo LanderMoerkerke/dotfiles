@@ -1,0 +1,15 @@
+###########################################################################
+#                              Toml Snippets                              #
+###########################################################################
+
+#############
+#   Cargo   #
+#############
+
+snippet nd "New dependency"
+${1:package} = "${2:*}"
+endsnippet
+
+snippet ndf "New dependency with feature"
+${1:package} = { version = "${2:*}", features = ["${2:feature}"] }
+endsnippet
