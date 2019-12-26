@@ -39,21 +39,21 @@ Plug 'airblade/vim-gitgutter'                                       " Gitgutter
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ColinKennedy/vim-python-function-expander'
 
-Plug 'ncm2/ncm2', { 'for': 'python' }                               " Completion using NCM2
-Plug 'roxma/nvim-yarp', { 'for': 'python' }
-Plug 'ncm2/ncm2-path', { 'for': 'python' }
-Plug 'ncm2/ncm2-bufword', { 'for': 'python' }
-Plug 'ncm2/ncm2-markdown-subscope', { 'for': 'python' }
-Plug 'ncm2/ncm2-ultisnips', { 'for': 'python' }
-Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
-Plug 'ncm2/ncm2-go', { 'for': 'python' }
+Plug 'ncm2/ncm2'                                                    " Completion using NCM2
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-go'
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
 
-Plug 'Shougo/echodoc.vim', { 'for': 'python' }                     " Show doc when typing a function
+Plug 'Shougo/echodoc.vim'                                           " Show doc when typing a function
 
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
