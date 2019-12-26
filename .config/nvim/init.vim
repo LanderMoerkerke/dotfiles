@@ -807,7 +807,7 @@ augroup external_scripts
     fun! Run_Rust()
         let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings-rust.json')
 
-        nnoremap <buffer> <F5> :exec '!rustc % -o run && ./run' shellescape(@%, 1)<cr>
+        nnoremap <buffer> <F5> :exec '!cargo run' shellescape(@%, 1)<cr>
     endf
 
     " Spellcheck
