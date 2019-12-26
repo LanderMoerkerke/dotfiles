@@ -100,13 +100,10 @@ set foldlevelstart=20
 set completeopt=noinsert,menuone,noselect       " completion menu actions
 set shortmess+=c                                " surpress match x of x msg
 
-set rtp^=~/.config/nvim
 set mouse=a                                     " enable mouse
 set path+=**                                    " able to search subdirs recursive
 set nocompatible                                " no compatibility with old-skool vi
-set wildmenu                                    " show command line completions
-set wildmode=longest:full                       " complete mode for wildmenu
-set wildmode+=full
+set wildmode=longest,full                       " complete mode for wildmenu
 
 set linebreak                                   " only wrap after words, not inside words
 set textwidth=0
@@ -118,7 +115,6 @@ set ignorecase                                  " ignore case in (search) patter
 set smartcase                                   " when the (search) pattern contains uppercase chars, don't ignore case
 set hlsearch                                    " highlight all the matches for the search
 set inccommand=split                            " preview commands such as sed
-set t_Co=256
 set showcmd
 
 set title
