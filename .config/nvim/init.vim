@@ -203,6 +203,10 @@ vnoremap <leader>s :sort<cr>
 " Replace all
 nnoremap S :%s//g<Left><Left>
 
+" Count occurances under the cursor
+nnoremap ,* *<C-O>:%s///gn<CR>
+" nnoremap ,* *<C-O>:%s///gn<Left><Left>
+
 " Open the selected text in a split (i.e. should be a file).
 map <leader>o "oyaW:vsp <C-R>o<CR>
 xnoremap <leader>o "oy<esc>:vsp <C-R>o<CR>
