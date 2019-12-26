@@ -101,7 +101,7 @@ set completeopt=noinsert,menuone,noselect       " completion menu actions
 set shortmess+=c                                " surpress match x of x msg
 
 set mouse=a                                     " enable mouse
-set path+=**                                    " able to search subdirs recursive
+" set path+=**                                    " able to search subdirs recursive
 set nocompatible                                " no compatibility with old-skool vi
 set wildmode=longest,full                       " complete mode for wildmenu
 
@@ -120,7 +120,7 @@ set showcmd
 set title
 set ruler
 set relativenumber
-set conceallevel=2                              " conceals
+" set conceallevel=2                              " conceals
 
 set autoread                                    " automatically reload the file when modified outside and not modified inside
 set autowrite                                   " write the modified file when switching to another file
