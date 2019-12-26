@@ -27,7 +27,7 @@ export PATH="$PATH:\
 # user
 export PATH="\
 $PATH:\
-$HOME/.local/bin/:\
+$HOME/.local/bin:\
 $XDG_DATA_HOME/fzf/bin:\
 $XDG_DATA_HOME/npm/bin:\
 $XDG_DATA_HOME/gem/ruby/2.6.0/bin:\
