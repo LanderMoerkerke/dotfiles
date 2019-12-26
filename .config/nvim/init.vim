@@ -605,7 +605,7 @@ endfunction
 
 " NCM2
 
-let g:ncm2#popup_delay = 211
+let g:ncm2#popup_delay = 100
 let g:ncm2#complete_delay = 61
 let g:ncm2#popup_limit = 21
 let g:ncm2#total_popup_limit = 41
