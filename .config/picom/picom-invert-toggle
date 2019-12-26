@@ -1,0 +1,17 @@
+#!/bin/sh
+
+COMMAND="picom"
+
+PICOM_PROCESSES=`ps -ef | grep "$COMMAND" | grep "class_g=" | wc -l`
+
+if [ $PICOM_PROCESSES = 0 ]; then
+    ACTIVE_WINDOW_ID=`xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5)`
+    ACTIVE_WINDOW=`xprop -id "$ACTIVE_WINDOW_ID" WM_CLASS | sed 's/.*"\(.*\)"/\1/'`
+
+    pkill -x "$COMMAND"
+
+    picom --invert-color-include class_g=\"$ACTIVE_WINDOW\"
+else
+    pkill -x "$COMMAND"
+    picom
+fi

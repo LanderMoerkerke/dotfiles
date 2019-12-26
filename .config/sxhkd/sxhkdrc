@@ -15,6 +15,9 @@ super + shift + x
     systemctl hibernate
 # 1}}} -
 
+super + s
+    picom-invert-toggle
+
 # Applications {{{1 -
 super + Return
     $TERMINAL
