@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ffmpeg \
+    -y \
+    -video_size 1920x1080 \
+    -framerate 30 -f x11grab -i :0.0 \
+    "$HOME"/Videos/screen1_recording_`date '+%Y-%m-%d_%H-%M-%S'`.mp4 \
+&> /tmp/screen1_recording_`date '+%Y-%m-%d_%H-%M-%S'`.log
