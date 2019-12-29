@@ -1,9 +1,10 @@
-# cat copy
+# add ls to cd
+function chpwd() {ls}
 
+# cat copy
 cop () { cat "$1" | xsel -ib }
 
 # fkill - kill process
-
 killf() {
   local pid
   pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
@@ -55,7 +56,6 @@ function cd() {
 }
 
 # helm
-
 khelm () {
 
     helm template . | kubectl apply -f -

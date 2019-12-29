@@ -13,8 +13,6 @@ export RTV_BROWSER=w3m
 export TMOUT=9600
 export PAGER=less
 
-export NLTK_DATA="$HOME/.local/lib/nltk_data"
-
 # PIPENV
 export PIPENV_DEFAULT_PYTHON_VERSION=3
 export PIPENV_MAX_DEPTH=5
@@ -25,6 +23,9 @@ export PIPENV_DOTENV_LOCATION="$HOME/Pipenv/.env"
 # LESS
 export LESS='-R'
 export LESSOPEN='|file-preview %s'
+
+# dir colors cd
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # -----------------------------------------------------------------------------------------------------------------------------
 # GENERAL
@@ -98,7 +99,6 @@ bindkey '^[[Z' reverse-menu-complete
 # ALIASES
 # -----------------------------------------------------------------------------------------------------------------------------
 
-
 if [[ -n "$SSH_CONNECTION" ]] ; then
 
     banner_info
@@ -124,9 +124,6 @@ elif [[ $TTY != "/dev/tty1" ]]; then
 
 fi
 
-# add ls to cd
-function chpwd() {ls}
-
 # -----------------------------------------------------------------------------------------------------------------------------
 # FZF
 # -----------------------------------------------------------------------------------------------------------------------------
@@ -135,23 +132,8 @@ export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file .gitignore_glob
 export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up'
 
 # -----------------------------------------------------------------------------------------------------------------------------
-# CLOUD
-# -----------------------------------------------------------------------------------------------------------------------------
-
-[ -f /opt/google-cloud-sdk/completion.zsh.inc ] && source /opt/google-cloud-sdk/completion.zsh.inc
-# source /usr/bin/aws_zsh_completer.sh
-fpath=($HOME/.zsh/completion $fpath)
-
-
-# -----------------------------------------------------------------------------------------------------------------------------
 # MISC
 # -----------------------------------------------------------------------------------------------------------------------------
-
-# dir colors cd
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-source "$XDG_DATA_HOME/fzf/shell/key-bindings.zsh"
-source "$XDG_DATA_HOME/fzf/shell/completion.zsh"
 
 source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/aliases.zsh"
