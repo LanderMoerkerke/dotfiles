@@ -155,3 +155,4 @@ source "$XDG_DATA_HOME/fzf/shell/completion.zsh"
 
 source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/aliases.zsh"
+source "$ZDOTDIR/sources.zsh"
