@@ -3,7 +3,7 @@
 sonos_command="noson-app --cli"
 
 commands="play\npause\nstop\nprevious\nnext\nvolume"
-volumes="10\n15\n20\n25\n30"
+volumes="10\n15\n20\n25\n30\n40\n50\n60\n70\n80"
 
 command=`echo $commands | dmenu -p "Action:"` || exit 1
 
