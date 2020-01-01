@@ -12,6 +12,7 @@ Plug 'terryma/vim-multiple-cursors'                                 " Multiple C
 Plug 'tpope/vim-surround'                                           " Surround
 Plug 'junegunn/vim-easy-align'                                      " Easy align
 Plug 'tpope/vim-repeat'                                             " Repeat custom plugins
+Plug 'airblade/vim-rooter'                                          " Change cwd
 
 " Unix related
 Plug 'jamessan/vim-gnupg'                                           " GPG viewer
