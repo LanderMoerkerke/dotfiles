@@ -17,7 +17,6 @@ Plug 'airblade/vim-rooter'                                          " Change cwd
 " Unix related
 Plug 'jamessan/vim-gnupg'                                           " GPG viewer
 Plug 'lambdalisue/suda.vim'                                         " Sudo
-Plug 'jremmen/vim-ripgrep'                                          " RipGrep
 
 " Appearance
 Plug 'mhinz/vim-startify'                                           " Fancy startup
@@ -33,7 +32,6 @@ Plug 'airblade/vim-gitgutter'                                       " Gitgutter
 Plug 'tpope/vim-fugitive'                                           " Git integration
 
 " Completion
-
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ColinKennedy/vim-python-function-expander'
 
@@ -348,11 +346,6 @@ nnoremap <leader>gt  :Gcommit -v -q %:p<CR>
 
 " Git messenger
 let g:git_messenger_always_into_popup = 1
-
-" RipGrep
-nnoremap <Leader>rg :Rg<Space>
-vnoremap <Leader>rg <C-w>:Rg<Space>
-let g:rg_highlight = 1
 
 " Easy-align
 xmap ga <Plug>(EasyAlign)
