@@ -5,7 +5,6 @@ call plug#begin('~/.config/nvim/plugged')
 " General
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }                " Fuzzy Find
 Plug 'junegunn/fzf.vim'                                             " Fuzzy Find
-Plug 'tpope/vim-fugitive'                                           " Fuzzy Find Commits
 Plug 'tpope/vim-commentary'                                         " Commenting with motions
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
 Plug 'Raimondi/delimitMate'                                         " Autoclose symbols
@@ -15,7 +14,7 @@ Plug 'junegunn/vim-easy-align'                                      " Easy align
 Plug 'tpope/vim-repeat'                                             " Repeat custom plugins
 
 " Unix related
-Plug 'jamessan/vim-gnupg'                                            " GPG viewer
+Plug 'jamessan/vim-gnupg'                                           " GPG viewer
 Plug 'lambdalisue/suda.vim'                                         " Sudo
 Plug 'jremmen/vim-ripgrep'                                          " RipGrep
 
@@ -27,10 +26,10 @@ Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
 Plug 'chrisbra/Colorizer'                                           " Color codes to color
 Plug 'Yggdroot/indentLine'                                          " Indent
-Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
 
 " Git
 Plug 'airblade/vim-gitgutter'                                       " Gitgutter
+Plug 'tpope/vim-fugitive'                                           " Git integration
 
 " Completion
 
@@ -63,6 +62,7 @@ Plug 'honza/vim-snippets'                                           " Extra snip
 Plug 'Chiel92/vim-autoformat'                                       " Autoformat
 
 Plug 'chrisbra/csv.vim'                                             " Tabularize content
+Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
 
 " Linting
 Plug 'MoerkerkeLander/ale'                                          " Linting engine
