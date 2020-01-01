@@ -3,4 +3,4 @@
 DOCKER_IMAGE=${1:-python:3.8-alpine}
 COMMAND=${2:-sh}
 
-docker run --rm -it $DOCKER_IMAGE $COMMAND
+docker run --rm -it "$DOCKER_IMAGE" "$COMMAND"
