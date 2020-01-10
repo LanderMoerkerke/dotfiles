@@ -9,8 +9,8 @@ xfreerdp \
     /drive:home,/home/$USER \
     /sound \
     /w:1920 \
-    /h:1030 \
-    # /dynamic-resolution \
+    /h:1060 \
+    /dynamic-resolution \
     # /window-position:10x10 \
     # +toggle-fullscreen \
     +clipboard \
