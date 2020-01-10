@@ -1,6 +1,8 @@
 # Basic {{{1 -
 super + d
     rofi -show drun -terminal $TERMINAL -width 25
+super + shift + d
+    rofi -show run -terminal $TERMINAL -width 25
 super + BackSpace
     flash-active &> /dev/null
 super + shift + BackSpace
