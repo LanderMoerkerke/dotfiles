@@ -174,7 +174,7 @@ c.content.headers.referer = "same-domain"
 
 # User agent to send. Unset to send the default.
 # Type: String
-c.content.headers.user_agent = None
+# c.content.headers.user_agent = None
 
 # Whether host blocking is enabled.
 # Type: Bool
