@@ -71,6 +71,7 @@ kubectl
 # git
 notify
 vi-mode
+fzf-tab
 zsh-autosuggestions
 zsh-completions
 zsh-dircolors-solarized
