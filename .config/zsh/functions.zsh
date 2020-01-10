@@ -104,3 +104,12 @@ function dsf() {
   [ -n "$cid" ] && docker stop "$cid"
 }
 
+# pacman
+function pacman-qi(){
+    pacman -Qeq \
+        | fzf \
+            --preview='pacman -Qi {}'\
+            --height '80%'\
+            --height='100%'\
+            --bind='enter:execute(pacman -Qi {} | less)'
+}
