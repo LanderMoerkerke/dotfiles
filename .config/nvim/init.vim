@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 " General
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }                " Fuzzy Find
 Plug 'junegunn/fzf.vim'                                             " Fuzzy Find
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 Plug 'tpope/vim-commentary'                                         " Commenting with motions
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
 Plug 'Raimondi/delimitMate'                                         " Autoclose symbols
