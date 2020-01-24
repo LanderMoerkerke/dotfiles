@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Author: Linyos Torovoltos github.com/linyostorovovoltos
 
-currentVersion="1.22.1"
+currentVersion="1.23.0"
 multiline="0" # flag that indicates multiline option
 fileoutput="0" # flag indicating the -f option
 
@@ -18,7 +18,7 @@ getConfiguredClient()
   elif command -v fetch &>/dev/null; then
     configuredClient="fetch"
   else
-    echo "Error: This tool reqires either curl, wget, httpie or fetch to be installed." >&2
+    echo "Error: This tool requires either curl, wget, httpie or fetch to be installed." >&2
     return 1
   fi
 }
@@ -33,6 +33,31 @@ httpGet()
     fetch) fetch -q "$@" ;;
   esac
 }
+
+getConfiguredPython()
+{
+  if command -v python3 &>/dev/null; then
+    configuredPython="python3"
+  elif  command -v python2 &>/dev/null; then
+    configuredPython="python2"
+  elif command -v python &>/dev/null; then
+    configuredPython="python"
+  else
+    echo "Error: This tool requires python to be installed."
+    return 1
+  fi
+}
+
+if [[ $(uname) != "Darwin" ]]; then
+  python()
+  {
+    case "$configuredPython" in
+      python3) python3 "$@" ;;
+      python2) python2 "$@" ;;
+      python)  python "$@" ;;
+    esac
+  }
+fi
 
 update()
 {
@@ -114,7 +139,6 @@ makeMultiLineQr()
 # Function to get the json response from POST request
 decodeQR() {
   local qrFile="$1"
-  
   if ! echo "$fileName" | grep -E -q ".*\.png$|.*\.PNG$|.*\.gif$|.*\.jpg$|.*\.jpeg$|.*\.GIF$|.*\.JPG$|.*\.JPEG$"
   then
     exit 1
@@ -130,11 +154,11 @@ decodeQR() {
     fetch) echo "Error:-Not supported with wget" >&2 && exit 1;;
   esac
 
-  error=$(echo "$JSONresponse" | python -c 'import sys, json; print json.load(sys.stdin)[0]["symbol"][0]["error"]')
-  
-  if [ "$error" = "None" ]
+  error="$(echo "$JSONresponse" | python -c "from __future__ import print_function; import sys, json; print(json.load(sys.stdin)[0]['symbol'][0]['error'])")"
+
+  if [[ "$error" == "None" ]]
   then
-    data=$(echo "$JSONresponse" | python -c 'import sys, json; print json.load(sys.stdin)[0]["symbol"][0]["data"]')
+    data="$(echo "$JSONresponse" | python -c "from __future__ import print_function; import sys, json; print(json.load(sys.stdin)[0]['symbol'][0]['data'])")"
   else
     echo "Error:-$error" >&2 && exit 1
   fi
@@ -163,6 +187,9 @@ Examples:
     qrify github.com (no http:// or https://)
     qrify -f fileoutputName google.com
     qrify -d fileName.png
+[31mPlease pay attention:[0m
+This script needs access to an external API.
+[5m[1mDo not use it to encode sensitive data.[0m
 EOF
 }
 
@@ -198,31 +225,30 @@ elif [[ $# == "1" ]];then
     update || exit 1
     exit 0
   else
-		checkInternet || exit 1
+    getConfiguredPython || exit 1
+	checkInternet || exit 1
     input=$(printf '%s ' "$@")
     makeqr || exit 1
     exit 0
   fi
 else
+  getConfiguredPython || exit 1
+  checkInternet || exit 1
   if [[ $fileoutput == "1" ]]
 	then
-		checkInternet || exit 1
 		input=$(printf '%s ' "${@:3}") # first arg is -f, second is the file name, third onwards is the rest of the argument
 		# will have to be changed when implementing multiline QR code
 		makeQRFile || exit 1
 		exit 0
   elif [[ $decode == "1" ]]
   then
-    checkInternet || exit 1
     ( decodeQR "$fileName" && echo "$data" ) || exit 1
     exit 0
   elif [[ $multiline == "0" ]]; then
-		checkInternet || exit 1
     input=$(printf '%s ' "$@")
     makeqr || exit 1
     exit 0
   else
-    checkInternet || exit 1
     input=$(printf '%s ' "${@:2}")
     makeMultiLineQr || exit 1 ## if multiline that means a flag existed so start from the second argument
     exit 0
