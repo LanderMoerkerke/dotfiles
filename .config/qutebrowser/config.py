@@ -866,7 +866,7 @@ c.url.auto_search = "naive"
 # The page to open if :open -t/-b/-w is used without URL. Use
 # `about:blank` for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = "www.google.com"
+c.url.default_page = "https://duckduckgo.com/"
 
 # The URL segments where `:navigate increment/decrement` will search for
 # a number.
@@ -889,7 +889,9 @@ c.url.incdec_segments = ["path", "query"]
 # Type: Dict
 
 c.url.searchengines = {
-    "DEFAULT": "https://google.com/search?q={}",
+    "DEFAULT": "https://duckduckgo.com/?q={}",
+    "g": "https://google.com/search?q={}",
+    "gi": "https://www.google.be/search?q={}&source=lnms&tbm=isch",
     "alp": "https://pkgs.alpinelinux.org/packages?name=*{}*",
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "aw": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
@@ -897,7 +899,7 @@ c.url.searchengines = {
     "ddg": "https://duckduckgo.com/?q={}",
     "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
     "eb": "https://ebay.com/sch/{}",
-    "i": "https://www.google.be/search?q={}&source=lnms&tbm=isch",
+    "i": "https://duckduckgo.com/?q={}&t=ha&iar=images",
     "imdb": "https://www.imdb.com/find?s=all&q={}",
     "maps": "http://maps.google.com/?q={}",
     "mtp": "http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}",
@@ -922,7 +924,7 @@ c.url.searchengines = {
 
 # The page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = ["www.google.com"]
+c.url.start_pages = ["www.duckduckgo.com"]
 
 # The URL parameters to strip with `:yank url`.
 # Type: List of String
