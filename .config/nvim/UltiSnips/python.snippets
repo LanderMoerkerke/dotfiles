@@ -51,12 +51,16 @@ snippet syse "Sys exit"
 __import__("sys").exit(${1:${VISUAL:1}})${2}
 endsnippet
 
+snippet ifu "Import futures"
+from __future__ import annotations
+endsnippet
+
 snippet idc "Import dataclass"
 from wg_py_models import DataClass, GlobalConfig, dataclass
 endsnippet
 
 snippet ity "Import typing"
-from typing import Any, List, Tuple, Dict, Optional, Union, Optional
+from typing import Any, List, Tuple, Dict, Optional, Union, Optional, ClassVar
 endsnippet
 
 snippet ie "Import enum"
@@ -69,6 +73,10 @@ endsnippet
 
 snippet ibc "Import base class"
 from pydantic import BaseModel as Base
+endsnippet
+
+snippet iwc "Import WG base class"
+from wg_py_models import Base
 endsnippet
 
 snippet ij "Import json"
