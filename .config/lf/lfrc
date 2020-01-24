@@ -38,8 +38,6 @@ set previewer file-preview
 #  Commands {{{1 #
 # ---------------------------
 
-cmd trash $mv $fx ~/.local/share/Trash
-
 cmd go-symlink ${{
     link=$(readlink $f)
     path=$(dirname "$link")
@@ -104,6 +102,14 @@ cmd delete ${{
 	printf "delete?[y/n]"
 	read ans
 	[ $ans = "y" ] && rm -rf $fx
+}}
+
+cmd trash ${{
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "to trash?[y/n]"
+	read ans
+	[ $ans = "y" ] && mv $fx ~/.local/share/Trash
 }}
 
 cmd open &{{
@@ -217,9 +223,9 @@ map i $file-preview $f | less -R
 map C convert
 
 # Delete
-map dD trash
+map dD delete
 map dd cut
-map D delete
+map D trash
 
 # Copy
 map yy copy
