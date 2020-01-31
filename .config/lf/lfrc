@@ -99,9 +99,9 @@ cmd paste_symlink %{{
 cmd delete ${{
 	set -f
 	printf "%s\n\t" "$fx"
-	printf "delete?[y/n]"
+	printf "delete? type yes: "
 	read ans
-	[ $ans = "y" ] && rm -rf $fx
+	[ $ans = "yes" ] && rm -rf $fx
 }}
 
 cmd trash ${{
