@@ -686,6 +686,7 @@ hi GitGutterChangeDelete ctermbg=74    ctermfg=black
 " ------
 
 command! SC vnew | setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile
+command! CsvFormat %s/\ *,\ */,/g
 
 " Save as root
 command! W w suda://%
