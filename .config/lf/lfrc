@@ -112,15 +112,20 @@ cmd trash ${{
 	[ $ans = "y" ] && mv $fx ~/.local/share/Trash
 }}
 
-cmd open &{{
+cmd open ${{
     case $(file --mime-type $f -b) in
         *zip) atool --list -- $f | less;;
         *tar) atool --list -- $f | less;;
         *compressed) atool --list -- $f | less;;
-        *) nohup xdg-open $fx &;;
+        *) xdg-open $fx &;;
     esac
     wait
     lf -remote "send $id redraw"
+}}
+
+
+cmd background_open &{{
+    nohup xdg-open $fx &
 }}
 
 cmd convert !{{
@@ -244,7 +249,7 @@ map x $$f
 map X !$f
 
 # dedicated keys for file opener actions
-map o $mimeopen $f
+map o background_open
 map O $mimeopen --ask $f
 
 map W &xdg-open .
