@@ -409,11 +409,6 @@ c.fonts.messages.info = "9pt monospace"
 # Type: Font
 c.fonts.messages.warning = "9pt monospace"
 
-# Default monospace fonts. Whenever "monospace" is used in a font
-# setting, it's replaced with the fonts listed here.
-# Type: Font
-c.fonts.monospace = '"xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
-
 # Font used for prompts.
 # Type: Font
 c.fonts.prompts = "9pt sans-serif"
