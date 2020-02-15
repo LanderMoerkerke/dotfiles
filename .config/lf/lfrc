@@ -54,6 +54,11 @@ cmd yank_path &echo -n $f | tr -d '\n' | xsel -ipb
 
 cmd yank_name &basename $f | tr -d '\n' | xsel -ipb
 
+cmd yank_basename &{{
+    filename=$(basename -- "$f")
+    echo "${filename%.*}" | tr -d '\n' | xsel -ipb
+}}
+
 # rename current file without overwrite
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
@@ -236,6 +241,7 @@ map D trash
 map yy copy
 map yn yank_name
 map yp yank_path
+map yb yank_basename
 
 # Paste
 map pp paste
