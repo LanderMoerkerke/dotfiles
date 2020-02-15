@@ -628,7 +628,7 @@ c.prompt.radius = 8
 # https://peter.sh/experiments/chromium-command-line-switches/ for a
 # list) will work. This setting requires a restart.
 # Type: List of String
-c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so"]
+# c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so", "blink-settings=darkMode=4"]
 
 # Force a Qt platform to use. This sets the `QT_QPA_PLATFORM`
 # environment variable and is useful to force using the XCB plugin when
@@ -836,6 +836,8 @@ c.tabs.title.format_pinned = "{index}"
 
 c.colors.tabs.pinned.even.bg = "grey"
 c.colors.tabs.pinned.odd.bg = "grey"
+
+c.colors.webpage.prefers_color_scheme_dark = True
 
 # The width of the tab bar if it's vertical, in px or as percentage of
 # the window.
