@@ -40,7 +40,7 @@ export LD_LIBRARY_PATH=/usr/local/lib
 
 # default programs
 export BROWSER="qutebrowser"
-export BROWSER2="chromium"
+export BROWSER2="brave"
 export EDITOR="nvim"
 export FILEMANAGER="lf"
 export FILEMANAGER2="nautilus"
