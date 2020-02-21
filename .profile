@@ -30,7 +30,7 @@ $PATH:\
 $HOME/.local/bin:\
 $XDG_DATA_HOME/fzf/bin:\
 $XDG_DATA_HOME/npm/bin:\
-$XDG_DATA_HOME/gem/ruby/2.6.0/bin:\
+$XDG_DATA_HOME/gem/bin:\
 $XDG_DATA_HOME/go/bin:\
 $XDG_DATA_HOME/cargo/bin\
 "
@@ -57,8 +57,8 @@ export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-export GEM_HOME="$XDG_DATA_HOME/gem"
-export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+export GEM_HOME="$XDG_DATA_HOME"/gem
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
