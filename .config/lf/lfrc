@@ -306,6 +306,9 @@ map gv cd ~/Videos
 map gw cd ~/Documents/Work/WeGroup
 map gb cd ~/Documents/Work/WeGroup/Bitbucket
 
+map cbb $lf -remote "send $id cd $(go-project bb)"
+map cff $lf -remote "send $id cd $(go-project ff)"
+map coo $lf -remote "send $id cd $(go-project oo)"
 map cba $lf -remote "send $id cd $(go-project ba)"
 map cbc $lf -remote "send $id cd $(go-project bc)"
 map cbd $lf -remote "send $id cd $(go-project bd)"
@@ -322,6 +325,7 @@ map cfw $lf -remote "send $id cd $(go-project fw)"
 map coc $lf -remote "send $id cd $(go-project oc)"
 map cod $lf -remote "send $id cd $(go-project od)"
 map com $lf -remote "send $id cd $(go-project om)"
+map cos $lf -remote "send $id cd $(go-project os)"
 
 map gV cd ~/Documents/VEST
 
