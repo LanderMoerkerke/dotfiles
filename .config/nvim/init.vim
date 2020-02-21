@@ -365,16 +365,15 @@ let g:polyglot_disabled = ['markdown']
 " Esc closes FZF
 au TermOpen * tnoremap <Esc> <c-\><c-n>
 au FileType fzf tunmap <Esc>
-nnoremap <leader>c :Clap _<cr>
 
-nnoremap <Leader>rg :Clap grep<cr>
+" nnoremap <leader>p :Files<cr>
+" nnoremap <leader>P :Buffers<cr>
+
+nnoremap <leader>c :Clap <cr>
+" nnoremap <Leader>rg :Clap grep<cr>
 
 nnoremap <leader>p :Clap files<cr>
 nnoremap <leader>P :Clap buffers<cr>
-
-" For example, use <C-n>/<C-p> instead of <C-j>/<C-k>.
-autocmd FileType clap_input inoremap <silent> <buffer> <C-n> <C-R>=clap#handler#navigate_result('down')<CR>
-autocmd FileType clap_input inoremap <silent> <buffer> <C-p> <C-R>=clap#handler#navigate_result('up')<CR>
 
 " Echodoc
 " set cmdheight=2
