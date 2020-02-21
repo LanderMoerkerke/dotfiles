@@ -76,6 +76,7 @@ esac
 
 # Re-init Polybar
 # launch-polybar &
+feh --no-fehbg --bg-fill $HOME/Pictures/bg.jpg &
 
 # Re-remap keys if keyboard added (for laptop bases)
 keyboard-setup &
