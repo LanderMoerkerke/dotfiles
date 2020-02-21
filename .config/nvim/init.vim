@@ -545,6 +545,8 @@ let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_hoverPreview = 'Always'
 
 let g:LanguageClient_diagnosticsList = "Disabled"
+let g:LanguageClient_diagnosticsSignsMax = 0
+
 let g:LanguageClient_diagnosticsDisplay = {
 \        1: {
 \            "name": "Error",
