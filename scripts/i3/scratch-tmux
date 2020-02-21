@@ -1,5 +1,5 @@
 #!/bin/sh
 
-TMUX_SESSION=scratch_tmux
+TMUX_SESSION=scratchpad-tmux
 
 tmux a -t $TMUX_SESSION || tmux new -s $TMUX_SESSION
