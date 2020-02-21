@@ -5,5 +5,5 @@ Comment=Spotify streaming music client
 Icon=spotify
 Type=Application
 Categories=Network;WebBrowser;
-Exec=spotify
+Exec=spotify %U
 Keywords=Spotify

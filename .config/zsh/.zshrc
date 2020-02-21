@@ -68,7 +68,6 @@ plugins=(
 docker
 docker-compose
 kubectl
-# git
 notify
 vi-mode
 fzf-tab

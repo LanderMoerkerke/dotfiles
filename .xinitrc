@@ -25,7 +25,6 @@ keyboard-setup &
 # appearance
 picom &
 redshift -l 51.01:4.03 &
-# variety &
 
 # notifications
 /usr/lib/kdeconnectd &
