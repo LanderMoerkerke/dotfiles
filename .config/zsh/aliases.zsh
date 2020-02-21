@@ -1,5 +1,8 @@
 # one letter aliasses
 
+alias L='less'
+alias R="R --quiet --no-save"
+alias c="xclip -selection clipboard"
 alias g="gcloud"
 alias j="joplin"
 alias l='ls -latrFi'
@@ -7,11 +10,7 @@ alias m='neomutt'
 alias n="newsboat"
 alias p2="python2"
 alias p="python"
-alias s="weechat"
 alias t="tree"
-alias v='nvim'
-alias L='less'
-alias R="R --quiet --no-save"
 
 # git
 
@@ -44,9 +43,9 @@ alias mp3="youtube-dl --extract-audio --audio-format mp3"
 
 alias SS='sudo systemctl'
 
-alias password16="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1 | xclip -selection clipboard"
-alias password32="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 | xclip -selection clipboard"
-alias password64="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1 | xclip -selection clipboard"
+alias password16="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1"
+alias password32="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1"
+alias password64="cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1"
 
 alias tree='tree -Csuh'
 
@@ -73,9 +72,7 @@ alias we='curl wttr.in/Gent'
 
 # programming
 
-alias vim='nvim'
-
-alias update-pymodels='git --git-dir=$WG/Bitbucket/PHOENIX/wg-py-models/.git pull'
+alias update-pymodels='git --git-dir=$WG/Bitbucket/OTHER/wg-py-models/.git pull'
 alias pc="pre-commit run --all-files"
 
 alias pe="pipenv"
@@ -83,7 +80,8 @@ alias pes="pipenv shell"
 alias peg="pipenv graph | less"
 alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-mypy' 'pyls-isort' --dev"
 
-alias py3-env="source $HOME/Pipenv/python3-venv/.venv/bin/activate"
+alias py37-env="source $HOME/Pipenv/python37-venv/.venv/bin/activate"
+alias py38-env="source $HOME/Pipenv/python38-venv/.venv/bin/activate"
 alias py2-env="source $HOME/Pipenv/python2-venv/.venv/bin/activate"
 
 alias py-clean="find . | grep -E '(\.tox$|__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
