@@ -75,7 +75,7 @@ case "$chosen" in
 esac
 
 # Re-init Polybar
-launch-polybar &
+# launch-polybar &
 
 # Re-remap keys if keyboard added (for laptop bases)
 keyboard-setup &
