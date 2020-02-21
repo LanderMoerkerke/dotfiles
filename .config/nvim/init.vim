@@ -28,6 +28,7 @@ Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
 Plug 'chrisbra/Colorizer'                                           " Color codes to color
 Plug 'Yggdroot/indentLine'                                          " Indent
+Plug 'tomasiser/vim-code-dark'                                      " Theme
 
 " Git
 Plug 'airblade/vim-gitgutter'                                       " Gitgutter
@@ -661,6 +662,7 @@ let g:snips_github = "https://github.com/MoerkerkeLander"
 " ------
 
 colorscheme              minimalist
+" colorscheme              codedark
 " colorscheme wombat256mod
 
 hi clear                 SpellBad
