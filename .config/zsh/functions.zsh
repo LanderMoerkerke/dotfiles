@@ -1,3 +1,10 @@
+if [[ -n "$SSH_CONNECTION" ]] ; then
+    banner_info
+    alias v='vim'
+    export EDITOR="vim"
+    export TERM="xterm"
+fi
+
 # add ls to cd
 function chpwd() {ls}
 

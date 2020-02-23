@@ -5,6 +5,7 @@ alias R="R --quiet --no-save"
 alias c="xclip -selection clipboard"
 alias g="gcloud"
 alias j="joplin"
+alias k="kubectl"
 alias l='ls -latrFi'
 alias m='neomutt'
 alias n="newsboat"
