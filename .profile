@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Settings
+export TMOUT=9600
+
 # XDG Directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -112,7 +115,9 @@ export SANE_CONFIG_DIR=hpaio:/net/Officejet_6700?ip=192.168.0.20
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Less
+export PAGER=less
 export LESS=-R
+export LESSOPEN="|file-preview %s"
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
 export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
 export LESS_TERMCAP_me="$(printf '%b' '[0m')"
@@ -120,6 +125,18 @@ export LESS_TERMCAP_so=$(printf '\33[5;30;43m')
 export LESS_TERMCAP_se=$(printf '\33[m')
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+
+# Pipenv
+export PIPENV_DEFAULT_PYTHON_VERSION=3
+export PIPENV_MAX_DEPTH=5
+export PIPENV_SKIP_LOCK=1
+export PIPENV_SPINNER=pong
+export PIPENV_DOTENV_LOCATION="$HOME/Pipenv/.env"
+
+# FZF
+export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file .gitignore_global ."
+export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up'
+
 
 . $HOME/.icons/term-icons
 . $HOME/.profile_appendix
