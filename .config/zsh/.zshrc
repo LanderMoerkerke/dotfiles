@@ -1,35 +1,16 @@
 TERM=xterm-256color
 
-# -----------------------------------------------------------------------------------------------------------------------------
-# ENVIRONMENT_VARIABLES
-# -----------------------------------------------------------------------------------------------------------------------------
+# Environment_variables
+# ---------------------
 
 export COLORTERM=24bit
 
 export ZSH=$HOME/.config/oh-my-zsh
 export ZDOTDIR=$HOME/.config/zsh
 export XDG_DATA_HOME=$HOME/.local/share
-export RTV_BROWSER=w3m
-export TMOUT=9600
-export PAGER=less
 
-# PIPENV
-export PIPENV_DEFAULT_PYTHON_VERSION=3
-export PIPENV_MAX_DEPTH=5
-export PIPENV_SKIP_LOCK=1
-export PIPENV_SPINNER=pong
-export PIPENV_DOTENV_LOCATION="$HOME/Pipenv/.env"
-
-# LESS
-export LESS='-R'
-export LESSOPEN='|file-preview %s'
-
-# dir colors cd
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-# -----------------------------------------------------------------------------------------------------------------------------
-# GENERAL
-# -----------------------------------------------------------------------------------------------------------------------------
+# General
+# ---------------------
 
 ENABLE_CORRECTION="true"
 setopt AUTO_CD
@@ -59,21 +40,16 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# -----------------------------------------------------------------------------------------------------------------------------
-# OHMYZSH
-# -----------------------------------------------------------------------------------------------------------------------------
+# Oh My Zsh
+# ---------------------
 
 ZSH_THEME="powerzeesh"
+
 plugins=(
-docker
-docker-compose
-kubectl
 notify
-vi-mode
-fzf-tab
+# fzf-tab
 zsh-autosuggestions
 zsh-completions
-zsh-dircolors-solarized
 zsh-syntax-highlighting
 )
 
@@ -88,52 +64,16 @@ zstyle ':notify:*' success-title "Command finished (in #{time_elapsed} seconds)"
 zstyle ':notify:*' error-icon "$HOME/Pictures/Notifications/error.png"
 zstyle ':notify:*' success-icon "$HOME/Pictures/Notifications/success.png"
 
-# -----------------------------------------------------------------------------------------------------------------------------
-# BINDKEY
-# -----------------------------------------------------------------------------------------------------------------------------
+# Bindkey
+# ---------------------
+
+source "$ZDOTDIR/vi.zsh"
 
 bindkey 'µ' autosuggest-accept
 bindkey '^[[Z' reverse-menu-complete
 
-# -----------------------------------------------------------------------------------------------------------------------------
-# ALIASES
-# -----------------------------------------------------------------------------------------------------------------------------
-
-if [[ -n "$SSH_CONNECTION" ]] ; then
-
-    banner_info
-
-    alias v='vim'
-
-    export EDITOR="vim"
-    export TERM="xterm"
-
-elif [[ $TTY != "/dev/tty1" ]]; then
-
-    zle-keymap-select () {
-        if [ $KEYMAP = vicmd ]; then
-            echo -ne '\e[1 q'
-        else
-            echo -ne '\e[5 q'
-        fi
-    }
-    zle-line-init () {
-        zle -K viins
-        echo -ne "\033]12;Grey\007"
-    }
-
-fi
-
-# -----------------------------------------------------------------------------------------------------------------------------
-# FZF
-# -----------------------------------------------------------------------------------------------------------------------------
-
-export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file .gitignore_global ."
-export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up'
-
-# -----------------------------------------------------------------------------------------------------------------------------
-# MISC
-# -----------------------------------------------------------------------------------------------------------------------------
+# Sources
+# ---------------------
 
 source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/aliases.zsh"
