@@ -79,7 +79,7 @@ alias pc="pre-commit run --all-files"
 alias pe="pipenv"
 alias pes="pipenv shell"
 alias peg="pipenv graph | less"
-alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-mypy' 'pyls-isort' --dev"
+alias peinit="pipenv install 'pynvim' 'python-language-server[all]' 'pyls-mypy' 'pyls-isort' 'bandit' 'flake8' --dev"
 
 alias py37-env="source $HOME/Pipenv/python37-venv/.venv/bin/activate"
 alias py38-env="source $HOME/Pipenv/python38-venv/.venv/bin/activate"
