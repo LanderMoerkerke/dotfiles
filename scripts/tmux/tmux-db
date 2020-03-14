@@ -5,5 +5,6 @@ TMUX_SESSION=database
 tmux a -t $TMUX_SESSION > /dev/null 2>&1 && exit 0
 
 tmux new -s $TMUX_SESSION -d 'db-phoenix'
+tmux new -s $TMUX_SESSION -d 'docker run --rm -p 6379:6379 redis'
 tmux split-window -h 'pf-operations'
 tmux -2 attach-session -d
