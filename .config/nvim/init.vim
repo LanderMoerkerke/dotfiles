@@ -676,9 +676,11 @@ colorscheme              minimalist
 " colorscheme wombat256mod
 
 hi clear                 SpellBad
+hi clear ALEWarning
+
 hi SpellBad              ctermfg=203   ctermbg=233
 
-hi LCError               ctermfg=203   ctermbg=233
+" hi LCError               ctermfg=203   ctermbg=203
 hi LCWarning             ctermfg=230   ctermbg=24
 " hi LCWarning             ctermfg=7     ctermbg=233
 
