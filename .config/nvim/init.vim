@@ -596,7 +596,7 @@ let g:LanguageClient_serverCommands = {
             \ 'javascript': ['javascript-typescript-stdio'],
             \ 'javascriptreact': ['javascript-typescript-stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
-            \ 'python':     ['pyls', '-v', '--log-file', '/tmp/pyls.log'],
+            \ 'python':     ['mspyls'],
             \ 'rust':       ['rls'],
             \ 'sh':         ['bash-language-server', 'start'],
             \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
