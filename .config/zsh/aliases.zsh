@@ -87,6 +87,9 @@ alias py2-env="source $HOME/Pipenv/python2-venv/.venv/bin/activate"
 
 alias py-clean="find . | grep -E '(\.tox$|__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
 
+alias rc="redis-cli"
+alias rca="redis-cli keys '*'"
+
 # nmap
 
 alias nmap_open_ports="nmap --open"
