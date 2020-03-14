@@ -38,6 +38,13 @@ set previewer file-preview
 #  Commands {{{1 #
 # ---------------------------
 
+cmd dragon %dragon-drag-and-drop -a -x $fx
+cmd cpdragon %cpdragon
+cmd mvdragon %mvdragon
+cmd dlfile %dlfile
+
+cmd stripspace %stripspace "$f"
+
 cmd go-symlink ${{
     link=$(readlink $f)
     path=$(dirname "$link")
@@ -263,6 +270,12 @@ map W &xdg-open .
 # FuzzyFind
 map f $fuzzy-open
 map F $lf -remote "send $id select '$(fzf)'"
+
+# Dragon
+map dr dragon
+map dm mvdragon
+map dc cpdragon
+map dl dlfile
 
 # Usage
 map u count
