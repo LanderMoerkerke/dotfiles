@@ -729,6 +729,8 @@ augroup basic
     " Resize vim
     autocmd VimResized * :wincmd =
 
+    autocmd FocusGained,BufEnter,CursorHold * checktime
+
 augroup end
 
 augroup NERD
