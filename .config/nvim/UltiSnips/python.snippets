@@ -132,8 +132,18 @@ class ${1:classname}(Base):
 	${2:pass}
 endsnippet
 
+snippet ef "Extend function"
+super().${1:function}(${2:args})
+endsnippet
+
 snippet posti "Post init function"
 def __post_init__(self):
+	${3:${VISUAL:pass}}
+endsnippet
+
+snippet postie "Post init extend function"
+def __post_init__(self):
+	super().__init__(**kwargs)
 	${3:${VISUAL:pass}}
 endsnippet
 
@@ -313,5 +323,22 @@ endsnippet
 snippet sub "Subscriptable item"
 ["${1:key}"]${2}
 endsnippet
+
+snippet sanic "Create getting started webserver of Sanic"
+from sanic import Sanic
+from sanic.response import json
+
+app = Sanic()
+
+
+@app.route("/")
+async def test(request):
+	return json({"hello": "world"})
+
+
+if __name__ == "__main__":
+	app.run(host="0.0.0.0", port=8000)
+endsnippet
+
 
 # vim: ft=snippets
