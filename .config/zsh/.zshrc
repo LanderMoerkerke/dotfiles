@@ -9,6 +9,31 @@ export ZSH=$HOME/.config/oh-my-zsh
 export ZDOTDIR=$HOME/.config/zsh
 export XDG_DATA_HOME=$HOME/.local/share
 
+# Oh My Zsh
+# ---------------------
+
+ZSH_THEME="powerzeesh"
+
+plugins=(
+notify
+vi-mode
+fzf-tab
+zsh-autosuggestions
+zsh-completions
+zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# notify
+zstyle ':notify:*' command-complete-timeout 10
+
+zstyle ':notify:*' error-title "Command failed (in #{time_elapsed} seconds)"
+zstyle ':notify:*' success-title "Command finished (in #{time_elapsed} seconds)"
+
+zstyle ':notify:*' error-icon "$HOME/Pictures/Notifications/error.png"
+zstyle ':notify:*' success-icon "$HOME/Pictures/Notifications/success.png"
+
 # General
 # ---------------------
 
@@ -39,30 +64,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
-# Oh My Zsh
-# ---------------------
-
-ZSH_THEME="powerzeesh"
-
-plugins=(
-notify
-# fzf-tab
-zsh-autosuggestions
-zsh-completions
-zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# notify
-zstyle ':notify:*' command-complete-timeout 10
-
-zstyle ':notify:*' error-title "Command failed (in #{time_elapsed} seconds)"
-zstyle ':notify:*' success-title "Command finished (in #{time_elapsed} seconds)"
-
-zstyle ':notify:*' error-icon "$HOME/Pictures/Notifications/error.png"
-zstyle ':notify:*' success-icon "$HOME/Pictures/Notifications/success.png"
 
 # Bindkey
 # ---------------------
