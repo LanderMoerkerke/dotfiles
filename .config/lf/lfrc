@@ -312,7 +312,7 @@ map gT cd ~/.local/share/Trash/
 map gh cd ~
 map gc cd ~/.config
 map gl cd ~/.local
-map gs cd ~/Share
+map gs cd ~/.scripts
 map gd cd ~/Documents
 map gD cd ~/Downloads
 map gp cd ~/Pictures
