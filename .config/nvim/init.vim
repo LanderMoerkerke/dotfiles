@@ -489,18 +489,18 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ALE
 let g:ale_disable_lsp = 1
-let g:ale_set_highlights = 0
+let g:ale_set_highlights = 1
 
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_lint_fix_on_save = 0
+let g:ale_lint_on_enter = 1
+let g:ale_lint_fix_on_save = 1
 
 let g:ale_completion_enabled = 0
 
 let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-imports --remove-unused-variables --remove-duplicate-keys -s'
 
 let g:ale_linters = {
-    \ 'python': ['flake8'],
+    \ 'python': ['pylint', 'flake8', 'bandit'],
     \ 'javascript': ['eslint'],
     \ 'go': ['golint']
 \}
@@ -530,11 +530,18 @@ let g:ale_javascript_prettier_options = "--tab-width 2 --print-width 120 --singl
 " golangci-lint run
 " remark
 let g:ale_sign_column_always = 1
-let g:ale_set_signs = 0
+
+let g:ale_set_signs = 1
+
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
+
+nmap <silent> gep <Plug>(ale_previous_wrap)
+nmap <silent> gen <Plug>(ale_next_wrap)
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
