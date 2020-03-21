@@ -277,7 +277,7 @@ map dm mvdragon
 map dc cpdragon
 map dl dlfile
 
-map ss stripspace
+map sS stripspace
 
 # Usage
 map u count
