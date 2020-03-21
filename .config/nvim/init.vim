@@ -26,7 +26,7 @@ Plug 'scrooloose/nerdtree'                                          " Nerdtree
 Plug 'ryanoasis/vim-devicons'                                       " Icons
 Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
-Plug 'chrisbra/Colorizer'                                           " Color codes to color
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'Yggdroot/indentLine'                                          " Indent
 Plug 'tomasiser/vim-code-dark'                                      " Theme
 
@@ -409,7 +409,7 @@ function! g:WorkaroundNERDTreeToggle()
 endfunction
 
 " Color
-let g:colorizer_auto_filetype='html,css,xdefaults,i3'
+let g:Hexokinase_highlighters = ['backgroundfull']
 
 " Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
