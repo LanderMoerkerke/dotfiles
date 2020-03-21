@@ -36,7 +36,6 @@ Plug 'tpope/vim-fugitive'                                           " Git integr
 
 " Completion
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ColinKennedy/vim-python-function-expander'
 
 Plug 'ncm2/ncm2'                                                    " Completion using NCM2
@@ -542,9 +541,6 @@ let g:ale_echo_msg_format = '[ALE %linter%] %s [%severity%]'
 
 nmap <silent> gep <Plug>(ale_previous_wrap)
 nmap <silent> gen <Plug>(ale_next_wrap)
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
 
 " LanguageClient
 
