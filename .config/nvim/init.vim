@@ -36,7 +36,6 @@ Plug 'tpope/vim-fugitive'                                           " Git integr
 
 " Completion
 
-Plug 'ColinKennedy/vim-python-function-expander'
 
 Plug 'ncm2/ncm2'                                                    " Completion using NCM2
 Plug 'roxma/nvim-yarp'
@@ -54,6 +53,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'liuchengxu/vista.vim'                                         " Tags visualisation
 
+Plug 'ColinKennedy/vim-python-function-expander'                    " Expand python functions arguments
 Plug 'Shougo/echodoc.vim'                                           " Show doc when typing a function
 
 " Snippets
@@ -619,10 +619,6 @@ endfunction
 
 " NCM2
 
-let g:ncm2#popup_delay = 100
-let g:ncm2#complete_delay = 61
-let g:ncm2#popup_limit = 21
-let g:ncm2#total_popup_limit = 41
 
 let g:UltiSnipsRemoveSelectModeMappings = 1
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
