@@ -10,9 +10,7 @@
     },
     "interpreter": {
       "properties": {
-        "InterpreterPath": "/home/lander/Pipenv/python3-venv-wegroup/.venv/bin/python",
-        "UseDefaultDatabase": true,
-        "Version": "3.8"
+        "UseDefaultDatabase": true
       }
     }
   }
