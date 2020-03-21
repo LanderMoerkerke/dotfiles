@@ -28,8 +28,8 @@ source $ZSH/oh-my-zsh.sh
 # notify
 zstyle ':notify:*' command-complete-timeout 10
 
-zstyle ':notify:*' error-title "Command failed (in #{time_elapsed} seconds)"
-zstyle ':notify:*' success-title "Command finished (in #{time_elapsed} seconds)"
+zstyle ':notify:*' error-title "Command failed (in #{time_elapsed})"
+zstyle ':notify:*' success-title "Command finished (in #{time_elapsed})"
 
 zstyle ':notify:*' error-icon "$HOME/Pictures/Notifications/error.png"
 zstyle ':notify:*' success-icon "$HOME/Pictures/Notifications/success.png"
