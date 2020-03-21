@@ -36,15 +36,12 @@ Plug 'tpope/vim-fugitive'                                           " Git integr
 
 " Completion
 
+Plug 'roxma/nvim-yarp'
 
 Plug 'ncm2/ncm2'                                                    " Completion using NCM2
-Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-markdown-subscope'
 Plug 'ncm2/ncm2-ultisnips'
-Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-go'
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
