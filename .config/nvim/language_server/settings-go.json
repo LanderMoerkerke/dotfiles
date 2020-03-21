@@ -1,10 +1,11 @@
 {
   "gopls": {
-    "go.languageServerExperimentalFeatures": {
-      "format": true,
-      "autoComplete": true
-    },
     "usePlaceholders": true,
-    "enhancedHover": true
+    "completeUnimported": true,
+    "hoverKind": "FullDocumentation"
+  },
+  "initializationOptions": {
+    "gocodeCompletionEnabled": true,
+    "lintTool": "golint"
   }
 }
