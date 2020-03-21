@@ -109,6 +109,10 @@ endsnippet
 #   Class   #
 #############
 
+snippet fl "Field"
+Field(${1:...}, description=${2:None}, example=${3:None})
+endsnippet
+
 snippet dc "Dataclass"
 @dataclass(config=GlobalConfig)
 class ${1:classname}(DataClass):
