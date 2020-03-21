@@ -1,5 +1,3 @@
-TERM=xterm-256color
-
 # Environment_variables
 # ---------------------
 
