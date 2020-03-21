@@ -770,7 +770,7 @@ augroup plugins
 
     " LanguageClient
     autocmd FileType * call LC_maps()
-    autocmd BufEnter *.py call ncm2#enable_for_buffer()
+    autocmd BufEnter * call ncm2#enable_for_buffer()
 
 augroup end
 
