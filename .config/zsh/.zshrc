@@ -32,6 +32,9 @@ zstyle ':notify:*' success-title "Command finished (in #{time_elapsed})"
 zstyle ':notify:*' error-icon "$HOME/Pictures/Notifications/error.png"
 zstyle ':notify:*' success-icon "$HOME/Pictures/Notifications/success.png"
 
+# fzf-tab
+zstyle ':fzf-tab:*' continuous-trigger 'alt-enter'
+
 # General
 # ---------------------
 
