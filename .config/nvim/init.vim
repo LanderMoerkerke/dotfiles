@@ -45,7 +45,7 @@ Plug 'ncm2/ncm2-ultisnips'
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
+    \ 'do': 'make release',
     \ }
 
 Plug 'liuchengxu/vista.vim'                                         " Tags visualisation
