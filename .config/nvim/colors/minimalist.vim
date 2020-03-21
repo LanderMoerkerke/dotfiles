@@ -46,7 +46,7 @@ hi StatusLine       ctermfg=255     ctermbg=239     cterm=bold      guifg=#EEEEE
 hi StatusLineNC     ctermfg=255     ctermbg=239     cterm=NONE      guifg=#EEEEEE       guibg=#4E4E4E   gui=NONE
 hi Title            ctermfg=255     ctermbg=NONE    cterm=NONE      guifg=#EEEEEE       guibg=NONE      gui=NONE
 hi Underlined       ctermfg=NONE    ctermbg=NONE    cterm=NONE      guifg=NONE          guibg=NONE      gui=NONE
-hi VertSplit        ctermfg=239     ctermbg=NONE    cterm=NONE      guifg=NONE          guibg=NONE      gui=NONE
+hi VertSplit        ctermfg=239     ctermbg=NONE    cterm=NONE      guifg=#4E4E4E          guibg=NONE      gui=NONE
 hi Visual           ctermfg=NONE    ctermbg=236     cterm=NONE      guifg=NONE          guibg=#303030   gui=NONE
 hi WarningMsg       ctermfg=255     ctermbg=167     cterm=NONE      guifg=#EEEEEE       guibg=#D75F5F   gui=NONE
 hi WildMenu         ctermfg=234     ctermbg=215     cterm=NONE      guifg=#1C1C1C       guibg=#FFAF5F   gui=NONE
@@ -63,7 +63,7 @@ hi NERDTreeClosable ctermfg=167     ctermbg=NONE    cterm=NONE      guifg=#D75F5
 """""""""""""""""""""""
 hi Boolean          ctermfg=173     ctermbg=NONE    cterm=NONE      guifg=#D7875F       guibg=NONE      gui=NONE
 hi Character        ctermfg=140     ctermbg=NONE    cterm=NONE      guifg=#AF87D7       guibg=NONE      gui=NONE
-hi Comment          ctermfg=246     ctermbg=NONE    cterm=NONE      guifg=#444444       guibg=NONE      gui=NONE
+hi Comment          ctermfg=246     ctermbg=NONE    cterm=NONE      guifg=#6c6c6c       guibg=NONE      gui=NONE
 hi Conditional      ctermfg=140     ctermbg=NONE    cterm=NONE      guifg=#AF87D7       guibg=NONE      gui=NONE
 hi Constant         ctermfg=140     ctermbg=NONE    cterm=NONE      guifg=#AF87D7       guibg=NONE      gui=NONE
 hi Define           ctermfg=140     ctermbg=NONE    cterm=NONE      guifg=#AF87D7       guibg=NONE      gui=NONE
