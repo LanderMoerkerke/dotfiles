@@ -83,6 +83,7 @@ let mapleader = " "
 syntax on
 filetype plugin indent on
 set signcolumn=yes
+set termguicolors
 
 set showtabline=2
 set number
