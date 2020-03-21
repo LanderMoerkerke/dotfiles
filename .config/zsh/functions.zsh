@@ -6,7 +6,7 @@ if [[ -n "$SSH_CONNECTION" ]] ; then
 fi
 
 # add ls to cd
-function chpwd() {ls}
+function chpwd() {ls -hN --color=auto --group-directories-first}
 
 # cat copy
 cop () { cat "$1" | xsel -ib }
