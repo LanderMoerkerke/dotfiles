@@ -375,9 +375,8 @@ nnoremap <leader>p :Clap files<cr>
 nnoremap <leader>P :Clap buffers<cr>
 
 " Echodoc
-" set cmdheight=2
 let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'signature'
+let g:echodoc#type = 'floating'
 
 " Commenting
 nnoremap <C-c> :Commentary<cr>
