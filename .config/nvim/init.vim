@@ -638,6 +638,11 @@ let g:vista#renderer#enable_icon = 1
 " Snippets
 " ------
 
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "~/.config/nvim/UltiSnips/"]
 
