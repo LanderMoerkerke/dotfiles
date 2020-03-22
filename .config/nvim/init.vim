@@ -639,7 +639,7 @@ let g:vista#renderer#enable_icon = 1
 " ------
 
 let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsSnippetDirectories = ["~/.config/nvim/UltiSnips/"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "~/.config/nvim/UltiSnips/"]
 
 " Edit custom snippets
 nnoremap <leader>e :UltiSnipsEdit<cr>
