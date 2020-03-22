@@ -616,21 +616,15 @@ endfunction
 
 " NCM2
 
+" Enable entering when popup is visible
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
-let g:UltiSnipsRemoveSelectModeMappings = 1
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+" Enable scrolling via tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <C-Tab> ncm2#complete()
 
-let g:UltiSnipsExpandTrigger		= "<tab>"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
-" highlight Pmenu ctermbg=8 guibg=#606060
-" highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
-" highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+imap <c-l> <Plug>(ultisnips_expand)
 
 " Python Function Expander
 nmap <leader>ya <Plug>(trimmer-mapping)
@@ -769,7 +763,10 @@ augroup plugins
 
     " LanguageClient
     autocmd FileType * call LC_maps()
+
+    " NCM2
     autocmd BufEnter * call ncm2#enable_for_buffer()
+    autocmd TextChangedI * call ncm2#auto_trigger()
 
 augroup end
 
@@ -867,6 +864,7 @@ if &diff
     let g:LanguageClient_diagnosticsEnable = 0
 endif
 
+
 function! ExpandLspSnippet()
     call UltiSnips#ExpandSnippetOrJump()
     if !pumvisible() || empty(v:completed_item)
@@ -898,4 +896,4 @@ function! ExpandLspSnippet()
     return ''
 endfunction
 
-imap <C-l> <C-R>=ExpandLspSnippet()<CR>
+" imap <C-l> <C-R>=ExpandLspSnippet()<CR>
