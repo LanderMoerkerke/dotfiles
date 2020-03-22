@@ -1,6 +1,8 @@
 #!/bin/sh
 
 DOCKER_IMAGE=ubuntu_x11
+CONTAINER_NAME=docka_x
+ENTRYPOINT=tmux
 
 docker build -t $DOCKER_IMAGE - << __EOF__
     FROM ubuntu
@@ -20,7 +22,6 @@ docker build -t $DOCKER_IMAGE - << __EOF__
 
     ENV DISPLAY :0
 
-    CMD /usr/bin/tmux
 __EOF__
 
 XSOCK=/tmp/.X11-unix
@@ -28,4 +29,7 @@ XAUTH=/tmp/.docker.xauth
 
 xauth nlist :0 | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
-docker run --rm -ti -v $XSOCK:$XSOCK -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH $DOCKER_IMAGE
+# docker run --name $CONTAINER_NAME -ti -v $XSOCK:$XSOCK -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH $DOCKER_IMAGE tmux
+
+docker start -i $CONTAINER_NAME || \
+    docker run --name $CONTAINER_NAME -ti -v $XSOCK:$XSOCK -v $XAUTH:$XAUTH -e XAUTHORITY=$XAUTH $DOCKER_IMAGE $ENTRYPOINT
