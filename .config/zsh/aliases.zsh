@@ -14,6 +14,11 @@ alias p2="python2"
 alias p="python"
 alias t="tree"
 
+alias tmux="tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf"
+alias wget="wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts"
+alias offlineimap="offlineimap -c "$XDG_CONFIG_HOME"/offlineimap/offlineimaprc"
+alias mbsync="mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc"
+
 # git
 
 alias gc="git checkout"
