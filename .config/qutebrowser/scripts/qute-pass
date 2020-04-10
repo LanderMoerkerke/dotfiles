@@ -122,8 +122,9 @@ def find_pass_candidates(domain, password_store_path):
         # Strip password store path prefix to get the relative pass path
         pass_path = path[len(password_store_path) + 1 :]
         for secret in secrets:
+            secret_dir = os.path.dirname(path).split('/')[-1]
             secret_base = os.path.splitext(secret)[0]
-            if domain.lower() not in secret_base.lower():
+            if domain.lower() not in secret_base.lower() and domain.lower() not in secret_dir:
                 continue
 
             candidates.append(os.path.join(pass_path, secret_base))
