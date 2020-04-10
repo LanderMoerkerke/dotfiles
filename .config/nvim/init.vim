@@ -355,8 +355,8 @@ vnoremap <Leader>rg <C-w>:Rg<Space>
 let g:rg_highlight = 1
 
 " Easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
+xmap <leader>a <Plug>(EasyAlign)
+nmap <leader>a <Plug>(EasyAlign)
 
 " Polyglot
 let g:polyglot_disabled = ['markdown']
@@ -373,6 +373,15 @@ nnoremap <leader>c :Clap <cr>
 
 nnoremap <leader>p :Clap files<cr>
 nnoremap <leader>P :Clap buffers<cr>
+
+let g:clap_popup_input_delay = 0
+let g:clap_provider_grep_delay = 0
+let g:clap_provider_grep_blink = [0, 0]
+
+let g:clap_provider_commands = {
+      \ 'source': ['Clap debug', 'UltiSnipsEdit'],
+      \ 'sink': { selected -> execute(selected, '')},
+      \ }
 
 " Echodoc
 let g:echodoc#enable_at_startup = 1
@@ -406,6 +415,7 @@ function! g:WorkaroundNERDTreeToggle()
 endfunction
 
 " Color
+let g:Hexokinase_ftEnabled = ['css', 'html', 'javascript']
 let g:Hexokinase_highlighters = ['backgroundfull']
 
 " Multiple Cursors
@@ -488,7 +498,7 @@ let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 1
 
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 1
+" let g:ale_lint_on_enter = 1
 let g:ale_lint_fix_on_save = 1
 
 let g:ale_completion_enabled = 0
@@ -543,6 +553,8 @@ nmap <silent> gen <Plug>(ale_next_wrap)
 
 let g:LanguageClient_hasSnippetSupport = 1
 
+let g:LanguageClient_completionPreferTextEdit = 1
+
 let g:LanguageClient_hoverPreview = 'Always'
 
 let g:LanguageClient_diagnosticsList = "Disabled"
@@ -590,7 +602,7 @@ let g:LanguageClient_serverCommands = {
             \ 'javascriptreact': ['javascript-typescript-stdio'],
             \ 'json':       ['json-languageserver', '--stdio'],
             \ 'python':     ['mspyls'],
-            \ 'rust':       ['rls'],
+            \ 'rust':       ['rust-analyzer'],
             \ 'sh':         ['bash-language-server', 'start'],
             \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
             \ 'typescript': ['javascript-typescript-stdio'],
@@ -601,6 +613,9 @@ let g:LanguageClient_serverCommands = {
 function LC_maps()
     if has_key(g:LanguageClient_serverCommands, &filetype)
         nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
+        nnoremap <silent> ga :call LanguageClient#textDocument_codeAction()<CR>
+        nnoremap <silent> gl :call LanguageClient#handleCodeLensAction()<CR>
+        nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<CR>
         nnoremap <silent> gD :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>zz
         nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>zz
         nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
@@ -610,7 +625,7 @@ function LC_maps()
         nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
         nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
         nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-        nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+        nnoremap <leader>ls :call LanguageClient#workspace_symbol()<CR>
     endif
 endfunction
 
@@ -625,6 +640,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 imap <c-l> <Plug>(ultisnips_expand)
+
+call ncm2#override_source('ultisnips', {'priority': 10})
 
 " Python Function Expander
 nmap <leader>ya <Plug>(trimmer-mapping)
@@ -771,7 +788,7 @@ augroup plugins
 
     " NCM2
     autocmd BufEnter * call ncm2#enable_for_buffer()
-    autocmd TextChangedI * call ncm2#auto_trigger()
+    " autocmd TextChangedI * call ncm2#auto_trigger()
 
 augroup end
 
@@ -820,7 +837,7 @@ augroup external_scripts
     " Rust
     autocmd FileType rust call Run_Rust()
     fun! Run_Rust()
-        let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings-rust.json')
+        " let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings-rust.json')
 
         nnoremap <buffer> <F5> :exec '!cargo run' shellescape(@%, 1)<cr>
     endf
