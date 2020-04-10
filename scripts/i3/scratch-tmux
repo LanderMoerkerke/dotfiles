@@ -1,5 +1,6 @@
 #!/bin/sh
 
 TMUX_SESSION=scratchpad-tmux
+TMUX_PATH="tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf"
 
-tmux a -t $TMUX_SESSION || tmux new -s $TMUX_SESSION
+$TMUX_PATH a -t $TMUX_SESSION || $TMUX_PATH new -s $TMUX_SESSION
