@@ -62,7 +62,9 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
@@ -91,9 +93,13 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+export HISTFILE="$XDG_DATA_HOME"/bash/history
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 export KREW_ROOT="$XDG_CONFIG_HOME"/krew
-# export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
+export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
+export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
+export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 
 export CUDA_HOME=/opt/cuda
 
@@ -138,5 +144,5 @@ export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file .gitignore_glob
 export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up'
 
 
-. $HOME/.icons/term-icons
+. "$XDG_DATA_HOME"/icons/term-icons
 . $HOME/.profile_appendix
