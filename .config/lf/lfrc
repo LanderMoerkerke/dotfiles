@@ -140,6 +140,11 @@ cmd background_open &{{
     nohup xdg-open $fx &
 }}
 
+cmd background_open_ask ${{
+    mimeopen --ask $f
+    # nohup mimeopen --ask $fx
+}}
+
 cmd convert !{{
     set -f
     case $f in
@@ -263,7 +268,7 @@ map X !$f
 
 # dedicated keys for file opener actions
 map o background_open
-map O $mimeopen --ask $f
+map O background_open_ask
 
 map W &xdg-open .
 
