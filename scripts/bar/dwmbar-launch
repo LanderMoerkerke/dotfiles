@@ -13,8 +13,7 @@ status() {
     check-cpu-temperature && echo "$delim"
     # volume
     check-battery && echo "$delim"
-    check-datetime && echo " "
-    echo $time
+    check-datetime
 }
 
 while true; do
