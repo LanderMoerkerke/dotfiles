@@ -6,6 +6,7 @@
   },
   "initializationOptions": {
     "gocodeCompletionEnabled": true,
-    "lintTool": "golint"
+    "lintTool": "golint",
+    "usePlaceholders": true
   }
 }
