@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 " General
 Plug 'junegunn/fzf', { 'dir': '~/.local/share/fzf' }                " Fuzzy Find
 Plug 'junegunn/fzf.vim'                                             " Fuzzy Find
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }        " Action spawner
 Plug 'tpope/vim-commentary'                                         " Commenting with motions
 Plug 'alvan/vim-closetag'                                           " Autoclose html tags
 Plug 'Raimondi/delimitMate'                                         " Autoclose symbols
@@ -26,7 +26,7 @@ Plug 'scrooloose/nerdtree'                                          " Nerdtree
 Plug 'ryanoasis/vim-devicons'                                       " Icons
 Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }           " Colorviewer
 Plug 'Yggdroot/indentLine'                                          " Indent
 Plug 'tomasiser/vim-code-dark'                                      " Theme
 
@@ -39,9 +39,9 @@ Plug 'tpope/vim-fugitive'                                           " Git integr
 Plug 'roxma/nvim-yarp'
 
 Plug 'ncm2/ncm2'                                                    " Completion using NCM2
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-ultisnips'
+Plug 'ncm2/ncm2-path'                                               " Completion of paths
+Plug 'ncm2/ncm2-bufword'                                            " Completion of words in buffer
+Plug 'ncm2/ncm2-ultisnips'                                          " Integration with UltiSnips
 
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -67,7 +67,7 @@ Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Ma
 Plug 'MoerkerkeLander/ale'                                          " Linting engine
 
 " Filetypes / syntax
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'                                         " Extra syntax highlighting support
 
 
 call plug#end()
