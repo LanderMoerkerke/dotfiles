@@ -49,7 +49,7 @@ export FILEMANAGER="lf"
 export FILEMANAGER2="nautilus"
 export READER="zathura"
 export RTV_BROWSER="w3m"
-export TERMINAL="urxvt"
+export TERMINAL="urxvtc"
 export TERMINAL2="st"
 
 # dotfiles

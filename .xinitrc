@@ -36,6 +36,8 @@ udiskie &
 
 dunst &
 
+urxvtd &
+
 # exec i3
 # exec dwm
 
