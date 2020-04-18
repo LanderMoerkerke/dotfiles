@@ -371,8 +371,8 @@ au FileType fzf tunmap <Esc>
 nnoremap <leader>c :Clap <cr>
 " nnoremap <Leader>rg :Clap grep<cr>
 
-nnoremap <leader>p :Clap files<cr>
-nnoremap <leader>P :Clap buffers<cr>
+nnoremap <leader>p :Files<cr>
+nnoremap <leader>P :Buffers<cr>
 
 let g:clap_popup_input_delay = 0
 let g:clap_provider_grep_delay = 0
