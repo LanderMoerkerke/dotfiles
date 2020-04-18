@@ -82,12 +82,16 @@ mod1 + {F2,F3}
     pactl -- set-sink-volume bluez_sink.CC_98_8B_93_3A_17.a2dp_sink {-,+}5%
 mod1 + F4
     echo "power on\nconnect CC:98:8B:93:3A:17" | bluetoothctl && pactl -- set-sink-volume bluez_sink.CC_98_8B_93_3A_17.a2dp_sink 100%
+mod1 + shift + F4
+    pactl set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo toggle
 mod1 + F5
     brightness-menu
 mod1 + {_,shift +}F6
     picom-invert -{A,D}r
-mod1 + F7
+mod1 + F6
     control-sonos
+mod1 + F7
+    xrandr --output eDP-1 --off && xrandr --output eDP-1 --mode 1920x1080
 # 1}}} -
 
 # Other {{{1 -
