@@ -1,16 +1,16 @@
 #!/bin/sh
 
-if pgrep trayer ; then
+if pgrep trayer; then
     killall trayer
 else
     setsid trayer \
-    --edge bottom \
-    --align right \
-    --distance 4 \
-    --distancefrom right \
-    --widthtype request \
-    --heighttype request \
-    --transparent true \
-    --alpha 200 \
-    &
+        --edge bottom \
+        --align right \
+        --distance 4 \
+        --distancefrom right \
+        --widthtype request \
+        --heighttype request \
+        --transparent true \
+        --alpha 200 \
+        ;
 fi

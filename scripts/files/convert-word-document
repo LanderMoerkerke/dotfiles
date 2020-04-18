@@ -9,7 +9,7 @@ if [ -z "$1" ]; then
     exit
 fi
 
-if ! echo $extensions | grep -w $ext > /dev/null; then
+if ! echo $extensions | grep -w $ext >/dev/null; then
     echo "Provide a valid document"
     echo "- Options: $extensions"
     exit

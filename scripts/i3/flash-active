@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #Flashes the active window in I3
 
 transset-df -a -t 0.85

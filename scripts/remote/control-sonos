@@ -5,16 +5,16 @@ sonos_command="noson-app --cli"
 commands="play\npause\nstop\nprevious\nnext\nvolume"
 volumes="10\n15\n20\n25\n30\n40\n50\n60\n70\n80"
 
-command=`echo $commands | dmenu -p "Action:"` || exit 1
+command=$(echo $commands | dmenu -p "Action:") || exit 1
 
-sonos_output=`echo "exit" | $sonos_command`
+sonos_output=$(echo "exit" | $sonos_command)
 
 # zones=`echo "$sonos_output" | awk '/zone/ {gsub(/'"'"'/,""); print $NF}'`
-zones=`echo "$sonos_output" | awk -F "'" '/zone/ {print $2}'`
-zone=`echo "$zones" | dmenu` || exit 1
+zones=$(echo "$sonos_output" | awk -F "'" '/zone/ {print $2}')
+zone=$(echo "$zones" | dmenu) || exit 1
 
 if [ $command = "volume" ]; then
-    volume=`echo $volumes | dmenu -p "Volume:"` || exit 1
+    volume=$(echo $volumes | dmenu -p "Volume:") || exit 1
 fi
 
 echo "CONNECT $zone\n$command $volume\n" | $sonos_command

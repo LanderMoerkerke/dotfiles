@@ -9,6 +9,6 @@ brightness="
     10
 "
 
-selected=`echo $brightness | dmenu -p 'Brightness level:'`
+selected=$(echo $brightness | dmenu -p 'Brightness level:')
 
 light -S $selected

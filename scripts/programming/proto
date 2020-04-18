@@ -1,0 +1,8 @@
+#!/bin/sh
+
+TEST_DIR=${1:-"/tmp/a"}
+
+mkdir -p $TEST_DIR
+cd $TEST_DIR
+
+pipenv shell

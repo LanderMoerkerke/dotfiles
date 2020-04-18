@@ -17,6 +17,6 @@ status() {
 }
 
 while true; do
-	xsetroot -name "$(status | tr '\n' ' ')" &
+    xsetroot -name "$(status | tr '\n' ' ')" &
     sleep 3
 done

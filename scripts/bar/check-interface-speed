@@ -13,8 +13,8 @@ for interface in "$prefix/wifi*"; do
     rx2=$(cat $interface/statistics/rx_bytes)
     tx2=$(cat $interface/statistics/tx_bytes)
 
-    down=`awk -v rx2="$rx2" -v rx1="$rx1" -v interval="$interval" 'BEGIN{printf("%.2f\n"), (rx2-rx1)/(interval*1024*1000)}';`
-    up=`awk -v tx2="$tx2" -v tx1="$tx1" -v interval="$interval" 'BEGIN{printf("%.2f\n"), (tx2-tx1)/(interval*1024*1000)}';`
+    down=$(awk -v rx2="$rx2" -v rx1="$rx1" -v interval="$interval" 'BEGIN{printf("%.2f\n"), (rx2-rx1)/(interval*1024*1000)}')
+    up=$(awk -v tx2="$tx2" -v tx1="$tx1" -v interval="$interval" 'BEGIN{printf("%.2f\n"), (tx2-tx1)/(interval*1024*1000)}')
 
     echo " $down MB/s    $up MB/s"
 done

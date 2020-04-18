@@ -1,13 +1,13 @@
 #!/bin/sh
 
 temp=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input)
-celcius=$(( temp / 1000 ))
+celcius=$((temp / 1000))
 
 case "$celcius" in
     9[0-9] | 8[0-9]) echo "  $celcius°C" ;;
-    7[0-9])          echo "  $celcius°C" ;;
-    6[0-9])          echo "  $celcius°C" ;;
-    5[0-9])          echo "  $celcius°C" ;;
-    4[0-9])          echo "  $celcius°C" ;;
-    *)               echo "  $celcius°C" ;;
+    7[0-9]) echo "  $celcius°C" ;;
+    6[0-9]) echo "  $celcius°C" ;;
+    5[0-9]) echo "  $celcius°C" ;;
+    4[0-9]) echo "  $celcius°C" ;;
+    *) echo "  $celcius°C" ;;
 esac

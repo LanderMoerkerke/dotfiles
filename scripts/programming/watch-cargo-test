@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find tests Cargo.toml 2>/dev/null | entr -s 'cargo test'

@@ -530,6 +530,7 @@ let g:ale_fixers = {
     \ 'xml': ['xmllint'],
 \}
 
+let g:ale_sh_shfmt_options = "-p -i 4 -ci"
 let g:ale_python_black_options = "-l 120"
 let g:ale_javascript_prettier_options = "--tab-width 2 --print-width 120 --single-quote"
 
@@ -754,7 +755,7 @@ augroup buffer_actions
     " Before saving
     autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
 
-    autocmd BufWritePre *.go,*.js,*.rs ALEFix           " format
+    autocmd BufWritePre *.go,*.js,*.rs,*.sh ALEFix           " format
     autocmd BufWritePre *.py ALEFix isort black
 
     " After saving

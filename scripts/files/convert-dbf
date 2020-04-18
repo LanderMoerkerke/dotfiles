@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for i in $(ls *.dbf); do
+    pgdbf $i | iconv -c -f ISO-8859-1 -t UTF-8 | psql -h localhost -p 9001 -U postgres
+done

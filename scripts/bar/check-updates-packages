@@ -1,6 +1,6 @@
 #!/bin/sh
 
-unread=$(checkupdates | wc -l)
+unread=$(cat /tmp/packages_updates)
 
 if [ "$unread" != "0" ]; then
     echo "  $unread"

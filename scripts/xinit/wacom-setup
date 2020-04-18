@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# pad
+xsetwacom list devices | grep pad
+
+xsetwacom set 12 Button 1 11
+xsetwacom set 12 Button 2 12
+
+xinput map-to-output 26 DP-1
+
+# xsetwacom set 26 MapToOutput 2560x1440+1920+0

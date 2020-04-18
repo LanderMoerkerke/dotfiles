@@ -5,7 +5,7 @@ domain=$(echo "$1" | cut -d '/' -f3)
 out_file=/tmp/article.html
 
 if [ "$domain" = "sporza.be" ]; then
-    curl -s "$1" | grep -v "<link" | hxselect -c "#main-content" > "$out_file"
+    curl -s "$1" | grep -v "<link" | hxselect -c "#main-content" >"$out_file"
     w3m "$out_file"
 else
     w3m "$1"
