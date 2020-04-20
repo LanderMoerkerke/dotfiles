@@ -64,7 +64,7 @@ Plug 'chrisbra/csv.vim'                                             " Tabularize
 Plug 'mzlogin/vim-markdown-toc'                                     " TOC for Markdown
 
 " Linting
-Plug 'MoerkerkeLander/ale'                                          " Linting engine
+Plug 'LanderMoerkerke/ale'                                          " Linting engine
 
 " Filetypes / syntax
 Plug 'sheerun/vim-polyglot'                                         " Extra syntax highlighting support
@@ -671,7 +671,7 @@ let g:UltiSnipsEditSplit="vertical"
 " General autocomplete variables
 let g:snips_author = "Lander Moerkerke"
 let g:snips_email = "lander.moerkerke@telenet.be"
-let g:snips_github = "https://github.com/MoerkerkeLander"
+let g:snips_github = "https://github.com/LanderMoerkerke"
 
 " ------
 " Appearance
