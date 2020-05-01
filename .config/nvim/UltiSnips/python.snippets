@@ -67,6 +67,10 @@ snippet ie "Import enum"
 from enum import Enum
 endsnippet
 
+snippet il "Import logger"
+from logging import Logger
+endsnippet
+
 snippet idt "Import datetime"
 from datetime import datetime, timedelta
 endsnippet
@@ -344,5 +348,21 @@ if __name__ == "__main__":
 	app.run(host="0.0.0.0", port=8000)
 endsnippet
 
+snippet fastapi "FastAPI"
+from fastapi import FastAPI, Query
+
+app = FastAPI()
+
+
+@app.get("/")
+async def root(params: str = Query(None)):
+	return {"message": params}
+
+
+@app.post("/")
+async def root_post():
+	return {"verb": "POST"}
+endsnippet
 
 # vim: ft=snippets
+
