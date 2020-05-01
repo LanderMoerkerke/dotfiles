@@ -81,8 +81,8 @@ hi Repeat           ctermfg=140     ctermbg=NONE    cterm=NONE      guifg=#AF87D
 hi Special          ctermfg=117     ctermbg=NONE    cterm=NONE      guifg=#87D7FF       guibg=NONE      gui=NONE
 hi SpecialComment   ctermfg=242     ctermbg=NONE    cterm=NONE      guifg=#666666       guibg=NONE      gui=NONE
 hi SpecialKey       ctermfg=59      ctermbg=237     cterm=NONE      guifg=#5F5F5F       guibg=#3A3A3A   gui=NONE
-hi SpellBad         ctermfg=255     ctermbg=167     cterm=NONE      guifg=#EEEEEE       guibg=#D75F5F   gui=undercurl
-hi SpellCap         ctermfg=255     ctermbg=74      cterm=NONE      guifg=#EEEEEE       guibg=#5FAFD7   gui=undercurl
+hi SpellBad         ctermfg=255     ctermbg=167     cterm=NONE      guifg=#D75F5F       guibg=#1C1C1C   gui=undercurl
+hi SpellCap         ctermfg=255     ctermbg=74      cterm=NONE      guifg=#5FAFD7       guibg=#1C1C1C   gui=undercurl
 hi SpellRare        ctermfg=255     ctermbg=140     cterm=NONE      guifg=#EEEEEE       guibg=#AF87D7   gui=undercurl
 hi SpellLocal       ctermfg=255     ctermbg=14      cterm=NONE      guifg=#EEEEEE       guibg=#5FB3B3   gui=undercurl
 hi Statement        ctermfg=167     ctermbg=NONE    cterm=NONE      guifg=#D75F5F       guibg=NONE      gui=NONE
