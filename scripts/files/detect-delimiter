@@ -1,0 +1,7 @@
+# !/bin/sh
+
+first_row=$(head -1 $1)
+
+echo "$first_row" | grep -q ';' && echo ';'
+echo "$first_row" | grep -q ',' && echo ','
+echo "$first_row" | grep -q '|' && echo '|'
