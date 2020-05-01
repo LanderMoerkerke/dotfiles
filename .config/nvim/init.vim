@@ -681,8 +681,6 @@ colorscheme              minimalist
 " colorscheme              codedark
 " colorscheme wombat256mod
 
-hi clear                 SpellBad
-hi clear ALEWarning
 
 hi SpellBad              ctermfg=203   ctermbg=233
 
