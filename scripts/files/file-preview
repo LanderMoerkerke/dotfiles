@@ -11,5 +11,6 @@ case "$1" in
     *.sqlite | *.db) echo "SELECT name FROM sqlite_master WHERE type='table';" | sqlite3 "$1" ;;
     *.dbf) dbview "$1" ;;
     *.json) cat "$1" | jq | $HIGHLIGHT --syntax json ;;
+    *.csv) xsv table -d $(detect-delimiter "$1") "$1" ;;
     *) $HIGHLIGHT -- "$1" || cat "$1" ;;
 esac
