@@ -888,7 +888,7 @@ c.url.incdec_segments = ["path", "query"]
 # Type: Dict
 
 c.url.searchengines = {
-    "DEFAULT": "https://duckduckgo.com/?q={}",
+    "DEFAULT": "https://google.com/search?q={}",
     "g": "https://google.com/search?q={}",
     "gi": "https://www.google.be/search?q={}&source=lnms&tbm=isch",
     "alp": "https://pkgs.alpinelinux.org/packages?name=*{}*",
@@ -897,6 +897,7 @@ c.url.searchengines = {
     "bc": "https://www.bitchute.com/search?q={}&sort=date_created%20desc",
     "ddg": "https://duckduckgo.com/?q={}",
     "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
+    "docker": "https://hub.docker.com/search?q={}",
     "eb": "https://ebay.com/sch/{}",
     "i": "https://duckduckgo.com/?q={}&t=ha&iar=images",
     "imdb": "https://www.imdb.com/find?s=all&q={}",
