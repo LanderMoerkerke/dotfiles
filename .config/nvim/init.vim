@@ -532,6 +532,7 @@ let g:ale_fixers = {
 
 let g:ale_sh_shfmt_options = "-p -i 4 -ci"
 let g:ale_python_black_options = "-l 120"
+let g:ale_python_bandit_options = "-c /home/lander/.config/bandit/config.yaml"
 let g:ale_javascript_prettier_options = "--tab-width 2 --print-width 120 --single-quote"
 
 " golangci-lint run
