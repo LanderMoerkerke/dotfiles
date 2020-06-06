@@ -15,6 +15,8 @@ Plug 'junegunn/vim-easy-align'                                      " Easy align
 Plug 'tpope/vim-repeat'                                             " Repeat custom plugins
 Plug 'airblade/vim-rooter'                                          " Change cwd
 
+Plug 'justinmk/vim-sneak'
+
 " Unix related
 Plug 'jamessan/vim-gnupg'                                           " GPG viewer
 Plug 'lambdalisue/suda.vim'                                         " Sudo
@@ -68,7 +70,6 @@ Plug 'LanderMoerkerke/ale'                                          " Linting en
 
 " Filetypes / syntax
 Plug 'sheerun/vim-polyglot'                                         " Extra syntax highlighting support
-
 
 call plug#end()
 
@@ -204,7 +205,7 @@ nnoremap <leader>s :sort<cr>
 vnoremap <leader>s :sort<cr>
 
 " Replace all
-nnoremap S :%s//g<Left><Left>
+nnoremap <leader>S :%s//g<Left><Left>
 
 " Count occurances under the cursor
 nnoremap ,* *<C-O>:%s///gn<CR>
