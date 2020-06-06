@@ -1216,7 +1216,7 @@ c.bindings.commands = {
         "<Return>": "follow-hint",
     },
     "insert": {"<Ctrl-E>": "open-editor", "<Escape>": "leave-mode", "<Shift-Ins>": "insert-text {primary}"},
-    "passthrough": {"<Ctrl-V>": "leave-mode"},
+    "passthrough": {"<Ctrl-g>": "leave-mode"},
     "prompt": {
         "<Alt-B>": "rl-backward-word",
         "<Alt-Backspace>": "rl-backward-kill-word",
