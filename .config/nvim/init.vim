@@ -606,7 +606,7 @@ let g:LanguageClient_serverCommands = {
             \ 'python':     ['mspyls'],
             \ 'rust':       ['rust-analyzer'],
             \ 'sh':         ['bash-language-server', 'start'],
-            \ 'sql':        ['sql-language-server', 'up', '--method', 'stdio'],
+            \ 'sql':        ['pgls'],
             \ 'typescript': ['javascript-typescript-stdio'],
             \ 'typescriptreact': ['javascript-typescript-stdio'],
             \ 'yaml':       ['yaml-language-server', '--stdio']
