@@ -9,10 +9,10 @@ fi
 function chpwd() {ls -hN --color=auto --group-directories-first}
 
 # cat copy
-cop () { cat "$1" | xsel -ib }
+function cop () { cat "$1" | xsel -ib }
 
 # fkill - kill process
-killf() {
+function killf() {
   local pid
   pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
@@ -23,7 +23,7 @@ killf() {
 }
 
 # checkout branch
-gcbf() {
+function gcbf() {
     local tags branches target
     tags=$(git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
     branches=$(git branch --all | grep -v HEAD |
@@ -34,7 +34,7 @@ gcbf() {
 }
 
 # checkout commit
-gccf() {
+function gccf() {
     local commits commit
     commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
     commit=$(echo "$commits" | fzf --tac +s +m -e) &&
@@ -63,19 +63,19 @@ function cd() {
 }
 
 # helm
-khelm () {
+function khelm () {
 
     helm template . | kubectl apply -f -
 
 }
 
-khelm_delete () {
+function khelm_delete () {
 
     helm template . | kubectl delete -f -
 
 }
 
-khelm_all () {
+function khelm_all () {
 
     for i in $(ls); do
 
