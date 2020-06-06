@@ -282,12 +282,12 @@ vnoremap <silent><leader><Tab> :exe "tabn ".g:lasttab<cr>
 " ------
 
 " errors of LC
-nnoremap <leader>qq <Esc>:lopen 5<CR>
+nnoremap <leader>qq <Esc>:lopen 8<CR>
 nnoremap <leader>qn <Esc>:lnext<CR>
 nnoremap <leader>qp <Esc>:lprev<CR>
 
 " search items of Rg
-nnoremap <leader>Qq <Esc>:copen 5<CR>
+nnoremap <leader>Qq <Esc>:copen 8<CR>
 nnoremap <leader>Qn <Esc>:cnext<CR>
 nnoremap <leader>Qp <Esc>:cprev<CR>
 
