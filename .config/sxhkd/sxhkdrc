@@ -25,20 +25,14 @@ super + Return
     $TERMINAL
 super + shift + Return
     samedir
-super + r
-    $TERMINAL -e lf
 super + w
    $FILEMANAGER2
 super + shift + v
     $TERMINAL -e nvim
-super + shift + s
-    systray-toggle
 super + b
     $BROWSER
 super + shift + b
     $BROWSER2
-super + shift + m
-    caprine
 super + p
     gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
 # 1}}} -
