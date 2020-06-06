@@ -140,8 +140,10 @@ export PIPENV_SPINNER=pong
 export PIPENV_DOTENV_LOCATION="$HOME/Pipenv/.env"
 
 # FZF
-export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file .gitignore_global ."
-export FZF_DEFAULT_OPTS='-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up'
+export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file $HOME/.gitignore_global --ignore-file .gitignore ."
+
+# export FZF_DEFAULT_OPTS="-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+export FZF_DEFAULT_OPTS="-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up --preview 'file-preview {}'"
 
 
 . "$XDG_DATA_HOME"/icons/term-icons
