@@ -840,6 +840,7 @@ c.colors.tabs.pinned.even.bg = "grey"
 c.colors.tabs.pinned.odd.bg = "grey"
 
 c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.darkmode.enabled = True
 
 # The width of the tab bar if it's vertical, in px or as percentage of
 # the window.
