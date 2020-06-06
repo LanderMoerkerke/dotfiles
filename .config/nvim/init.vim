@@ -502,7 +502,7 @@ let g:ale_completion_enabled = 0
 let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-imports --remove-unused-variables --remove-duplicate-keys -s'
 
 let g:ale_linters = {
-    \ 'python': ['pylint', 'flake8', 'mypy', 'bandit'],
+    \ 'python': ['mypy'],
     \ 'javascript': ['eslint'],
     \ 'go': ['golint']
 \}
