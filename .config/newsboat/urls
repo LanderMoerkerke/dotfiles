@@ -42,6 +42,7 @@ https://www.reddit.com/r/ubuntu.rss "~r/ubuntu" "reddit" "tech"
 https://www.reddit.com/r/vim.rss "~r/vim" "reddit" "tech"
 
 "    Arch Linux"
+https://www.archlinux.org/feeds/news/ "Arch News" "tech"
 https://www.archlinux.org/feeds/packages/added/ "~Packages Added" "tech"
 https://www.archlinux.org/feeds/packages/removed/ "~Packages Removed" "tech"
 https://aur.archlinux.org/rss/ "~Packages Added (AUR)" "tech"
