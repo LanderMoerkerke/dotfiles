@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(echo "Clipboard\nFile" | dmenu -i -p "Where to copy screenshot?")
+choice=$(echo "Clipboard\nFile\nSlack Upload" | dmenu -i -p "Where to copy screenshot?")
 
 echo "$choice"
 
@@ -21,4 +21,13 @@ if [ "$choice" = "File" ]; then
 elif [ "$choice" = "Clipboard" ]; then
     maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
     notify-send "Printscreen" "Crop copied to clipboard"
+
+elif [ "$choice" = "Slack Upload" ]; then
+
+    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
+    maim -s -u --format=png /tmp/$NAME || exit 1
+
+    notify-send "Printscreen" "Saved to /tmp/$NAME.png\nCopied to clipboard" -i /tmp/$NAME.png
+
+    echo "/slack upload /tmp/$NAME.png" | xclip -selection clipboard -t image/png -i
 fi
