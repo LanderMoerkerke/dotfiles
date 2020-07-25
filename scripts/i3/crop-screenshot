@@ -25,7 +25,7 @@ elif [ "$choice" = "Clipboard" ]; then
 elif [ "$choice" = "Slack Upload" ]; then
 
     NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
-    maim -s -u --format=png /tmp/$NAME || exit 1
+    maim -s -u --format=png /tmp/$NAME.png || exit 1
 
     notify-send "Printscreen" "Saved to /tmp/$NAME.png\nCopied to clipboard" -i /tmp/$NAME.png
 
