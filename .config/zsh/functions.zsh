@@ -121,18 +121,19 @@ function pacman-qi(){
             --bind='enter:execute(pacman -Qi {} | less)'
 }
 
+
 function wgttp () {
-    http --auth-type=jwt -v --auth=$(wg token --env qa | sed 1q) $*
+    http --auth-type=jwt --auth=$(wg token --env qa | sed 1q) $*
 }
 
 alias wgttp-qa="wgttp"
 
 function wgttp-staging () {
-    http --auth-type=jwt -v --auth=$(wg token --env staging | sed 1q) $*
+    http --auth-type=jwt --auth=$(wg token --env staging | sed 1q) $*
 }
 
 function wgttp-prod () {
-    http --auth-type=jwt -v --auth=$(wg token --env production | sed 1q) $*
+    http --auth-type=jwt --auth=$(wg token --env production | sed 1q) $*
 }
 
 function py-format () {
