@@ -1131,7 +1131,7 @@ c.bindings.commands = {
         "wb": "set-cmd-text -s :quickmark-load -w",
         "wf": "hint all window",
         "wh": "back -w",
-        "wi": "inspector",
+        "wi": "devtools right",
         "wl": "forward -w",
         "wo": "set-cmd-text -s :open -w",
         "wp": "open -w -- {clipboard}",
