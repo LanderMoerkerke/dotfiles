@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(echo "Clipboard\nFile\nSlack Upload" | dmenu -i -p "Where to copy screenshot?")
+choice=$(echo "Clipboard\nFile\nSlack Upload\nDragon" | dmenu -i -p "Where to copy screenshot?")
 
 echo "$choice"
 
@@ -30,4 +30,12 @@ elif [ "$choice" = "Slack Upload" ]; then
     notify-send "Printscreen" "Saved to /tmp/$NAME.png\nCopied to clipboard" -i /tmp/$NAME.png
 
     echo "/slack upload /tmp/$NAME.png" | xclip -selection clipboard -t image/png -i
+
+elif [ "$choice" = "Dragon" ]; then
+
+    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
+    maim -s -u --format=png /tmp/$NAME.png || exit 1
+
+    dragon-drag-and-drop -x "/tmp/$NAME.png"
+
 fi
