@@ -28,7 +28,7 @@ c.aliases = {
 
 # How often (in milliseconds) to auto-save config/cookies/etc.
 # Type: Int
-c.auto_save.interval = 15000
+# c.auto_save.interval = 15000
 
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
@@ -421,7 +421,8 @@ c.fonts.statusbar = "9pt monospace"
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = "9pt monospace"
+c.fonts.tabs.selected = "9pt monospace"
+c.fonts.tabs.unselected = "9pt monospace"
 
 # Font family for cursive fonts.
 # Type: FontFamily
@@ -564,11 +565,6 @@ c.input.links_included_in_focus_chain = True
 # cleared after this time.
 # Type: Int
 c.input.partial_timeout = 5000
-
-# Enable Opera-like mouse rocker gestures. This disables the context
-# menu.
-# Type: Bool
-c.input.rocker_gestures = False
 
 # Enable Spatial Navigation. Spatial navigation consists in the ability
 # to navigate between focusable elements in a Web page, such as
