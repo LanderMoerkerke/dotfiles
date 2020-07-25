@@ -691,6 +691,10 @@ hi IndentGuidesEven      guibg=green   ctermbg=4
 hi CursorLineNr          guifg=yellow  ctermfg=11
 hi Visual                ctermfg=black ctermbg=244
 
+" hi GitGutterAdd          ctermbg=150   ctermfg=black
+" hi GitGutterChange       ctermbg=74    ctermfg=black
+" hi GitGutterDelete       ctermbg=167   ctermfg=black
+" hi GitGutterChangeDelete ctermbg=74    ctermfg=black
 
 " ------
 " Commands
