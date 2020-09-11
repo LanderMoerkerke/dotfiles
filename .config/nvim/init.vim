@@ -774,7 +774,7 @@ augroup buffer_actions
     " Before saving
     autocmd BufWritePre * %s/\s\+$//e                   " deletes tralling whitespace on save
 
-    autocmd BufWritePre *.go,*.js,*.rs,*.sh ALEFix           " format
+    autocmd BufWritePre *.go,*.rs,*.sh,*.bash ALEFix           " format
     autocmd BufWritePre *.py ALEFix isort black
 
     " After saving
