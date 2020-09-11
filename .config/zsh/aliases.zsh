@@ -85,6 +85,7 @@ alias update-pymodels='git --git-dir=$WG/Bitbucket/OTHER/wg-py-models/.git pull'
 alias pc="pre-commit run --all-files"
 
 alias pe="pipenv"
+alias per="pipenv run"
 alias pes="pipenv shell"
 alias peg="pipenv graph | less"
 alias pei="pipenv install"
