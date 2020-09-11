@@ -494,7 +494,7 @@ let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ALE
-let g:ale_disable_lsp = 1
+" let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 1
 
 let g:ale_lint_on_text_changed = 'never'
@@ -506,7 +506,7 @@ let g:ale_completion_enabled = 0
 let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-imports --remove-unused-variables --remove-duplicate-keys -s'
 
 let g:ale_linters = {
-    \ 'python': ['mypy'],
+    \ 'python': ['pyright', 'pylint'],
     \ 'javascript': ['eslint'],
     \ 'go': ['golint'],
     \ 'vim': ['vint']
