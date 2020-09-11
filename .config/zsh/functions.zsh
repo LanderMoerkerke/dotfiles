@@ -122,6 +122,10 @@ function pacman-qi(){
 }
 
 
+function drone-api () {
+    http --auth-type=jwt --auth="$DRONE_TOKEN" $*
+}
+
 function wgttp () {
     http --auth-type=jwt --auth=$(wg token --env qa | sed 1q) $*
 }
