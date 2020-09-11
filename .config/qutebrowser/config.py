@@ -885,9 +885,7 @@ c.url.incdec_segments = ["path", "query"]
 # Type: Dict
 
 c.url.searchengines = {
-    "DEFAULT": "https://google.com/search?q={}",
-    "g": "https://google.com/search?q={}",
-    "gi": "https://www.google.be/search?q={}&source=lnms&tbm=isch",
+    "DEFAULT": "https://duckduckgo.com/?q={}",
     "alp": "https://pkgs.alpinelinux.org/packages?name=*{}*",
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "aw": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
@@ -896,12 +894,15 @@ c.url.searchengines = {
     "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
     "docker": "https://hub.docker.com/search?q={}",
     "eb": "https://ebay.com/sch/{}",
+    "g": "https://google.com/search?q={}",
+    "gh": "https://github.com/search?q={}",
+    "gi": "https://www.google.be/search?q={}&source=lnms&tbm=isch",
     "i": "https://duckduckgo.com/?q={}&t=ha&iar=images",
     "imdb": "https://www.imdb.com/find?s=all&q={}",
     "maps": "http://maps.google.com/?q={}",
     "mtp": "http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}",
     "osm": "http://www.openstreetmap.org/search?query={}",
-    "py": "https://docs.python.org/3.7/search.html?q={}",
+    "py": "https://docs.python.org/3.8/search.html?q={}",
     "pypi": "https://pypi.org/search/?q={}",
     "red": "https://reddit.com/r/{}",
     "syn": "https://synoniemen.net/index.php?zoekterm={}",
