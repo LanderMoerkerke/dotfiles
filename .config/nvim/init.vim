@@ -522,7 +522,7 @@ let g:ale_fixers = {
     \ 'javascriptreact': ['eslint', 'prettier'],
     \ 'typescript': ['eslint', 'prettier'],
     \ 'typescriptreact': ['eslint', 'prettier'],
-    \ 'json': ['fixjson', 'prettier'],
+    \ 'json': ['jq', 'prettier'],
     \ 'markdown': ['remark'],
     \ 'python': ['autoflake', 'isort', 'black'],
     \ 'rust': ['rustfmt'],
