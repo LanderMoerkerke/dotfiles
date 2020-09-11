@@ -327,6 +327,7 @@ map gb cd ~/Documents/Work/WeGroup/Bitbucket
 map cba $lf -remote "send $id cd $(go-project ba)"
 map cbb $lf -remote "send $id cd $(go-project bb)"
 map cbc $lf -remote "send $id cd $(go-project bc)"
+map cbC $lf -remote "send $id cd $(go-project bC)"
 map cbd $lf -remote "send $id cd $(go-project bd)"
 map cbe $lf -remote "send $id cd $(go-project be)"
 map cbf $lf -remote "send $id cd $(go-project bf)"
