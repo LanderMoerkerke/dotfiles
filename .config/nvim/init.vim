@@ -72,6 +72,7 @@ Plug 'LanderMoerkerke/ale'                                          " Linting en
 
 " Filetypes / syntax
 Plug 'sheerun/vim-polyglot'                                         " Extra syntax highlighting support
+Plug 'ron-rs/ron.vim'                                               " Syntax highlighting RON
 
 call plug#end()
 
