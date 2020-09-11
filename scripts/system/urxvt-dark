@@ -1,0 +1,4 @@
+#!/bin/sh
+
+printf '\033]11;black\007'
+printf '\033]10;white\007'
