@@ -359,8 +359,8 @@ vnoremap <Leader>rg <C-w>:Rg<Space>
 let g:rg_highlight = 1
 
 " Easy-align
-xmap <leader>a <Plug>(EasyAlign)
-nmap <leader>a <Plug>(EasyAlign)
+xnoremap <leader>a <Plug>(EasyAlign)
+nnoremap <leader>a <Plug>(EasyAlign)
 
 " Polyglot
 let g:polyglot_disabled = ['markdown']
