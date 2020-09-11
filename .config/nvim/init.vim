@@ -55,6 +55,8 @@ Plug 'liuchengxu/vista.vim'                                         " Tags visua
 Plug 'ColinKennedy/vim-python-function-expander'                    " Expand python functions arguments
 Plug 'Shougo/echodoc.vim'                                           " Show doc when typing a function
 
+Plug 'kkoomen/vim-doge'                                             " Documentation generator
+
 " Snippets
 Plug 'SirVer/ultisnips'                                             " Snippets
 Plug 'honza/vim-snippets'                                           " Extra snippets
@@ -644,6 +646,12 @@ call ncm2#override_source('ultisnips', {'priority': 10})
 
 " Python Function Expander
 nmap <leader>ya <Plug>(trimmer-mapping)
+
+" DoGe
+let g:doge_doc_standard_python = 'google'
+
+let g:doge_mapping_comment_jump_forward = "<c-j>"
+let g:doge_mapping_comment_jump_backward = "<c-k>"
 
 " Vista
 
