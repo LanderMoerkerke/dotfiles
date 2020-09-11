@@ -508,7 +508,8 @@ let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-
 let g:ale_linters = {
     \ 'python': ['mypy'],
     \ 'javascript': ['eslint'],
-    \ 'go': ['golint']
+    \ 'go': ['golint'],
+    \ 'vim': ['vint']
 \}
 
 let g:ale_fixers = {
