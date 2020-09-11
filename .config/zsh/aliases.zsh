@@ -19,6 +19,8 @@ alias wget="wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts"
 alias offlineimap="offlineimap -c "$XDG_CONFIG_HOME"/offlineimap/offlineimaprc"
 alias mbsync="mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc"
 
+alias curltime="curl -w \"@$HOME/.config/curl/curl-timing.txt\" -o NUL -s "
+
 # git
 
 alias gc="git checkout"
