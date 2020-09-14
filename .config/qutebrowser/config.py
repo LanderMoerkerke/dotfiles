@@ -369,7 +369,7 @@ c.downloads.remove_finished = 60000
 # The editor (and arguments) to use for the `open-editor` command. `{}`
 # gets replaced by the filename of the file to be edited.
 # Type: ShellCommand
-c.editor.command = ["urxvt", "-e", "nvim", "{}"]
+c.editor.command = ["st", "-e", "nvim", "{}", "+call cursor({line}, {column})"]
 
 # Encoding to use for the editor.
 # Type: Encoding
