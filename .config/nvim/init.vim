@@ -363,7 +363,7 @@ xnoremap <leader>a <Plug>(EasyAlign)
 nnoremap <leader>a <Plug>(EasyAlign)
 
 " Polyglot
-let g:polyglot_disabled = ['markdown']
+let g:polyglot_disabled = ['markdown', 'vimwiki']
 
 " Esc closes FZF
 au TermOpen * tnoremap <Esc> <c-\><c-n>
