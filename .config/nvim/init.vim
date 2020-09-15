@@ -15,6 +15,8 @@ Plug 'junegunn/vim-easy-align'                                      " Easy align
 Plug 'tpope/vim-repeat'                                             " Repeat custom plugins
 Plug 'airblade/vim-rooter'                                          " Change cwd
 
+Plug 'tpope/vim-vinegar'                                            " Netrw expansion
+
 Plug 'justinmk/vim-sneak'
 
 " Unix related
@@ -24,8 +26,8 @@ Plug 'jremmen/vim-ripgrep'                                          " RipGrep
 
 " Appearance
 Plug 'mhinz/vim-startify'                                           " Fancy startup
-Plug 'scrooloose/nerdtree'                                          " Nerdtree
-Plug 'ryanoasis/vim-devicons'                                       " Icons
+" Plug 'scrooloose/nerdtree'                                          " Nerdtree
+" Plug 'ryanoasis/vim-devicons'                                       " Icons
 Plug 'vim-airline/vim-airline'										" Statusbar
 Plug 'vim-airline/vim-airline-themes'                               " Statusbar themes
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }           " Colorviewer
@@ -407,12 +409,81 @@ let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_inside_quotes = 1
 
-" Nerdtree
-let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=25
-let NERDTreeBookmarksFile=expand('~/.config/nvim/NERDTreeBookmarks.txt')
+" " Nerdtree
+" let NERDTreeShowHidden=1
+" let g:NERDTreeWinSize=25
+" let NERDTreeBookmarksFile=expand('~/.config/nvim/NERDTreeBookmarks.txt')
 
-nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
+" nmap <silent> <Leader>f :call g:WorkaroundNERDTreeToggle()<CR>
+
+" Netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 15
+noremap <silent> <leader>f :call ToggleNetrw()<CR>
+
+function! OpenToRight()
+    " :normal v
+    let g:path=expand('%:p')
+    execute 'q!'
+    execute 'belowright vnew' g:path
+    " :normal <C-w>l
+endfunction
+
+function! OpenBelow()
+    " :normal v
+    let g:path=expand('%:p')
+    execute 'q!'
+    execute 'belowright new' g:path
+    " :normal <C-w>l
+endfunction
+
+function! OpenTab()
+    " :normal v
+    let g:path=expand('%:p')
+    execute 'q!'
+    execute 'tabedit' g:path
+    " :normal <C-w>l
+endfunction
+
+function! NetrwMappings()
+    " Hack fix to make ctrl-l work properly
+    noremap <buffer> <A-l> <C-w>l
+    noremap <buffer> <C-l> <C-w>l
+    noremap <silent> <leader>f :call ToggleNetrw()<CR>
+    noremap <buffer> V :call OpenToRight()<cr>
+    noremap <buffer> H :call OpenBelow()<cr>
+    noremap <buffer> T :call OpenTab()<cr>
+endfunction
+
+" Allow for netrw to be toggled
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+
+" Check before opening buffer on any file
+function! NetrwOnBufferOpen()
+if exists('b:noNetrw')
+    return
+endif
+call ToggleNetrw()
+endfun
+
+let g:NetrwIsOpen=0
+
 
 " Color
 let g:Hexokinase_ftEnabled = ['css', 'html', 'javascript']
@@ -691,7 +762,6 @@ colorscheme              minimalist
 " colorscheme              codedark
 " colorscheme wombat256mod
 
-
 hi SpellBad              ctermfg=203   ctermbg=233
 
 " hi LCError               ctermfg=203   ctermbg=203
@@ -734,16 +804,16 @@ function! s:DiffWithSaved()
     exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 
-function! g:WorkaroundNERDTreeToggle()
-  try | NERDTreeToggle | catch | silent! NERDTree | endtry
-endfunction
+" function! g:WorkaroundNERDTreeToggle()
+"   try | NERDTreeToggle | catch | silent! NERDTree | endtry
+" endfunction
 
-function! NERDTreeOnBufferOpen()
-    if exists('b:noNERDTree')
-        return
-    endif
-    call WorkaroundNERDTreeToggle()
-endfun
+" function! NERDTreeOnBufferOpen()
+"     if exists('b:noNERDTree')
+"         return
+"     endif
+"     call WorkaroundNERDTreeToggle()
+" endfun
 
 " ------
 " Autocommands
@@ -765,9 +835,19 @@ augroup NERD
     " Close vim when nerdtree is last window
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-    autocmd VimEnter ~/.config/joplin/tmp/*,/tmp/*,~/Git/wiki,*/.git/COMMIT_EDITMSG,*.md let b:noNERDTree=1
-    autocmd VimEnter * call NERDTreeOnBufferOpen()
+    " autocmd VimEnter ~/.config/joplin/tmp/*,/tmp/*,~/Git/wiki,*/.git/COMMIT_EDITMSG,*.md let b:noNERDTree=1
+    " autocmd VimEnter * call NERDTreeOnBufferOpen()
+
+    " Don't open Netrw
+    autocmd VimEnter ~/.config/joplin/tmp/*,/tmp/calcurse*,~/.calcurse/notes/*,~/vimwiki/*,*/.git/COMMIT_EDITMSG let b:noNetrw=1
+    autocmd VimEnter * :call NetrwOnBufferOpen()
+
     autocmd VimEnter * wincmd p
+
+    " Close Netrw if it's the only buffer open
+    autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" || &buftype == 'quickfix' |q|endif
+
+    autocmd filetype netrw call NetrwMappings()
 
 augroup end
 
@@ -802,8 +882,8 @@ augroup end
 augroup plugins
 
     " disables keybindings when focussing on nerdtree
-    autocmd FileType nerdtree noremap <buffer> <c-n> <nop>
-    autocmd FileType nerdtree noremap <buffer> <c-p> <nop>
+    " autocmd FileType nerdtree noremap <buffer> <c-n> <nop>
+    " autocmd FileType nerdtree noremap <buffer> <c-p> <nop>
 
     " LanguageClient
     autocmd FileType * call LC_maps()
