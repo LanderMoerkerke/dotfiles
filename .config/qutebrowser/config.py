@@ -892,6 +892,7 @@ c.url.searchengines = {
     "bc": "https://www.bitchute.com/search?q={}&sort=date_created%20desc",
     "ddg": "https://duckduckgo.com/?q={}",
     "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
+    "dicten": "https://www.wordnik.com/words/{}",
     "docker": "https://hub.docker.com/search?q={}",
     "eb": "https://ebay.com/sch/{}",
     "g": "https://google.com/search?q={}",
