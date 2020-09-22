@@ -886,6 +886,8 @@ c.url.incdec_segments = ["path", "query"]
 
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
+    "abb": "https://www.woorden.org/woord/{}",
+    "abben": "https://acronyms.thefreedictionary.com/{}",
     "alp": "https://pkgs.alpinelinux.org/packages?name=*{}*",
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "aw": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
