@@ -61,3 +61,5 @@ source ~/.config/nvim/modules/vista.vim
 source ~/.config/nvim/modules/autocommands.vim
 
 call plug#end()
+
+source ~/.config/nvim/modules/appendix.vim
