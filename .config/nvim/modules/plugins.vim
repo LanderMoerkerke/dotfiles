@@ -15,5 +15,4 @@ Plug 'tomasiser/vim-code-dark'                                      " Theme
 Plug 'chrisbra/csv.vim'                                             " Tabularize content
 
 " Filetypes / syntax
-Plug 'sheerun/vim-polyglot'                                         " Extra syntax highlighting support
 Plug 'ron-rs/ron.vim'                                               " Syntax highlighting RON
