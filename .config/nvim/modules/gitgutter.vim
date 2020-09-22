@@ -22,7 +22,7 @@ nmap <Leader>hv :GitGutterPreviewHunk<CR>
 " hi GitGutterDelete       ctermbg=167   ctermfg=black
 " hi GitGutterChangeDelete ctermbg=74    ctermfg=black
 
-augroup gitgutter
+augroup gitgutter_
 
     " After saving
     autocmd BufWritePost * GitGutter
