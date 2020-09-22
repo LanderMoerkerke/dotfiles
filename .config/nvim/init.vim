@@ -28,6 +28,9 @@ source ~/.config/nvim/modules/hexokinase.vim
 source ~/.config/nvim/modules/indentline.vim
 source ~/.config/nvim/modules/airline.vim
 
+" Filetypes
+source ~/.config/nvim/modules/polyglot.vim
+
 " Snippets
 source ~/.config/nvim/modules/ultisnips.vim
 
