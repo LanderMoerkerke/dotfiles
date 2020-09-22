@@ -1,5 +1,5 @@
 " Diff with saved file
-function! s:DiffWithSaved()
+function! g:DiffWithSaved()
     let filetype=&filetype
     diffthis
     vnew | r # | normal! 1Gdd
@@ -8,7 +8,7 @@ function! s:DiffWithSaved()
 endfunction
 
 " Spellcheck
-function! <SID>ToggleSpell()
+function! g:ToggleSpell()
     let spelllang_list = ['nl', 'en', 'fr']
     let string = []
 
