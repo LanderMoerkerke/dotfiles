@@ -3,7 +3,6 @@ scriptencoding utf-8
 call plug#begin('~/.config/nvim/plugged')
 
 source ~/.config/nvim/modules/basic_settings.vim
-source ~/.config/nvim/modules/basic_autocommands.vim
 source ~/.config/nvim/modules/basic_commands.vim
 source ~/.config/nvim/modules/basic_functions.vim
 source ~/.config/nvim/modules/basic_mappings.vim
@@ -58,5 +57,7 @@ source ~/.config/nvim/modules/ripgrep.vim
 source ~/.config/nvim/modules/rooter.vim
 source ~/.config/nvim/modules/suda.vim
 source ~/.config/nvim/modules/vista.vim
+
+source ~/.config/nvim/modules/autocommands.vim
 
 call plug#end()
