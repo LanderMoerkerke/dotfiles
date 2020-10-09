@@ -223,7 +223,10 @@ def main(arguments):
     #     stderr("Failed to match username pattern on {}!".format(arguments.username_target))
     #     return ExitCodes.COULD_NOT_MATCH_USERNAME
     # username = match.group(1)
-    username = str().join(secret.split('\n')[1].split(' ')[1:])
+    try:
+        username = str().join(secret.split('\n')[1].split(' ')[1:])
+    except IndexError:
+        username = os.getenv("EMAIL_PRIMARY")
 
     # print("-" * 39)
     # print(username)
