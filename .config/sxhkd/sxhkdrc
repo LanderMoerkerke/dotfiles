@@ -35,6 +35,9 @@ super + shift + b
     $BROWSER2
 super + p
     gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
+super + shift + o
+    gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass otp -c
+
 # 1}}} -
 
 # Scripts {{{1 -
