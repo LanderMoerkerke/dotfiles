@@ -16,3 +16,4 @@ Plug 'chrisbra/csv.vim'                                             " Tabularize
 
 " Filetypes / syntax
 Plug 'ron-rs/ron.vim'                                               " Syntax highlighting RON
+Plug 'thalesmello/lkml.vim'                                         " Syntax highlighting LookML
