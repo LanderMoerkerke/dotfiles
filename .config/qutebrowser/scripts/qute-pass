@@ -75,7 +75,7 @@ argument_parser.add_argument(
     "--password-pattern", "-P", default=r"(.*)", help="Regular expression that matches the password"
 )
 argument_parser.add_argument(
-    "--dmenu-invocation", "-d", default="rofi -dmenu", help="Invocation used to execute a dmenu-provider"
+    "--dmenu-invocation", "-d", default="rofi -i -dmenu", help="Invocation used to execute a dmenu-provider"
 )
 argument_parser.add_argument(
     "--no-insert-mode", "-n", dest="insert_mode", action="store_false", help="Don't automatically enter insert mode"
