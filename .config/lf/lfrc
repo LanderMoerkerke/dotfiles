@@ -226,7 +226,7 @@ map d
 map p
 map y
 
-map <bs2> :set hidden!
+map <backspace2> :set hidden!
 map <esc> clear
 
 map t push $touch<space>
