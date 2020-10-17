@@ -1016,7 +1016,6 @@ c.bindings.commands = {
         "<Ctrl-PgDown>": "tab-next",
         "<Ctrl-PgUp>": "tab-prev",
         "<Ctrl-Return>": "follow-selected -t",
-        "<Ctrl-Shift+p>": "spawn --userscript ~/.config/qutebrowser/userscripts/qute-pass",
         "<Ctrl-Shift-n>": "open -p",
         "<Ctrl-Shift-t>": "undo",
         "<Ctrl-Shift-w>": "close",
