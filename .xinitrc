@@ -41,4 +41,8 @@ urxvtd &
 # exec i3
 # exec dwm
 
-exec selectwm -c $XDG_CONFIG_HOME/selectwm/selectwmrc
+# exec selectwm -c $XDG_CONFIG_HOME/selectwm/selectwmrc
+
+while true; do
+    dwm 2> /tmp/dwm.log
+done
