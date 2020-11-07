@@ -111,6 +111,7 @@ typeset -A menu
 # Menu with keys/commands
 menu=(
   [Shutdown]="systemctl poweroff"
+  [KillXorg]="killall Xorg"
   [Reboot]="systemctl reboot"
   [Hibernate]="systemctl hibernate"
   [Suspend]="systemctl suspend"
@@ -168,7 +169,7 @@ function ask_confirmation() {
   fi
 
   if [ "${confirmed}" == 0 ]; then
-    i3-msg -q "exec ${menu[${selection}]}"
+    ${menu[${selection}]}
   fi
 }
 
@@ -177,6 +178,6 @@ if [[ $? -eq 0 && ! -z ${selection} ]]; then
         ${menu_confirm} =~ (^|[[:space:]])"${selection}"($|[[:space:]]) ]]; then
     ask_confirmation
   else
-    i3-msg -q "exec ${menu[${selection}]}"
+    ${menu[${selection}]}
   fi
 fi
