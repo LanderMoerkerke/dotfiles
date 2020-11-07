@@ -36,7 +36,7 @@ source ~/.config/nvim/modules/ultisnips.vim
 
 " Completing & Linting
 source ~/.config/nvim/modules/ale.vim
-source ~/.config/nvim/modules/autoformat.vim
+" source ~/.config/nvim/modules/autoformat.vim
 source ~/.config/nvim/modules/ncm2.vim
 source ~/.config/nvim/modules/language_client.vim
 
