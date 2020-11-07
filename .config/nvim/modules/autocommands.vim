@@ -1,5 +1,7 @@
 augroup basic
 
+    autocmd BufEnter *.lkml :setfiletype lkml
+
     " Resize vim
     autocmd VimResized * :wincmd =
 
