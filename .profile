@@ -96,6 +96,7 @@ export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 export KREW_ROOT="$XDG_CONFIG_HOME"/krew
+export TLDEXTRACT_CACHE="$XDG_CACHE_HOME"/tld_extract
 export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
 export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
 export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
