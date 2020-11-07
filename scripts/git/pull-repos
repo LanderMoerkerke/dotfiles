@@ -10,6 +10,8 @@ for repo in *; do
 
     fi
 
-    git -C $repo pull
+    git -C $repo pull &
 
 done
+
+sync
