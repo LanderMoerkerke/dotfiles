@@ -25,7 +25,7 @@ $PATH
 "
 
 # Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$(find $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
+export PATH="$PATH:$(du -L "$HOME/.local/bin" | cut -f2 | paste -sd ':' -)"
 
 # system
 export PATH="

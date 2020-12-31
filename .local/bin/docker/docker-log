@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker logs -f $(docker ps --format '{{.Names}}' -f status=running | dmenu -i)

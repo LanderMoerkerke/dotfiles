@@ -1,3 +1,0 @@
-#!/bin/sh
-
-formail -b <$1 >>/tmp/mailbox.mbox && neomutt -f /tmp/mailbox.mbox
