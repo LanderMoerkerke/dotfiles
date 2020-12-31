@@ -23,7 +23,7 @@ trackpad-setup &
 keyboard-setup &
 
 # appearance
-picom &
+picom --experimental-backends &
 redshift -l 51.01:4.03 &
 
 # notifications
