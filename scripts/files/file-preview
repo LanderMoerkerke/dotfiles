@@ -2,7 +2,7 @@
 
 HIGHLIGHT="highlight -O xterm256 -D $HOME/.config/highlight/ -s rdark --force"
 
-case "$1" in
+case "$(echo "${1##*.}" | tr '[:upper:]' '[:lower:]')" in
     *.tar | *.tar.gz | *.zip | *.rar | *.7z) atool --list -- "$1" ;;
     *.pdf) pdftotext "$1" - ;;
     *.ipynb) jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | autoflake --expand-star-imports --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables -s - | black -q - | highlight --syntax python -O xterm256 -D $HONE/.config/highlight/ -s rdark ;;
@@ -12,5 +12,33 @@ case "$1" in
     *.dbf) dbview "$1" ;;
     *.json) cat "$1" | jq | $HIGHLIGHT --syntax json ;;
     *.csv) xsv table -d $(detect-delimiter "$1") "$1" ;;
-    *) $HIGHLIGHT -- "$1" || cat "$1" ;;
+    *) ;; # Go on to handle by mime type
+    # *) $HIGHLIGHT -- "$1" || cat "$1" ;;
 esac
+
+# Handle by mime types
+case "$(file -Lb --mime-type -- "$1")" in
+
+    # Text
+    text/*|*/xml|*/csv|*/json)
+        # try to detect the charactor encodeing
+        enc=$(head -n20 "$1" | uchardet)
+        { $HIGHLIGHT -- "$1" || cat "$1"; } |\
+        iconv -f "${enc:-UTF-8}" -t UTF-8 && exit ;;
+
+    # Image
+    image/*)
+        image-preview draw "$1" "$2" "$3" "$4" "$5" && exit 1 ;;
+
+    # Video and audio
+    video/*|audio/*|application/octet-stream)
+        mediainfo "$1" && exit ;;
+
+    *) ;; # Go on to fall back
+esac
+
+# None of above exits, this is the fall back
+echo '----- File Type Classification -----'
+echo "$(file -Lb --mime-type -- "$1")"
+
+file --dereference --brief -- "$1"

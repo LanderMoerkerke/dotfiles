@@ -27,6 +27,7 @@ set icons on
 set scrolloff 5
 
 set previewer file-preview
+set cleaner image-preview
 
 # ---------------------------
 #  1}}} #
