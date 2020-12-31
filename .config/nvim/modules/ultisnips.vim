@@ -12,7 +12,7 @@ let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsSnippetDirectories = ['UltiSnips', '~/.config/nvim/UltiSnips/']
 
 " Edit custom snippets
-nnoremap <leader>e :UltiSnipsEdit<cr>
+nnoremap <leader>E :UltiSnipsEdit<cr>
 let g:UltiSnipsEditSplit='vertical'
 
 " General autocomplete variables
