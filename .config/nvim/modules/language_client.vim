@@ -5,6 +5,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 
 let g:LanguageClient_hasSnippetSupport = 1
+let g:LanguageClient_useVirtualText = 'CodeLens'
 
 let g:LanguageClient_completionPreferTextEdit = 1
 
@@ -18,7 +19,7 @@ let g:LanguageClient_diagnosticsDisplay = {
             \            'name': 'Error',
             \            'texthl': 'ALEError',
             \            'signText': '!',
-            \            'signTexthl': 'ALEErrorSign',
+            \            'signTexthl': 'SpellBad',
             \            'virtualTexthl': 'LCError',
             \        },
             \        2: {
@@ -79,10 +80,12 @@ function LC_maps()
         nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
         nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
         nnoremap <leader>ls :call LanguageClient#workspace_symbol()<CR>
+
+        nmap <silent><leader>E <Plug>(lcn-explain-error)
     endif
 endfunction
 
-" hi LCError               ctermfg=203   ctermbg=203
+hi LCError               ctermfg=203   ctermbg=203
 hi LCWarning             ctermfg=230   ctermbg=24
 " hi LCWarning             ctermfg=7     ctermbg=233
 
