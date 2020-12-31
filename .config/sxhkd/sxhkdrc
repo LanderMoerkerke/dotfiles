@@ -65,7 +65,7 @@ control + shift + Print
 # 1}}} -
 
 mod1 + {Home, End, Insert}
-    playerctl {previous, play-pause, next}
+    playerctl --player=spotifyd,%any {previous, play-pause, next}
 
 # Function keys - super {{{1 -
 super + {_,shift +}F1
@@ -106,9 +106,9 @@ XF86AudioMute
 XF86AudioMicMute
     pactl set-source-mute alsa_input.pci-0000_00_1f.3.analog-stereo toggle
 XF86Audio{Next,Prev}
-    playerctl {next,previous}
+    playerctl --player=spotifyd,%any {next,previous}
 XF86Audio{Play,Pause}
-    playerctl {play,pause}
+    playerctl --player=spotifyd,%any {play,pause}
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
     light {-A,-U} 3
 XF86Display
