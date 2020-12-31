@@ -3,6 +3,7 @@ Plug 'autozimu/LanguageClient-neovim', {
             \ 'do': 'make release',
             \ }
 
+let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings.json')
 
 let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_useVirtualText = 'CodeLens'

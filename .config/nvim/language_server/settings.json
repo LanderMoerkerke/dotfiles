@@ -1,0 +1,33 @@
+{
+  "gopls": {
+    "usePlaceholders": true,
+    "completeUnimported": true,
+    "hoverKind": "FullDocumentation",
+    "initializationOptions": {
+      "gocodeCompletionEnabled": true,
+      "lintTool": "golint",
+      "usePlaceholders": true
+    }
+  },
+  "mspyls": {
+    "enabled": true,
+    "initializationOptions": {
+      "displayOptions": {
+        "preferredFormat": "markdown",
+        "trimDocumentationLines": true,
+        "maxDocumentationLineLength": 0,
+        "trimDocumentationText": true,
+        "maxDocumentationTextLength": 0
+      },
+      "interpreter": {
+        "properties": {
+          "UseDefaultDatabase": true
+        }
+      }
+    }
+  },
+  "rust-analyzer": {
+    "build_on_save": false,
+    "racer_completion": true
+  }
+}
