@@ -897,6 +897,8 @@ c.url.searchengines = {
     "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
     "dicten": "https://www.wordnik.com/words/{}",
     "docker": "https://hub.docker.com/search?q={}",
+    "rs": "https://doc.rust-lang.org/std/index.html?search={}",
+    "rsd": "https://docs.rs/{}",
     "eb": "https://ebay.com/sch/{}",
     "g": "https://google.com/search?q={}",
     "gh": "https://github.com/search?q={}",
