@@ -126,6 +126,10 @@ function drone-api () {
     http --auth-type=jwt --auth="$DRONE_TOKEN" $*
 }
 
+function clickup-api () {
+    http --auth="$(gopass WeGroup/Clickup-API)" $*
+}
+
 function wgttp () {
     http --auth-type=jwt --auth=$(wg token --env qa | sed 1q) $*
 }
