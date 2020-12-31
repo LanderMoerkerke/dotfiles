@@ -54,4 +54,12 @@ augroup external_scripts
         setlocal comments=s:{#,e:#}
     endf
 
+    " SQL
+    autocmd FileType sql call Run_SQL()
+    fun! Run_SQL()
+        " let g:LanguageClient_settingsPath=expand('~/.config/nvim/language_server/settings-rust.json')
+
+        nnoremap <buffer> <F5> :exec '!psql -U postgres -p 54320 -h localhost -d postgres -f' shellescape(@%, 1)<cr>
+    endf
+
 augroup end
