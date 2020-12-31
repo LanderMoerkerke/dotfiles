@@ -261,14 +261,6 @@ c.content.local_content_can_access_remote_urls = False
 # Type: Bool
 c.content.local_storage = True
 
-# Allow websites to record audio/video.
-# Type: BoolAsk
-# Valid values:
-# - true
-# - false
-# - ask
-c.content.media_capture = "ask"
-
 # Location of a netrc-file for HTTP authentication. If unset, `~/.netrc`
 # is used.
 # Type: File
