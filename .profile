@@ -13,11 +13,22 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 
 # PATH
 
+# user
+export PATH="\
+$HOME/.local/bin:\
+$XDG_DATA_HOME/fzf/bin:\
+$XDG_DATA_HOME/npm/bin:\
+$XDG_DATA_HOME/gem/bin:\
+$XDG_DATA_HOME/go/bin:\
+$XDG_DATA_HOME/cargo/bin\
+$PATH
+"
+
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$(find $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH"
 
 # system
-export PATH="$PATH:\
+export PATH="
 /usr/local/sbin:\
 /usr/local/bin:\
 /usr/sbin:\
@@ -25,17 +36,7 @@ export PATH="$PATH:\
 /sbin:\
 /usr/bin/vendor_perl\
 /opt/google-cloud-sdk/bin:\
-"
-
-# user
-export PATH="\
-$PATH:\
-$HOME/.local/bin:\
-$XDG_DATA_HOME/fzf/bin:\
-$XDG_DATA_HOME/npm/bin:\
-$XDG_DATA_HOME/gem/bin:\
-$XDG_DATA_HOME/go/bin:\
-$XDG_DATA_HOME/cargo/bin\
+$PATH
 "
 
 export LIBRARY_PATH=/usr/local/lib
@@ -49,8 +50,8 @@ export FILEMANAGER="lf"
 export FILEMANAGER2="nautilus"
 export READER="zathura"
 export RTV_BROWSER="w3m"
-export TERMINAL="urxvtc"
-export TERMINAL2="st"
+export TERMINAL="urxvt"
+export TERMINAL2="alacritty"
 
 # dotfiles
 export GOPATH="$XDG_DATA_HOME/go"
@@ -138,7 +139,7 @@ export PIPENV_DEFAULT_PYTHON_VERSION=3
 export PIPENV_MAX_DEPTH=5
 export PIPENV_SKIP_LOCK=1
 export PIPENV_SPINNER=pong
-export PIPENV_DOTENV_LOCATION="$HOME/Pipenv/.env"
+export PIPENV_DOTENV_LOCATION="$HOME/Documents/Pipenv/.env"
 
 # FZF
 export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file $HOME/.gitignore_global --ignore-file .gitignore ."
