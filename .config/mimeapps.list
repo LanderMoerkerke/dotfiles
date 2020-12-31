@@ -12,6 +12,7 @@ image/gif=img.desktop;
 image/jpeg=img.desktop;
 image/png=img.desktop;
 image/tiff=img.desktop;
+inode/directory=org.gnome.Nautilus.desktop;
 inode/x-empty=editor.desktop;
 message/rfc822=eml.desktop;
 new-latex.pdf=org.pwmt.zathura.desktop;
@@ -37,6 +38,7 @@ x-scheme-handler/unknown=editor.desktop;
 
 application/pdf=org.pwmt.zathura.desktop;
 application/x-yaml=editor.desktop;
+inode/directory=org.gnome.Nautilus.desktop;
 text/1d-interleaved-parityfec=editor.desktop;
 text/RED=editor.desktop;
 text/cache-manifest=editor.desktop;
