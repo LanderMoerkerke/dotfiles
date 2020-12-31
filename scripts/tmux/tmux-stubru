@@ -1,0 +1,7 @@
+#!/bin/sh
+
+TMUX_SESSION=jupyter-lab
+
+tmux a -t $TMUX_SESSION >/dev/null 2>&1 && exit 0
+
+tmux new -d -s $TMUX_SESSION 'mpv https://live-radio-cf-vrt.akamaized.net/groupc/live/f404f0f3-3917-40fd-80b6-a152761072fe/live.isml/live-audio\=128000.m3u8'
