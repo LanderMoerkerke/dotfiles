@@ -311,7 +311,9 @@ map gM cd /mnt
 map gR $lf -remote "send $id cd /run/media/$USER"
 
 map gt cd /tmp
+
 map gT cd ~/.local/share/Trash/
+map gm cd ~/.local/share/mail/
 
 map gh cd ~
 map gc cd ~/.config
