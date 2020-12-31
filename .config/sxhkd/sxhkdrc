@@ -6,7 +6,7 @@ super + shift + d
 super + BackSpace
     flash-active &> /dev/null
 super + shift + BackSpace
-    transset-df -a -t 0.9 &> /dev/null
+    transset-df -a -t 0.95 &> /dev/null
 super + Tab
     rofi -show window -width 25
 super + shift + e
