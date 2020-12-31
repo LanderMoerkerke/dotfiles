@@ -8,6 +8,9 @@
 #
 #
 # pylint: disable=C0111
+
+from qutebrowser.api import interceptor
+
 c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
@@ -1241,3 +1244,13 @@ c.bindings.commands = {
 
 # config.source('shortcuts.py')
 config.source("dark-qutebrowser-theme.py")
+
+
+def filter_yt(info: interceptor.Request):
+    """Block the given request if necessary."""
+    url = info.request_url
+    if url.host() == "www.youtube.com" and url.path() == "/get_video_info" and "&adformat=" in url.query():
+        info.block()
+
+
+interceptor.register(filter_yt)
