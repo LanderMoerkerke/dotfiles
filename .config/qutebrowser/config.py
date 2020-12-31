@@ -208,7 +208,7 @@ c.content.host_blocking.lists = [
 # required to exactly match the requested domain. Local domains are
 # always exempt from hostblocking.
 # Type: List of String
-c.content.host_blocking.whitelist = ["piwik.org"]
+c.content.host_blocking.whitelist = []
 
 # Enable or disable hyperlink auditing (`<a ping>`).
 # Type: Bool
