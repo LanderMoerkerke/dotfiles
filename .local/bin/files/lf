@@ -14,4 +14,4 @@ stop_ueberzug() {
 
 trap stop_ueberzug EXIT QUIT INT TERM
 start_ueberzug
-/home/lander/.local/share/go/bin/lf "$@"
+lf "$@"
