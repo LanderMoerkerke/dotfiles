@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TMUX_SESSION=jupyter-lab
+TMUX_SESSION=stubru
 
 tmux a -t $TMUX_SESSION >/dev/null 2>&1 && exit 0
 
