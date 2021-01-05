@@ -8,4 +8,4 @@ COMMAND=${2:-sh}
 # fi
 
 docker pull "$DOCKER_IMAGE"
-docker run --rm -it "$DOCKER_IMAGE" "$COMMAND"
+docker run --network host --name docka --rm -it "$DOCKER_IMAGE" "$COMMAND"
