@@ -183,14 +183,14 @@ c.content.headers.referer = "same-domain"
 
 # Whether host blocking is enabled.
 # Type: Bool
-c.content.host_blocking.enabled = False
+c.content.blocking.enabled = True
 
 # List of URLs of lists which contain hosts to block.  The file can be
 # in one of the following formats:  - An `/etc/hosts`-like file - One
 # host per line - A zip-file of any of the above, with either only one
 # file, or a file named   `hosts` (with any extension).
 # Type: List of Url
-c.content.host_blocking.lists = [
+c.content.blocking.hosts.lists = [
     "https://www.malwaredomainlist.com/hostslist/hosts.txt",
     "http://someonewhocares.org/hosts/hosts",
     "http://winhelp2002.mvps.org/hosts.zip",
@@ -208,7 +208,7 @@ c.content.host_blocking.lists = [
 # required to exactly match the requested domain. Local domains are
 # always exempt from hostblocking.
 # Type: List of String
-c.content.host_blocking.whitelist = []
+c.content.blocking.whitelist = ["https://wegroup.be/*", "https://*.wegroup.be/*"]
 
 # Enable or disable hyperlink auditing (`<a ping>`).
 # Type: Bool
@@ -361,7 +361,7 @@ c.downloads.position = "top"
 # Type: Int
 c.downloads.remove_finished = 60000
 
-# The editor (and arguments) to use for the `open-editor` command. `{}`
+# The editor (and arguments) to use for the `edit-text` command. `{}`
 # gets replaced by the filename of the file to be edited.
 # Type: ShellCommand
 c.editor.command = ["st", "-e", "nvim", "{}", "+call cursor({line}, {column})"]
@@ -977,7 +977,7 @@ c.zoom.mouse_divider = 512
 # Bindings for normal mode
 c.bindings.commands = {
     "normal": {
-        "'": "enter-mode jump_mark",
+        "'": "mode-enter jump_mark",
         "+": "zoom-in",
         "-": "zoom-out",
         ".": "repeat-command",
@@ -1012,7 +1012,7 @@ c.bindings.commands = {
         "<Ctrl-F5>": "reload -f",
         "<Ctrl-PgDown>": "tab-next",
         "<Ctrl-PgUp>": "tab-prev",
-        "<Ctrl-Return>": "follow-selected -t",
+        "<Ctrl-Return>": "selection-follow -t",
         "<Ctrl-Shift-n>": "open -p",
         "<Ctrl-Shift-t>": "undo",
         "<Ctrl-Shift-w>": "close",
@@ -1029,19 +1029,19 @@ c.bindings.commands = {
         "<Ctrl-s>": "stop",
         "<Ctrl-t>": "open -t",
         "<Ctrl-u>": "scroll-page 0 -0.5",
-        "<Ctrl-g>": "enter-mode passthrough",
+        "<Ctrl-g>": "mode-enter passthrough",
         "<Ctrl-v>": None,
         "<Ctrl-w>": "tab-close",
         "<Ctrl-x>": "navigate decrement",
         "<Escape>": "clear-keychain ;; search ;; fullscreen --leave",
         "<F11>": "fullscreen",
         "<F5>": "reload",
-        "<Return>": "follow-selected",
+        "<Return>": "selection-follow",
         "<back>": "back",
         "<forward>": "forward",
         "=": "zoom",
         "?": "set-cmd-text ?",
-        "@": "run-macro",
+        "@": "macro-run",
         "A": "set-cmd-text :open {url:pretty}",
         "B": "set-cmd-text -s :quickmark-load -t",
         "Cd": "download-cancel",
@@ -1092,10 +1092,10 @@ c.bindings.commands = {
         "gn": "navigate next",
         "go": "set-cmd-text :open {url:pretty}",
         "gp": "navigate prev",
-        "gt": "set-cmd-text -s :buffer",
+        "gt": "set-cmd-text -s :tab-select",
         "gu": "navigate up",
         "h": "scroll left",
-        "i": "enter-mode insert",
+        "i": "mode-enter insert",
         "j": "scroll down",
         "k": "scroll up",
         "l": "scroll right",
@@ -1106,7 +1106,7 @@ c.bindings.commands = {
         "pP": "open -- {primary}",
         "pm": "spawn mpv {primary}",
         "pp": "open -- {clipboard}",
-        "q": "record-macro",
+        "q": "macro-record",
         "r": "reload",
         "sf": "save",
         "sk": "set-cmd-text -s :bind",
@@ -1121,7 +1121,7 @@ c.bindings.commands = {
         "tl": "forward -t",
         "tm": "tab-mute",
         "u": "scroll-page 0 -0.5",
-        "v": "enter-mode caret",
+        "v": "mode-enter caret",
         "wB": "set-cmd-text -s :bookmark-load -w",
         "wO": "set-cmd-text :open -w {url:pretty}",
         "wP": "open -w -- {primary}",
@@ -1154,10 +1154,10 @@ c.bindings.commands = {
     "caret": {
         "$": "move-to-end-of-line",
         "0": "move-to-start-of-line",
-        "<Ctrl-Space>": "drop-selection",
-        "<Escape>": "leave-mode",
+        "<Ctrl-Space>": "selection-drop",
+        "<Escape>": "mode-leave",
         "<Return>": "yank selection",
-        "<Space>": "toggle-selection",
+        "<Space>": "selection-toggle",
         "G": "move-to-end-of-document",
         "H": "scroll left",
         "J": "scroll down",
@@ -1167,14 +1167,14 @@ c.bindings.commands = {
         "[": "move-to-start-of-prev-block",
         "]": "move-to-start-of-next-block",
         "b": "move-to-prev-word",
-        "c": "enter-mode normal",
+        "c": "mode-enter normal",
         "e": "move-to-end-of-word",
         "gg": "move-to-start-of-document",
         "h": "move-to-prev-char",
         "j": "move-to-next-line",
         "k": "move-to-prev-line",
         "l": "move-to-next-char",
-        "v": "toggle-selection",
+        "v": "selection-toggle",
         "w": "move-to-next-word",
         "y": "yank selection",
         "{": "move-to-end-of-prev-block",
@@ -1201,7 +1201,7 @@ c.bindings.commands = {
         "<Ctrl-W>": "rl-unix-word-rubout",
         "<Ctrl-Y>": "rl-yank",
         "<Down>": "command-history-next",
-        "<Escape>": "leave-mode",
+        "<Escape>": "mode-leave",
         "<Return>": "command-accept",
         "<Shift-Delete>": "completion-item-del",
         "<Shift-Tab>": "completion-item-focus prev",
@@ -1211,11 +1211,11 @@ c.bindings.commands = {
     "hint": {
         "<Ctrl-B>": "hint all tab-bg",
         "<Ctrl-F>": "hint --rapid links tab-bg",
-        "<Escape>": "leave-mode",
-        "<Return>": "follow-hint",
+        "<Escape>": "mode-leave",
+        "<Return>": "hint-follow",
     },
-    "insert": {"<Ctrl-E>": "open-editor", "<Escape>": "leave-mode", "<Shift-Ins>": "insert-text {primary}"},
-    "passthrough": {"<Ctrl-g>": "leave-mode"},
+    "insert": {"<Ctrl-E>": "edit-text", "<Escape>": "mode-leave", "<Shift-Ins>": "insert-text {primary}"},
+    "passthrough": {"<Ctrl-g>": "mode-leave"},
     "prompt": {
         "<Alt-B>": "rl-backward-word",
         "<Alt-Backspace>": "rl-backward-kill-word",
@@ -1233,13 +1233,13 @@ c.bindings.commands = {
         "<Ctrl-X>": "prompt-open-download",
         "<Ctrl-Y>": "rl-yank",
         "<Down>": "prompt-item-focus next",
-        "<Escape>": "leave-mode",
+        "<Escape>": "mode-leave",
         "<Return>": "prompt-accept",
         "<Shift-Tab>": "prompt-item-focus prev",
         "<Tab>": "prompt-item-focus next",
         "<Up>": "prompt-item-focus prev",
     },
-    "register": {"<Escape>": "leave-mode"},
+    "register": {"<Escape>": "mode-leave"},
 }
 
 # config.source('shortcuts.py')
