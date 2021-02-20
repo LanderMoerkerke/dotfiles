@@ -6,7 +6,7 @@ Plug 'tpope/vim-repeat'                                             " Repeat cus
 Plug 'justinmk/vim-sneak'
 
 " Unix related
-Plug 'jamessan/vim-gnupg'                                           " GPG viewer
+Plug 'jamessan/vim-gnupg', { 'branch': 'main' }                     " GPG viewer
 
 " Appearance
 Plug 'mhinz/vim-startify'                                           " Fancy startup
