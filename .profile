@@ -20,7 +20,7 @@ $XDG_DATA_HOME/fzf/bin:\
 $XDG_DATA_HOME/npm/bin:\
 $XDG_DATA_HOME/gem/bin:\
 $XDG_DATA_HOME/go/bin:\
-$XDG_DATA_HOME/cargo/bin\
+$XDG_DATA_HOME/cargo/bin:\
 $PATH
 "
 
