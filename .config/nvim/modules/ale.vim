@@ -37,6 +37,7 @@ let g:ale_fixers = {
             \ 'sh': ['shfmt'],
             \ 'sql': ['pgformatter'],
             \ 'xml': ['xmllint'],
+            \ 'yaml': ['prettier'],
             \}
 
 let g:ale_sh_shfmt_options = '-i 4 -ci'
