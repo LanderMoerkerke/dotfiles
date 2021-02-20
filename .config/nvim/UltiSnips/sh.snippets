@@ -10,4 +10,48 @@ snippet env "Generate environment"
 #!/bin/sh${0}
 endsnippet
 
+snippet printbr "Print breakline"
+printf "%32s\n" ' ' | tr ' ' '-'
+endsnippet
+
+#############
+#  Comments #
+#############
+
+snippet h1 "Header 1"
+# ---------------------------------------
+# ${1}
+# ---------------------------------------
+endsnippet
+
+snippet h1f "Header 1 with folds"
+# ---------------------------------------
+# ${1} {{{1 #
+# ---------------------------------------
+endsnippet
+
+snippet h1c "Header 1 close"
+# 1}}} #
+# ---------------------------------------
+endsnippet
+
+snippet h2 "Header 2"
+# ${1}
+# -----------------
+endsnippet
+
+snippet h2f "Header 2 with folds"
+# ${1} {{{1 #
+# -----------------
+endsnippet
+
+snippet h2c "Header 2 close"
+# 1}}} #
+# -----------------
+endsnippet
+
+snippet br "Breakline"
+# ---------------------------------------${0}
+endsnippet
+
 # vim: ft=snippets
