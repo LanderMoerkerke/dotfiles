@@ -333,4 +333,4 @@ c.colors.tabs.selected.odd.fg = nord['nord5']
 # Background color for webpages if unset (or empty to use the theme's
 # color)
 ## Type: QtColor
-# c.colors.webpage.bg = 'white'
+c.colors.webpage.bg = '#212121'
