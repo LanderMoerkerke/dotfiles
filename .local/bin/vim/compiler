@@ -43,9 +43,9 @@ case "$file" in
     *\.mom) refer -PS -e "$file" | groff -mom -kejpt -T pdf >"$base".pdf ;;
     *\.Rmd | *\.Rmd) echo "require(rmarkdown); render('$file')" | R -q --no-save ;;
     *\.tex) textype "$file" ;;
-    *\.md) pandoc "$file" --filter pandoc-include-code --filter pandoc-include --pdf-engine=xelatex -V geometry:margin=1in -o "$base".pdf ;;
-    # *\.md) pandoc --self-contained -H $COMPILE/Themes/markdown/github-header.css -s "$file" | wkhtmltopdf - "$base".pdf ;;
+    # *\.md) pandoc "$file" --filter pandoc-include-code --filter pandoc-include --pdf-engine=xelatex -V geometry:margin=1in -o "$base".pdf ;;
     *\.md) pandoc --self-contained -H $COMPILE/Themes/markdown/github-header.css -s "$file" | wkhtmltopdf - "$base".pdf ;;
+    # *\.md) pandoc --self-contained -H $COMPILE/Themes/markdown/github-header.css -s "$file" | wkhtmltopdf - "$base".pdf ;;
     *config.h) make && sudo make install ;;
     *\.c) cc "$file" -o "$base" && "$base" ;;
     *\.py) python "$file" ;;
