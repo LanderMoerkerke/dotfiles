@@ -833,7 +833,7 @@ c.tabs.title.format_pinned = "{index}"
 c.colors.tabs.pinned.even.bg = "grey"
 c.colors.tabs.pinned.odd.bg = "grey"
 
-# c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.policy.images = "never"
 
