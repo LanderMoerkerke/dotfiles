@@ -21,6 +21,10 @@ alias mbsync="mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc"
 
 alias curltime="curl -w \"@$HOME/.config/curl/curl-timing.txt\" -o NUL -s "
 
+# SSH
+
+alias wg-bastion="ssh -t wg-bastion --"
+
 # git
 
 alias gc="git checkout"
