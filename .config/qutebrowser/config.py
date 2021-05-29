@@ -691,6 +691,9 @@ c.session.default_name = None
 # - vi-VN: Vietnamese (Viet Nam)
 c.spellcheck.languages = ["en-GB", "nl-NL"]
 
+# Notifications
+c.content.notifications.show_origin = False
+
 # Hide the statusbar unless a message is shown.
 # Type: Bool
 # c.statusbar.hide = True
