@@ -1,3 +1,3 @@
 #!/bin/sh
 
-jupyter-lab --browser=Chromium
+jupyter-lab --browser=$BROWSER2 --NotebookApp.token='' --NotebookApp.password=''
