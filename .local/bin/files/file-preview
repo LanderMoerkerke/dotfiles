@@ -3,15 +3,16 @@
 HIGHLIGHT="highlight -O xterm256 -D $HOME/.config/highlight/ -s rdark --force"
 
 case "$(echo "${1##*.}" | tr '[:upper:]' '[:lower:]')" in
-    *.tar | *.tar.gz | *.zip | *.rar | *.7z) atool --list -- "$1" ;;
-    *.pdf) pdftotext "$1" - ;;
-    *.ipynb) jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | autoflake --expand-star-imports --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables -s - | black -q - | highlight --syntax python -O xterm256 -D $HONE/.config/highlight/ -s rdark ;;
-    *.mkv | *.mp4) mediainfo "$1" ;;
-    *.jpg | *.png | *.jpeg) exiv2 "$1" ;;
-    *.sqlite | *.db) echo "SELECT name FROM sqlite_master WHERE type='table';" | sqlite3 "$1" ;;
-    *.dbf) dbview "$1" ;;
-    *.json) cat "$1" | jq | $HIGHLIGHT --syntax json ;;
-    *.csv) xsv table -d $(detect-delimiter "$1") "$1" ;;
+    tar | *.tar.gz | *.zip | *.rar | *.7z) atool --list -- "$1" && exit 0;;
+    pdf) pdftotext "$1" - && exit 0 ;;
+    # ipynb) jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | autoflake --expand-star-imports --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables -s - | black -q - | highlight --syntax python -O xterm256 -D $HONE/.config/highlight/ -s rdark && exit 0;;
+    ipynb) jut -i "$1" && exit 0;;
+    mkv | *.mp4) mediainfo "$1" && exit 0;;
+    # jpg | *.png | *.jpeg) exiv2 "$1" ;;
+    sqlite | *.db) echo "SELECT name FROM sqlite_master WHERE type='table';" | sqlite3 "$1" && exit 0;;
+    dbf) dbview "$1" && exit 0;;
+    json) cat "$1" | jq | $HIGHLIGHT --syntax json && exit 0;;
+    csv) xsv table -d $(detect-delimiter "$1") "$1" && exit 0;;
     *) ;; # Go on to handle by mime type
     # *) $HIGHLIGHT -- "$1" || cat "$1" ;;
 esac
