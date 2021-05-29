@@ -68,8 +68,10 @@ mod1 + {Home, End, Insert}
     playerctl --player=spotifyd,%any {previous, play-pause, next}
 
 # Function keys - super {{{1 -
-super + {_,shift +}F1
-    notify-send {"DUNST_COMMAND_PAUSE", "DUNST_COMMAND_RESUME"}
+super + F1
+    dunstctl set-paused true
+super + shift + F1
+    dunstctl set-paused false
 # 1}}} -
 
 # Function keys - mod1 {{{1 -

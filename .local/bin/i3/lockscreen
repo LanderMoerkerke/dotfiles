@@ -1,6 +1,6 @@
 #!/bin/sh
 
-notify-send "DUNST_COMMAND_PAUSE"
+dunstctl set-paused true
 
 scrot -o /tmp/screen.png
 
@@ -27,4 +27,4 @@ i3lock \
     -nfi \
     /tmp/screen.png
 
-notify-send "DUNST_COMMAND_RESUME"
+dunstctl set-paused false
