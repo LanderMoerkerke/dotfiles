@@ -71,5 +71,5 @@ set undoreload=10000                           " number of lines to save for und
 " Environment
 " ------
 
-let g:python_host_prog = '/home/lander/Pipenv/python2-venv/.venv/bin/python'
+let g:python_host_prog = '/home/lander/Documents/Pipenv/python2-venv/.venv/bin/python'
 " let g:python3_host_prog = '/home/lander/Pipenv/python38-venv/.venv/bin/python'
