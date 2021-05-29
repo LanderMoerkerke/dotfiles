@@ -893,6 +893,7 @@ c.url.searchengines = {
     "bc": "https://www.bitchute.com/search?q={}&sort=date_created%20desc",
     "ddg": "https://duckduckgo.com/?q={}",
     "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
+    "deepl": "https://www.deepl.com/translator#xx/nl/{}",
     "dicten": "https://www.wordnik.com/words/{}",
     "docker": "https://hub.docker.com/search?q={}",
     "rs": "https://doc.rust-lang.org/std/index.html?search={}",
