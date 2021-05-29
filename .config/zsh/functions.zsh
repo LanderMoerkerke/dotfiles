@@ -122,8 +122,19 @@ function pacman-qi(){
 }
 
 
+function docs-api () {
+    http --auth-type=jwt --auth=$(gopass WeGroup/Docs-token) $*
+}
+
 function drone-api () {
     http --auth-type=jwt --auth="$DRONE_TOKEN" $*
+}
+
+function decode-vin-api () {
+    api_key=$(gopass WeGroup/Vincario-api-key)
+    api_key_secret=$(gopass WeGroup/Vincario-api-secret-key)
+    checksum=$(echo -n "$1|decode|$api_key|$api_key_secret" | sha1sum | cut -c1-10)
+    http "https://api.vindecoder.eu/3.1/$api_key/$checksum/decode/$1.json"
 }
 
 function clickup-api () {
