@@ -31,7 +31,7 @@ let g:ale_fixers = {
             \ 'typescript': ['eslint', 'prettier'],
             \ 'typescriptreact': ['eslint', 'prettier'],
             \ 'json': ['jq', 'prettier'],
-            \ 'markdown': ['remark'],
+            \ 'markdown': ['remark-lint'],
             \ 'python': ['autoflake', 'isort', 'black'],
             \ 'rust': ['rustfmt'],
             \ 'sh': ['shfmt'],
