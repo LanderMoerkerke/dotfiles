@@ -13,8 +13,8 @@
 #  Settings {{{1 #
 # ---------------------------
 
-set shell sh
-set shellopts '-eu'
+set shell zsh
+set shellopts '-euy'
 
 set ifs "\n"
 
@@ -70,20 +70,21 @@ cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
 # Get progress of copynig
 cmd paste_rsync &{{
-    load=$(lf -remote 'load')
-    mode=$(echo "$load" | sed -n '1p')
-    list=$(echo "$load" | sed '1d')
-    if [ $mode = 'copy' ]; then
-        rsync -av --ignore-existing --progress $list . \
-        | stdbuf -i0 -o0 -e0 tr '\r' '\n' \
-        | while read line; do
-            lf -remote "send $id echo $line"
-        done
-    elif [ $mode = 'move' ]; then
-        mv -n $list .
-    fi
-    lf -remote 'send load'
-    lf -remote 'send clear'
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    case "$mode" in
+        copy)
+            rsync -av --ignore-existing --progress -- "$@" . |
+            stdbuf -i0 -o0 -e0 tr '\r' '\n' |
+            while IFS= read -r line; do
+                lf -remote "send $id echo $line"
+            done
+            ;;
+        move) mv -n -- "$@" .;;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
 }}
 
 cmd paste_overwrite %{{
@@ -213,6 +214,13 @@ cmd bulk-rename ${{
 	rm $index $index_edit
 }}
 
+cmd on-cd &{{
+    # '&' commands run silently in background (which is what we want here),
+    # but are not connected to stdout.
+    # To make sure our escape sequence still reaches stdout we pipe it to /dev/tty
+    printf "\033]0; lf - $(pwd | sed "s|$HOME|~|")\007" > /dev/tty
+}}
+
 # ---------------------------
 #  1}}} #
 #  --------------------------
@@ -290,10 +298,36 @@ map U usage
 map R $lf -remote "send $id redraw"
 
 map r push :rename<space>
-map a $lf -remote "send $id push :rename<space>$f<a-b><left>"
-map A $lf -remote "send $id push :rename<space>$f"
 map E $lf -remote "send $id push :rename<space>$f<a-b><a-d>"
 map I $lf -remote "send $id push :rename<space>$f<a-b><a-b>"
+
+map A ${{
+	# get 'basename' of the selection
+	filename="${f##*/}"
+	# quote it so we won't deal with quotes in the lf -remote command
+	filename="$(printf '%q' "$filename")"
+	filename="${filename// /<space>}"
+	lf -remote "send $id push :rename<space>$filename"
+}}
+# Edit filename before the extension
+map a ${{
+	# get 'basename' of the selection
+	filename="${f##*/}"
+	# quote it so we won't deal with quotes in the lf -remote command
+	filename="$(printf '%q' "$filename")"
+	filename="${filename// /<space>}"
+	lf -remote "send $id push :rename<space>$filename<a-b><c-b>"
+}}
+
+map <a-n> newfold
+
+cmd newfold ${{
+    set -f
+	printf "new directory name:"
+    read newd
+    mkdir -- "$newd"
+    mv -- $fx "$newd"
+}}
 
 map V push $nvim<space>
 
@@ -357,3 +391,17 @@ map gH cd ~/Documents/Howest/
 # ---------------------------
 #  1}}} #
 #  -------------------------
+
+#  --------------------------
+#  Runners {{{1 #
+# ---------------------------
+
+%[ $LF_LEVEL -eq 1 ] || echo "Warning: You're in a nested lf instance!"
+
+# Show current directory in window title
+on-cd
+
+# ---------------------------
+#  1}}} #
+#  -------------------------
+
