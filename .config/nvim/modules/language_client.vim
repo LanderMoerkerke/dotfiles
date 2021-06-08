@@ -71,6 +71,7 @@ function LC_maps()
         nnoremap <silent> ga :call LanguageClient#textDocument_codeAction()<CR>
         nnoremap <silent> gl :call LanguageClient#handleCodeLensAction()<CR>
         nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<CR>
+        nnoremap <silent> gS :call LanguageClient_workspace_symbol()<CR>
         nnoremap <silent> gD :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>zz
         nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>zz
         nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
