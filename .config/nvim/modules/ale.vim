@@ -28,6 +28,7 @@ let g:ale_fixers = {
             \ 'html': ['prettier'],
             \ 'javascript': ['eslint', 'prettier'],
             \ 'javascriptreact': ['eslint', 'prettier'],
+            \ 'lua': ['luafmt'],
             \ 'typescript': ['eslint', 'prettier'],
             \ 'typescriptreact': ['eslint', 'prettier'],
             \ 'json': ['jq', 'prettier'],
