@@ -16,7 +16,8 @@ set nobackup
 set laststatus=2                                " always show the statusline
 
 " set nofoldenable								" disable folding
-set foldmethod=marker
+" set foldmethod=marker
+set foldmethod=indent
 " set foldnestmax=2
 " set foldlevel=1
 set foldlevelstart=20
