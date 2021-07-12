@@ -76,7 +76,7 @@ from pydantic import BaseModel as Base
 endsnippet
 
 snippet iwc "Import WG base class"
-from wg_py_models import Base
+from wg_py_models.domain.wegroup import Base
 endsnippet
 
 snippet iws "Import WG session"
@@ -322,6 +322,18 @@ endsnippet
 
 snippet ldebug "logger debug"
 self.logger.debug(f"${1:header}")
+endsnippet
+
+#############
+#   Pytest  #
+#############
+
+snippet pys "Pytest Skip"
+@pytest.mark.skip()
+endsnippet
+
+snippet pyp "Pytest parametrize"
+@pytest.mark.parametrize("${1:parameters}", [${2:param}])
 endsnippet
 
 #############
