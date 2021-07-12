@@ -1,1 +1,1 @@
-call ncm2#override_source('ultisnips', {'priority': 10})
+" call ncm2#override_source('ultisnips', {'priority': 10})
