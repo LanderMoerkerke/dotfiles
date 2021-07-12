@@ -19,3 +19,12 @@ Plug 'ron-rs/ron.vim'                                               " Syntax hig
 Plug 'thalesmello/lkml.vim'                                         " Syntax highlighting LookML
 
 Plug 'knsh14/vim-github-link'                                       " Git link generation
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'norcalli/snippets.nvim'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'

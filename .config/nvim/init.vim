@@ -37,14 +37,15 @@ source ~/.config/nvim/modules/ultisnips.vim
 " Completing & Linting
 source ~/.config/nvim/modules/ale.vim
 " source ~/.config/nvim/modules/autoformat.vim
-source ~/.config/nvim/modules/ncm2.vim
-source ~/.config/nvim/modules/language_client.vim
+" source ~/.config/nvim/modules/ncm2.vim
+" source ~/.config/nvim/modules/language_client.vim
 
 " Coding
 source ~/.config/nvim/modules/commantary.vim
 source ~/.config/nvim/modules/doge.vim
 source ~/.config/nvim/modules/echodoc.vim
 source ~/.config/nvim/modules/function_expander.vim
+source ~/.config/nvim/modules/dadbod.vim
 
 " Git
 source ~/.config/nvim/modules/fugitive.vim
@@ -66,3 +67,4 @@ source ~/.config/nvim/modules/autocommands.vim
 call plug#end()
 
 source ~/.config/nvim/modules/appendix.vim
+luafile ~/.config/nvim/modules/lsp.lua
