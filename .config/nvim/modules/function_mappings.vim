@@ -1,5 +1,5 @@
-map <F1> :Autoformat <CR>
-map <F2> :ALEFix<CR>
+" map <F1> :Autoformat <CR>
+map <F2> :Format<CR>
 map <F3> :!wc <C-R>%<CR>
 " F4: execute code
 " F5: execute code

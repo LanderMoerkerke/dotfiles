@@ -28,3 +28,4 @@ Plug 'norcalli/snippets.nvim'
 
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'mhartington/formatter.nvim' " formatter
