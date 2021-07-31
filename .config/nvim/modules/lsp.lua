@@ -61,7 +61,7 @@ local servers = {
     "jsonls",
     "rust_analyzer",
     "pyright",
-    "pyls_ms",
+    -- "pyls_ms",
     "tsserver",
     "yamlls"
 }
