@@ -22,6 +22,7 @@ Plug 'knsh14/vim-github-link'                                       " Git link g
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'                                         " clean LSP
 
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'norcalli/snippets.nvim'
