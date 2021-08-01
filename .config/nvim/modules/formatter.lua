@@ -90,7 +90,7 @@ end
 local rustfmt = function()
     return {
         exe = "rustfmt",
-        args = {"-"},
+        args = {},
         stdin = true
     }
 end
@@ -120,7 +120,7 @@ formatter.setup(
             xml = {xmllint},
             sql = {pgformatter},
             sh = {shfmt},
-            rusth = {rustfmt},
+            rust = {rustfmt},
             markdown = {remark},
             json = {jq},
             lua = {luafmt},
@@ -134,11 +134,11 @@ formatter.setup(
 )
 
 vim.api.nvim_exec(
-  [[
+    [[
 augroup FormatAutogroup
   autocmd!
   autocmd BufWritePost *.lua,*.tsx,*.ts,*.js,*.jsx,*.py,*.go,*.rs,*.sh,*.bash FormatWrite
 augroup END
 ]],
-  true
+    true
 )
