@@ -45,3 +45,9 @@ Plug 'mhartington/formatter.nvim'                                   " Formatter
 
 " Git
 Plug 'lewis6991/gitsigns.nvim'                                      " Git changes in gutter
+
+" Lualine
+" Plug 'hoob3rt/lualine.nvim'
+" " If you want to have icons in your statusline choose one of these
+" Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'ryanoasis/vim-devicons'

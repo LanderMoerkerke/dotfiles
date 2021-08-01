@@ -69,6 +69,8 @@ luafile ~/.config/nvim/modules/diagnostics.lua
 " Git
 luafile ~/.config/nvim/modules/gitsigns.lua
 
+" luafile ~/.config/nvim/modules/lualine.lua
+
 " luafile ~/.config/nvim/modules/telescope.lua
 
 luafile ~/.config/nvim/modules/formatter.lua
