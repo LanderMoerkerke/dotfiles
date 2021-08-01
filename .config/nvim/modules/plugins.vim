@@ -11,22 +11,32 @@ Plug 'jamessan/vim-gnupg', { 'branch': 'main' }                     " GPG viewer
 " Appearance
 Plug 'mhinz/vim-startify'                                           " Fancy startup
 Plug 'tomasiser/vim-code-dark'                                      " Theme
+Plug 'junegunn/goyo.vim'
 
 Plug 'chrisbra/csv.vim'                                             " Tabularize content
+
+" General NVIM support pluggins
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Filetypes / syntax
 Plug 'ron-rs/ron.vim'                                               " Syntax highlighting RON
 Plug 'thalesmello/lkml.vim'                                         " Syntax highlighting LookML
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}         " Syntax highlighting via Treeseitter
 
 Plug 'knsh14/vim-github-link'                                       " Git link generation
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'neovim/nvim-lspconfig'                                        " LSP configurations
 Plug 'glepnir/lspsaga.nvim'                                         " clean LSP
 
-Plug 'ray-x/lsp_signature.nvim'
-Plug 'norcalli/snippets.nvim'
+Plug 'seblj/nvim-echo-diagnostics'                                  " Echo diagnostics
+Plug 'weilbith/nvim-lsp-smag'                                       " Smart Tags based on LSP
+Plug 'hrsh7th/nvim-compe'                                           " Completion menu
 
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'mhartington/formatter.nvim' " formatter
+Plug 'ray-x/lsp_signature.nvim'                                     " Signature popup
+
+" Plug 'hrsh7th/vim-vsnip'
+" Plug 'hrsh7th/vim-vsnip-integ'
+
+Plug 'mhartington/formatter.nvim'                                   " Formatter
