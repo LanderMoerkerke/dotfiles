@@ -27,6 +27,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}         " Syntax hig
 
 Plug 'knsh14/vim-github-link'                                       " Git link generation
 
+" LSP
 Plug 'neovim/nvim-lspconfig'                                        " LSP configurations
 Plug 'glepnir/lspsaga.nvim'                                         " clean LSP
 
@@ -39,4 +40,8 @@ Plug 'ray-x/lsp_signature.nvim'                                     " Signature 
 " Plug 'hrsh7th/vim-vsnip'
 " Plug 'hrsh7th/vim-vsnip-integ'
 
+" Formatting
 Plug 'mhartington/formatter.nvim'                                   " Formatter
+
+" Git
+Plug 'lewis6991/gitsigns.nvim'                                      " Git changes in gutter

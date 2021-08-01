@@ -42,7 +42,6 @@ source ~/.config/nvim/modules/function_expander.vim
 
 " Git
 source ~/.config/nvim/modules/fugitive.vim
-source ~/.config/nvim/modules/gitgutter.vim
 
 " Sideabar
 source ~/.config/nvim/modules/nerdtree.vim
@@ -66,6 +65,9 @@ luafile ~/.config/nvim/modules/lspsaga.lua
 
 luafile ~/.config/nvim/modules/compe.lua
 luafile ~/.config/nvim/modules/diagnostics.lua
+
+" Git
+luafile ~/.config/nvim/modules/gitsigns.lua
 
 " luafile ~/.config/nvim/modules/telescope.lua
 
