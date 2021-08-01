@@ -1,11 +1,11 @@
 Plug 'LanderMoerkerke/ale'
-"
-" let g:ale_disable_lsp = 1
+
+let g:ale_disable_lsp = 1
 let g:ale_set_highlights = 0
 
 let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_enter = 1
-let g:ale_lint_fix_on_save = 1
+" let g:ale_lint_fix_on_save = 1
 " let g:ale_open_list = 1
 let g:ale_list_window_size = 8
 
@@ -13,12 +13,14 @@ let g:ale_completion_enabled = 0
 
 let g:ale_python_autoflake_options = '--expand-star-imports --remove-all-unused-imports --remove-unused-variables --remove-duplicate-keys -s'
 
-let g:ale_linters = {
-            \ 'python': ['pyright'],
-            \ 'javascript': ['eslint'],
-            \ 'go': ['golint'],
-            \ 'vim': ['vint']
-            \}
+let g:ale_linters_explicit = 1
+let g:ale_linters = {}
+" let g:ale_linters = {
+"             \ 'python': ['pyright'],
+"             \ 'javascript': ['eslint'],
+"             \ 'go': ['golint'],
+"             \ 'vim': ['vint']
+"             \}
 
 let g:ale_fixers = {
             \ 'cpp': ['clang-format'],
@@ -63,9 +65,9 @@ nmap <silent> gep <Plug>(ale_previous_wrap)
 nmap <silent> gen <Plug>(ale_next_wrap)
 
 
-augroup ale
+" augroup ale
 
-    autocmd BufWritePre *.go,*.rs,*.sh,*.bash ALEFix
-    autocmd BufWritePre *.py ALEFix isort black
+"     autocmd BufWritePre *.go,*.rs,*.sh,*.bash ALEFix
+"     autocmd BufWritePre *.py ALEFix isort black
 
-augroup end
+" augroup end
