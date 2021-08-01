@@ -60,8 +60,11 @@ source ~/.config/nvim/modules/autocommands.vim
 call plug#end()
 
 source ~/.config/nvim/modules/appendix.vim
+
 luafile ~/.config/nvim/modules/lsp.lua
 luafile ~/.config/nvim/modules/lspsaga.lua
+
+luafile ~/.config/nvim/modules/compe.lua
 luafile ~/.config/nvim/modules/diagnostics.lua
 
 luafile ~/.config/nvim/modules/formatter.lua
