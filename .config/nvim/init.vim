@@ -67,4 +67,6 @@ luafile ~/.config/nvim/modules/lspsaga.lua
 luafile ~/.config/nvim/modules/compe.lua
 luafile ~/.config/nvim/modules/diagnostics.lua
 
+" luafile ~/.config/nvim/modules/telescope.lua
+
 luafile ~/.config/nvim/modules/formatter.lua
