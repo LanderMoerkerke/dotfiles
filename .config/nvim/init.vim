@@ -61,4 +61,6 @@ call plug#end()
 
 source ~/.config/nvim/modules/appendix.vim
 luafile ~/.config/nvim/modules/lsp.lua
+luafile ~/.config/nvim/modules/diagnostics.lua
+
 luafile ~/.config/nvim/modules/formatter.lua

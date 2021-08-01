@@ -14,4 +14,6 @@ augroup basic
     autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
     autocmd BufWritePost *dwmbar-launch !killall dwmbar-launch; setsid dwmbar-launch &
 
+    autocmd CursorHold * lua require('echo-diagnostics').echo_line_diagnostic()
+
 augroup end
