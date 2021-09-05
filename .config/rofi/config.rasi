@@ -1,15 +1,13 @@
+/* Rofi config file */
 configuration {
-	lines: 12;
 	font: "Noto Sans 9";
-	show-icons: true;
-	matching: "normal";
-	separator-style: "none";
-	hide-scrollbar: true;
-	theme: "/usr/share/rofi/themes/oxide.rasi";
-	color-normal: "#fdf6e3,  #002b36,  #eee8d5,  #586e75,  #eee8d5";
-	color-urgent: "#fdf6e3,  #dc322f,  #eee8d5,  #dc322f,  #fdf6e3";
-	color-active: "#fdf6e3,  #268bd2,  #eee8d5,  #268bd2,  #fdf6e3";
-	color-window: "#fdf6e3,      #002b36,  #002b36";
-	display-window: "Window";
-	display-drun: "Search";
+    show-icons: true;
+    display-window: "Window";
+    display-drun: "Search";
+}
+
+@theme "oxide"
+
+listview {
+    lines: 11;
 }
