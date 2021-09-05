@@ -95,7 +95,12 @@ alias per="pipenv run"
 alias pes="pipenv shell"
 alias peg="pipenv graph | less"
 alias pei="pipenv install"
-alias peinit="pipenv install 'black' 'pylint' 'flake8' 'mypy' 'isort' 'bandit' 'flake8' --dev"
+
+alias po="poetry"
+alias por="poetry run"
+alias pos="poetry shell"
+alias poes="poetry shell"
+alias poi="poetry add"
 
 alias py37-env="source $HOME/Pipenv/python37-venv/.venv/bin/activate"
 alias py38-env="source $HOME/Pipenv/python38-venv/.venv/bin/activate"
