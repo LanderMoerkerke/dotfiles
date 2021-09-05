@@ -9,6 +9,8 @@ status() {
     check-mail-unread && echo "$delim"
     # cpu
     # mem
+    check-noisetorch-connected && echo "$delim"
+    check-vpn-connected && echo "$delim"
     check-interface-speed && echo "$delim"
     check-cpu-temperature && echo "$delim"
     # volume
