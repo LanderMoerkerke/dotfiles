@@ -62,6 +62,16 @@ function cd() {
     done
 }
 
+function cd_git_root {
+  dir='.'
+  while [ ! -d "$dir/.git" ]; do
+    [ $(readlink -m $dir) = '/' ] && return
+    dir="../$dir"
+  done
+
+  cd $dir
+}
+
 # helm
 function khelm () {
 
