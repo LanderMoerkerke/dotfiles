@@ -51,3 +51,7 @@ Plug 'lewis6991/gitsigns.nvim'                                      " Git change
 " " If you want to have icons in your statusline choose one of these
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'ryanoasis/vim-devicons'
+
+" NVIM Tree
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'

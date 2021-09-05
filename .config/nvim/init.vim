@@ -44,7 +44,7 @@ source ~/.config/nvim/modules/function_expander.vim
 source ~/.config/nvim/modules/fugitive.vim
 
 " Sideabar
-source ~/.config/nvim/modules/nerdtree.vim
+" source ~/.config/nvim/modules/nerdtree.vim
 " source ~/.config/nvim/modules/netrw.vim
 
 source ~/.config/nvim/modules/markdown_toc.vim
@@ -74,3 +74,4 @@ luafile ~/.config/nvim/modules/gitsigns.lua
 " luafile ~/.config/nvim/modules/telescope.lua
 
 luafile ~/.config/nvim/modules/formatter.lua
+luafile ~/.config/nvim/modules/tree.lua
