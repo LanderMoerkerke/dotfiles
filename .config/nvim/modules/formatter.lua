@@ -18,7 +18,8 @@ end
 local black = function()
     return {
         exe = "black",
-        args = {"-l", "120", "--stdin-filename", vim.api.nvim_buf_get_name(0), "-"},
+        args = {"-l", "120", "-"},
+        -- args = {"-l", "120", "--stdin-filename", vim.api.nvim_buf_get_name(0), "-"},
         stdin = true
     }
 end
@@ -122,13 +123,14 @@ formatter.setup(
             sh = {shfmt},
             rust = {rustfmt},
             markdown = {remark},
-            json = {jq},
+            json = {prettier, jq},
             lua = {luafmt},
             go = {gofmt},
             css = {prettier},
             javascript = {prettier, eslint},
             javascriptreact = {prettier, eslint},
-            typescript = {prettier, eslint}
+            typescript = {prettier, eslint},
+            typescriptreact = {prettier, eslint}
         }
     }
 )
