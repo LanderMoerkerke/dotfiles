@@ -48,7 +48,7 @@ source ~/.config/nvim/modules/fugitive.vim
 " source ~/.config/nvim/modules/netrw.vim
 
 source ~/.config/nvim/modules/markdown_toc.vim
-source ~/.config/nvim/modules/multiple_cursors.vim
+" source ~/.config/nvim/modules/multiple_cursors.vim
 source ~/.config/nvim/modules/ripgrep.vim
 source ~/.config/nvim/modules/rooter.vim
 source ~/.config/nvim/modules/suda.vim
