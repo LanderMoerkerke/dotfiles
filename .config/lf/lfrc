@@ -72,6 +72,13 @@ cmd yank_basename &{{
 # rename current file without overwrite
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 
+cmd newfold ${{
+    set -f
+    read newd
+    mkdir -- "$newd"
+    mv -- $fx "$newd"
+}}
+
 # Get progress of copynig
 cmd paste_rsync &{{
     set -- $(cat ~/.local/share/lf/files)
@@ -269,6 +276,8 @@ map C convert
 map dD delete
 map dd cut
 map D trash
+
+map <a-n> newfold
 
 # Copy
 map yy copy
