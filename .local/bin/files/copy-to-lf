@@ -2,10 +2,8 @@
 
 file="$1"
 
-cmd=$(printf "save\ncopy\n$file\n")
-
-lf -remote "$cmd"
+echo "move\n$file" > $HOME/.local/share/lf/files
 
 echo "$file" | xclip -selection clipboard
 
-notify-send "Copied to lf" "$file"
+notify-send "Cut to lf" "$file"
