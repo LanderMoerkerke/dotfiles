@@ -50,6 +50,10 @@ cmd go-symlink ${{
     lf -remote "send $id cd $path"
 }}
 
+cmd node_script ${{
+  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && npm run $(echo "$script")
+}}
+
 cmd usage $du -h -d1 | less
 
 cmd count !echo  "Amount of files in dir:" $(dirname $f) && find . | wc -l
