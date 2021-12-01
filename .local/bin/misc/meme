@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Author: Navan Chauhan https://github.com/navanchauhan
-currentVersion="1.22.1"
+currentVersion="1.23.0"
 configuredClient=""
 fileName=""
 ## This function determines which http get tool the system has installed and returns an error if there isnt one
@@ -15,7 +15,7 @@ getConfiguredClient()
   elif command -v fetch &>/dev/null; then
     configuredClient="fetch"
   else
-    echo "Error: This tool reqires either curl, wget, httpie or fetch to be installed." >&2
+    echo "Error: This tool requires either curl, wget, httpie or fetch to be installed." >&2
     return 1
   fi
 }
@@ -99,7 +99,7 @@ main(){
     else
       echo ""
     fi
-    httpGet "https://memegen.link/$bg/$first/$second.jpg"  >> $fileName.png || return 1
+    httpGet "https://memegen.link/$bg/$first/$second.jpg"  >> "$fileName".png || return 1
     return 0
 }
 
