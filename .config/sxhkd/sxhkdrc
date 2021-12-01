@@ -37,7 +37,6 @@ super + p
     gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
 super + shift + o
     gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass otp -c
-
 # 1}}} -
 
 # Scripts {{{1 -
@@ -66,6 +65,15 @@ control + shift + Print
 
 mod1 + {Home, End, Insert}
     playerctl --player=spotifyd,%any {previous, play-pause, next}
+
+# Dunst {{{1 -
+control + space
+    dunstctl close
+control + shift + space
+    dunstctl history-pop
+control + shift + period
+    dunstctl context
+# 1}}} -
 
 # Function keys - super {{{1 -
 super + F1
