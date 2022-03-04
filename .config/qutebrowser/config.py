@@ -850,6 +850,8 @@ c.tabs.indicator.width = 3
 # Type: Bool
 c.tabs.wrap = True
 
+c.tabs.pinned.frozen = False
+
 # Whether to start a search when something else than a URL is entered.
 # Type: String
 # Valid values:
