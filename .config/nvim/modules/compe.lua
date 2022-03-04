@@ -50,6 +50,9 @@ require "compe".setup {
         nvim_lsp = true,
         nvim_lua = true,
         ultisnips = true,
-        documentation = true
+        documentation = true,
+        spell = true,
+        tags = true,
+        treesitter = true
     }
 }
