@@ -103,7 +103,7 @@ mod1 + F7
 
 # Other {{{1 -
 super + {_,shift +} g
-    echo {$EMAIL_PRIMARY,$EMAIL_SECONDARY} | xclip -selection clipboard -selection clipboard
+    echo -e {$EMAIL_PRIMARY,$EMAIL_SECONDARY} | xclip -selection clipboard -selection clipboard
 # 1}}} -
 
 # Mediakeys {{{1 -
