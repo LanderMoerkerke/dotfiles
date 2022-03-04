@@ -26,8 +26,14 @@ end
 
 local eslint = function()
     return {
-        exe = "eslint",
-        args = {"--stdin", "--stdin-filename", vim.api.nvim_buf_get_name(0), "--fix-to-stdout"},
+        exe = "prettier",
+        args = {
+            "--config-precedence",
+            "prefer-file",
+            -- you can add more global setup here
+            "--stdin-filepath",
+            vim.fn.shellescape(vim.api.nvim_buf_get_name(0))
+        },
         stdin = true
     }
 end
@@ -127,10 +133,10 @@ formatter.setup(
             lua = {luafmt},
             go = {gofmt},
             css = {prettier},
-            javascript = {prettier, eslint},
-            javascriptreact = {prettier, eslint},
-            typescript = {prettier, eslint},
-            typescriptreact = {prettier, eslint}
+            javascript = {eslint},
+            javascriptreact = {eslint},
+            typescript = {eslint},
+            typescriptreact = {eslint}
         }
     }
 )
