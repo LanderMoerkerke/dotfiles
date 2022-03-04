@@ -909,6 +909,7 @@ c.url.searchengines = {
     "maps": "http://maps.google.com/?q={}",
     "mtp": "http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}",
     "osm": "http://www.openstreetmap.org/search?query={}",
+    "urban": "https://www.urbandictionary.com/define.php?term={}",
     "py": "https://docs.python.org/3/search.html?q={}",
     "pypi": "https://pypi.org/search/?q={}",
     "red": "https://reddit.com/r/{}",
@@ -924,6 +925,7 @@ c.url.searchengines = {
     "wt": "http://en.wiktionary.org/?search={}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "ytv": "https://hooktube.com/results?search_query={}",
+    "ww": "https://wiki.wegroup.be/search/{}",
 }
 
 
