@@ -16,7 +16,7 @@ if [ "$choice" = "File" ]; then
     rm /tmp/$NAME
 
     notify-send "Printscreen" "Saved to ~/Pictures/Screenshots/$FILENAME.png" -i ~/Pictures/Screenshots/$FILENAME.png
-    echo ~/Pictures/Screenshots/$FILENAME.png | xclip -selection clipboard
+    echo -n ~/Pictures/Screenshots/$FILENAME.png | xclip -selection clipboard
 
 elif [ "$choice" = "Clipboard" ]; then
     maim -s -u --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
@@ -29,7 +29,7 @@ elif [ "$choice" = "Slack Upload" ]; then
 
     notify-send "Printscreen" "Saved to /tmp/$NAME.png\nCopied to clipboard" -i /tmp/$NAME.png
 
-    echo "/slack upload /tmp/$NAME.png" | xclip -selection clipboard -t image/png -i
+    echo -n "/slack upload /tmp/$NAME.png" | xclip -selection clipboard -t image/png -i
 
 elif [ "$choice" = "Dragon" ]; then
 
