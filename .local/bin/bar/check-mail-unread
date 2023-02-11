@@ -3,7 +3,7 @@
 SUBFOLDER=${1:-"*"}
 
 # unread=$(find ~/.mail/*/INBOX/new | grep new/ | wc | awk '{print $1;}')
-unread=$(find "$XDG_DATA_HOME"/mail/*/*/new | egrep --invert-match 'Junk|Spam' | grep new/ | wc -l)
+unread=$(find "$XDG_DATA_HOME"/mail/*/*/new | egrep --invert-match 'Junk|Spam|wegroup' | grep new/ | wc -l)
 
 if [ "$unread" != "0" ]; then
     echo "  $unread"
