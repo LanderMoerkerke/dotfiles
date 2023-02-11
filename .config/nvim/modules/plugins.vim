@@ -25,7 +25,6 @@ Plug 'klen/nvim-test'
 
 " Filetypes / syntax
 Plug 'ron-rs/ron.vim'                                               " Syntax highlighting RON
-Plug 'thalesmello/lkml.vim'                                         " Syntax highlighting LookML
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}         " Syntax highlighting via Treeseitter
 
 Plug 'knsh14/vim-github-link'                                       " Git link generation
