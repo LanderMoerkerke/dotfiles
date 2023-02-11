@@ -10,7 +10,6 @@ alias k="kubectl"
 alias l='ls -latrFi'
 alias m='neomutt'
 alias n="newsboat"
-alias p2="python2"
 alias p="python"
 alias t="tree"
 
