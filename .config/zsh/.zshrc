@@ -1,6 +1,7 @@
 # Environment_variables
 # ---------------------
 
+export ZSH_DISABLE_COMPFIX=true
 export COLORTERM=24bit
 
 export ZSH=$HOME/.config/oh-my-zsh
@@ -19,6 +20,7 @@ fzf-tab
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
+forgit
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -47,8 +49,9 @@ setopt EXTENDED_GLOB
 ZSH_DISABLE_COMPFIX=true
 
 # History in cache directory:
-export HISTSIZE=10000000
-export SAVEHIST=10000000
+export HISTSIZE=10000000000
+export SAVEHIST=10000000000
+setopt EXTENDED_HISTORY
 export HISTFILE=$HOME/.cache/zsh/history
 
 # Basic auto/tab complete:
