@@ -21,6 +21,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', {'branch': '0.1.x'}
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
+Plug 'klen/nvim-test'
+
 " Filetypes / syntax
 Plug 'ron-rs/ron.vim'                                               " Syntax highlighting RON
 Plug 'thalesmello/lkml.vim'                                         " Syntax highlighting LookML
