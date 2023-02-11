@@ -65,6 +65,8 @@ luafile ~/.config/nvim/modules/lsp.lua
 luafile ~/.config/nvim/modules/compe.lua
 luafile ~/.config/nvim/modules/diagnostics.lua
 
+luafile ~/.config/nvim/modules/nvim-test.lua
+
 " Git
 luafile ~/.config/nvim/modules/gitsigns.lua
 
