@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
+
 # Settings
 export TMOUT=9600
 
@@ -102,7 +104,7 @@ export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
 export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
 export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
-
+export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
 export CUDA_HOME=/opt/cuda
 
 # VEST
@@ -110,6 +112,7 @@ export VEST=$HOME/Documents/VEST/
 
 # WORK
 export WG=$HOME/Documents/Work/WeGroup
+export NATS_REQUEST=$WG/NATS/payload.json
 export BITBUCKET=$WG/Bitbucket
 
 # Biber
