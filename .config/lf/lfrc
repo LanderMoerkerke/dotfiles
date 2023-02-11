@@ -37,7 +37,7 @@ set cleaner image-preview
 #  Commands {{{1 #
 # ---------------------------
 
-cmd dragon %dragon-drag-and-drop -a -x $fx
+cmd dragon %dragon-drop -a -x $fx
 cmd cpdragon %cpdragon
 cmd mvdragon %mvdragon
 cmd dlfile %dlfile
