@@ -29,6 +29,7 @@ call_spotify_api() {
 
     artist=`echo "$resp" | jq '.artists[0].name' | cut -d\" -f2`
     track=`echo "$resp" | jq '.name' | cut -d\" -f2`
+    album_name=`echo "$resp" | jq '.album.name' | cut -d\" -f2`
 
     album_url=`echo "$resp" | jq '.album.images[-1].url' | cut -d\" -f2`
 
@@ -37,16 +38,16 @@ call_spotify_api() {
 }
 
 case "$PLAYER_EVENT" in
-    "start")
+    "play" | "change")
         call_spotify_api
-        dunstify -r $notification_id -i "$album_location" "$artist // started" "$track"
+        dunstify -r $notification_id -i "$album_location" "$artist" "$track - $album_name"
         ;;
-    "change")
+    # "change")
+    #     call_spotify_api
+    #     dunstify -r $notification_id -i "$album_location" "$artist" "$track - $album_name"
+    #     ;;
+    "pause")
         call_spotify_api
-        dunstify -r $notification_id -i "$album_location" "$artist" "$track"
-        ;;
-    "stop")
-        call_spotify_api
-        dunstify -r $notification_id -i "$album_location" "$artist // paused" "$track"
+        dunstify -r $notification_id -i "$album_location" "$artist // paused" "$track - $album_name"
         ;;
 esac
