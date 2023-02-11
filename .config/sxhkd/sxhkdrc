@@ -1,8 +1,8 @@
 # Basic {{{1 -
 super + d
     rofi -show drun -terminal $TERMINAL -width 25
-super + shift + d
-    rofi -show run -terminal $TERMINAL -width 25
+# super + shift + d
+#     rofi -show run -terminal $TERMINAL -width 25
 super + BackSpace
     flash-active &> /dev/null
 super + shift + BackSpace
@@ -10,7 +10,7 @@ super + shift + BackSpace
 super + Tab
     rofi -show window -width 25
 super + shift + e
-    rofi-emoji
+    rofi -modi emoji -show emoji
 super + x
     lockscreen
 super + shift + x
@@ -37,6 +37,8 @@ super + p
     gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass show -c
 super + shift + o
     gopass ls --flat | dmenu -i | xargs --no-run-if-empty gopass otp -c
+super + shift + d
+    useful-data
 # 1}}} -
 
 # Scripts {{{1 -
