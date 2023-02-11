@@ -226,7 +226,8 @@ c.content.javascript.alert = True
 # QtWebEngine, writing the clipboard as response to a user interaction
 # is always allowed.
 # Type: Bool
-c.content.javascript.can_access_clipboard = False
+# c.content.javascript.can_access_clipboard = False
+# c.content.javascript.clipboard = False
 
 # Whether JavaScript can open new tabs without user interaction.
 # Type: Bool
@@ -922,10 +923,11 @@ c.url.searchengines = {
     "viw": "http://vim.wikia.com/wiki/Special:Search?fulltext=Search&query={}",
     "vw": "https://wiki.voidlinux.eu/index.php?search={}&title=Special%3ASearch",
     "w": "https://www.wikipedia.org/search-redirect.php?family=wikipedia&language=en&search={}&language=en&go=Go",
+    "wnl": "https://www.wikipedia.org/search-redirect.php?family=wikipedia&language=nl&search={}&language=nl&go=Go",
     "wt": "http://en.wiktionary.org/?search={}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "ytv": "https://hooktube.com/results?search_query={}",
-    "ww": "https://wiki.wegroup.be/search/{}",
+    "ww": "https://wiki.linode.wegroup.be/search/{}",
 }
 
 
@@ -1147,7 +1149,7 @@ c.bindings.commands = {
         "xt": "config-cycle tabs.show always switching",
         "xx": "config-cycle statusbar.hide ;; config-cycle tabs.show always switching",
         "yD": "download-open copy-to-lf",
-        "yd": "download-open dragon-drag-and-drop -x",
+        "yd": "download-open dragon-drop -x",
         "yP": "yank pretty-url -s",
         "yT": "yank title -s",
         "yY": "yank -s",
