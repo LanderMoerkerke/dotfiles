@@ -208,7 +208,7 @@ c.content.blocking.hosts.lists = [
 # required to exactly match the requested domain. Local domains are
 # always exempt from hostblocking.
 # Type: List of String
-c.content.blocking.whitelist = ["https://wegroup.be/*", "https://*.wegroup.be/*"]
+c.content.blocking.whitelist = ["https://wegroup.be/*", "https://*.wegroup.be/*", "https://sentry.io/*"]
 
 # Enable or disable hyperlink auditing (`<a ping>`).
 # Type: Bool
