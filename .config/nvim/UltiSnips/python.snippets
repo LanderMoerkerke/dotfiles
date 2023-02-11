@@ -184,7 +184,7 @@ endsnippet
 
 snippet jdump "Dump contents to json file"
 with open(f"${1:output}.json", "${2:w}") as f:
-	json.dump(${3:data}, f, indent=2)
+	__import__("json").dump(${3:data}, f, indent=2)
 endsnippet
 
 #############
@@ -193,7 +193,7 @@ endsnippet
 
 snippet jread "Load contents from json file"
 with open(f"${1:file}") as f:
-	${2:data} = json.load(f)
+	${2:data} = __import__("json").load(f)
 endsnippet
 
 snippet jprint "JSON print"
