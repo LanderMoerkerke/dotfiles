@@ -4,7 +4,12 @@ choice=$(echo "Clipboard\nFile\nSlack Upload\nDragon\nTemp file" | dmenu -i -p "
 
 echo "$choice"
 
-if [ "$choice" = "File" ]; then
+if [ "$choice" = "Looker-backup" ]; then
+    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
+    maim -s -u --format=png ~/looker/$NAME.png || exit 1
+    notify-send "Printscreen" "Saved $NAME" -i ~/Pictures/Screenshots/$FILENAME.png
+    echo -n ~/Pictures/Screenshots/$FILENAME.png | xclip -selection clipboard
+elif [ "$choice" = "File" ]; then
     NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
 
     maim -s -u --format=png /tmp/$NAME || exit 1
@@ -36,7 +41,7 @@ elif [ "$choice" = "Dragon" ]; then
     NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
     maim -s -u --format=png /tmp/$NAME.png || exit 1
 
-    dragon-drag-and-drop -x "/tmp/$NAME.png"
+    dragon-drop -x "/tmp/$NAME.png"
 
 elif [ "$choice" = "Temp file" ]; then
 

@@ -59,12 +59,15 @@ URxvt.iso14755:             False
 URxvt.iso14755_52:          false
 URxvt*insecure:             false
 URxvt*depth:                32
+/* urxvt*dynamicColors: on */
 
 ! clickable links
 urxvt.matcher.button: C1
+! URxvt.matcher.pattern.1:  test
+URxvt.matcher.launcher.1: brave +$2 $1
 
 ! extensions
-URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select,clipboard
+URxvt.perl-ext-common:      default,matcher,resize-font,url-select,keyboard-select,clipboard,-confirm-paste
 URxvt.colorUL:	    	    #4682B4
 
 !! url-select
