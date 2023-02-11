@@ -70,6 +70,7 @@ local servers = {
     "html",
     -- "jsonls",
     "rust_analyzer",
+    "ruff_lsp",
     "pyright",
     -- "pyls_ms",
     "tsserver",
