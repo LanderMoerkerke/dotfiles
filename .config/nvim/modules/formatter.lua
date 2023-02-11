@@ -24,6 +24,14 @@ local black = function()
     }
 end
 
+local ruff = function()
+    return {
+        exe = "ruff",
+        args = {"--fix", "-"},
+        stdin = true
+    }
+end
+
 local eslint = function()
     return {
         exe = "prettier",
@@ -57,7 +65,8 @@ end
 local jq = function()
     return {
         exe = "jq",
-        args = {},
+        -- args = {},
+        args = {"--indent", "4"},
         stdin = true
     }
 end
