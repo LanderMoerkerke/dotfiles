@@ -53,3 +53,4 @@ vim.keymap.set("n", "<leader>g", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>gs", builtin.lsp_dynamic_workspace_symbols, {})
 
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("dap")

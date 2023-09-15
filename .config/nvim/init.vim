@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
 call plug#begin('~/.config/nvim/plugged')
+" let g:vimspector_base_dir = expand( '<sfile>:p:h' ) . '/vimspector'
 
 source ~/.config/nvim/modules/basic_settings.vim
 source ~/.config/nvim/modules/basic_commands.vim
@@ -76,3 +77,5 @@ luafile ~/.config/nvim/modules/telescope.lua
 
 luafile ~/.config/nvim/modules/formatter.lua
 luafile ~/.config/nvim/modules/tree.lua
+
+luafile ~/.config/nvim/modules/dap.lua

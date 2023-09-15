@@ -35,8 +35,8 @@ require("nvim-test.runners.pytest"):setup {
     find_files = {"test_{name}.py", "{name}_test.py", "tests.py"}
 }
 
-vim.api.nvim_set_keymap("n", "<Leader>tt", ":TestSuite<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>tf", ":TestFile<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>te", ":TestEdit<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>tl", ":TestLast<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>tn", ":TestNearest<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<Leader>tt", ":TestSuite<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<Leader>tf", ":TestFile<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<Leader>te", ":TestEdit<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<Leader>tl", ":TestLast<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<Leader>tn", ":TestNearest<CR>", {noremap = true, silent = true})

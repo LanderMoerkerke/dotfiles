@@ -22,7 +22,9 @@ let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#vimagit#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
+
 let g:airline#extensions#vista#enabled = 0
+let g:airline#extensions#csv#column_display = 'Name'
 
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#fnamemod = ':t'

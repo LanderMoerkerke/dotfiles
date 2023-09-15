@@ -144,7 +144,7 @@ formatter.setup(
             css = {prettier},
             javascript = {eslint},
             javascriptreact = {eslint},
-            typescript = {eslint},
+            typescript = {eslint, prettier},
             typescriptreact = {eslint}
         }
     }

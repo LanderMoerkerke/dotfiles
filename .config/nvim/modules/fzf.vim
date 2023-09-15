@@ -12,7 +12,7 @@ endfunction
 
 nnoremap <leader>p :Files<cr>
 nnoremap <leader>P :Buffers<cr>
-nnoremap <leader>T :Tags<cr>
+" nnoremap <leader>T :Tags<cr>
 
 nnoremap z= :call FzfSpell()<CR>
 

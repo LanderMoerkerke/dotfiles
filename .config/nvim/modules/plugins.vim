@@ -4,6 +4,7 @@ Plug 'tpope/vim-surround'                                           " Surround
 Plug 'junegunn/vim-easy-align'                                      " Easy align
 Plug 'tpope/vim-repeat'                                             " Repeat custom plugins
 Plug 'justinmk/vim-sneak'
+Plug 'nicwest/vim-camelsnek'                                        " Convert casing
 
 " Unix related
 Plug 'jamessan/vim-gnupg', { 'branch': 'main' }                     " GPG viewer
@@ -22,6 +23,13 @@ Plug 'nvim-telescope/telescope.nvim', {'branch': '0.1.x'}
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 Plug 'klen/nvim-test'
+
+Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap-python'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'nvim-telescope/telescope-dap.nvim'
+Plug 'LiadOz/nvim-dap-repl-highlights'
 
 " Filetypes / syntax
 Plug 'ron-rs/ron.vim'                                               " Syntax highlighting RON

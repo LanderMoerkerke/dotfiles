@@ -74,6 +74,7 @@ local servers = {
     "pyright",
     -- "pyls_ms",
     "tsserver",
+    -- "lua_ls",
     "yamlls"
 }
 for _, lsp in ipairs(servers) do
@@ -83,27 +84,8 @@ for _, lsp in ipairs(servers) do
     }
 end
 
--- local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
-local sumneko_binary = "lua-language-server"
-
-nvim_lsp.sumneko_lua.setup {
-    cmd = {"lua-language-server"}
-}
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-        virtual_text = true,
-        signs = true,
-        update_in_insert = true
-    }
-)
-
-local sumneko_root_path = vim.fn.getenv("HOME") .. "/.local/bin/sumneko_lua" -- Change to your sumneko root installation
-local sumneko_binary_path = "/bin/linux/lua-language-server" -- Change to your OS specific output folder
-nvim_lsp.sumneko_lua.setup {
-    cmd = {sumneko_root_path .. sumneko_binary_path, "-E", sumneko_root_path .. "/main.lua"},
+nvim_lsp.lua_ls.setup {
+    cmd = {"lua-language-server"},
     on_attach = on_attach,
     settings = {
         Lua = {
@@ -123,6 +105,16 @@ nvim_lsp.sumneko_lua.setup {
         }
     }
 }
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+        virtual_text = true,
+        signs = true,
+        update_in_insert = true
+    }
+)
 
 -- Map :Format to vim.lsp.buf.formatting()
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
