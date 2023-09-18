@@ -992,7 +992,7 @@ c.bindings.commands = {
         "'": "mode-enter jump_mark",
         "+": "zoom-in",
         "-": "zoom-out",
-        ".": "repeat-command",
+        ".": "cmd-repeat-last",
         "/": "cmd-set-text /",
         ":": "cmd-set-text :",
         ";;": "hint links download",
