@@ -1,12 +1,13 @@
 /* Rofi config file */
 configuration {
-	font: "Noto Sans 9";
+	font: "Noto Sans 11";
     show-icons: true;
     display-window: "Window";
     display-drun: "Search";
 }
 
-@theme "oxide"
+/* @theme "oxide" */
+@theme "catppuccin-mocha"
 
 listview {
     lines: 11;

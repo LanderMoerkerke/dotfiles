@@ -2,45 +2,82 @@
 ! COLOURS VERU
 ! -----------------------------------------------------------------------------------------------------------------------------
 
-#define veru0  #1c1c1c
-#define veru1  #3B4252
-#define veru2  #434C5E
-#define veru3  #4C566A
-#define veru4  #D8DEE9
-#define veru5  #E5E9F0
-#define veru6  #ECEFF4
-#define veru7  #8FBCBB
-#define veru8  #88C0D0
-#define veru9  #81A1C1
-#define veru10 #5E81AC
-#define veru11 #BF616A
-#define veru12 #D08770
-#define veru13 #EBCB8B
-#define veru14 #A3BE8C
-#define veru15 #B48EAD
+! #define veru0  #1c1c1c
+! #define veru1  #3B4252
+! #define veru2  #434C5E
+! #define veru3  #4C566A
+! #define veru4  #D8DEE9
+! #define veru5  #E5E9F0
+! #define veru6  #ECEFF4
+! #define veru7  #8FBCBB
+! #define veru8  #88C0D0
+! #define veru9  #81A1C1
+! #define veru10 #5E81AC
+! #define veru11 #BF616A
+! #define veru12 #D08770
+! #define veru13 #EBCB8B
+! #define veru14 #A3BE8C
+! #define veru15 #B48EAD
+!
+! *.foreground:  veru4
+! *.background:  veru0
+! *.cursorColor: veru4
+! ! *fading:       35
+! ! *fadeColor:    veru3
+!
+! *.color0:  veru0
+! *.color1:  veru11
+! *.color2:  veru14
+! *.color3:  veru13
+! *.color4:  veru9
+! *.color5:  veru15
+! *.color6:  veru8
+! *.color7:  veru5
+! *.color8:  veru3
+! *.color9:  veru11
+! *.color10: veru14
+! *.color11: veru13
+! *.color12: veru9
+! *.color13: veru15
+! *.color14: veru7
+! *.color15: veru6
 
-*.foreground:  veru4
-*.background:  veru0
-*.cursorColor: veru4
-! *fading:       35
-! *fadeColor:    veru3
+! special
+URxvt.background: [96]#1E1E2E
+URxvt.foreground: #CDD6F4
+URxvt.cursorColor: #F5E0DC
 
-*.color0:  veru0
-*.color1:  veru11
-*.color2:  veru14
-*.color3:  veru13
-*.color4:  veru9
-*.color5:  veru15
-*.color6:  veru8
-*.color7:  veru5
-*.color8:  veru3
-*.color9:  veru11
-*.color10: veru14
-*.color11: veru13
-*.color12: veru9
-*.color13: veru15
-*.color14: veru7
-*.color15: veru6
+! black
+URxvt.color0: #45475A
+URxvt.color8: #585B70
+
+! red
+URxvt.color1: #F38BA8
+URxvt.color9: #F38BA8
+
+! green
+URxvt.color2: #A6E3A1
+URxvt.color10: #A6E3A1
+
+! yellow
+URxvt.color3: #F9E2AF
+URxvt.color11: #F9E2AF
+
+! blue
+URxvt.color4: #89B4FA
+URxvt.color12: #89B4FA
+
+! magenta
+URxvt.color5: #F5C2E7
+URxvt.color13: #F5C2E7
+
+! cyan
+URxvt.color6: #94E2D5
+URxvt.color14: #94E2D5
+
+! white
+URxvt.color7: #BAC2DE
+URxvt.color15: #A6ADC8
 
 ! -----------------------------------------------------------------------------------------------------------------------------
 ! URXVT
@@ -113,8 +150,8 @@ URxvt.font:                 xft:Hack:                         size=9:antialias=t
 
 URxvt.letterSpace:          -1
 
-URxvt.foreground:           veru6
-URxvt*background:           [96]veru0
+! URxvt.foreground:           veru6
+! URxvt*background:           [96]veru0
 
 Xcursor*size: 15
 

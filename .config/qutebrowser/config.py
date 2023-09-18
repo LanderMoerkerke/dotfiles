@@ -9,6 +9,8 @@
 #
 # pylint: disable=C0111
 
+import catppuccin
+
 from qutebrowser.api import interceptor
 
 c = c  # noqa: F821 pylint: disable=E0602,C0103
@@ -1255,7 +1257,13 @@ c.bindings.commands = {
 }
 
 # config.source('shortcuts.py')
-config.source("dark-qutebrowser-theme.py")
+
+# config.source("dark-qutebrowser-theme.py")
+
+# set the flavor you'd like to use
+# valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
+# last argument (optional, default is False): enable the plain look for the menu rows
+catppuccin.setup(c, "mocha", True)
 
 
 def filter_yt(info: interceptor.Request):
