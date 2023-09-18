@@ -139,7 +139,7 @@ URxvt*scrollTtyOutput:      false
 URxvt*scrollTtyKeypress:    true
 
 ! font
-URxvt.font:                 xft:Hack:                         size=9:antialias=true:hinting=true,\
+URxvt.font:                 xft:HackNerdFont:                 size=9:antialias=true:hinting=true,\
                             xft:DroidSansMono Nerd Font:      size=9:antialias=true:hinting=true,\
                             xft:DroidSansMono Nerd Font Mono: size=9:antialias=true:hinting=true,\
                             xft:Symbols Nerd Font:            size=9:antialias=true:hinting=true,\
