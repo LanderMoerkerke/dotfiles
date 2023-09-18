@@ -73,7 +73,6 @@ alias chmod_num="stat --format '%a'"
 
 alias pacman_listpackages="expac "%n %m" -l'\n' -Q $(pacman -Qq) | sort -rhk 2 | less"
 alias pacman_listpackages_size="paste <(pacman -Q | awk '{ print $1; }' | xargs pacman -Qi | grep 'Size' | awk '{ print $4$5; }') <(pacman -Q | awk '{print $1; }') | sort -n | column -t | less"
-alias yay="paru"
 
 # alias sudo='nocorrect sudo'
 
