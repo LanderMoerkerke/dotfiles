@@ -18,16 +18,19 @@ set shellopts '-euy'
 
 set ifs "\n"
 
-set dircounts on
-set dirfirst on
+set number true
+set numberfmt "\033[33m"
 
-set drawbox on
-set icons on
+set dircounts true
+set dirfirst true
+
+set drawbox true
+set icons true
 
 set scrolloff 5
 
 set previewer file-preview
-set cleaner image-preview
+set cleaner image-clean
 
 # ---------------------------
 #  1}}} #
@@ -379,6 +382,7 @@ map gs cd ~/.scripts
 map gd cd ~/Documents
 map gD cd ~/Downloads
 map gp cd ~/Pictures
+map gP cd ~/Documents/Personal
 map gv cd ~/Videos
 
 map gw cd ~/Documents/Work/WeGroup
