@@ -307,7 +307,7 @@ ex=:\
 *.opus=:\
 *.spx=:\
 *.xspf=:\
-*.pdf=:\
+*.pdf=:\
 "
 
 . $HOME/.profile_appendix
