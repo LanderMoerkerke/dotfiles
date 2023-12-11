@@ -69,6 +69,7 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 export NLTK_DATA="$XDG_DATA_HOME/nltk/data"
@@ -150,6 +151,7 @@ export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file $HOME/.gitignor
 # export FZF_DEFAULT_OPTS="-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export FZF_DEFAULT_OPTS="-m --height 40% --layout=reverse --border --bind ctrl-k:preview-up,ctrl-j:preview-down,ctrl-d:preview-page-down,ctrl-u:preview-page-up --preview 'file-preview {}'"
 
+export BAT_THEME="Catppuccin-mocha"
 
 # LF icons
 export LF_ICONS="\

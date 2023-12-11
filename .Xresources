@@ -48,7 +48,7 @@ URxvt.foreground: #CDD6F4
 URxvt.cursorColor: #F5E0DC
 
 ! black
-URxvt.color0: #45475A
+URxvt.color0: #1E1E2E
 URxvt.color8: #585B70
 
 ! red

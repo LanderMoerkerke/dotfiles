@@ -50,18 +50,18 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#232323"
-    foreground = "#a8a8a8"
+    background = "#1E1E2E"
+    foreground = "#CDD6F4"
     timeout = 30
 
 [urgency_normal]
-    background = "#232323"
-    foreground = "#a8a8a8"
+    background = "#1E1E2E"
+    foreground = "#CDD6F4"
     timeout = 30
 
 [urgency_critical]
     background = "#d64e4e"
-    foreground = "#f0e0e0"
+    foreground = "#CDD6F4"
     frame_color = "#d64e4e"
     timeout = 0
     icon = /usr/share/icons/Flat-Remix-Red/status/symbolic/dialog-warning-symbolic.svg
