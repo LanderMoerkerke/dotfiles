@@ -29,10 +29,18 @@ return {
             }
         end
 
-        local ruff = function()
+        local ruff_format = function()
             return {
                 exe = "ruff",
-                args = {"--fix", "-"},
+                args = {"format", "-"},
+                stdin = true
+            }
+        end
+
+        local ruff_check = function()
+            return {
+                exe = "ruff",
+                args = {"check", "--fix", "-"},
                 stdin = true
             }
         end
@@ -137,6 +145,7 @@ return {
                 logging = false,
                 filetype = {
                     python = {isort, black},
+                    -- python = {ruff_check, ruff_format},
                     yaml = {prettier},
                     xml = {xmllint},
                     sql = {pgformatter},
@@ -146,6 +155,7 @@ return {
                     json = {prettier, jq},
                     lua = {luafmt},
                     go = {gofmt},
+                    html = {prettier},
                     css = {prettier},
                     javascript = {eslint},
                     javascriptreact = {eslint},
