@@ -45,6 +45,7 @@ export LIBRARY_PATH=/usr/local/lib
 export LD_LIBRARY_PATH=/usr/local/lib
 
 # default programs
+export TERM="xterm-256color"
 export BROWSER="qutebrowser"
 export BROWSER2="brave"
 export EDITOR="nvim"
