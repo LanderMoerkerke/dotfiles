@@ -161,6 +161,9 @@ return {
                     ui = {
                         kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind()
                     },
+                    symbol_in_winbar = {
+                        folder_level = 5
+                    },
                     code_action = {
                         extend_gitsigns = true
                     },
