@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+udev_rules_dir="$(pkg-config --variable=udevdir udev)/rules.d"
+udev_rule="$udev_rules_dir/40-monitor-hotplug.rules"
+
+if [ "$EUID" -ne 0 ]; then
+    echo "This script requires root privigleges"
+    exit 1
+fi
+
+remove_udev_rule() {
+    rm -f "$udev_rule"
+}
+
+reinstall_udev_rule() {
+    echo 'ACTION=="change", SUBSYSTEM=="drm", RUN+="/bin/systemctl start --no-block autorandr.service"' >"$udev_rule"
+}
+
+main() {
+    remove_udev_rule
+    trap reinstall_udev_rule EXIT
+    echo -ne "autorandr has been paused, press Enter to resume it..."
+    read -r
+}
+
+main "$@"
