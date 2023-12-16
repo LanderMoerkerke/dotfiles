@@ -103,7 +103,13 @@ return {
         local prettier = function()
             return {
                 exe = "prettier",
-                args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), "--single-quote"},
+                args = {
+                    "--stdin-filepath",
+                    vim.api.nvim_buf_get_name(0),
+                    "--single-quote",
+                    "--tab-width",
+                    "4"
+                },
                 stdin = true
             }
         end
@@ -153,6 +159,7 @@ return {
                     rust = {rustfmt},
                     markdown = {remark},
                     json = {prettier, jq},
+                    jsonc = {prettier},
                     lua = {luafmt},
                     go = {gofmt},
                     html = {prettier},
