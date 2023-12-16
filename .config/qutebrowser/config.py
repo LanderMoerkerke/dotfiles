@@ -10,7 +10,6 @@
 # pylint: disable=C0111
 
 import catppuccin
-
 from qutebrowser.api import interceptor
 
 c = c  # noqa: F821 pylint: disable=E0602,C0103
