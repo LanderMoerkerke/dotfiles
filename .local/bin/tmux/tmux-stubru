@@ -4,4 +4,9 @@ TMUX_SESSION=stubru
 
 tmux a -t $TMUX_SESSION >/dev/null 2>&1 && exit 0
 
-tmux new -d -s $TMUX_SESSION 'mpv https://live-radio-cf-vrt.akamaized.net/groupc/live/f404f0f3-3917-40fd-80b6-a152761072fe/live.isml/live-audio\=128000.m3u8'
+URL="https://live-radio-cf-vrt.akamaized.net/groupc/live/f404f0f3-3917-40fd-80b6-a152761072fe/live.isml/live-audio\=128000.m3u8" # STUBRU
+# URL="https://live-radio-cf-vrt.akamaized.net/groupb/live/90cb8bb1-1ed0-40d3-bbad-47690a2a5fc3/live.isml/live-audio=128000.m3u8" # UNTZ
+# URL="https://live-radio-cf-vrt.akamaized.net/groupc/live/f404f0f3-3917-40fd-80b6-a152761072fe/live.isml/live-audio=128000.m3u8" # TIJDLOZE
+# URL="https://live-radio-cf-vrt.akamaized.net/groupc/live/f404f0f3-3917-40fd-80b6-a152761072fe/live.isml/live-audio=128000.m3u8" # BRUUT
+
+tmux new -d -s $TMUX_SESSION "mpv $URL"
