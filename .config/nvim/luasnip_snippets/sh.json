@@ -1,0 +1,67 @@
+{
+  "env": {
+    "prefix": "env",
+    "description": "Generate environment",
+    "body": "#!/bin/sh$0"
+  },
+  "printbr": {
+    "prefix": "printbr",
+    "description": "Print breakline",
+    "body": "printf \"%32s\\n\" ' ' | tr ' ' '-'"
+  },
+  "h1": {
+    "prefix": "h1",
+    "description": "Header 1",
+    "body": [
+      "# ---------------------------------------",
+      "# $1",
+      "# ---------------------------------------"
+    ]
+  },
+  "h1f": {
+    "prefix": "h1f",
+    "description": "Header 1 with folds",
+    "body": [
+      "# ---------------------------------------",
+      "# $1 {{{1 #",
+      "# ---------------------------------------"
+    ]
+  },
+  "h1c": {
+    "prefix": "h1c",
+    "description": "Header 1 close",
+    "body": [
+      "# 1\\}\\}\\} #",
+      "# ---------------------------------------"
+    ]
+  },
+  "h2": {
+    "prefix": "h2",
+    "description": "Header 2",
+    "body": [
+      "# $1",
+      "# -----------------"
+    ]
+  },
+  "h2f": {
+    "prefix": "h2f",
+    "description": "Header 2 with folds",
+    "body": [
+      "# $1 {{{1 #",
+      "# -----------------"
+    ]
+  },
+  "h2c": {
+    "prefix": "h2c",
+    "description": "Header 2 close",
+    "body": [
+      "# 1\\}\\}\\} #",
+      "# -----------------"
+    ]
+  },
+  "br": {
+    "prefix": "br",
+    "description": "Breakline",
+    "body": "# ---------------------------------------$0"
+  }
+}

@@ -1,0 +1,439 @@
+{
+  "main": {
+    "prefix": "main",
+    "description": "Main declaration and execution",
+    "body": [
+      "def main():",
+      "\t\"\"\"${1:TODO: Docstring for main.}\"\"\"",
+      "\t${2:# code}",
+      "\tpass",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "\tmain()"
+    ]
+  },
+  "printf": {
+    "prefix": "printf",
+    "description": "Print formatted",
+    "body": "print(f\"${1:text} {${2:variable}\\}$3\")"
+  },
+  "printfv": {
+    "prefix": "printfv",
+    "description": "Print formatted variable",
+    "body": "print(f\"{${2:variable}=\\}$3\")"
+  },
+  "printbr": {
+    "prefix": "printbr",
+    "description": "Print breakline",
+    "body": "print(\"${0:-}\" * 39)"
+  },
+  "ts": {
+    "prefix": "ts",
+    "description": "Time start",
+    "body": "t0 = time.time()"
+  },
+  "te": {
+    "prefix": "te",
+    "description": "Time end",
+    "body": "print(f\"$0 - finished in {time.time() - t0:.4f\\}\")"
+  },
+  "tes": {
+    "prefix": "tes",
+    "description": "Time end section",
+    "body": [
+      "print(\"---------------------------------------\")",
+      "print(f\"Code finished in {time.time() - t0:.4f\\}\")",
+      "print(\"---------------------------------------\")"
+    ]
+  },
+  "syse": {
+    "prefix": "syse",
+    "description": "Sys exit",
+    "body": "__import__(\"sys\").exit(${1:${TM_SELECTED_TEXT:1}})$2"
+  },
+  "ifu": {
+    "prefix": "ifu",
+    "description": "Import futures",
+    "body": "from __future__ import annotations"
+  },
+  "ity": {
+    "prefix": "ity",
+    "description": "Import typing",
+    "body": "from typing import Any, ClassVar, Dict, List, Literal, Optional, Tuple, Union"
+  },
+  "ie": {
+    "prefix": "ie",
+    "description": "Import enum",
+    "body": "from enum import Enum"
+  },
+  "il": {
+    "prefix": "il",
+    "description": "Import logger",
+    "body": "from logging import Logger"
+  },
+  "idt": {
+    "prefix": "idt",
+    "description": "Import datetime",
+    "body": "from datetime import date, datetime, timedelta"
+  },
+  "ibc": {
+    "prefix": "ibc",
+    "description": "Import base class",
+    "body": "from pydantic import BaseModel as Base"
+  },
+  "iwc": {
+    "prefix": "iwc",
+    "description": "Import WG base class",
+    "body": "from wg_py_models.domain.wegroup import Base"
+  },
+  "iws": {
+    "prefix": "iws",
+    "description": "Import WG session",
+    "body": "from wg_py_models.api_call import Session"
+  },
+  "ij": {
+    "prefix": "ij",
+    "description": "Import json",
+    "body": "import json"
+  },
+  "iu": {
+    "prefix": "iu",
+    "description": "Import uuid",
+    "body": "from uuid import UUID, uuid4"
+  },
+  "dtn": {
+    "prefix": "dtn",
+    "description": "Datetime now",
+    "body": "now = datetime.now()"
+  },
+  "while": {
+    "prefix": "while",
+    "description": "while",
+    "body": [
+      "while ${1:${TM_SELECTED_TEXT:True}}:",
+      "\t${2:${TM_SELECTED_TEXT:pass}}",
+      "$3"
+    ]
+  },
+  "fl": {
+    "prefix": "fl",
+    "description": "Field",
+    "body": "Field(${1:...}, description=${2:None}, example=${3:None})"
+  },
+  "dc": {
+    "prefix": "dc",
+    "description": "Dataclass",
+    "body": [
+      "@dataclass(config=GlobalConfig)",
+      "class ${1:classname}(DataClass):",
+      "",
+      "\t\"\"\"Docstring for $1. \"\"\"",
+      "",
+      "\t${2:pass}"
+    ]
+  },
+  "ec": {
+    "prefix": "ec",
+    "description": "Enum class",
+    "body": [
+      "class ${1:classname}(Enum):",
+      "",
+      "\t${2:pass}"
+    ]
+  },
+  "bc": {
+    "prefix": "bc",
+    "description": "Base class",
+    "body": [
+      "class ${1:classname}(Base):",
+      "",
+      "\t\"\"\"Docstring for $1. \"\"\"",
+      "",
+      "\t${2:pass}"
+    ]
+  },
+  "ef": {
+    "prefix": "ef",
+    "description": "Extend function",
+    "body": "super().${1:function}(${2:args})"
+  },
+  "posti": {
+    "prefix": "posti",
+    "description": "Post init function",
+    "body": [
+      "def __post_init__(self):",
+      "\t${3:${TM_SELECTED_TEXT:pass}}"
+    ]
+  },
+  "postie": {
+    "prefix": "postie",
+    "description": "Post init extend function",
+    "body": [
+      "def __post_init__(self):",
+      "\tsuper().__init__(**kwargs)",
+      "\t${3:${TM_SELECTED_TEXT:pass}}"
+    ]
+  },
+  "inie": {
+    "prefix": "inie",
+    "description": "Init extend",
+    "body": [
+      "def __init__(self, **kwargs):",
+      "\tsuper().__init__(**kwargs)",
+      "\tself.$1"
+    ]
+  },
+  "inii": {
+    "prefix": "inii",
+    "description": "Init inheritence",
+    "body": [
+      "def __init__(self, **kwargs):",
+      "\tassert kwargs.get(${1:key})",
+      "\t${2:var} = ${3:item}",
+      "\tsuper().__init__($2=$2, **kwargs)"
+    ]
+  },
+  "read": {
+    "prefix": "read",
+    "description": "With open file to read",
+    "body": [
+      "with open(f\"${1:filename}\", \"${2:r}\") as f:",
+      "\t${3:pass}"
+    ]
+  },
+  "write": {
+    "prefix": "write",
+    "description": "With open file to write",
+    "body": [
+      "with open(f\"${1:filename}\", \"${2:w}\") as f:",
+      "\t${3:pass}"
+    ]
+  },
+  "jdump": {
+    "prefix": "jdump",
+    "description": "Dump contents to json file",
+    "body": [
+      "with open(f\"${1:output}.json\", \"${2:w}\") as f:",
+      "\t__import__(\"json\").dump(${3:data}, f, indent=2)"
+    ]
+  },
+  "jread": {
+    "prefix": "jread",
+    "description": "Load contents from json file",
+    "body": [
+      "with open(f\"${1:file}\") as f:",
+      "\t${2:data} = __import__(\"json\").load(f)"
+    ]
+  },
+  "jprint": {
+    "prefix": "jprint",
+    "description": "JSON print",
+    "body": "print(__import__(\"json\").dumps($1, indent=4))$2"
+  },
+  "amain": {
+    "prefix": "amain",
+    "description": "Async main",
+    "body": [
+      "import asyncio",
+      "",
+      "async def main():",
+      "\t\"\"\"${1:TODO: Docstring for main.}\"\"\"",
+      "\t${2:# code}",
+      "\tpass",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "\tasyncio.run(main())"
+    ]
+  },
+  "afor": {
+    "prefix": "afor",
+    "description": "Async for",
+    "body": [
+      "async for ${1:item} in ${2:iterator}:",
+      "\t${2:${TM_SELECTED_TEXT:pass}}",
+      "$3"
+    ]
+  },
+  "aread": {
+    "prefix": "aread",
+    "description": "Async read file",
+    "body": [
+      "import aiofiles",
+      "",
+      "async with aiofiles.open(f\"${1:filename}\", \"${2:r}\") as f:",
+      "\t${3:data = await f.read()}"
+    ]
+  },
+  "awrite": {
+    "prefix": "awrite",
+    "description": "Async write file",
+    "body": [
+      "import aiofiles",
+      "",
+      "async with aiofiles.open(f\"${1:filename}\", \"${2:w}\") as f:",
+      "\tawait f.write(str(\"\\n\").join(${2:data}))"
+    ]
+  },
+  "areq": {
+    "prefix": "areq",
+    "description": "Async request",
+    "body": [
+      "import aiohttp",
+      "",
+      "async with aiohttp.ClientSession(${1:headers=headers, cookies=cookies}) as session:",
+      "\tasync with session.${2:get}(${3:url}) as resp:",
+      "\t\t${4:return await resp}"
+    ]
+  },
+  "achunck": {
+    "prefix": "achunck",
+    "description": "Async list chunking",
+    "body": [
+      "",
+      "amount_per_iteration = 100",
+      "amount_of_iterations = len(${1:lst}) // amount_per_iteration + 1",
+      "index = 0",
+      "",
+      "t0 = time.time()",
+      "for _ in range(amount_of_iterations):",
+      "",
+      "\tsubset = $1[index : min(index + amount_per_iteration, len($1))]",
+      "\tindex += amount_per_iteration",
+      "",
+      "\ttasks = [",
+      "\t\tasyncio.create_task(${2:function}(sub))",
+      "\t\tfor sub in subset",
+      "\t]",
+      "",
+      "\tfor t in tasks:",
+      "\t\tawait t",
+      "",
+      "print(f\"Done - finished in {time.time() - t0:.4f\\}\")"
+    ]
+  },
+  "h1": {
+    "prefix": "h1",
+    "description": "Header 1",
+    "body": [
+      "# ---------------------------------------",
+      "# $1",
+      "# ---------------------------------------"
+    ]
+  },
+  "h1f": {
+    "prefix": "h1f",
+    "description": "Header 1 with folds",
+    "body": [
+      "# ---------------------------------------",
+      "# $1 {{{1 #",
+      "# ---------------------------------------"
+    ]
+  },
+  "h1c": {
+    "prefix": "h1c",
+    "description": "Header 1 close",
+    "body": [
+      "# 1\\}\\}\\} #",
+      "# ---------------------------------------"
+    ]
+  },
+  "h2": {
+    "prefix": "h2",
+    "description": "Header 2",
+    "body": [
+      "# $1",
+      "# -----------------"
+    ]
+  },
+  "h2f": {
+    "prefix": "h2f",
+    "description": "Header 2 with folds",
+    "body": [
+      "# $1 {{{1 #",
+      "# -----------------"
+    ]
+  },
+  "h2c": {
+    "prefix": "h2c",
+    "description": "Header 2 close",
+    "body": [
+      "# 1\\}\\}\\} #",
+      "# -----------------"
+    ]
+  },
+  "br": {
+    "prefix": "br",
+    "description": "Breakline",
+    "body": "# ---------------------------------------$0"
+  },
+  "linfo": {
+    "prefix": "linfo",
+    "description": "logger info",
+    "body": "self.logger.info(f\"${1:header}\")"
+  },
+  "lerror": {
+    "prefix": "lerror",
+    "description": "logger error",
+    "body": "self.logger.error(f\"${1:header}\")"
+  },
+  "ldebug": {
+    "prefix": "ldebug",
+    "description": "logger debug",
+    "body": "self.logger.debug(f\"${1:header}\")"
+  },
+  "pys": {
+    "prefix": "pys",
+    "description": "Pytest Skip",
+    "body": "@pytest.mark.skip()"
+  },
+  "pyp": {
+    "prefix": "pyp",
+    "description": "Pytest parametrize",
+    "body": "@pytest.mark.parametrize(\"${1:parameters}\", [${2:param}])"
+  },
+  "sub": {
+    "prefix": "sub",
+    "description": "Subscriptable item",
+    "body": "[\"${1:key}\"]$2"
+  },
+  "sanic": {
+    "prefix": "sanic",
+    "description": "Create getting started webserver of Sanic",
+    "body": [
+      "from sanic import Sanic",
+      "from sanic.response import json",
+      "",
+      "app = Sanic()",
+      "",
+      "",
+      "@app.route(\"/\")",
+      "async def test(request):",
+      "\treturn json({\"hello\": \"world\"\\})",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "\tapp.run(host=\"0.0.0.0\", port=8000)"
+    ]
+  },
+  "fastapi": {
+    "prefix": "fastapi",
+    "description": "FastAPI",
+    "body": [
+      "from fastapi import FastAPI, Query",
+      "",
+      "app = FastAPI()",
+      "",
+      "",
+      "@app.get(\"/\")",
+      "async def root(params: str = Query(None)):",
+      "\treturn {\"message\": params\\}",
+      "",
+      "",
+      "@app.post(\"/\")",
+      "async def root_post():",
+      "\treturn {\"verb\": \"POST\"\\}"
+    ]
+  }
+}

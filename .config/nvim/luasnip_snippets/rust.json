@@ -1,0 +1,17 @@
+{
+  "strf": {
+    "prefix": "strf",
+    "description": "String definition from",
+    "body": "String::from(\"${1:text}\")"
+  },
+  "printbr": {
+    "prefix": "printbr",
+    "description": "Println breakline",
+    "body": "println!(\"{\\}\", \"-\".repeat(39));"
+  },
+  "printv": {
+    "prefix": "printv",
+    "description": "Println variable",
+    "body": "println!(\"{:?\\}\", ${1:variable});"
+  }
+}

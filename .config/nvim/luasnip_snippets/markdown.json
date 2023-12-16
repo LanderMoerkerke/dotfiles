@@ -1,0 +1,256 @@
+{
+  "toc": {
+    "prefix": "toc",
+    "description": "Add table of contents",
+    "body": [
+      "## Table of Contents",
+      "",
+      "<!-- TOC GFM -->",
+      "",
+      "<!-- /TOC -->"
+    ]
+  },
+  "start": {
+    "prefix": "start",
+    "description": "Start of an document",
+    "body": [
+      "# ${1:title}",
+      "",
+      "## Table of Contents",
+      "",
+      "<!-- TOC GFM -->",
+      "",
+      "<!-- /TOC -->",
+      "",
+      "## ${2:heading}"
+    ]
+  },
+  "h1": {
+    "prefix": "h1",
+    "description": "Header h1",
+    "body": "# ${1:Header name}"
+  },
+  "h2": {
+    "prefix": "h2",
+    "description": "Header h2",
+    "body": "## ${1:Header name}"
+  },
+  "h3": {
+    "prefix": "h3",
+    "description": "Header h3",
+    "body": "### ${1:Header name}"
+  },
+  "h4": {
+    "prefix": "h4",
+    "description": "Header h4",
+    "body": "#### ${1:Header name}"
+  },
+  "h5": {
+    "prefix": "h5",
+    "description": "Header h5",
+    "body": "##### ${1:Header name}"
+  },
+  "h6": {
+    "prefix": "h6",
+    "description": "Header h6",
+    "body": "###### ${1:Header name}"
+  },
+  "hrlnk": {
+    "prefix": "hrlnk",
+    "description": "Header ID Link",
+    "body": "[${1:Text}](#${2:Header ID})$0"
+  },
+  "rlnk": {
+    "prefix": "rlnk",
+    "description": "Reference-style link",
+    "body": "[${1:${TM_SELECTED_TEXT:Text}}][${2:Reference}]$0"
+  },
+  "rdef": {
+    "prefix": "rdef",
+    "description": "Reference-style link ID",
+    "body": "[$1]: ${3:http://${2:www.url.com}}"
+  },
+  "flnk": {
+    "prefix": "flnk",
+    "description": "Fast link",
+    "body": [
+      "<http://${1:url}>$0",
+      "",
+      "##############",
+      "#  Emphasis  #",
+      "##############",
+      "",
+      "snippet * \"Italic\"",
+      "*${1:${TM_SELECTED_TEXT:Text}}*$0"
+    ]
+  },
+  "_": {
+    "prefix": "_",
+    "description": "Strong",
+    "body": "__${1:${TM_SELECTED_TEXT:Text}}__$0"
+  },
+  "*_": {
+    "prefix": "*_",
+    "description": "Italic and Strong",
+    "body": "***${1:${TM_SELECTED_TEXT:Text}}***$0"
+  },
+  ">": {
+    "prefix": ">",
+    "description": "Quote",
+    "body": "> ${1:${TM_SELECTED_TEXT:Text}:${TM_SELECTED_TEXT:Text}}"
+  },
+  "ol": {
+    "prefix": "ol",
+    "description": "Ordered List",
+    "body": [
+      "1.\t${1:item}",
+      "2.\t${2:item}",
+      "3.\t${3:item}",
+      "4.\t${4:item}"
+    ]
+  },
+  "ul": {
+    "prefix": "ul",
+    "description": "Unordered List",
+    "body": [
+      "-\t${1:item}",
+      "-\t${2:item}",
+      "-\t${3:item}",
+      "-\t${4:item}"
+    ]
+  },
+  "ui": {
+    "prefix": "ui",
+    "description": "Unordered Item",
+    "body": "-\t${4:item}"
+  },
+  "cl": {
+    "prefix": "cl",
+    "description": "Check List",
+    "body": [
+      "-\t[ ] ${1:item}",
+      "-\t[ ] ${2:item}",
+      "-\t[ ] ${3:item}",
+      "-\t[ ] ${4:item}"
+    ]
+  },
+  "ci": {
+    "prefix": "ci",
+    "description": "Check Item",
+    "body": "-\t[ ] ${4:item}"
+  },
+  "br": {
+    "prefix": "br",
+    "description": "Linebreak",
+    "body": "<br>$1"
+  },
+  "dl": {
+    "prefix": "dl",
+    "description": "Definition List",
+    "body": [
+      "${1:Word 1}",
+      ": ${2:Definition}",
+      "",
+      "${3:Word 2}",
+      ": ${4:Definition}",
+      "",
+      "${5:Word 3}",
+      ": ${6:Definition}",
+      "",
+      "${7:Word 4}",
+      ": ${8:Definition}"
+    ]
+  },
+  "ilnk": {
+    "prefix": "ilnk",
+    "description": "Reference-style Image",
+    "body": "![${1:${TM_SELECTED_TEXT:Text}}][${2:Reference}] $0"
+  },
+  "t2": {
+    "prefix": "t2",
+    "description": "Table",
+    "body": [
+      "${1:First Header}   | ${2:First Header}",
+      "---------------|---------------",
+      "${3:Content_Cell}   | ${4:Content_Cell}",
+      "${5:Content_Cell}   | ${6:Content_Cell}",
+      "${7:Content_Cell}   | ${8:Content_Cell}",
+      "${9:Content_Cell}   | ${10:Content_Cell}"
+    ]
+  },
+  "t3": {
+    "prefix": "t3",
+    "description": "Table",
+    "body": [
+      "${1:First Header}   | ${2:First Header}  | ${3:First Header}",
+      "---------------|---------------|---------------",
+      "${4:Content_Cell}   | ${5:Content_Cell}  | ${6:Content_Cell}",
+      "${7:Content_Cell}   | ${8:Content_Cell}  | ${9:Content_Cell}",
+      "${10:Content_Cell}  | ${11:Content_Cell} | ${12:Content_Cell}",
+      "${13:Content_Cell}  | ${14:Content_Cell} | ${15:Content_Cell}"
+    ]
+  },
+  "ic": {
+    "prefix": "ic",
+    "description": "Inline code",
+    "body": "`${1:code}` $0"
+  },
+  "bc": {
+    "prefix": "bc",
+    "description": "Code",
+    "body": [
+      "```",
+      "${1:${TM_SELECTED_TEXT:Code}}",
+      "```"
+    ]
+  },
+  "hr": {
+    "prefix": "hr",
+    "description": "Horizontal Rule",
+    "body": "----------"
+  },
+  "ft": {
+    "prefix": "ft",
+    "description": "Footnote Reference",
+    "body": [
+      "[^${1:Footnote label}]",
+      "snippet ftd \"Footnote Definition\"",
+      "[^${1:footnote label}]: ${2:Footnote}"
+    ]
+  },
+  "abb": {
+    "prefix": "abb",
+    "description": "Abbreviation",
+    "body": "*[${1:abbreviation}]: ${2:definition}"
+  },
+  "cal": {
+    "prefix": "cal",
+    "description": "Calendar",
+    "body": [
+      "MON",
+      "",
+      "-   AM:",
+      "-   PM:",
+      "",
+      "TUE",
+      "",
+      "-   AM:",
+      "-   PM:",
+      "",
+      "WED",
+      "",
+      "-   AM:",
+      "-   PM:",
+      "",
+      "THU",
+      "",
+      "-   AM:",
+      "-   PM:",
+      "",
+      "FRI",
+      "",
+      "-   AM:",
+      "-   PM:"
+    ]
+  }
+}

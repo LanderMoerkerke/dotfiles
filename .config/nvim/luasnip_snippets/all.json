@@ -1,0 +1,15 @@
+{
+  "bl": {
+    "prefix": "bl",
+    "description": "Breakline",
+    "body": "---------------------------------------$0",
+    "luasnip": {
+      "priority": -55
+    }
+  },
+  "ftv": {
+    "prefix": "ftv",
+    "description": "Filetype vim",
+    "body": "vim:ft=${1:filetype}"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "nd": {
+    "prefix": "nd",
+    "description": "New dependency",
+    "body": "${1:package} = \"${2:*}\""
+  },
+  "ndf": {
+    "prefix": "ndf",
+    "description": "New dependency with feature",
+    "body": "${1:package} = { version = \"${2:*}\", features = [\"${2:feature}\"] \\}"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "esleep": {
+    "prefix": "esleep",
+    "description": "Entrypoint sleep",
+    "body": "ENTRYPOINT [ \"sleep\", \"9999999999\" ]"
+  }
+}
