@@ -92,8 +92,8 @@ vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 
 -- Buffers
-vim.keymap.set("n", "<c-n>", ":bnext<cr>")
-vim.keymap.set("n", "<c-p>", ":bprevious<cr>")
+-- vim.keymap.set("n", "<c-n>", ":bnext<cr>")
+-- vim.keymap.set("n", "<c-p>", ":bprevious<cr>")
 
 -- Split
 vim.keymap.set("n", "<leader>nn", ":split <cr>")

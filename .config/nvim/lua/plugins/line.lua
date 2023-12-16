@@ -25,6 +25,8 @@ return {
             require("bufferline").setup {
                 highlights = require("catppuccin.groups.integrations.bufferline").get()
             }
+            vim.keymap.set("n", "<c-n>", ":BufferLineCycleNext<CR>")
+            vim.keymap.set("n", "<c-p>", ":BufferLineCyclePrev<CR>")
         end
     }
 }
