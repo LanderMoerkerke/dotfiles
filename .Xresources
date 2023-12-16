@@ -83,6 +83,8 @@ URxvt.color15: #A6ADC8
 ! URXVT
 ! -----------------------------------------------------------------------------------------------------------------------------
 
+URxvt.perl-lib: /home/lander/.urxvt/ext
+
 ! general settings
 URxvt*termName:             xterm-256color
 URxvt.saveLines:            100000
@@ -145,10 +147,14 @@ URxvt.font:                 xft:HackNerdFont:                 size=9:antialias=t
                             xft:Symbols Nerd Font:            size=9:antialias=true:hinting=true,\
                             xft:Font Awesome 5 Pro:           size=9:antialias=true:hinting=true,\
                             xft:EmojiOne:                     size=7:antialias=true:hinting=true,\
+                            xft:NotoEmoji:             size=9:antialias=true:hinting=true,\
                             xft:NotoColorEmoji:               size=9:antialias=true:hinting=true,\
                             xft:Material Icons:               size=5:antialias=true:hinting=true
 
-URxvt.letterSpace:          -1
+! URxvt.font:                 xft:HackNerdFont:                 size=9:antialias=true:hinting=true,\
+!                             xft:Noto Color Emoji:style=regular:size=11
+
+URxvt.letterSpace:          0
 
 ! URxvt.foreground:           veru6
 ! URxvt*background:           [96]veru0
