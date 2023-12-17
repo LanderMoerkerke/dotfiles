@@ -13,7 +13,7 @@
     padding = 10
     horizontal_padding = 10
     frame_width = 1
-    frame_color = "#232323"
+    frame_color = "#11111B"
     separator_color = frame
     sort = yes
     idle_threshold = 60
@@ -36,7 +36,7 @@
     history_length = 20
     always_run_script = true
     startup_notification = false
-    corner_radius = 0
+    corner_radius = 5
     force_xinerama = false
     mouse_left_click = close_current
     mouse_middle_click = do_action
@@ -55,6 +55,6 @@
 [urgency_critical]
     background = "#d64e4e"
     foreground = "#CDD6F4"
-    frame_color = "#d64e4e"
+    frame_color = "#f38ba8"
     timeout = 0
     # icon = /usr/share/icons/Flat-Remix-Red/status/symbolic/dialog-warning-symbolic.svg

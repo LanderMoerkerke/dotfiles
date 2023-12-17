@@ -1,0 +1,12 @@
+#!/bin/sh
+
+SUBFOLDER=${1:-"*"}
+
+# unread=$(find ~/.mail/*/INBOX/new | grep new/ | wc | awk '{print $1;}')
+unread=$(find "$XDG_DATA_HOME"/mail/*/*/new | grep -E --invert-match 'Junk|Spam|wegroup' | grep new/ | wc -l)
+
+if [ "$unread" != "0" ]; then
+    echo "$unread"
+else
+    exit 0
+fi

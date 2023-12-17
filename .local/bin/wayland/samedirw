@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PID=$(hyprctl -j activewindow | jq .pid)
+dir="$(readlink /proc/"$PID"/cwd)"
+PID="$(pstree -lpA "$PID")"
+PID="${PID##*"${SHELL##*/}"(}"
+PID="${PID%%)*}"
+cd "$(readlink /proc/"$PID"/cwd)" || return 1
+footclient

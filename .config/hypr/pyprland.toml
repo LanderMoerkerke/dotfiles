@@ -1,0 +1,35 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+  "magnify"
+]
+
+[scratchpads.ferdi]
+animation = "fromBottom"
+command = "ferdium"
+class = "Ferdium"
+lazy = true
+size = "45% 65%"
+
+[scratchpads.term]
+animation = "fromTop"
+command = "foot -a foot-scratchpad -e scratch-tmux"
+class = "foot-scratchpad"
+lazy = true
+size = "75% 80%"
+
+[scratchpads.volume]
+animation = "fromRight"
+command = "pavucontrol -t 1"
+class = "pavucontrol"
+size = "40% 90%"
+lazy = true
+unfocus = "hide"
+
+[scratchpads.spotify]
+animation = "fromLeft"
+command = "spotify"
+class = "Spotify"
+size = "70% 90%"
+lazy = true
+unfocus = "hide"
