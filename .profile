@@ -53,8 +53,10 @@ export FILEMANAGER="lf"
 export FILEMANAGER2="nautilus"
 export READER="zathura"
 export RTV_BROWSER="w3m"
-export TERMINAL="urxvt"
+export TERMINAL="footclient"
 export TERMINAL2="alacritty"
+export PICKER="bemenu"
+export BEMENU_OPTS="--fb '#1e1e2e' --ff '#cdd6f4' --nb '#1e1e2e' --nf '#cdd6f4' --tb '#1e1e2e' --hb '#1e1e2e' --tf '#f38ba8' --hf '#f9e2af' --nf '#cdd6f4' --af '#cdd6f4' --ab '#1e1e2e' -n --counter always"
 
 # dotfiles
 export GOPATH="$XDG_DATA_HOME/go"
