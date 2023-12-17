@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ $(pactl list sources | grep NoiseTorch | wc -l) != "0" ]; then
+    echo " NC"
+else
+    exit 0
+fi

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+unread=$(cat "/tmp/packages_updates" | wc -l)
+
+if [ "$unread" = "0" ]; then
+    printf '{"text": "%s", "tooltip": "%s"}' "" ""
+    exit 0
+fi
+
+updates=$(cat "/tmp/packages_updates" | sed -z 's/\n/\\r/g')
+
+printf '{"text": "%s", "tooltip": "%s"}' "$unread" "$updates"
