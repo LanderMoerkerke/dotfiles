@@ -5,11 +5,9 @@
     browser = "qutebrowser"
     dmenu = "/usr/local/bin/dmenu"
     follow = keyboard
-    geometry = "320x5-10+35"
     indicate_hidden = yes
     shrink = no
     transparency = 0
-    notification_height = 0
     separator_height = 2
     padding = 10
     horizontal_padding = 10
@@ -37,17 +35,11 @@
     history_length = 20
     always_run_script = true
     startup_notification = false
-    verbosity = mesg
     corner_radius = 0
     force_xinerama = false
     mouse_left_click = close_current
     mouse_middle_click = do_action
     mouse_right_click = close_all
-
-[shortcuts]
-    close = ctrl+space
-    history = ctrl+shift+space
-    context = ctrl+shift+period
 
 [urgency_low]
     background = "#1E1E2E"
@@ -64,4 +56,4 @@
     foreground = "#CDD6F4"
     frame_color = "#d64e4e"
     timeout = 0
-    icon = /usr/share/icons/Flat-Remix-Red/status/symbolic/dialog-warning-symbolic.svg
+    # icon = /usr/share/icons/Flat-Remix-Red/status/symbolic/dialog-warning-symbolic.svg
