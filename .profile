@@ -109,6 +109,7 @@ export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
 export CUDA_HOME=/opt/cuda
+export MAKEFLAGS="-j 12"
 
 # VEST
 export VEST=$HOME/Documents/VEST/
