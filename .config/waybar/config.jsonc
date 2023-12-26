@@ -147,7 +147,7 @@
     "network": {
         "interval": 3,
         "format-wifi": "  {essid} ({signalStrength}%)  {bandwidthDownBytes}  {bandwidthUpBytes}",
-        "format-ethernet": " {ifname}",
+        "format-ethernet": " {ifname}  {bandwidthDownBytes}  {bandwidthUpBytes}",
         "tooltip-format": " {ifname} via {gwaddr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠ {ifname}",
