@@ -20,6 +20,8 @@ elif grep -q "$ALBUM_ART" "$TMP_FILE"; then
     echo "$IMG_FILE_ROUNDED" && exit
 fi
 
+echo "$ALBUM_ART" >"$TMP_FILE"
+
 curl -s "$ALBUM_ART" --output "$IMG_FILE" || exit
 
 convert "$IMG_FILE" \
