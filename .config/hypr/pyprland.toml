@@ -15,7 +15,7 @@ size = "45% 65%"
 animation = "fromTop"
 command = "foot -a foot-scratchpad -e scratch-tmux"
 class = "foot-scratchpad"
-lazy = true
+lazy = false
 size = "75% 80%"
 
 [scratchpads.volume]
