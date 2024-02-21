@@ -142,7 +142,6 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 # Pipenv
 export PIPENV_DEFAULT_PYTHON_VERSION=3
 export PIPENV_MAX_DEPTH=5
-export PIPENV_SKIP_LOCK=1
 export PIPENV_SPINNER=pong
 export PIPENV_DOTENV_LOCATION="$HOME/Documents/Pipenv/.env"
 
