@@ -63,13 +63,13 @@ cmd count !echo  "Amount of files in dir:" $(dirname $f) && find . | wc -l
 
 cmd mkdir %mkdir -p "$@"
 
-cmd yank_path &echo -n $f | tr -d '\n' | xsel -ipb
+cmd yank_path &echo -n $f | tr -d '\n' | wl-copy
 
-cmd yank_name &basename $f | tr -d '\n' | xsel -ipb
+cmd yank_name &basename $f | tr -d '\n' | wl-copy
 
 cmd yank_basename &{{
     filename=$(basename -- "$f")
-    echo "${filename%.*}" | tr -d '\n' | xsel -ipb
+    echo "${filename%.*}" | tr -d '\n' | wl-copy
 }}
 
 # rename current file without overwrite

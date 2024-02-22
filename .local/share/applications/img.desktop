@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Image viewer
-GenericName=Sxiv
-Icon=sxiv
-Exec=/usr/local/bin/sxiv -a %f
+GenericName=Imv
+Icon=imv
+Exec=/usr/sbin/imv %f

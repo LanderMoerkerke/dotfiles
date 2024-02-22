@@ -14,7 +14,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 ZSH_THEME="powerzeesh"
 
 plugins=(
-notify
+# notify
 vi-mode
 fzf-tab
 zsh-autosuggestions

@@ -2,7 +2,7 @@
 Type=Application
 Name=Neomutt
 Icon=email
-Exec=/usr/bin/urxvt -e neomutt %u
+Exec=/usr/sbin/footclient -e neomutt %u
 Terminal=true
 StartupNotify=true
 Categories=Internet;
