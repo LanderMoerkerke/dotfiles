@@ -10,8 +10,7 @@ ALBUM_ART=$(playerctl -p spotify metadata mpris:artUrl 2>/dev/null)
 
 if [ -z "$ALBUM_ART" ]; then
     convert -size 1x1 xc:none "$NON_IMAGE"
-    echo $NON_IMAGE
-    exit
+    echo $NON_IMAGE && exit
 fi
 
 if [ ! -e "$TMP_FILE" ]; then

@@ -4,7 +4,8 @@
     "margin": 5,
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/submap"
+        "hyprland/submap",
+        "custom/lyrics"
     ],
     "modules-center": [
         // "hyprland/window"
@@ -26,6 +27,11 @@
         "tray",
         "clock"
     ],
+    "custom/lyrics": {
+        "exec": "~/.config/waybar/custom/spotify/show-lyrics.sh",
+        "interval": 1,
+        "format": "♪ {}"
+    },
     "custom/noisetorch": {
         "exec": "~/.config/waybar/custom/noisetorch/check-noisetorch-connected",
         "interval": 5,
