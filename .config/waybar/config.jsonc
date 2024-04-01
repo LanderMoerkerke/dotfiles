@@ -52,8 +52,8 @@
     "mpris": {
         "format": "{player_icon} {dynamic}",
         "format-paused": " {status_icon} <i>{dynamic}</i>",
-        "tooltip-format": "{player}: {title} - {artist} - {album}",
-        "dynamic-order": ["title", "artist", "album"],
+        "tooltip-format": "{player}: {title} - {artist}",
+        "dynamic-order": ["title", "artist"],
         "player-icons": {
             "default": "▶",
             "spotify": "",
@@ -62,7 +62,10 @@
         "status-icons": {
             "paused": "⏸"
         },
-        "ignored-players": ["kdeconnect"]
+        "ignored-players": ["kdeconnect"],
+        "album-len": 10,
+        "artist-len": 20,
+        "title-len": 35
     },
     "image#album-art": {
         "exec": "~/.config/waybar/custom/spotify/album_art.sh",
