@@ -10,6 +10,7 @@
 # pylint: disable=C0111
 
 import catppuccin
+
 from qutebrowser.api import interceptor
 
 c = c  # noqa: F821 pylint: disable=E0602,C0103
@@ -930,7 +931,7 @@ c.url.searchengines = {
     "wt": "http://en.wiktionary.org/?search={}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "ytv": "https://hooktube.com/results?search_query={}",
-    "ww": "https://wiki.linode.wegroup.be/search/{}",
+    "ww": "https://wiki.azure.wegroup.be/search/{}",
 }
 
 
