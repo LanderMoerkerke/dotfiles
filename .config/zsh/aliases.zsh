@@ -81,7 +81,6 @@ alias pacman_listpackages_size="paste <(pacman -Q | awk '{ print $1; }' | xargs 
 alias rtv='rtv --enable-media'
 alias soundcloud="scdl"
 alias we='curl wttr.in/Gent'
-alias lf="$HOME/.local/bin/lf"
 
 # programming
 

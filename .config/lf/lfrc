@@ -29,8 +29,8 @@ set icons true
 
 set scrolloff 5
 
+set sixel true
 set previewer file-preview
-set cleaner image-clean
 
 # ---------------------------
 #  1}}} #
