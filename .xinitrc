@@ -9,7 +9,7 @@ done
 
 xrdb ./.Xresources &
 
-xwallpaper --stretch $HOME/Pictures/bg.jpg &
+xwallpaper --zoom $HOME/Pictures/bg.jpg &
 xrandr --dpi 100 &
 
 dwmbar-launch &
