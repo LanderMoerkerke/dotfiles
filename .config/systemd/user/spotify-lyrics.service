@@ -1,0 +1,15 @@
+[Unit]
+Description=A spotify lyrics save daemon
+Documentation=https://github.com/raitonoberu/sptlrx
+Wants=sound.target
+After=sound.target
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/home/lander/.config/waybar/custom/spotify/retrieve-lyrics.py
+Restart=always
+RestartSec=12
+
+[Install]
+WantedBy=default.target

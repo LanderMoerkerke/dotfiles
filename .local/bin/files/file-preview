@@ -3,34 +3,20 @@
 HIGHLIGHT="highlight -O xterm256 -D $HOME/.config/highlight/ -s rdark --force"
 CACHE="/tmp/.thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | awk '{print $1}'))"
 
-image() {
-    FILE_PATH="$1"
-    X=$4
-    Y=$5
-    MW=$(($2 - 1))
-    MH=$3
-    ueberzugpp cmd -s "$UB_SOCKET" -a add -i PREVIEW -x "$X" -y "$Y" --max-width "$MW" --max-height "$MH" -f "$FILE_PATH"
-    exit 1
-}
-
 case "$(echo "${1##*.}" | tr '[:upper:]' '[:lower:]')" in
     tar | *.tar.gz | *.zip | *.rar | *.7z) atool --list -- "$1" && exit 0;;
     pdf) pdftotext "$1" - && exit 0 ;;
-    # ipynb) jupyter nbconvert --stdout --to python "$1" | sed -e '/^[ \t]*#/d' | autoflake --expand-star-imports --remove-all-unused-imports --remove-duplicate-keys --remove-unused-variables -s - | black -q - | highlight --syntax python -O xterm256 -D $HONE/.config/highlight/ -s rdark && exit 0;;
     ipynb) jut -i "$1" && exit 0;;
     mkv | *.mp4) mediainfo "$1" && exit 0;;
-    # jpg | *.png | *.jpeg) exiv2 "$1" ;;
     sqlite | *.db) echo "SELECT name FROM sqlite_master WHERE type='table';" | sqlite3 "$1" && exit 0;;
     dbf) dbview "$1" && exit 0;;
     json) cat "$1" | jq | $HIGHLIGHT --syntax json && exit 0;;
     csv) xsv table -d $(detect-delimiter "$1") "$1" && exit 0;;
-    # *.avi | *.mp4 | *.wmv | *.dat | *.3gp | *.ogv | *.mkv | *.mpg | *.mpeg | *.vob | *.fl[icv] | *.m2v | *.mov | *.webm | *.ts | *.mts | *.m4v | *.r[am] | *.qt | *.divx)
-    #     ;;
     svg)
         [ ! -f "${CACHE}.jpg" ] && convert "$1" "${CACHE}.jpg"
-        image "${CACHE}.jpg" "$2" "$3" "$4" "$5" ;;
+        chafa -f sixel -s "$2x$3" --animate off --polite on "${CACHE}.jpg"
+        exit 1;;
     *) ;; # Go on to handle by mime type
-    # *) $HIGHLIGHT -- "$1" || cat "$1" ;;
 esac
 
 # Handle by mime types
@@ -45,15 +31,14 @@ case "$(file -Lb --mime-type -- "$1")" in
 
     # Image
     image/*)
-        image "$1" "$2" "$3" "$4" "$5" ;;
+        chafa -f sixel -s "$2x$3" --animate off --polite on "$1"
+        exit 1 ;;
 
     # Video and audio
     video/*|audio/*|application/octet-stream)
-        # echo JAMAL ;;
         [ ! -f "${CACHE}.jpg" ] && ffmpegthumbnailer -i "$1" -o "${CACHE}.jpg" -s 0 -q 5
-        image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
-        ;;
-        # mediainfo "$1" && exit ;;
+        chafa -f sixel -s "$2x$3" --animate off --polite on "${CACHE}.jpg"
+        exit 1 ;;
 
     *) ;; # Go on to fall back
 esac

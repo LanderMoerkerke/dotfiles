@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(echo "Clipboard\nFile\nSlack Upload\nDragon\nTemp file" | $PICKER -i -p "Where to copy screenshot?")
+choice=$(echo "Clipboard\nFile\nSlack Upload\nDragon\nTemp file\nSatty" | $PICKER -i -p "Where to copy screenshot?")
 
 echo "$choice"
 
@@ -23,25 +23,34 @@ elif [ "$choice" = "Clipboard" ]; then
     notify-send "Printscreen" "Crop copied to clipboard"
 
 elif [ "$choice" = "Slack Upload" ]; then
-    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
+    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot.png
     slurp | grim -g - /tmp/$NAME || exit 1
 
-    notify-send "Printscreen" "Saved to /tmp/$NAME.png\nCopied to clipboard" -i /tmp/$NAME.png
+    notify-send "Printscreen" "Saved to /tmp/$NAME\nCopied to clipboard" -i /tmp/$NAME.png
 
-    echo -n "/slack upload /tmp/$NAME.png" | wl-copy
+    echo -n "/slack upload /tmp/$NAME" | wl-copy
 
 elif [ "$choice" = "Dragon" ]; then
-    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
+    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot.png
     slurp | grim -g - /tmp/$NAME || exit 1
 
     dragon-drop -x "/tmp/$NAME.png"
 
 elif [ "$choice" = "Temp file" ]; then
-    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot
+    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot.png
     slurp | grim -g - /tmp/$NAME || exit 1
 
-    notify-send "Printscreen" "Saved to /tmp/$NAME.png\nCopied to clipboard" -i /tmp/$NAME.png
+    notify-send "Printscreen" "Saved to /tmp/$NAME\nCopied to clipboard" -i /tmp/$NAME.png
 
-    echo -n "/tmp/$NAME.png" | wl-copy
+    echo -n "/tmp/$NAME" | wl-copy
+
+elif [ "$choice" = "Satty" ]; then
+    NAME=$(date '+%Y-%m-%d-%H:%M:%S')-screenshot.png
+
+    grim -g "$(slurp)" - | satty --filename - --fullscreen --output-filename /tmp/$NAME.png || exit 1
+
+    notify-send "Printscreen" "Saved to /tmp/$NAME\nCopied to clipboard" -i /tmp/$NAME.png
+
+    echo -n "/tmp/$NAME" | wl-copy
 
 fi
