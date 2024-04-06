@@ -131,24 +131,13 @@ function wgttp-prod () {
 }
 
 function py-format () {
-    echo "Autoflake"
-    autoflake \
-        --recursive \
-        --in-place \
-        --expand-star-imports \
-        --remove-all-unused-imports \
-        --remove-unused-variables \
-        --remove-duplicate-keys \
-        $1
+    echo "Ruff"
+    ruff check --unsafe-fixes --fix $1
 
     echo "Black"
     black \
         -S \
         -l 120 \
-        $1
-
-    echo "Flake"
-    flake8 \
         $1
 
 }
