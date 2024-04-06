@@ -8,9 +8,6 @@ fi
 # add ls to cd
 function chpwd() {ls -hN --color=auto --group-directories-first}
 
-# cat copy
-function cop () { cat "$1" | xsel -ib }
-
 # fkill - kill process
 function killf() {
   local pid
@@ -20,25 +17,6 @@ function killf() {
   then
     echo $pid | xargs kill -${1:-9}
   fi
-}
-
-# checkout branch
-function gcbf() {
-    local tags branches target
-    tags=$(git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
-    branches=$(git branch --all | grep -v HEAD |
-    sed "s/.* //" | sed "s#remotes/[^/]*/##" |
-    sort -u | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
-    target=$( (echo "$branches"; echo "$tags") | fzf --no-hscroll --no-multi --delimiter="\t" -n 2 --ansi --preview="git log -200 --pretty=format:%s $(echo {+2..} |  sed 's/$/../' )" ) || return
-    git checkout $(echo "$target" | awk '{print $2}')
-}
-
-# checkout commit
-function gccf() {
-    local commits commit
-    commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
-    commit=$(echo "$commits" | fzf --tac +s +m -e) &&
-    git checkout $(echo "$commit" | sed "s/ .*//");
 }
 
 # Interactive cd
@@ -74,33 +52,21 @@ function cd_git_root {
 
 # helm
 function khelm () {
-
     helm template . | kubectl apply -f -
-
 }
 
 function khelm_delete () {
-
     helm template . | kubectl delete -f -
-
 }
 
 function khelm_all () {
-
     for i in $(ls); do
-
         if [ -d "$i" ]; then
-
             if [ "$i" != "shared" ]; then
-
                 helm template "$i" | kubectl apply -f -
-
             fi
-
         fi
-
     done
-
 }
 
 # docker
@@ -117,7 +83,6 @@ function daf() {
 function dsf() {
   local cid
   cid=$(docker ps | sed 1d | fzf -q "$1" | awk '{print $1}')
-
   [ -n "$cid" ] && docker stop "$cid"
 }
 
