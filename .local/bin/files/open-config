@@ -2,7 +2,7 @@
 
 config_files=$(find $HOME/Documents/Pipenv/.env $HOME/.wg/cli $HOME/.scripts $HOME/dotfiles $HOME/Documents/Git/mutt $HOME/.local/bin/wegroup -type f -not -path "*/.git/*" -not -path "*/oh-my-zsh/*" | sort | uniq)
 
-file=$(echo "$config_files" | dmenu -i) || exit
+file=$(echo "$config_files" | $PICKER -i) || exit
 
 cd $(dirname "$file")
 

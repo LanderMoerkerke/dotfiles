@@ -4,6 +4,6 @@ file="$1"
 
 echo "move\n$file" > $HOME/.local/share/lf/files
 
-echo "$file" | xclip -selection clipboard
+echo "$file" | wl-copy
 
 notify-send "Cut to lf" "$file"

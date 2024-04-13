@@ -3,8 +3,9 @@
 [global]
     monitor = 0
     browser = "qutebrowser"
-    dmenu = "/usr/local/bin/dmenu"
+    dmenu = "bemenu"
     follow = keyboard
+    offset = "7x7"
     indicate_hidden = yes
     shrink = no
     transparency = 0
