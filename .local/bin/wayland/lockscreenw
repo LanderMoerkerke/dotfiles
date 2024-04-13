@@ -2,29 +2,39 @@
 
 dunstctl set-paused true
 
+grim /tmp/lockscreen.png
+
+convert \
+    -filter Gaussian \
+    -resize 20% \
+    -blur 0x0.75 \
+    -resize 500% \
+    -background black \
+    /tmp/lockscreen.png \
+    /tmp/lockscreen.png
+
 swaylock \
-	--screenshots \
-	--clock \
-	--indicator \
+    -p \
+    -f \
+    -s tile \
+    -i /tmp/lockscreen.png \
+    --indicator-idle-visible \
     --font 'Noto Sans' \
-	--indicator-radius 100 \
+	--indicator-radius 50 \
 	--indicator-thickness 2 \
-	--effect-blur 7x5 \
-	--effect-vignette 0.9:0.9 \
 	--ring-color b4befe \
     --line-ver-color b4befe \
     --text-ver-color cdd6f4 \
 	--key-hl-color f9e2af \
 	--line-color 00000000 \
+    --inside-clear-color 00000000 \
 	--inside-color 001e1e2e \
     --text-color cdd6f4 \
 	--separator-color 00000000 \
     --inside-ver-color ff000000 \
     --text-wrong-color f38ba8 \
-    --text-wrong-color f38ba8 \
     --inside-wrong-color ff000000 \
-    --line-wrong-color f38ba8 \
-	--grace 1 \
-	--fade-in 1.3
+    --line-wrong-color f38ba8
+
 
 dunstctl set-paused false
