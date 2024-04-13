@@ -2,7 +2,7 @@
 Type=Application
 Name=Read EML
 Icon=email
-Exec=urxvt -e open-eml %f
+Exec=footclient -e open-eml %f
 Terminal=false
 StartupNotify=true
 Categories=Internet;
