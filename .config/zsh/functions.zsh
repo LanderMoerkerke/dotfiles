@@ -117,17 +117,7 @@ function clickup-api () {
 }
 
 function wgttp () {
-    http --auth-type=jwt --auth=$(wg token --env qa | sed 1q) $*
-}
-
-alias wgttp-qa="wgttp"
-
-function wgttp-staging () {
-    http --auth-type=jwt --auth=$(wg token --env staging | sed 1q) $*
-}
-
-function wgttp-prod () {
-    http --auth-type=jwt --auth=$(wg token --env production | sed 1q) $*
+    http $* Authorization:"Apikey $(gopass WeGroup/REST-token | sed 1q)"
 }
 
 function py-format () {
