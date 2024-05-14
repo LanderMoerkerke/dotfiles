@@ -988,6 +988,8 @@ c.zoom.levels = [
 # Type: Int
 c.zoom.mouse_divider = 512
 
+c.scrolling.bar = "when-searching"
+
 # Bindings for normal mode
 c.bindings.commands = {
     "normal": {
