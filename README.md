@@ -5,13 +5,16 @@
 
 ## Requirements
 
--   Window manager: [dwm](https://github.com/LanderMoerkerke/dwm)
--   Status bar: polybar
--   Hotkey daemon: sxhkd
+-   Window manager: [Hyprland](https://github.com/hyprwm/Hyprland) (Wayland)
+-   Status bar: waybar
 -   Notifcation manager: dunst
--   Terminal: urxvt-unicode
+-   Terminal: foot
 -   Shell: zsh
 -   Editor: nvim
--   Image viewer: sxiv
+-   Image viewer: imv
 -   Browser: qutebrowser
 -   File manager: lf
+
+## Other
+
+-   Alternative Xorg window manager: [dwm](https://github.com/LanderMoerkerke/dwm)
