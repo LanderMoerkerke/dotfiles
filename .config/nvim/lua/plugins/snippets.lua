@@ -82,12 +82,9 @@ return {
                 {{trig = "note"}, {"NOTE", "INFO"}}
             }
 
-            local calculate_comment_string = require("Comment.ft").calculate
-            local utils = require("Comment.utils")
-
             local get_cstring = function()
-                local cstring = calculate_comment_string {ctype = 1, range = utils.get_region()} or vim.bo.commentstring
-                local left, right = utils.unwrap_cstr(cstring)
+                local cstring = vim.filetype.get_option(vim.bo.filetype, "commentstring")
+                local left, right = string.match(tostring(cstring), "(.*)%%s(.*)")
                 return {left, right}
             end
 
