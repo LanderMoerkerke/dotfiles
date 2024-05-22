@@ -19,6 +19,8 @@ return {
             end
 
             local on_attach = function(_client, bufnr)
+                vim.lsp.inlay_hint.enable()
+
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
                 -- Definitions
