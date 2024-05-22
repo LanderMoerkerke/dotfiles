@@ -3,4 +3,4 @@ Type=Application
 Name=CSV viewer
 GenericName=Sc-im
 Icon=csv
-Exec=/usr/bin/urxvt -e /usr/bin/sc-im %f
+Exec=footclient -e /usr/bin/sc-im %f
