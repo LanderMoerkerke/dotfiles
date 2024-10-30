@@ -374,12 +374,18 @@ map gm cd ~/.local/share/mail/
 map gh cd ~
 map gc cd ~/.config
 map gl cd ~/.local
-map gs cd ~/.scripts
 map gd cd ~/Documents
 map gD cd ~/Downloads
 map gp cd ~/Pictures
 map gP cd ~/Documents/Personal
 map gv cd ~/Videos
+
+map gs
+map gsp ${{
+    lf -remote "send $id cd ~/.scripts/py"
+}}
+map gsg cd ~/.scripts/go
+map gsr cd ~/.scripts/go
 
 map gw cd ~/Documents/Work/WeGroup
 map gb cd ~/Documents/Work/WeGroup/Bitbucket
@@ -393,6 +399,7 @@ map cbd $lf -remote "send $id cd $(go-project bd)"
 map cbD $lf -remote "send $id cd $(go-project bD)"
 map cbe $lf -remote "send $id cd $(go-project be)"
 map cbf $lf -remote "send $id cd $(go-project bf)"
+map cbF $lf -remote "send $id cd $(go-project bF)"
 map cbh $lf -remote "send $id cd $(go-project bh)"
 map cbm $lf -remote "send $id cd $(go-project bm)"
 map cbp $lf -remote "send $id cd $(go-project bp)"
@@ -408,6 +415,7 @@ map cod $lf -remote "send $id cd $(go-project od)"
 map com $lf -remote "send $id cd $(go-project om)"
 map coo $lf -remote "send $id cd $(go-project oo)"
 map cos $lf -remote "send $id cd $(go-project os)"
+map cof $lf -remote "send $id cd $(go-project of)"
 
 map gV cd ~/Documents/VEST
 
