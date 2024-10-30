@@ -166,7 +166,7 @@ return {
                     css = {prettier},
                     javascript = {eslint},
                     javascriptreact = {eslint},
-                    typescript = {eslint, prettier},
+                    typescript = {eslint},
                     typescriptreact = {eslint}
                 }
             }

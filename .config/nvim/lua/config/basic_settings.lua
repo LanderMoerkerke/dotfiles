@@ -60,3 +60,11 @@ vim.opt.undofile = true
 vim.opt.undodir = vim.fn.expand("~/.cache/nvim/undo")
 vim.opt.undolevels = 1000
 vim.opt.undoreload = 10000
+
+vim.filetype.add(
+    {
+        extension = {
+            ["http"] = "http"
+        }
+    }
+)

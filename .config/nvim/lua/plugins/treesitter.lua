@@ -6,7 +6,8 @@ return {
         require("nvim-treesitter.configs").setup(
             {
                 highlight = {
-                    enable = true
+                    enable = true,
+                    disable = {"csv"}
                 },
                 incremental_selection = {enable = true},
                 indent = {enable = true},

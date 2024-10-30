@@ -12,11 +12,11 @@ return {
             vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
             -- Custom signs
-            local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
-            for type, icon in pairs(signs) do
-                local hl = "DiagnosticSign" .. type
-                vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
-            end
+            vim.diagnostic.config(
+                {
+                    signs = {text = {"", "", "", ""}}
+                }
+            )
 
             local on_attach = function(_client, bufnr)
                 vim.lsp.inlay_hint.enable()
@@ -76,13 +76,16 @@ return {
             end
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities.textDocument.completion.completionItem.snippetSupport = true
             capabilities.textDocument.completion.completionItem.resolveSupport = {
                 properties = {
                     "documentation",
                     "detail",
                     "additionalTextEdits"
                 }
+            }
+            capabilities.textDocument.foldingRange = {
+                dynamicRegistration = false,
+                lineFoldingOnly = true
             }
 
             -- Enable the following language servers
@@ -97,10 +100,8 @@ return {
                 "jsonls",
                 "rust_analyzer",
                 "ruff_lsp",
-                -- "pyright",
-                "tsserver",
+                "ts_ls",
                 "denols",
-                -- "lua_ls",
                 "yamlls"
             }
             for _, lsp in ipairs(servers) do
@@ -110,10 +111,25 @@ return {
                 }
             end
 
-            nvim_lsp.pyright.setup {
-                cmd = {"pyright-langserver", "--stdio", "-p", vim.fn.expand("$XDG_CONFIG_HOME/pyright/config.json")},
+            nvim_lsp.basedpyright.setup {
+                cmd = {
+                    "basedpyright-langserver",
+                    "--stdio",
+                    "-p",
+                    vim.fn.expand("$XDG_CONFIG_HOME/pyright/config.json")
+                },
                 on_attach = on_attach,
-                capabilities = capabilities
+                capabilities = capabilities,
+                settings = {
+                    basedpyright = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            diagnosticMode = "openFilesOnly",
+                            useLibraryCodeForTypes = true,
+                            typeCheckingMode = "standard"
+                        }
+                    }
+                }
             }
 
             nvim_lsp.lua_ls.setup {
@@ -164,6 +180,7 @@ return {
                         kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind()
                     },
                     symbol_in_winbar = {
+                        enable = true,
                         folder_level = 5
                     },
                     code_action = {
@@ -178,6 +195,12 @@ return {
                     },
                     beacon = {
                         enable = false
+                    },
+                    implement = {
+                        enable = true,
+                        sign = true,
+                        virtual_text = true,
+                        priority = 10000
                     }
                 }
             )
