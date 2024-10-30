@@ -194,9 +194,9 @@ c.content.blocking.enabled = True
 # Type: List of Url
 c.content.blocking.hosts.lists = [
     "https://www.malwaredomainlist.com/hostslist/hosts.txt",
-    "http://someonewhocares.org/hosts/hosts",
-    "http://winhelp2002.mvps.org/hosts.zip",
-    "http://malwaredomains.lehigh.edu/files/justdomains.zip",
+    "https://someonewhocares.org/hosts/hosts",
+    "https://winhelp2002.mvps.org/hosts.zip",
+    "https://malwaredomains.lehigh.edu/files/justdomains.zip",
     "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext",
     "https://easylist.to/easylist/easylist.txt",
     "https://easylist.to/easylist/easyprivacy.txt",
@@ -625,6 +625,7 @@ c.prompt.radius = 8
 # list) will work. This setting requires a restart.
 # Type: List of String
 # c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so", "blink-settings=darkMode=4"]
+c.qt.args = []
 
 # Force a Qt platform to use. This sets the `QT_QPA_PLATFORM`
 # environment variable and is useful to force using the XCB plugin when
@@ -836,8 +837,12 @@ c.tabs.title.format_pinned = "{index}"
 c.colors.tabs.pinned.even.bg = "grey"
 c.colors.tabs.pinned.odd.bg = "grey"
 
-c.colors.webpage.preferred_color_scheme = "dark"
-c.colors.webpage.darkmode.enabled = True
+# c.colors.webpage.preferred_color_scheme = "dark"
+# c.colors.webpage.darkmode.enabled = True
+# c.colors.webpage.darkmode.policy.images = "never"
+
+c.colors.webpage.preferred_color_scheme = "light"
+c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.darkmode.policy.images = "never"
 
 # The width of the tab bar if it's vertical, in px or as percentage of
@@ -898,20 +903,21 @@ c.url.searchengines = {
     "bc": "https://www.bitchute.com/search?q={}&sort=date_created%20desc",
     "ddg": "https://duckduckgo.com/?q={}",
     "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
-    "deepl": "https://www.deepl.com/translator#xx/nl/{}",
+    "deepl": "https://www.deepl.com/nl/translator#en/nl/{}",
     "dicten": "https://www.wordnik.com/words/{}",
     "docker": "https://hub.docker.com/search?q={}",
     "rs": "https://doc.rust-lang.org/std/index.html?search={}",
     "rsd": "https://docs.rs/{}",
     "eb": "https://ebay.com/sch/{}",
     "g": "https://google.com/search?q={}",
+    "ge": "https://genius.com/search?q={}",
     "gh": "https://github.com/search?q={}",
     "gi": "https://www.google.be/search?q={}&source=lnms&tbm=isch",
     "i": "https://duckduckgo.com/?q={}&t=ha&iar=images",
     "imdb": "https://www.imdb.com/find?s=all&q={}",
-    "maps": "http://maps.google.com/?q={}",
-    "mtp": "http://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}",
-    "osm": "http://www.openstreetmap.org/search?query={}",
+    "maps": "https://maps.google.com/?q={}",
+    "mtp": "https://en.metapedia.org/m/index.php?title=Special%3ASearch&search={}",
+    "osm": "https://www.openstreetmap.org/search?query={}",
     "urban": "https://www.urbandictionary.com/define.php?term={}",
     "py": "https://docs.python.org/3/search.html?q={}",
     "pypi": "https://pypi.org/search/?q={}",
@@ -921,14 +927,14 @@ c.url.searchengines = {
     "syn2": "https://www.mijnwoordenboek.nl/synoniemen/{}",
     "synen": "https://www.thesaurus.com/browse/{}",
     "pcs": "https://www.procyclingstats.com/search.php?term={}",
-    "thw": "http://www.thinkwiki.org/w/index.php?search={}&title=Special%3ASearch",
-    "tpb": "http://pirateproxy.gdn/search/{}",
+    "thw": "https://www.thinkwiki.org/w/index.php?search={}&title=Special%3ASearch",
+    "tpb": "https://pirateproxy.gdn/search/{}",
     "tw": "https://twitter.com/{}",
-    "viw": "http://vim.wikia.com/wiki/Special:Search?fulltext=Search&query={}",
+    "viw": "https://vim.wikia.com/wiki/Special:Search?fulltext=Search&query={}",
     "vw": "https://wiki.voidlinux.eu/index.php?search={}&title=Special%3ASearch",
     "w": "https://www.wikipedia.org/search-redirect.php?family=wikipedia&language=en&search={}&language=en&go=Go",
     "wnl": "https://www.wikipedia.org/search-redirect.php?family=wikipedia&language=nl&search={}&language=nl&go=Go",
-    "wt": "http://en.wiktionary.org/?search={}",
+    "wt": "https://en.wiktionary.org/?search={}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "ytv": "https://hooktube.com/results?search_query={}",
     "ww": "https://wiki.azure.wegroup.be/search/{}",
