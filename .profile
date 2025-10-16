@@ -147,6 +147,9 @@ export PIPENV_MAX_DEPTH=5
 export PIPENV_SPINNER=pong
 export PIPENV_DOTENV_LOCATION="$HOME/Documents/Pipenv/.env"
 
+# Uv
+export UV_PYTHON_DOWNLOADS=never
+
 # FZF
 export FZF_DEFAULT_COMMAND="rg --files -L --hidden --ignore-file $HOME/.gitignore_global --ignore-file .gitignore ."
 
