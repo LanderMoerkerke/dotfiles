@@ -195,7 +195,7 @@ riverctl map normal Super T spawn "
 "
 riverctl rule-add -app-id foot-scratchpad float
 riverctl rule-add -app-id foot-scratchpad tags ${scratchpad_term}
-riverctl rule-add -app-id foot-scratchpad dimensions 1200 800
+riverctl rule-add -app-id foot-scratchpad dimensions 1430 800
 
 scratchpad_ferdium=$((1 << 21 ))
 riverctl map normal Super+Shift F spawn "
