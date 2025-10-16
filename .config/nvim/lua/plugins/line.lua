@@ -13,6 +13,16 @@ return {
                 "nvim-dap-ui",
                 "nvim-tree",
                 "quickfix"
+            },
+            sections = {
+                lualine_a = {
+                    {"mode"},
+                    {
+                        "searchcount",
+                        maxcount = 999,
+                        timeout = 500
+                    }
+                }
             }
         }
     },
