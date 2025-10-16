@@ -3,8 +3,7 @@
     "height": 26,
     "margin": 5,
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/submap",
+        "river/tags",
         "custom/lyrics"
     ],
     "modules-center": [
