@@ -21,7 +21,6 @@ vim.opt.foldlevelstart = 20
 vim.opt.completeopt = {"noinsert", "menuone", "noselect"}
 vim.opt.shortmess:append("c")
 
-vim.opt.mouse = ""
 vim.opt.wildmode = {"longest", "full"}
 
 vim.opt.linebreak = true
