@@ -22,7 +22,7 @@ return {
         dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("bufferline").setup {
-                highlights = require("catppuccin.groups.integrations.bufferline").get()
+                highlights = require("catppuccin.special.bufferline").get_theme()
             }
             vim.keymap.set("n", "<c-n>", ":BufferLineCycleNext<CR>")
             vim.keymap.set("n", "<c-p>", ":BufferLineCyclePrev<CR>")
