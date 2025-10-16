@@ -30,7 +30,8 @@
     "custom/lyrics": {
         "exec": "~/.config/waybar/custom/spotify/show-lyrics.sh",
         "interval": 1,
-        "format": "♪ {}"
+        "format": "♪ {}",
+        "max-length": 100
     },
     "custom/noisetorch": {
         "exec": "~/.config/waybar/custom/noisetorch/check-noisetorch-connected",
