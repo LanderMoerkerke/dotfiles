@@ -15,6 +15,6 @@ fpath=($HOME/.zsh/completion $fpath)
 # source /usr/bin/aws_zsh_completer.sh
 
 # FZF
-source "$XDG_DATA_HOME/fzf/shell/key-bindings.zsh"
-source "$XDG_DATA_HOME/fzf/shell/completion.zsh"
+source "/usr/share/fzf/key-bindings.zsh"
+source "/usr/share/fzf/completion.zsh"
 
