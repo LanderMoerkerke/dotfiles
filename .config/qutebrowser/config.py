@@ -934,6 +934,7 @@ c.url.searchengines = {
     "vw": "https://wiki.voidlinux.eu/index.php?search={}&title=Special%3ASearch",
     "w": "https://www.wikipedia.org/search-redirect.php?family=wikipedia&language=en&search={}&language=en&go=Go",
     "wnl": "https://www.wikipedia.org/search-redirect.php?family=wikipedia&language=nl&search={}&language=nl&go=Go",
+    "wl": "https://www.welklidwoord.nl/{}",
     "wt": "https://en.wiktionary.org/?search={}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "ytv": "https://hooktube.com/results?search_query={}",
