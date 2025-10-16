@@ -2,7 +2,6 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local nvim_lsp = require("lspconfig")
             local opts = {noremap = true, silent = true}
 
             -- Errors
@@ -99,60 +98,81 @@ return {
                 "html",
                 "jsonls",
                 "rust_analyzer",
-                "ruff_lsp",
+                "ruff",
                 "ts_ls",
                 "denols",
                 "yamlls"
             }
             for _, lsp in ipairs(servers) do
-                nvim_lsp[lsp].setup {
-                    on_attach = on_attach,
-                    capabilities = capabilities
-                }
+                vim.lsp.enable(lsp)
+                vim.lsp.config(
+                    lsp,
+                    {
+                        on_attach = on_attach,
+                        capabilities = capabilities
+                    }
+                )
             end
 
-            nvim_lsp.basedpyright.setup {
-                cmd = {
-                    "basedpyright-langserver",
-                    "--stdio",
-                    "-p",
-                    vim.fn.expand("$XDG_CONFIG_HOME/pyright/config.json")
-                },
-                on_attach = on_attach,
-                capabilities = capabilities,
-                settings = {
-                    basedpyright = {
-                        analysis = {
-                            autoSearchPaths = true,
-                            diagnosticMode = "openFilesOnly",
-                            useLibraryCodeForTypes = true,
-                            typeCheckingMode = "standard"
-                        }
-                    }
-                }
-            }
-
-            nvim_lsp.lua_ls.setup {
-                cmd = {"lua-language-server"},
-                on_attach = on_attach,
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = "LuaJIT",
-                            path = vim.split(package.path, ";")
-                        },
-                        diagnostics = {
-                            globals = {"vim"}
-                        },
-                        workspace = {
-                            library = {
-                                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+            vim.lsp.enable("ty")
+            vim.lsp.config(
+                "ty",
+                {
+                    settings = {
+                        ty = {
+                            experimental = {
+                                rename = true
                             }
                         }
                     }
                 }
-            }
+            )
+
+            -- vim.lsp.config.basedpyright.setup {
+            --     cmd = {
+            --         "basedpyright-langserver",
+            --         "--stdio",
+            --         "-p",
+            --         vim.fn.expand("$XDG_CONFIG_HOME/pyright/config.json")
+            --     },
+            --     on_attach = on_attach,
+            --     capabilities = capabilities,
+            --     settings = {
+            --         basedpyright = {
+            --             analysis = {
+            --                 autoSearchPaths = true,
+            --                 diagnosticMode = "openFilesOnly",
+            --                 useLibraryCodeForTypes = true,
+            --                 typeCheckingMode = "standard"
+            --             }
+            --         }
+            --     }
+            -- }
+
+            vim.lsp.config(
+                "lua_ls",
+                {
+                    cmd = {"lua-language-server"},
+                    on_attach = on_attach,
+                    settings = {
+                        Lua = {
+                            runtime = {
+                                version = "LuaJIT",
+                                path = vim.split(package.path, ";")
+                            },
+                            diagnostics = {
+                                globals = {"vim"}
+                            },
+                            workspace = {
+                                library = {
+                                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+                                }
+                            }
+                        }
+                    }
+                }
+            )
 
             -- Map :Format to vim.lsp.buf.formatting()
             vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
