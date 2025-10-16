@@ -12,6 +12,7 @@ alias m='neomutt'
 alias n="newsboat"
 alias p="python"
 alias t="tree"
+alias y="yazi"
 
 alias tmux="tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf"
 alias wget="wget --hsts-file="$XDG_CACHE_HOME"/wget-hsts"
@@ -95,9 +96,11 @@ alias pei="pipenv install"
 
 alias po="poetry"
 alias por="poetry run"
-alias pos="poetry shell"
-alias poes="poetry shell"
+alias pos="eval \$(poetry env activate)"
+alias poes="eval \$(poetry env activate)"
 alias poi="poetry add"
+
+alias venv="source .venv/bin/activate"
 
 alias py37-env="source $HOME/Pipenv/python37-venv/.venv/bin/activate"
 alias py38-env="source $HOME/Pipenv/python38-venv/.venv/bin/activate"
