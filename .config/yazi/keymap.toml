@@ -1,0 +1,62 @@
+[mgr]
+prepend_keymap = [
+    { on  = ["w"], run = '''shell $SHELL --block''', desc = "Open shell here" },
+    { on  = ["W"], run = "tasks_show", desc = "Tasks" },
+    { on  = ["e"], run = '''shell --block '$EDITOR "$1"'''', desc = "Dragon" },
+
+    # SCRIPTS
+    { on  = ["<C-n>"], run = '''shell 'dragon-drop -a -x -T "$@"'''', desc = "Dragon" },
+    { on  = ["F", "s"], run = '''shell 'stripspace "$1"'''', desc = "Stripspace" },
+    { on  = ["g", "L"], run = ''' shell 'ya emit cd "$(dirname "$(readlink "$1")")"'''', desc = "Goto symlink" },
+    { on  = ["y", "y"], run = "yank", desc = "yank" },
+    { on  = ["y", "n"], run = '''shell 'basename "$1" | wl-copy'''', desc = "yank name" },
+    { on  = ["y", "p"], run = '''shell 'echo -n "$1" | wl-copy'''', desc = "yank path" },
+
+    # PLUGINS
+    { on  = ["i", "i"], run = "plugin max-preview", desc = "Maximize or restore preview" },
+    { on  = ["i", "I"], run = "plugin hide-preview", desc = "Hide or show preview" },
+
+    # GENERAL
+    { on  = ["g", "d"], run = "cd ~/Documents", desc = "Goto ~/Documents" },
+    { on  = ["g", "D"], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
+    { on  = ["g", "l"], run = "cd ~/.local", desc = "Goto ~/.local" },
+    { on  = ["g", "m"], run = "cd ~/.local/share/mail", desc = "Goto ~/.local/share/mail" },
+    { on  = ["g", "p"], run = "cd ~/Documents/Personal", desc = "Goto ~/Documents/Personal" },
+    { on  = ["g", "p"], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
+    { on  = ["g", "r"], run = "cd /", desc = "Goto /" },
+    { on  = ["g", "R"], run = "cd /run/media/$USER", desc = "Goto /run/media/$USER" },
+    { on  = ["g", "t"], run = "cd /tmp", desc = "Goto /tmp" },
+    { on  = ["g", "T"], run = "cd ~/.local/share/Trash", desc = "Goto ~/.local/share/Trash" },
+    { on  = ["g", "v"], run = "cd ~/Videos", desc = "Goto ~/Videos" },
+
+    # DEVELOPMENT
+    { on  = ["g", "s", "g"], run = "cd ~/.scripts/go", desc = "Goto ~/.scripts/go" },
+    { on  = ["g", "s", "p"], run = "cd ~/.scripts/py", desc = "Goto ~/.scripts/py" },
+
+    # WEGROUP
+    { on  = ["g", "w"], run = "cd ~/Documents/Work/WeGroup", desc = "Goto ~/Documents/Work/WeGroup" },
+
+    # BACKEND
+    { on  = ["g", "b", "b"], run = "cd $BITBUCKET/WG_BACKEND", desc = "BACKEND" },
+    { on  = ["g", "b", "a"], run = "cd $BITBUCKET/WG_BACKEND/wg-be-api-address", desc = "wg-be-api-address" },
+    { on  = ["g", "b", "c"], run = "cd $BITBUCKET/WG_BACKEND/wg-be-crm", desc = "wg-be-crm" },
+    { on  = ["g", "b", "C"], run = "cd $BITBUCKET/WG_BACKEND/centurion", desc = "centurion" },
+    { on  = ["g", "b", "d"], run = "cd $BITBUCKET/WG_BACKEND/wg-be-api-docgen", desc = "wg-be-api-docgen" },
+    { on  = ["g", "b", "e"], run = "cd $BITBUCKET/WG_BACKEND/wg-be-expert-scheduler", desc = "wg-be-expert-scheduler" },
+    { on  = ["g", "b", "f"], run = "cd $BITBUCKET/WG_BACKEND/flows", desc = "flows" },
+    { on  = ["g", "b", "p"], run = "cd $BITBUCKET/WG_BACKEND/praesidium", desc = "praesidium" },
+    { on  = ["g", "b", "q"], run = "cd $BITBUCKET/WG_BACKEND/wg-be-api-quotes", desc = "wg-be-api-quotes" },
+    { on  = ["g", "b", "r"], run = "cd $BITBUCKET/WG_BACKEND/recommender", desc = "recommender" },
+    { on  = ["g", "b", "s"], run = "cd $BITBUCKET/WG_BACKEND/singularity", desc = "singularity" },
+    { on  = ["g", "b", "v"], run = "cd $BITBUCKET/WG_BACKEND/wg-be-api-vehicle", desc = "wg-be-api-vehicle" },
+
+    # FRONTEND
+    { on  = ["g", "f", "m"], run = "cd $BITBUCKET/FE/wg-fe-broker-platform", desc = "wg-fe-broker-platform" },
+
+    # OTHER
+    { on  = ["g", "o", "o"], run = "cd $BITBUCKET/OTHER", desc = "OTHER" },
+    { on  = ["g", "o", "f"], run = "cd $BITBUCKET/OTHER/files.wegroup.be", desc = "files.wegroup.be" },
+    { on  = ["g", "o", "i"], run = "cd $BITBUCKET/OTHER/wg-infrastructure", desc = "wg-infrastructure" },
+    { on  = ["g", "o", "m"], run = "cd $BITBUCKET/OTHER/wg-py-models", desc = "wg-py-models" },
+    { on  = ["g", "o", "s"], run = "cd $BITBUCKET/OTHER/wg-sdk", desc = "wg-sdk" },
+]

@@ -1,0 +1,14 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:vcs-files"
+rev = "63f9650"
+hash = "70898957e9e4c1ca291ff26e8fdc434"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "63f9650"
+hash = "bf6f074cd41ee33c3360341d168f9733"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "d04a298"
+hash = "288a0dedd5d13b28605cf82c05326dcd"
