@@ -9,7 +9,7 @@ NON_IMAGE="/tmp/.cover-empty.png"
 ALBUM_ART=$(playerctl -p spotify metadata mpris:artUrl 2>/dev/null)
 
 if [ -z "$ALBUM_ART" ]; then
-    convert -size 1x1 xc:none "$NON_IMAGE"
+    magick -size 1x1 xc:none "$NON_IMAGE"
     echo $NON_IMAGE && exit
 fi
 
@@ -23,7 +23,7 @@ echo "$ALBUM_ART" >"$TMP_FILE"
 
 curl -s "$ALBUM_ART" --output "$IMG_FILE" || exit
 
-convert "$IMG_FILE" \
+magick "$IMG_FILE" \
     \( +clone -alpha extract \
     -draw 'fill black polygon 0,0 0,200 200,0 fill white circle 200,200 200,0' \
     \( +clone -flip \) -compose Multiply -composite \
