@@ -4,6 +4,7 @@ return {
     event = "VeryLazy",
     config = function()
         local formatter = require("formatter")
+        local py_formatters = require "formatter.filetypes.python"
 
         local autoflake = function()
             return {
@@ -69,7 +70,7 @@ return {
 
         local isort = function()
             return {
-                exe = "isort",
+                exe = "ruff",
                 args = {"-"},
                 stdin = true
             }
@@ -150,7 +151,7 @@ return {
             {
                 logging = false,
                 filetype = {
-                    python = {isort, black},
+                    python = {py_formatters.iruff, black},
                     -- python = {ruff_check, ruff_format},
                     yaml = {prettier},
                     xml = {xmllint},
@@ -159,7 +160,7 @@ return {
                     rust = {rustfmt},
                     markdown = {remark},
                     json = {prettier, jq},
-                    jsonc = {prettier},
+                    jsonc = {prettier, jq},
                     lua = {luafmt},
                     go = {gofmt},
                     html = {prettier},
