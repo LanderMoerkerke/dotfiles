@@ -5,17 +5,22 @@ CACHE="/tmp/.thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -
 
 case "$(echo "${1##*.}" | tr '[:upper:]' '[:lower:]')" in
     tar | *.tar.gz | *.zip | *.rar | *.7z) atool --list -- "$1" && exit 0;;
-    pdf) pdftotext "$1" - && exit 0 ;;
-    ipynb) jut -i "$1" && exit 0;;
+    # pdf) pdftotext "$1" - && exit 0 ;;
+    pdf)
+        magick "$1" "$CACHE".gif
+        chafa -f sixel -s "$2x$3" --animate off --polite on "$CACHE".gif
+        exit 0
+        ;;
+    ipynb) jut "$1" && exit 0;;
     mkv | *.mp4) mediainfo "$1" && exit 0;;
     sqlite | *.db) echo "SELECT name FROM sqlite_master WHERE type='table';" | sqlite3 "$1" && exit 0;;
     dbf) dbview "$1" && exit 0;;
     json) cat "$1" | jq | $HIGHLIGHT --syntax json && exit 0;;
     csv) xsv table -d $(detect-delimiter "$1") "$1" && exit 0;;
     svg)
-        [ ! -f "${CACHE}.jpg" ] && convert "$1" "${CACHE}.jpg"
+        [ ! -f "${CACHE}.jpg" ] && magick "$1" "${CACHE}.jpg"
         chafa -f sixel -s "$2x$3" --animate off --polite on "${CACHE}.jpg"
-        exit 1;;
+        exit 0;;
     *) ;; # Go on to handle by mime type
 esac
 
