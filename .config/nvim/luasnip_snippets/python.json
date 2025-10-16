@@ -215,7 +215,7 @@
     "description": "Dump contents to json file",
     "body": [
       "with open(f\"${1:output}.json\", \"${2:w}\") as f:",
-      "\t__import__(\"json\").dump(${3:data}, f, indent=2)"
+      "\t__import__(\"json\").dump(${3:data}, f, indent=4)"
     ]
   },
   "jread": {
