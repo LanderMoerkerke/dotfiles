@@ -1,3 +1,13 @@
 .mypy_cache
 .config/nvim/lua/.luarc.json
 .config/vim
+.config/nvim/lazy-lock.json
+.config/pgcli/history
+.config/pgcli/log
+.config/qutebrowser/autoconfig.yml
+.config/qutebrowser/quickmarks
+.config/qutebrowser/bookmarks
+.config/qutebrowser/catppuccin
+.config/yazi/flavors/catppuccin-mocha.yazi
+.config/yazi/plugins
+.config/zsh/.zcompdump*
