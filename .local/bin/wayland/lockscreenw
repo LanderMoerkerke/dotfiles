@@ -4,7 +4,7 @@ dunstctl set-paused true
 
 grim /tmp/lockscreen.png
 
-convert \
+magick convert \
     -filter Gaussian \
     -resize 20% \
     -blur 0x0.75 \
