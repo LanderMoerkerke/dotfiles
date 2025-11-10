@@ -10,7 +10,6 @@
 # pylint: disable=C0111
 
 import catppuccin
-
 from qutebrowser.api import interceptor
 
 c = c  # noqa: F821 pylint: disable=E0602,C0103
@@ -837,12 +836,8 @@ c.tabs.title.format_pinned = "{index}"
 c.colors.tabs.pinned.even.bg = "grey"
 c.colors.tabs.pinned.odd.bg = "grey"
 
-# c.colors.webpage.preferred_color_scheme = "dark"
-# c.colors.webpage.darkmode.enabled = True
-# c.colors.webpage.darkmode.policy.images = "never"
-
-c.colors.webpage.preferred_color_scheme = "light"
-c.colors.webpage.darkmode.enabled = False
+c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.policy.images = "never"
 
 # The width of the tab bar if it's vertical, in px or as percentage of
