@@ -233,7 +233,7 @@ c.content.javascript.alert = True
 
 # Whether JavaScript can open new tabs without user interaction.
 # Type: Bool
-c.content.javascript.can_open_tabs_automatically = False
+c.content.javascript.can_open_tabs_automatically = True
 
 # Enables or disables JavaScript.
 # Type: Bool
