@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(echo "Clipboard\nFile\nSlack Upload\nDragon\nTemp file\nSatty" | $PICKER -i -p "Where to copy screenshot?")
+choice=$(echo "Clipboard\nFile\nSlack Upload\nDragon\nTemp file\nSatty\nFlameshot" | $PICKER -i -p "Where to copy screenshot?")
 
 echo "$choice"
 
@@ -49,4 +49,6 @@ elif [ "$choice" = "Satty" ]; then
 
     grim -g "$(slurp)" - | satty --filename - --fullscreen --output-filename /tmp/$NAME || exit 1
 
+elif [ "$choice" = "Flameshot" ]; then
+    flameshot gui
 fi
