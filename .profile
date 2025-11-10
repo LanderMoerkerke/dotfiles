@@ -110,6 +110,7 @@ export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
 export CUDA_HOME=/opt/cuda
 export MAKEFLAGS="-j 12"
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 # VEST
 export VEST=$HOME/Documents/VEST/
