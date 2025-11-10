@@ -901,6 +901,7 @@ c.url.searchengines = {
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "aw": "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={}",
     "bc": "https://www.bitchute.com/search?q={}&sort=date_created%20desc",
+    "bpost": "https://track.bpost.cloud/btr/web/#/search?lang=nl&itemCode2={}&postalCode=9000",
     "ddg": "https://duckduckgo.com/?q={}",
     "ddgi": "https://duckduckgo.com/?q={}&t=ha&iar=images",
     "deepl": "https://www.deepl.com/nl/translator#en/nl/{}",
