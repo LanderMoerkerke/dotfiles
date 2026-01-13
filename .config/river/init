@@ -232,7 +232,7 @@ riverctl hide-cursor timeout 5000
 battery-popup -L 20 -n -i /home/lander/Pictures/Notifications/low-battery.png &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river &
 foot --server &
-hyprpaper &
+wbg -s /home/lander/Pictures/bg.jpg &
 pypr &
 swayidle &
 way-displays > /tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1 &
