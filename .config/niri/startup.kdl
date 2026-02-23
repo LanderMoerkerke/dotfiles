@@ -1,0 +1,8 @@
+spawn-at-startup "waybar"
+spawn-at-startup "/usr/bin/kdeconnectd"
+spawn-at-startup "battery-popup" "-L" "20" "-n" "-i" "~/Pictures/Notifications/low-battery.png"
+spawn-at-startup "foot" "--server"
+spawn-at-startup "wbg" "-s" "~/Pictures/bg.jpg"
+spawn-at-startup "swayidle"
+spawn-at-startup "way-displays"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=river"

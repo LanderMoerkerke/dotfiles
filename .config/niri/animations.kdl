@@ -1,0 +1,4 @@
+animations {
+    // off
+    slowdown 0.5
+}
