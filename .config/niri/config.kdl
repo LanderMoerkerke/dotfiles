@@ -1,0 +1,19 @@
+include "animations.kdl"
+include "binds.kdl"
+include "cursor.kdl"
+include "environment.kdl"
+include "input.kdl"
+include "layout.kdl"
+include "output.kdl"
+include "recent-windows.kdl"
+include "startup.kdl"
+include "window-rules.kdl"
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H:%M:%S-screenshot.png"
+

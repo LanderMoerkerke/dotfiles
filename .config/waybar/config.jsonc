@@ -3,7 +3,7 @@
     "height": 26,
     "margin": 5,
     "modules-left": [
-        "river/tags",
+        "niri/workspaces",
         "custom/lyrics"
     ],
     "modules-center": [
