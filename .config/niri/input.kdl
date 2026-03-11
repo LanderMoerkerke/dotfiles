@@ -40,7 +40,6 @@ input {
         // middle-emulation
     }
 
-    focus-follows-mouse
     // disable-power-key-handling
     // workspace-auto-back-and-forth
 
