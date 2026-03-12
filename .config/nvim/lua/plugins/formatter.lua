@@ -21,31 +21,6 @@ return {
             }
         end
 
-        local black = function()
-            return {
-                exe = "black",
-                args = {"-l", "120", "-"},
-                -- args = {"-l", "120", "--stdin-filename", vim.api.nvim_buf_get_name(0), "-"},
-                stdin = true
-            }
-        end
-
-        local ruff_format = function()
-            return {
-                exe = "ruff",
-                args = {"format", "-"},
-                stdin = true
-            }
-        end
-
-        local ruff_check = function()
-            return {
-                exe = "ruff",
-                args = {"check", "--fix", "-"},
-                stdin = true
-            }
-        end
-
         local eslint = function()
             return {
                 exe = "prettier",
@@ -109,7 +84,7 @@ return {
                     vim.api.nvim_buf_get_name(0),
                     "--single-quote",
                     "--tab-width",
-                    "4"
+                    "2"
                 },
                 stdin = true
             }
@@ -151,8 +126,7 @@ return {
             {
                 logging = false,
                 filetype = {
-                    python = {py_formatters.iruff, black},
-                    -- python = {ruff_check, ruff_format},
+                    python = {py_formatters.ruff},
                     yaml = {prettier},
                     xml = {xmllint},
                     sql = {pgformatter},
