@@ -16,7 +16,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 vim.opt.laststatus = 2
-vim.opt.foldmethod = "indent"
+vim.opt.foldmethod = "manual"
 vim.opt.foldlevelstart = 20
 vim.opt.completeopt = {"noinsert", "menuone", "noselect"}
 vim.opt.shortmess:append("c")
