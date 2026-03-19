@@ -101,7 +101,8 @@ return {
                 "ruff",
                 "ts_ls",
                 "denols",
-                "yamlls"
+                "yamlls",
+                "shopify_theme_ls"
             }
             for _, lsp in ipairs(servers) do
                 vim.lsp.enable(lsp)
