@@ -77,7 +77,7 @@ return {
             {
                 fold_virt_text_handler = handler,
                 open_fold_hl_timeout = 400,
-                close_fold_kinds_for_ft = {default = {"imports", "comment"}},
+                close_fold_kinds_for_ft = {default = {}},
                 preview = {
                     win_config = {
                         border = {"", "─", "", "", "", "─", "", ""},
