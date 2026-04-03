@@ -62,8 +62,8 @@ return {
 
         local luafmt = function()
             return {
-                exe = "luafmt",
-                args = {"--stdin"},
+                exe = "lua-format",
+                args = {},
                 stdin = true
             }
         end
