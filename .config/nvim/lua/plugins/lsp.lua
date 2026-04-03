@@ -2,257 +2,166 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            local opts = {noremap = true, silent = true}
+            -- Diagnostics configuration (replaces both the old vim.diagnostic.config and vim.lsp.handlers block)
+            vim.diagnostic.config({
+                virtual_text = false,
+                signs = {text = {"", "", "", ""}},
+                underline = {severity = {min = vim.diagnostic.severity.ERROR}},
+                update_in_insert = true
+            })
 
-            -- Errors
-            vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-            vim.api.nvim_set_keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-            vim.api.nvim_set_keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-            vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+            -- Diagnostic keymaps (global)
+            vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float,
+                           {silent = true})
+            vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>",
+                           {silent = true})
+            vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>",
+                           {silent = true})
+            vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist,
+                           {silent = true})
 
-            -- Custom signs
-            vim.diagnostic.config(
-                {
-                    signs = {text = {"", "", "", ""}}
-                }
-            )
+            -- Global LspAttach autocmd (replaces per-server on_attach)
+            vim.api.nvim_create_autocmd("LspAttach", {
+                callback = function(args)
+                    local bufnr = args.buf
 
-            local on_attach = function(_client, bufnr)
-                vim.lsp.inlay_hint.enable()
+                    vim.lsp.inlay_hint.enable()
+                    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-                vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+                    local map = function(mode, lhs, rhs, desc)
+                        vim.keymap.set(mode, lhs, rhs, {
+                            buffer = bufnr,
+                            silent = true,
+                            desc = desc
+                        })
+                    end
 
-                -- Definitions
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+                    -- Definitions
+                    map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+                    map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+                    map("n", "<leader>D", vim.lsp.buf.type_definition,
+                        "Type definition")
 
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+                    -- Help
+                    map("n", "K", "<cmd>Lspsaga hover_doc<CR>", "Hover doc")
+                    map("n", "gi", vim.lsp.buf.implementation,
+                        "Go to implementation")
 
-                -- Help
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-                -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+                    -- Terminal
+                    map("n", "<leader>tt", "<cmd>Lspsaga term_toggle<CR>",
+                        "Toggle terminal")
 
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>tt", "<cmd>Lspsaga term_toggle<CR>", opts)
+                    -- Workspace
+                    map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder,
+                        "Add workspace folder")
+                    map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder,
+                        "Remove workspace folder")
+                    map("n", "<leader>wl", function()
+                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                    end, "List workspace folders")
 
-                -- Workspace
-                vim.api.nvim_buf_set_keymap(
-                    bufnr,
-                    "n",
-                    "<leader>wa",
-                    "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
-                    opts
-                )
-                vim.api.nvim_buf_set_keymap(
-                    bufnr,
-                    "n",
-                    "<leader>wr",
-                    "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
-                    opts
-                )
-                vim.api.nvim_buf_set_keymap(
-                    bufnr,
-                    "n",
-                    "<leader>wl",
-                    "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-                    opts
-                )
+                    -- Refactoring
+                    map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", "Rename")
+                    map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>",
+                        "Code action")
+                    map("n", "gr", vim.lsp.buf.references, "References")
 
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-
-                require "lsp_signature".on_attach(
-                    {
+                    require("lsp_signature").on_attach({
                         bind = true,
                         fix_pos = true,
-                        handler_opts = {
-                            border = "single"
-                        },
+                        handler_opts = {border = "single"},
                         zindex = 50
-                    }
-                )
-            end
+                    })
+                end
+            })
 
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities.textDocument.completion.completionItem.resolveSupport = {
-                properties = {
-                    "documentation",
-                    "detail",
-                    "additionalTextEdits"
+            capabilities.textDocument.completion.completionItem.resolveSupport =
+                {
+                    properties = {
+                        "documentation", "detail", "additionalTextEdits"
+                    }
                 }
-            }
             capabilities.textDocument.foldingRange = {
                 dynamicRegistration = false,
                 lineFoldingOnly = true
             }
 
-            -- Enable the following language servers
+            -- Enable language servers
             local servers = {
-                "bashls",
-                "clangd",
-                "cssls",
-                "dockerls",
-                "gopls",
-                "lemminx",
-                "html",
-                "jsonls",
-                "rust_analyzer",
-                "ruff",
-                "ts_ls",
-                "denols",
-                "yamlls",
-                "shopify_theme_ls"
+                "bashls", "clangd", "cssls", "dockerls", "gopls", "lemminx",
+                "html", "jsonls", "rust_analyzer", "ruff", "ts_ls", "denols",
+                "yamlls", "shopify_theme_ls", "ty"
             }
             for _, lsp in ipairs(servers) do
                 vim.lsp.enable(lsp)
-                vim.lsp.config(
-                    lsp,
-                    {
-                        on_attach = on_attach,
-                        capabilities = capabilities
-                    }
-                )
+                vim.lsp.config(lsp, {capabilities = capabilities})
             end
 
-            vim.lsp.enable("ty")
-            vim.lsp.config(
-                "ty",
-                {
-                    settings = {
-                        ty = {
-                            experimental = {
-                                rename = true
+            vim.lsp.enable("lua_ls")
+            vim.lsp.config("lua_ls", {
+                cmd = {"lua-language-server"},
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = "LuaJIT",
+                            path = vim.split(package.path, ";")
+                        },
+                        diagnostics = {globals = {"vim"}},
+                        workspace = {
+                            library = {
+                                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
                             }
                         }
                     }
                 }
-            )
+            })
 
-            -- vim.lsp.config.basedpyright.setup {
-            --     cmd = {
-            --         "basedpyright-langserver",
-            --         "--stdio",
-            --         "-p",
-            --         vim.fn.expand("$XDG_CONFIG_HOME/pyright/config.json")
-            --     },
-            --     on_attach = on_attach,
-            --     capabilities = capabilities,
-            --     settings = {
-            --         basedpyright = {
-            --             analysis = {
-            --                 autoSearchPaths = true,
-            --                 diagnosticMode = "openFilesOnly",
-            --                 useLibraryCodeForTypes = true,
-            --                 typeCheckingMode = "standard"
-            --             }
-            --         }
-            --     }
-            -- }
-
-            vim.lsp.config(
-                "lua_ls",
-                {
-                    cmd = {"lua-language-server"},
-                    on_attach = on_attach,
-                    settings = {
-                        Lua = {
-                            runtime = {
-                                version = "LuaJIT",
-                                path = vim.split(package.path, ";")
-                            },
-                            diagnostics = {
-                                globals = {"vim"}
-                            },
-                            workspace = {
-                                library = {
-                                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-                                }
-                            }
-                        }
-                    }
-                }
-            )
-
-            -- Map :Format to vim.lsp.buf.formatting()
-            vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
-
-            -- Customizing how diagnostics are displayed
-            vim.lsp.handlers["textDocument/publishDiagnostics"] =
-                vim.lsp.with(
-                vim.lsp.diagnostic.on_publish_diagnostics,
-                {
-                    virtual_text = false,
-                    signs = true,
-                    underline = true,
-                    update_in_insert = true
-                }
-            )
+            -- :Format command
+            vim.api.nvim_create_user_command("Format", function()
+                vim.lsp.buf.format()
+            end, {})
         end
-    },
-    {
+    }, {
         "nvimdev/lspsaga.nvim",
-        opts = {},
         config = function()
-            require("lspsaga").setup(
-                {
-                    ui = {
-                        kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind()
-                    },
-                    symbol_in_winbar = {
-                        enable = true,
-                        folder_level = 5
-                    },
-                    code_action = {
-                        extend_gitsigns = true
-                    },
-                    lightbulb = {
-                        enable = false
-                    },
-                    outline = {
-                        -- detail = false,
-                        auto_preview = false
-                    },
-                    beacon = {
-                        enable = false
-                    },
-                    implement = {
-                        enable = true,
-                        sign = true,
-                        virtual_text = true,
-                        priority = 10000
-                    }
+            require("lspsaga").setup({
+                ui = {
+                    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind()
+                },
+                symbol_in_winbar = {enable = true, folder_level = 5},
+                code_action = {extend_gitsigns = true},
+                lightbulb = {enable = false},
+                outline = {auto_preview = false},
+                beacon = {enable = false},
+                implement = {
+                    enable = true,
+                    sign = true,
+                    virtual_text = true,
+                    priority = 10000
                 }
-            )
+            })
         end,
         event = "LspAttach",
         dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-tree/nvim-web-devicons"
+            "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons"
         }
-    },
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "LspAttach",
-        opts = {}
-    },
-    {
+    }, {"ray-x/lsp_signature.nvim", event = "LspAttach", opts = {}}, {
         "seblj/nvim-echo-diagnostics",
         event = "LspAttach",
         config = function()
-            local diagnostics = vim.api.nvim_create_augroup("diagnostics", {clear = true})
+            local diagnostics = vim.api.nvim_create_augroup("diagnostics",
+                                                            {clear = true})
 
-            vim.api.nvim_create_autocmd(
-                {"CursorHold"},
-                {
-                    pattern = "*",
-                    group = diagnostics,
-                    command = "lua require('echo-diagnostics').echo_line_diagnostic()"
-                }
-            )
-
-            -- autocmd CursorHold * lua require('echo-diagnostics').echo_line_diagnostic()
+            vim.api.nvim_create_autocmd({"CursorHold"}, {
+                pattern = "*",
+                group = diagnostics,
+                callback = function()
+                    require("echo-diagnostics").echo_line_diagnostic()
+                end
+            })
         end
     }
 }
