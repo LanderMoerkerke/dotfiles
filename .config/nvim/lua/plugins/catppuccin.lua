@@ -37,6 +37,7 @@ return {
                 }
             },
             treesitter = true,
+            treesitter_context = true,
             telescope = {
                 enabled = true
             },
