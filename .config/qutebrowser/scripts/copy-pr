@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# 1. Clean the title:
+# - Matches and removes GitLab MRs " (!1008)" or GitHub PRs " (#1008)" and everything after.
+# - Matches and removes generic trailing separators like " · " and everything after.
+CLEAN_TITLE=$(printf "%s" "$QUTE_TITLE" | sed -E 's/ \([\!\#][0-9]+\).*//; s/ · .*//')
+
+# 2. Escape double quotes and backslashes so it doesn't break the Qutebrowser command
+SAFE_TITLE=$(printf "%s" "$CLEAN_TITLE" | sed 's/\\/\\\\/g; s/"/\\"/g')
+
+# 3. Send the yank command directly to Qutebrowser's internal command pipe
+# We wrap the entire string in double quotes so Qutebrowser sees it as one argument
+printf 'yank inline "%s %s: %s"\n' "[show]" "$SAFE_TITLE" "$QUTE_URL" >> "$QUTE_FIFO"

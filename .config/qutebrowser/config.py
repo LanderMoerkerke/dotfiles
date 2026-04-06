@@ -1160,6 +1160,7 @@ c.bindings.commands = {
         "xx": "config-cycle statusbar.hide ;; config-cycle tabs.show always switching",
         "yD": "download-open copy-to-lf",
         "yd": "download-open dragon-drop -x",
+        "yg": "spawn --userscript ~/.config/qutebrowser/scripts/copy-pr",
         "yP": "yank pretty-url -s",
         "yT": "yank title -s",
         "yY": "yank -s",
