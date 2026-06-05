@@ -76,6 +76,7 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 export NLTK_DATA="$XDG_DATA_HOME/nltk/data"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export NODE_OPTIONS='--localstorage-file=./jest-storage'
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
 export NPM_CONFIG_USERCONFIG="$XDG_DATA_HOME/npm/npmrc"
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
