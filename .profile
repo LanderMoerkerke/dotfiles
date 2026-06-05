@@ -148,6 +148,10 @@ export PIPENV_MAX_DEPTH=5
 export PIPENV_SPINNER=pong
 export PIPENV_DOTENV_LOCATION="$HOME/Documents/Pipenv/.env"
 
+# Poetry
+export POETRY_SOLVER_MIN_RELEASE_AGE=3
+export POETRY_SOLVER_MIN_RELEASE_AGE_EXCLUDE_SOURCE=https://pypi.azure.wegroup.be/simple
+
 # Uv
 export UV_PYTHON_DOWNLOADS=never
 
