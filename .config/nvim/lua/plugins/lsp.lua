@@ -4,7 +4,7 @@ return {
         config = function()
             -- Diagnostics configuration (replaces both the old vim.diagnostic.config and vim.lsp.handlers block)
             vim.diagnostic.config({
-                virtual_text = false,
+                virtual_text = {current_line = true},
                 signs = {text = {"", "", "", ""}},
                 underline = {severity = {min = vim.diagnostic.severity.ERROR}},
                 update_in_insert = true
@@ -148,20 +148,5 @@ return {
         dependencies = {
             "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons"
         }
-    }, {"ray-x/lsp_signature.nvim", event = "LspAttach", opts = {}}, {
-        "seblj/nvim-echo-diagnostics",
-        event = "LspAttach",
-        config = function()
-            local diagnostics = vim.api.nvim_create_augroup("diagnostics",
-                                                            {clear = true})
-
-            vim.api.nvim_create_autocmd({"CursorHold"}, {
-                pattern = "*",
-                group = diagnostics,
-                callback = function()
-                    require("echo-diagnostics").echo_line_diagnostic()
-                end
-            })
-        end
-    }
+    }, {"ray-x/lsp_signature.nvim", event = "LspAttach", opts = {}}
 }
