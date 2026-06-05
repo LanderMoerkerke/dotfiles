@@ -118,7 +118,7 @@ export VEST=$HOME/Documents/VEST/
 # WORK
 export WG=$HOME/Documents/Work/WeGroup
 export NATS_REQUEST=$WG/NATS/payload.json
-export BITBUCKET=$WG/Bitbucket
+export WG_GIT=$WG/Git
 
 # Biber
 export COMPILE="$HOME/Documents/LaTeX"
