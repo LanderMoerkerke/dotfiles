@@ -149,11 +149,6 @@ hl.config({
         no_update_news  = true,
         no_donation_nag = true,
     },
-
-    binds = {
-        -- pressing the current workspace's key again bounces to the previous one
-        workspace_back_and_forth = true,
-    },
 })
 
 -- Notify when an external display connects (native hotplug via the
@@ -288,6 +283,7 @@ hl.bind(mainMod .. " + T",         hl.dsp.workspace.toggle_special("term"))
 hl.bind(mainMod .. " + V",         hl.dsp.workspace.toggle_special("volume"))
 hl.bind(mainMod .. " + Z",         hl.dsp.workspace.toggle_special("ferdi"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.workspace.toggle_special("spotify"))
+hl.bind(mainMod .. " + Y",         hl.dsp.workspace.toggle_special("video"))
 
 -- native magnifier, replaces `pypr zoom`
 hl.bind(mainMod .. " + SHIFT + Z", function()
@@ -315,6 +311,7 @@ local scratchpads = {
     volume  = { class = "^(org\\.pulseaudio\\.)?[Pp]avucontrol$",  size = { 0.40, 0.90 } },
     ferdi   = { class = "^([Ff]erdium)$",                          size = { 0.45, 0.65 } },
     spotify = { class = "^([Ss]potify)$",                          size = { 0.70, 0.90 } },
+    video   = { class = "^(firefox-video)$",                       size = { 0.80, 0.80 } },
 }
 
 for name, pad in pairs(scratchpads) do
@@ -332,6 +329,9 @@ hl.workspace_rule({ workspace = "special:term",    on_created_empty = "foot -a f
 hl.workspace_rule({ workspace = "special:volume",  on_created_empty = "pavucontrol -t 1" })
 hl.workspace_rule({ workspace = "special:ferdi",   on_created_empty = "ferdium" })
 hl.workspace_rule({ workspace = "special:spotify", on_created_empty = "spotify" })
+hl.workspace_rule({ workspace = "special:video",   on_created_empty = "firefox --new-instance --profile /home/lander/.local/share/firefox-video --name firefox-video" })
+
+hl.window_rule({ match = { class = "^(firefox-video)$" }, idle_inhibit = "focus" })
 
 -- pypr `unfocus = "hide"`: auto-hide volume/spotify when focus leaves them.
 local autohideSpecials = { ["special:volume"] = "volume", ["special:spotify"] = "spotify" }
@@ -346,7 +346,7 @@ hl.on("window.active", function(w)
 end)
 
 hl.window_rule({ match = { class = "^(org.qutebrowser.qutebrowser)" }, workspace = "1" })
-hl.window_rule({ match = { class = "^(firefox)" },                     workspace = "5" })
+hl.window_rule({ match = { class = "^(firefox)$" },                    workspace = "5" })
 
 --------------------
 ---- MEDIA KEYS ----
