@@ -1,40 +1,6 @@
 [pyprland]
 plugins = [
-  "scratchpads",
-  "magnify",
   "fetch_client_menu",
   "shift_monitors"
 ]
 
-[scratchpads.ferdi]
-animation = "fromBottom"
-command = "ferdium"
-class = "Ferdium"
-lazy = true
-size = "45% 65%"
-
-[scratchpads.ferdi.monitor.HDMI-A-1]
-animation = "fromTop"
-
-[scratchpads.term]
-animation = "fromTop"
-command = "foot -a foot-scratchpad -e scratch-tmux"
-class = "foot-scratchpad"
-lazy = false
-size = "75% 80%"
-
-[scratchpads.volume]
-animation = "fromRight"
-command = "pavucontrol -t 1"
-class = "pavucontrol"
-size = "40% 90%"
-lazy = true
-unfocus = "hide"
-
-[scratchpads.spotify]
-animation = "fromLeft"
-command = "spotify"
-class = "Spotify"
-size = "70% 90%"
-lazy = true
-unfocus = "hide"
