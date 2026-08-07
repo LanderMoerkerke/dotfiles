@@ -21,17 +21,33 @@ hl.monitor({ output = "desc:Dell Inc. DELL P2720DC 81WTK9CR0QBS", mode = "prefer
 hl.monitor({ output = "", mode = "preferred", position = "auto-center-up", scale = 1 })
 
 -- Lid switch: closing the lid disables eDP-1 so its workspaces migrate to
--- the external monitor; opening re-enables it. Guard: never disable the
--- only monitor. (If logind suspends on lid close, set
+-- the external monitor; opening re-enables it and moves them back. Guard:
+-- never disable the only monitor. (If logind suspends on lid close, set
 -- HandleLidSwitch=ignore in /etc/systemd/logind.conf.)
+local lidWorkspaces = {}
+
 hl.bind("switch:on:Lid Switch", function()
-    if #hl.get_monitors() > 1 then
-        hl.monitor({ output = "eDP-1", disabled = true })
+    if #hl.get_monitors() <= 1 then return end
+    lidWorkspaces = {}
+    for _, ws in ipairs(hl.get_workspaces()) do
+        if ws.monitor ~= nil and ws.monitor.name == "eDP-1" and not ws.special then
+            table.insert(lidWorkspaces, ws.id)
+        end
     end
+    hl.monitor({ output = "eDP-1", disabled = true })
 end, { locked = true })
 
 hl.bind("switch:off:Lid Switch", function()
-    hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1 })
+    -- disabled = false must be explicit: the disable rule above sticks otherwise
+    hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1, disabled = false })
+    hl.exec_scheduled_prop_refresh_immediately()
+    -- give the modeset a moment, then bring the laptop workspaces home
+    hl.timer(function()
+        for _, id in ipairs(lidWorkspaces) do
+            hl.dispatch(hl.dsp.workspace.move({ workspace = id, monitor = "eDP-1" }))
+        end
+        lidWorkspaces = {}
+    end, { timeout = 500, type = "oneshot" })
 end, { locked = true })
 
 -------------
@@ -57,8 +73,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("swayidle")
-    hl.exec_cmd("pypr")
-    -- way-displays removed: the hl.monitor() rules above handle external displays natively.
 end)
 
 -----------------
@@ -168,10 +182,27 @@ hl.config({
     },
 })
 
--- Notify when an external display connects (native hotplug via the
--- catch-all hl.monitor() rule above).
+-- Monitor layout changed (hotplug, lid open/close): waybar renders glitched
+-- on the surviving output -> restart it. Notify on connect.
+-- Debounced: at boot monitor.added fires once per monitor, and each restart
+-- raced the autostart spawn -> two waybars. One timer, last event wins.
+local waybarTimer = nil
+local function restartWaybar()
+    if waybarTimer ~= nil then
+        waybarTimer:set_enabled(false)
+    end
+    waybarTimer = hl.timer(function()
+        hl.exec_cmd("killall waybar; sleep 0.3; waybar")
+    end, { timeout = 1000, type = "oneshot" })
+end
+
 hl.on("monitor.added", function(m)
     hl.notification.create({ text = "Monitor connected: " .. m.name, timeout = 4000, icon = "ok" })
+    restartWaybar()
+end)
+
+hl.on("monitor.removed", function()
+    restartWaybar()
 end)
 
 -- gestures
@@ -234,6 +265,8 @@ hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("killall -SIGUSR1 waybar || w
 
 -- nouveau misses USB-C DP hotplug uevents sometimes; reload re-probes outputs
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
+-- ...and when the kernel itself missed the hotplug, kick the DP connectors
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("hypr-kick-dp"))
 
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind(mainMod .. " + s",         hl.dsp.window.pin())
@@ -311,13 +344,15 @@ hl.bind(mainMod .. " + SHIFT + Z", function()
     hl.config({ cursor = { zoom_factor = (zoom > 1.0) and 1.0 or 2.0 } })
 end)
 
-hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.exec_cmd("pypr fetch_client_menu"))
-hl.bind(mainMod .. " + Escape",      hl.dsp.exec_cmd("pypr unfetch_client"))
+-- fetch a window here / send it back (native pypr fetch_client_menu replacement)
+hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.exec_cmd("hypr-fetch-window"))
+hl.bind(mainMod .. " + Escape",      hl.dsp.exec_cmd("hypr-unfetch-window"))
 
-hl.bind(mainMod .. " + SHIFT + U", hl.dsp.exec_cmd("pypr shift_monitors -1"))
-hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("pypr shift_monitors +1"))
+-- swap visible workspaces between monitors (native, symmetric with 2 monitors)
+hl.bind(mainMod .. " + SHIFT + U", hl.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+hl.bind(mainMod .. " + SHIFT + I", hl.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
 
--- focus monitors (same direction convention as shift_monitors above)
+-- focus monitors
 hl.bind(mainMod .. " + U", hl.dsp.focus({ monitor = "-1" }))
 hl.bind(mainMod .. " + I", hl.dsp.focus({ monitor = "+1" }))
 
