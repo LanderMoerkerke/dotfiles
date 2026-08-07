@@ -1,6 +1,0 @@
-[pyprland]
-plugins = [
-  "fetch_client_menu",
-  "shift_monitors"
-]
-

@@ -1,9 +1,0 @@
-#!/bin/sh
-
-unread=$(cat /tmp/packages_updates)
-
-if [ "$unread" != "0" ]; then
-    echo "  $unread"
-else
-    exit 1
-fi
