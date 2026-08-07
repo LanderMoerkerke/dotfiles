@@ -11,3 +11,24 @@
 .config/yazi/flavors/catppuccin-mocha.yazi
 .config/yazi/plugins
 .config/zsh/.zcompdump*
+
+# oh-my-zsh plugins: tracked as proper submodules (see .gitmodules).
+# Ignore any OTHER (future) plugin dir, but keep the registered ones.
+.config/oh-my-zsh/custom/plugins/*
+!.config/oh-my-zsh/custom/plugins/fzf-tab
+!.config/oh-my-zsh/custom/plugins/zsh-autosuggestions
+!.config/oh-my-zsh/custom/plugins/zsh-completions
+!.config/oh-my-zsh/custom/plugins/zsh-dircolors-solarized
+!.config/oh-my-zsh/custom/plugins/zsh-notify
+!.config/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+# editor LSP scratch files (any location)
+.luarc.json
+
+# untracked scratch holding secrets — never commit
+.config/waybar/custom/spotify/new/
+
+# generic junk
+.DS_Store
+*.swp
+*~
