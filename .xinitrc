@@ -7,7 +7,7 @@ for file in "/etc/profile" "$HOME/.profile"; do
     fi
 done
 
-xrdb ./.Xresources &
+xrdb "$HOME/.Xresources" &
 
 xwallpaper --zoom $HOME/Pictures/bg.jpg &
 xrandr --dpi 100 &

@@ -16,30 +16,26 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 # PATH
 
 # user
-export PATH="\
-$HOME/.local/bin:\
+export PATH="$HOME/.local/bin:\
 $XDG_DATA_HOME/fzf/bin:\
 $XDG_DATA_HOME/npm/bin:\
 $XDG_DATA_HOME/gem/bin:\
 $XDG_DATA_HOME/go/bin:\
 $XDG_DATA_HOME/cargo/bin:\
-$PATH
-"
+$PATH"
 
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$PATH:$(du -L "$HOME/.local/bin" | cut -f2 | paste -sd ':' -)"
 
 # system
-export PATH="
-/usr/local/sbin:\
+export PATH="/usr/local/sbin:\
 /usr/local/bin:\
 /usr/sbin:\
 /usr/bin:\
 /sbin:\
-/usr/bin/vendor_perl\
+/usr/bin/vendor_perl:\
 /opt/google-cloud-sdk/bin:\
-$PATH
-"
+$PATH"
 
 export LIBRARY_PATH=/usr/local/lib
 export LD_LIBRARY_PATH=/usr/local/lib
