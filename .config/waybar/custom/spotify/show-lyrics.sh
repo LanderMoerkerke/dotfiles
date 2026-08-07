@@ -13,7 +13,7 @@ if ! command -v "playerctl" &>/dev/null && ! command -v "sptlrx" &>/dev/null; th
 fi
 
 # Check if pipe is running
-if [ -z "$(ps aux | grep -v 'grep' | grep 'sptlrx pipe')" ]; then
+if ! pgrep -f 'sptlrx pipe' >/dev/null; then
     sptlrx pipe >>/tmp/lyrics &
 fi
 

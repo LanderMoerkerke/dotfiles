@@ -3,7 +3,8 @@
     "height": 26,
     "margin": 5,
     "modules-left": [
-        "niri/workspaces",
+        "hyprland/workspaces",
+        "custom/privacy-dots",
         "custom/lyrics"
     ],
     "modules-center": [
@@ -18,6 +19,7 @@
         "cpu",
         "memory",
         "network",
+        "custom/tailscale",
         "pulseaudio",
         "custom/noisetorch",
         "backlight",
@@ -26,27 +28,49 @@
         "tray",
         "clock"
     ],
+    "custom/tailscale" : {
+        "exec": "~/.config/waybar/custom/tailscale/waybar-tailscale.sh --status",
+        "on-click": "exec ~/.config/waybar/custom/tailscale/waybar-tailscale.sh --toggle",
+        "on-click-right": "exec ~/.config/waybar/custom/tailscale/waybar-tailscale.sh --select-exit-node",
+        "exec-on-event": true,
+        "format": "{icon}{text}",
+        "format-icons": {
+            "connected": ""
+        },
+        "tooltip": true,
+        "return-type": "json",
+        "interval": 10
+    },
+    "custom/privacy-dots": {
+        "exec": "~/.config/waybar/custom/privacy/privacy_dots.sh",
+        "return-type": "json",
+        "interval": 8,
+        "format": "{text}",
+        "tooltip": true,
+        "escape": false,
+        "markup": "pango"
+    },
     "custom/lyrics": {
         "exec": "~/.config/waybar/custom/spotify/show-lyrics.sh",
-        "interval": 1,
+        "interval": 3,
         "format": "♪ {}",
         "max-length": 100
     },
     "custom/noisetorch": {
         "exec": "~/.config/waybar/custom/noisetorch/check-noisetorch-connected",
-        "interval": 5,
+        "interval": 30,
         "format": " NT",
     },
     "custom/updates": {
         "exec": "~/.config/waybar/custom/packages/check-updates-packages",
-        "interval": 5,
+        "interval": 300,
         "exec-if": "[ -s /tmp/packages_updates ]",
         "format": " {}",
         "return-type": "json"
     },
     "custom/mail": {
         "exec": "~/.config/waybar/custom/mail/check-mail-unread",
-        "interval": 5,
+        "interval": 60,
         "format": " {}"
     },
     "mpris": {
@@ -70,14 +94,14 @@
     "image#album-art": {
         "exec": "~/.config/waybar/custom/spotify/album_art.sh",
         "size": 26,
-        "interval": 3
+        "interval": 5
     },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "on-click": "activate",
         "format": "{name}",
-        "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
-        "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"m-1\" })' > /dev/null",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"m+1\" })' > /dev/null",
         "format-icons": {
             "1": "",
             "2": "",
@@ -98,7 +122,6 @@
         "max-length": 70
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
@@ -132,7 +155,7 @@
         "critical-threshold": 80,
         "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
     },
     "backlight": {
         "format": "{icon} {percent}%",
@@ -140,7 +163,6 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -148,8 +170,6 @@
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{icon}  {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
@@ -172,12 +192,6 @@
         "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
-            //            "headphone": "",
-            //            "hands-free": "",
-            //            "headset": "",
-            //            "phone": "",
-            //            "portable": "",
-            //            "car": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
