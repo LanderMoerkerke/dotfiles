@@ -4,8 +4,6 @@ alias a="alembic"
 alias L='less'
 alias R="R --quiet --no-save"
 alias c="xclip -selection clipboard"
-alias g="gcloud"
-alias j="joplin"
 alias k="kubectl"
 alias l='ls -latrFi'
 alias m='neomutt'
@@ -79,8 +77,6 @@ alias pacman_listpackages_size="paste <(pacman -Q | awk '{ print $1; }' | xargs 
 
 # applications
 
-alias rtv='rtv --enable-media'
-alias soundcloud="scdl"
 alias we='curl wttr.in/Gent'
 
 # programming
