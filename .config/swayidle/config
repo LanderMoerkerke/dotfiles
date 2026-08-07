@@ -1,0 +1,3 @@
+timeout 600 'lockscreenw'
+timeout 610 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
+before-sleep lockscreenw
