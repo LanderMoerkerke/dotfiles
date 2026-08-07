@@ -13,9 +13,26 @@ local mainMod = "SUPER"
 
 hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1 })
 
--- Catch-all: any hotplugged external monitor gets its preferred mode,
--- auto-placed to the right of existing ones.
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+-- USB-C Dell: to the right of the laptop screen (desc-matched, port-independent)
+hl.monitor({ output = "desc:Dell Inc. DELL P2720DC 81WTK9CR0QBS", mode = "preferred", position = "auto-right", scale = 1 })
+
+-- Catch-all: any other hotplugged monitor gets its preferred mode,
+-- placed above the laptop screen (center-aligned).
+hl.monitor({ output = "", mode = "preferred", position = "auto-center-up", scale = 1 })
+
+-- Lid switch: closing the lid disables eDP-1 so its workspaces migrate to
+-- the external monitor; opening re-enables it. Guard: never disable the
+-- only monitor. (If logind suspends on lid close, set
+-- HandleLidSwitch=ignore in /etc/systemd/logind.conf.)
+hl.bind("switch:on:Lid Switch", function()
+    if #hl.get_monitors() > 1 then
+        hl.monitor({ output = "eDP-1", disabled = true })
+    end
+end, { locked = true })
+
+hl.bind("switch:off:Lid Switch", function()
+    hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = 1 })
+end, { locked = true })
 
 -------------
 ---- ENV ----
@@ -214,6 +231,9 @@ hl.bind(mainMod .. " + F1",         hl.dsp.exec_cmd("dunstctl set-paused true"))
 hl.bind(mainMod .. " + SHIFT + F1", hl.dsp.exec_cmd("dunstctl set-paused false"))
 
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("killall -SIGUSR1 waybar || waybar"))
+
+-- nouveau misses USB-C DP hotplug uevents sometimes; reload re-probes outputs
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 hl.bind(mainMod .. " + s",         hl.dsp.window.pin())
