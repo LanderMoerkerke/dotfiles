@@ -23,6 +23,9 @@ zsh-syntax-highlighting
 forgit
 )
 
+# Include hidden files in completion (must precede oh-my-zsh's compinit)
+_comp_options+=(globdots)
+
 source $ZSH/oh-my-zsh.sh
 
 # notify
@@ -54,13 +57,8 @@ export SAVEHIST=10000000000
 setopt EXTENDED_HISTORY
 export HISTFILE=$HOME/.cache/zsh/history
 
-# Basic auto/tab complete:
-autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit_comp_options+=(globdots)		# Include hidden files.
-
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char

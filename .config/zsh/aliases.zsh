@@ -65,7 +65,7 @@ alias tree='tree -Csuh'
 alias fo="fuzzy-open"
 
 alias cdh="cd $HOME"
-alias cdl="cd $(readlink '$1')"
+cdl() { cd "$(readlink "$1")"; }
 
 alias df='dfc -T'
 alias dus='du -sh *'

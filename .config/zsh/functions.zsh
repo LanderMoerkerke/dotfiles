@@ -4,6 +4,28 @@ if [[ -n "$SSH_CONNECTION" ]] ; then
     export TERM="xterm"
 fi
 
+function precmd {
+    if ! builtin zle; then
+        print -n "\e]133;D\e\\"
+    fi
+}
+
+function preexec {
+    print -n "\e]133;C\e\\"
+}
+
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
 # add ls to cd
 function chpwd() {ls -hN --color=auto --group-directories-first}
 
@@ -108,7 +130,7 @@ function decode-vin-api () {
     api_key=$(gopass WeGroup/Vincario-api-key)
     api_key_secret=$(gopass WeGroup/Vincario-api-secret-key)
     checksum=$(echo -n "$1|decode|$api_key|$api_key_secret" | sha1sum | cut -c1-10)
-    http "https://api.vindecoder.eu/3.2/$api_key/$checksum/decode/$1.json"
+    http --verify no "https://api.vindecoder.eu/3.2/$api_key/$checksum/decode/$1.json"
 }
 
 function clickup-api () {
@@ -116,7 +138,11 @@ function clickup-api () {
 }
 
 function wgttp () {
-    http $* Authorization:"Apikey $(gopass WeGroup/REST-token | sed 1q)"
+    http --verify no $* Authorization:"Apikey $(gopass WeGroup/REST-token | sed 1q)"
+}
+
+function meili-api () {
+    http $* X-Meili-API-Key:"$(gopass WeGroup/Meilisearch)" Accept:application/json
 }
 
 function py-format () {
