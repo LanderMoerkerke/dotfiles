@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Send the active window back to the workspace it was fetched from
+# (counterpart of hypr-fetch-window).
+
+state_file="${XDG_RUNTIME_DIR:-/tmp}/hypr-fetched-windows"
+[[ -f "$state_file" ]] || exit 0
+
+addr="$(hyprctl -j activewindow | jq -r '.address')"
+line="$(grep "^$addr " "$state_file" | tail -1)"
+[[ -z "$line" ]] && exit 0
+
+ws="$(awk '{print $2}' <<<"$line")"
+hyprctl dispatch "hl.dsp.window.move({ window = \"address:$addr\", workspace = $ws, follow = false })"
+sed -i "\|^$addr |d" "$state_file"

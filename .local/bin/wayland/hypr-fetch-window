@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Fetch a window from another workspace to the current one via rofi.
+# Native replacement for pypr's fetch_client_menu; origin workspace is
+# remembered so hypr-unfetch-window can send the window back.
+
+state_file="${XDG_RUNTIME_DIR:-/tmp}/hypr-fetched-windows"
+
+current_ws="$(hyprctl -j activeworkspace | jq -r '.id')"
+
+selection="$(hyprctl -j clients |
+    jq -r '.[] | select(.monitor != -1) | "\(.address)  \(.workspace.id)  [\(.workspace.name)]  \(.title)"' |
+    rofi -dmenu -i -p 'fetch')"
+
+[[ -z "$selection" ]] && exit 0
+
+addr="$(awk '{print $1}' <<<"$selection")"
+origin_ws="$(awk '{print $2}' <<<"$selection")"
+
+[[ "$origin_ws" == "$current_ws" ]] && exit 0
+
+echo "$addr $origin_ws" >>"$state_file"
+hyprctl dispatch "hl.dsp.window.move({ window = \"address:$addr\", workspace = $current_ws, follow = true })"
