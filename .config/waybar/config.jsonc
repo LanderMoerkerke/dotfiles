@@ -52,6 +52,7 @@
     },
     "custom/lyrics": {
         "exec": "~/.config/waybar/custom/spotify/show-lyrics.sh",
+        "exec-if": "playerctl -p spotify status 2>/dev/null | grep -q Playing",
         "interval": 3,
         "on-click": "~/.config/waybar/custom/spotify/open-lyric-genius.sh",
         "format": "♪ {}",
