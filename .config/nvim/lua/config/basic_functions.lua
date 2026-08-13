@@ -32,18 +32,3 @@ function! g:ToggleSpell()
 endfunction
 ]]
 )
-
--- function ToggleSpellLua()
---     local spelllang_list = {"nl", "en", "fr"}
---     -- local string = {}
---     -- print(spelllang_list)
---
---     -- for lang in spelllang_list do
---     --     print(lang)
---     -- end
---
---     for i, v in ipairs(spelllang_list) do
---         print(i)
---         print(v)
---     end
--- end

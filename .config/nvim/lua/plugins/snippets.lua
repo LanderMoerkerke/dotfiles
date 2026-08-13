@@ -150,28 +150,4 @@ return {
             ls.add_snippets("all", {s("uuid", {d(1, generate_uuid)})})
         end
     }
-    -- {
-    --     "smjonas/snippet-converter.nvim",
-    --     config = function()
-    --         local template = {
-    --             -- name = "t1", (optionally give your template a name to refer to it in the `ConvertSnippets` command)
-    --             sources = {
-    --                 ultisnips = {
-    --                     vim.fn.stdpath("config") .. "/UltiSnips"
-    --                 }
-    --             },
-    --             output = {
-    --                 -- Specify the output formats and paths
-    --                 vscode_luasnip = {
-    --                     vim.fn.stdpath("config") .. "/luasnip_snippets"
-    --                 }
-    --             }
-    --         }
-    --         require("snippet_converter").setup {
-    --             templates = {template}
-    --             -- To change the default settings (see configuration section in the documentation)
-    --             -- settings = {},
-    --         }
-    --     end
-    -- },
 }

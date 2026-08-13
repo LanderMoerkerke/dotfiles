@@ -64,15 +64,6 @@ return {
 
             local builtin = require("telescope.builtin")
 
-            -- vim.api.nvim_set_keymap("n", "<leader>p", ":Telescope git_files<CR>", {noremap = true, silent = true})
-            -- vim.api.nvim_set_keymap("n", "<leader>b", ":Telescope buffers<CR>", {noremap = true, silent = true})
-            -- vim.api.nvim_set_keymap("n", "<leader>t", ":Telescope tags<CR>", {noremap = true, silent = true})
-
-            -- function! FzfSpell()
-            --     let suggestions = spellsuggest(expand('<cword>'))
-            --     return fzf#run({'source': suggestions, 'sink': function('FzfSpellSink'), 'down': 10 })
-            -- endfunction
-
             vim.keymap.set(
                 "n",
                 "<leader>p",
@@ -83,7 +74,6 @@ return {
             )
             vim.keymap.set("n", "<leader>P", builtin.buffers, {})
             vim.keymap.set("n", "<leader>gg", builtin.live_grep, {})
-            vim.keymap.set("n", "<leader>gs", builtin.lsp_document_symbols, {})
             vim.keymap.set("n", "<leader>gd", builtin.lsp_definitions, {})
             vim.keymap.set("n", "<leader>gr", builtin.lsp_references, {})
 
@@ -93,7 +83,6 @@ return {
             ts.load_extension("luasnip")
             ts.load_extension("textcase")
             ts.load_extension("smart_open")
-            -- ts.load_extension("dap")
         end
     }
 }
