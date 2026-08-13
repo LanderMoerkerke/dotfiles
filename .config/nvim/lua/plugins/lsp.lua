@@ -31,7 +31,7 @@ return {
             vim.keymap.set("n", "]d", function()
                 vim.diagnostic.jump({count = 1, float = false})
             end, {silent = true})
-            vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist,
+            vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist,
                            {silent = true})
 
             -- Global LspAttach autocmd (replaces per-server on_attach)
@@ -79,13 +79,6 @@ return {
                     map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>",
                         "Code action")
                     map("n", "gr", vim.lsp.buf.references, "References")
-
-                    require("lsp_signature").on_attach({
-                        bind = true,
-                        fix_pos = true,
-                        handler_opts = {border = "single"},
-                        zindex = 50
-                    })
                 end
             })
 
@@ -110,7 +103,7 @@ return {
             local servers = {
                 "bashls", "clangd", "cssls", "dockerls", "gopls", "lemminx",
                 "html", "jsonls", "rust_analyzer", "ruff", "ts_ls", "denols",
-                "yamlls", "shopify_theme_ls", "ty"
+                "yamlls", "ty"
             }
             for _, lsp in ipairs(servers) do
                 vim.lsp.config(lsp, {capabilities = capabilities})
@@ -143,11 +136,6 @@ return {
                 }
             })
             vim.lsp.enable("lua_ls")
-
-            -- :Format command (LSP format; conform handles format-on-save)
-            vim.api.nvim_create_user_command("Format", function()
-                vim.lsp.buf.format()
-            end, {})
         end
     }, {
         "nvimdev/lspsaga.nvim",
@@ -173,5 +161,5 @@ return {
         dependencies = {
             "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons"
         }
-    }, {"ray-x/lsp_signature.nvim", event = "LspAttach", opts = {}}
+    }
 }

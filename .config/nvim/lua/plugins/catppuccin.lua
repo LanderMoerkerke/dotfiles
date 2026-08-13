@@ -9,11 +9,10 @@ return {
             light = "latte",
             dark = "mocha"
         },
-        ensure_installed = {"dap_repl"},
         integrations = {
             alpha = true,
             gitsigns = true,
-            cmp = true,
+            blink_cmp = true,
             dap = {
                 enabled = true,
                 enable_ui = true
@@ -40,8 +39,7 @@ return {
             treesitter_context = true,
             telescope = {
                 enabled = true
-            },
-            gitgutter = false
+            }
         }
     },
     config = function()

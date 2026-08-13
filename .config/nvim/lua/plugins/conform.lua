@@ -1,4 +1,4 @@
--- Format-on-save via conform.nvim (replaces formatter.nvim).
+-- Formatting via conform.nvim — manual only (<F2>); replaces formatter.nvim.
 -- Builtins used where they exist; custom defs below preserve your previous args.
 return {
     "stevearc/conform.nvim",

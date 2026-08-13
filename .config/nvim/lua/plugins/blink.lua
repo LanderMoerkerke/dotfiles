@@ -20,7 +20,7 @@ return {
             menu = {border = "single"},
             list = {selection = {preselect = false, auto_insert = false}}
         },
-        signature = {enabled = false}, -- handled by lsp_signature.nvim
+        signature = {enabled = true, window = {border = "single"}},
         cmdline = {
             keymap = {preset = "cmdline"},
             completion = {menu = {auto_show = false}} -- manual (matches old behaviour)
