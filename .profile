@@ -116,6 +116,7 @@ export VEST=$HOME/Documents/VEST/
 export WG=$HOME/Documents/Work/WeGroup
 export NATS_REQUEST=$WG/NATS/payload.json
 export WG_GIT=$WG/Git
+export GITLAB_URL=https://gitlab.wegroup.io
 
 # Biber
 export COMPILE="$HOME/Documents/LaTeX"
