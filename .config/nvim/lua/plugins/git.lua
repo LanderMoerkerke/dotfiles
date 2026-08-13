@@ -1,9 +1,5 @@
 return {
     {
-        "knsh14/vim-github-link",
-        event = "VeryLazy"
-    },
-    {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
         config = function()
