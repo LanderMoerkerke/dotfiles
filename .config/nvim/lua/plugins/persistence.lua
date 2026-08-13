@@ -3,8 +3,8 @@ return {
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
     opts = {},
     keys = {
-        {"<leader>Qs", function() require("persistence").load() end, desc = "Restore session (cwd)"},
-        {"<leader>Ql", function() require("persistence").load({last = true}) end, desc = "Restore last session"},
-        {"<leader>Qd", function() require("persistence").stop() end, desc = "Stop session save"}
+        {"<leader>ps", function() require("persistence").load() end, desc = "Restore session (cwd)"},
+        {"<leader>pl", function() require("persistence").load({last = true}) end, desc = "Restore last session"},
+        {"<leader>pd", function() require("persistence").stop() end, desc = "Stop session save"}
     }
 }

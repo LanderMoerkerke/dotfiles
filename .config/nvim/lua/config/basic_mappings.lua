@@ -2,7 +2,7 @@
 vim.keymap.set("n", "Q", "")
 
 -- Reload vim
-vim.keymap.set("n", "<leader>rv", ":luafile $NVIM<cr>")
+vim.keymap.set("n", "<leader>rv", ":luafile $MYVIMRC<cr>")
 
 -- Reload current file
 vim.keymap.set("n", "<leader>rf", ":e % <CR>")
@@ -36,9 +36,9 @@ vim.keymap.set("n", "<C-s>", "<C-a>")
 -- Getting rid of the search highlights
 vim.keymap.set("n", "<esc>", ":noh<cr>")
 
--- Sorting selection
-vim.keymap.set("n", "<leader>s", ":sort<cr>")
-vim.keymap.set("v", "<leader>s", ":sort<cr>")
+-- Sorting selection (moved off <leader>s so it isn't a prefix of the diff <leader>s{l,r})
+vim.keymap.set("n", "<leader>so", ":sort<cr>")
+vim.keymap.set("v", "<leader>so", ":sort<cr>")
 
 -- Replace all
 vim.keymap.set("n", "<leader>S", ":%s//g<Left><Left>")
@@ -111,10 +111,9 @@ vim.keymap.set("n", "==", ":wincmd = <cr>")
 -- Remove buffer
 vim.keymap.set("n", "<leader>x", ":bp|bd #<CR>")
 
--- Go to last active tab
--- au TabLeave * let g:lasttab = tabpagenr()
-vim.keymap.set("n", "<silent><leader><Tab>", ':exe "tabn ".g:lasttab<cr>')
-vim.keymap.set("v", "<silent><leader><Tab>", ':exe "tabn ".g:lasttab<cr>')
+-- Go to last active tab (g:lasttab is set by the TabLeave autocmd in autocommands.lua)
+vim.g.lasttab = 1
+vim.keymap.set({"n", "v"}, "<leader><Tab>", ':exe "tabn ".g:lasttab<cr>', {silent = true})
 
 -- ------
 -- Quickfix
