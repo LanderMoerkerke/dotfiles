@@ -106,11 +106,11 @@ return {
 
         vim.fn.sign_define("DapBreakpoint", {text = "🛑", texthl = "", linehl = "", numhl = ""})
 
-        vim.api.nvim_exec(
-            [[
-                    au FileType dap-repl lua require('dap.ext.autocompl').attach()
-                ]],
-            true
-        )
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "dap-repl",
+            callback = function()
+                require("dap.ext.autocompl").attach()
+            end
+        })
     end
 }

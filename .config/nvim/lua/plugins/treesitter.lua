@@ -7,12 +7,11 @@ return {
     lazy = false,
     branch = "main",
     config = function()
-        require("nvim-treesitter").setup({
-            ensure_installed = {
-                "python", "lua", "bash", "html", "css", "javascript",
-                "typescript", "json", "yaml", "toml", "markdown",
-                "markdown_inline", "vim", "vimdoc", "dap_repl"
-            }
+        -- main branch API: parsers install via install(), NOT setup({ensure_installed})
+        require("nvim-treesitter").install({
+            "python", "lua", "bash", "html", "css", "javascript",
+            "typescript", "json", "yaml", "toml", "markdown",
+            "markdown_inline", "vim", "vimdoc"
         })
 
         require('nvim-ts-autotag').setup({

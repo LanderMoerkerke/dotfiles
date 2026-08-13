@@ -4,19 +4,33 @@ return {
         config = function()
             -- Diagnostics configuration (replaces both the old vim.diagnostic.config and vim.lsp.handlers block)
             vim.diagnostic.config({
-                virtual_text = {current_line = true},
+                virtual_text = false, -- shown on hover (CursorHold), see below
                 signs = {text = {"", "", "", ""}},
                 underline = {severity = {min = vim.diagnostic.severity.ERROR}},
-                update_in_insert = true
+                update_in_insert = false
+            })
+
+            -- Show the diagnostic in a float only when the cursor rests on it (hover)
+            vim.api.nvim_create_autocmd("CursorHold", {
+                callback = function()
+                    vim.diagnostic.open_float(nil, {
+                        focus = false,
+                        focusable = false,
+                        scope = "line",
+                        border = "single"
+                    })
+                end
             })
 
             -- Diagnostic keymaps (global)
             vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float,
                            {silent = true})
-            vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>",
-                           {silent = true})
-            vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>",
-                           {silent = true})
+            vim.keymap.set("n", "[d", function()
+                vim.diagnostic.jump({count = -1, float = false})
+            end, {silent = true})
+            vim.keymap.set("n", "]d", function()
+                vim.diagnostic.jump({count = 1, float = false})
+            end, {silent = true})
             vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist,
                            {silent = true})
 
@@ -86,6 +100,11 @@ return {
                 dynamicRegistration = false,
                 lineFoldingOnly = true
             }
+            -- merge blink.cmp's enhanced completion capabilities
+            local ok_blink, blink = pcall(require, "blink.cmp")
+            if ok_blink then
+                capabilities = blink.get_lsp_capabilities(capabilities)
+            end
 
             -- Enable language servers
             local servers = {
@@ -94,11 +113,16 @@ return {
                 "yamlls", "shopify_theme_ls", "ty"
             }
             for _, lsp in ipairs(servers) do
-                vim.lsp.enable(lsp)
                 vim.lsp.config(lsp, {capabilities = capabilities})
+                vim.lsp.enable(lsp)
             end
 
-            vim.lsp.enable("lua_ls")
+            -- Gate the two TS servers so they don't both attach to one buffer
+            vim.lsp.config("denols", {root_markers = {"deno.json", "deno.jsonc"}})
+            vim.lsp.config("ts_ls", {
+                root_markers = {"tsconfig.json", "jsconfig.json", "package.json"}
+            })
+
             vim.lsp.config("lua_ls", {
                 cmd = {"lua-language-server"},
                 capabilities = capabilities,
@@ -118,8 +142,9 @@ return {
                     }
                 }
             })
+            vim.lsp.enable("lua_ls")
 
-            -- :Format command
+            -- :Format command (LSP format; conform handles format-on-save)
             vim.api.nvim_create_user_command("Format", function()
                 vim.lsp.buf.format()
             end, {})

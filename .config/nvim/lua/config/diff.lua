@@ -1,4 +1,4 @@
-if vim.api.nvim_win_get_option(0, "diff") then
+if vim.api.nvim_get_option_value("diff", {win = 0}) then
     vim.opt.cursorline = true
     vim.keymap.set("n", "]", "]c")
     vim.keymap.set("n", "[", "[c")
