@@ -1,5 +1,5 @@
 -- map <F1> :Autoformat <CR>
-vim.keymap.set("n", "<F2>", ":FormatWrite<CR>")
+-- <F2> = format (conform.nvim) — defined as a lazy key in lua/plugins/formatter.lua
 vim.keymap.set("n", "<F3>", ":!wc <C-R>%<CR>")
 -- F4: execute code
 -- F5: execute code
