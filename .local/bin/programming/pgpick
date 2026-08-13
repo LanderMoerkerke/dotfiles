@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Pick a Postgres connection from gopass with fzf and open it in pgcli.
+#
+# Each gopass entry's first line is a full DSN (postgresql://user:pass@host/db).
+# Any embedded password is moved to PGPASSWORD so it isn't visible in `ps`/history.
+#
+# Usage: pgpick [fzf-query]      e.g. `pgpick dekra`
+set -euo pipefail
+
+command -v gopass >/dev/null || { echo "gopass not found" >&2; exit 1; }
+command -v fzf    >/dev/null || { echo "fzf not found"    >&2; exit 1; }
+command -v pgcli  >/dev/null || { echo "pgcli not found"  >&2; exit 1; }
+
+entry="$(
+    gopass ls --flat \
+        | grep -iaE 'postgres|database|/db($|-)' \
+        | grep -vi 'mongo' \
+        | fzf --query="${1:-}" --prompt='pg › ' --height=40% --reverse
+)" || exit 0
+[ -n "$entry" ] || exit 0
+
+dsn="$(gopass show -o "$entry")"
+[ -n "$dsn" ] || { echo "empty gopass entry: $entry" >&2; exit 1; }
+echo "→ $entry" >&2
+
+# Keep the password out of argv (ps/shell history): if the DSN embeds one, move
+# it to PGPASSWORD and hand pgcli the password-stripped DSN.
+pw="$(printf '%s' "$dsn" | sed -nE 's#^[a-zA-Z0-9+]+://[^:/@]+:([^@]+)@.*#\1#p')"
+if [ -n "$pw" ]; then
+    dsn_safe="$(printf '%s' "$dsn" | sed -E 's#(^[a-zA-Z0-9+]+://[^:/@]+):[^@]+@#\1@#')"
+    PGPASSWORD="$pw" pgcli "$dsn_safe"
+else
+    pgcli "$dsn"
+fi
