@@ -20,6 +20,8 @@ vim.opt.foldmethod = "manual"
 vim.opt.foldlevelstart = 99
 vim.opt.completeopt = {"noinsert", "menuone", "noselect"}
 vim.opt.shortmess:append("c")
+-- Default border for floating windows (native LSP hover, signature, etc.)
+vim.o.winborder = "rounded"
 
 vim.opt.wildmode = {"longest", "full"}
 

@@ -17,10 +17,10 @@ return {
         appearance = {nerd_font_variant = "mono"},
         completion = {
             documentation = {auto_show = true, auto_show_delay_ms = 200},
-            menu = {border = "single"},
+            menu = {border = "rounded"},
             list = {selection = {preselect = false, auto_insert = false}}
         },
-        signature = {enabled = true, window = {border = "single"}},
+        signature = {enabled = true, window = {border = "rounded"}},
         cmdline = {
             keymap = {preset = "cmdline"},
             completion = {menu = {auto_show = false}} -- manual (matches old behaviour)

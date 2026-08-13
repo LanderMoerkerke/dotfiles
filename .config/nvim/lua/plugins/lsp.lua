@@ -17,7 +17,7 @@ return {
                         focus = false,
                         focusable = false,
                         scope = "line",
-                        border = "single"
+                        border = "rounded"
                     })
                 end
             })
