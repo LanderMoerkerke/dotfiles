@@ -57,13 +57,9 @@ return {
                         "Type definition")
 
                     -- Help
-                    map("n", "K", "<cmd>Lspsaga hover_doc<CR>", "Hover doc")
+                    map("n", "K", vim.lsp.buf.hover, "Hover doc")
                     map("n", "gi", vim.lsp.buf.implementation,
                         "Go to implementation")
-
-                    -- Terminal
-                    map("n", "<leader>tt", "<cmd>Lspsaga term_toggle<CR>",
-                        "Toggle terminal")
 
                     -- Workspace
                     map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder,
@@ -75,9 +71,8 @@ return {
                     end, "List workspace folders")
 
                     -- Refactoring
-                    map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", "Rename")
-                    map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>",
-                        "Code action")
+                    map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
+                    map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
                     map("n", "gr", vim.lsp.buf.references, "References")
                 end
             })
@@ -137,29 +132,5 @@ return {
             })
             vim.lsp.enable("lua_ls")
         end
-    }, {
-        "nvimdev/lspsaga.nvim",
-        config = function()
-            require("lspsaga").setup({
-                ui = {
-                    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind()
-                },
-                symbol_in_winbar = {enable = true, folder_level = 5},
-                code_action = {extend_gitsigns = true},
-                lightbulb = {enable = false},
-                outline = {auto_preview = false},
-                beacon = {enable = false},
-                implement = {
-                    enable = true,
-                    sign = true,
-                    virtual_text = true,
-                    priority = 10000
-                }
-            })
-        end,
-        event = "LspAttach",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons"
-        }
     }
 }
