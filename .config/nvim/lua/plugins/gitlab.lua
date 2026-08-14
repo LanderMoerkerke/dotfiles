@@ -8,15 +8,6 @@ return {
             "nvim-tree/nvim-web-devicons"
         },
         build = function() require("gitlab.server").build(true) end,
-        keys = {
-            {"<leader>mr", function() require("gitlab").review() end, desc = "GitLab: review MR"},
-            {"<leader>ms", function() require("gitlab").summary() end, desc = "GitLab: MR summary"},
-            {"<leader>mc", function() require("gitlab").create_comment() end, mode = {"n", "v"}, desc = "GitLab: comment"},
-            {"<leader>md", function() require("gitlab").toggle_discussions() end, desc = "GitLab: toggle discussions"},
-            {"<leader>mA", function() require("gitlab").approve() end, desc = "GitLab: approve MR"},
-            {"<leader>mp", function() require("gitlab").pipeline() end, desc = "GitLab: pipeline"},
-            {"<leader>mo", function() require("gitlab").choose_merge_request() end, desc = "GitLab: choose MR"}
-        },
         config = function()
             require("gitlab").setup()
         end
