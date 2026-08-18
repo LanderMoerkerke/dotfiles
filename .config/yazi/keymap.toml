@@ -1,63 +1,98 @@
 [mgr]
 prepend_keymap = [
-    { on  = ["w"], run = '''shell $SHELL --block''', desc = "Open shell here" },
-    { on  = ["W"], run = "tasks_show", desc = "Tasks" },
-    { on  = ["e"], run = '''shell --block '$EDITOR "$1"'''', desc = "Dragon" },
+    { on = ["w"], run = '''shell "$SHELL" --block''', desc = "Open shell here" },
+    { on = ["W"], run = "tasks_show", desc = "Tasks" },
+    { on = ["e"], run = '''shell --block '$EDITOR "$1"'''', desc = "Edit" },
+
+    # smart-enter: open file OR enter dir
+    { on = ["l"], run = "plugin smart-enter", desc = "Enter dir / open file" },
+    { on = ["<Enter>"], run = "plugin smart-enter", desc = "Enter dir / open file" },
 
     # SCRIPTS
-    { on  = ["<C-n>"], run = '''shell 'dragon-drop -a -x -T "$@"'''', desc = "Dragon" },
-    { on  = ["F", "s"], run = '''shell 'stripspace "$1"'''', desc = "Stripspace" },
-    { on  = ["g", "L"], run = ''' shell 'ya emit cd "$(dirname "$(readlink "$1")")"'''', desc = "Goto symlink" },
-    { on  = ["y", "y"], run = "yank", desc = "yank" },
-    { on  = ["y", "n"], run = '''shell 'basename "$1" | wl-copy'''', desc = "yank name" },
-    { on  = ["y", "p"], run = '''shell 'echo -n "$1" | wl-copy'''', desc = "yank path" },
+    { on = ["<C-n>"], run = '''shell 'dragon-drop -a -x -T "$@"'''', desc = "Drag out (dragon)" },
+    { on = ["F", "s"], run = '''shell 'stripspace "$1"'''', desc = "Stripspace" },
+    { on = ["g", "L"], run = '''shell 'ya emit cd "$(dirname "$(readlink "$1")")"'''', desc = "Goto symlink target" },
 
-    # PLUGINS
-    { on  = ["i", "i"], run = "plugin max-preview", desc = "Maximize or restore preview" },
-    { on  = ["i", "I"], run = "plugin hide-preview", desc = "Hide or show preview" },
+    # YANK (to clipboard)
+    { on = ["y", "y"], run = "yank", desc = "Yank (copy)" },
+    { on = ["y", "n"], run = '''shell 'basename "$1" | wl-copy'''', desc = "Yank name" },
+    { on = ["y", "p"], run = '''shell 'echo -n "$1" | wl-copy'''', desc = "Yank path" },
+    { on = ["y", "b"], run = '''shell 'basename "$1" | sed "s/\.[^.]*$//" | tr -d "\n" | wl-copy'''', desc = "Yank basename (no ext)" },
 
-    # GENERAL
-    { on  = ["g", "d"], run = "cd ~/Documents", desc = "Goto ~/Documents" },
-    { on  = ["g", "D"], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
-    { on  = ["g", "l"], run = "cd ~/.local", desc = "Goto ~/.local" },
-    { on  = ["g", "m"], run = "cd ~/.local/share/mail", desc = "Goto ~/.local/share/mail" },
-    { on  = ["g", "M"], run = "cd /mnt", desc = "Goto /mnt" },
-    { on  = ["g", "p"], run = "cd ~/Documents/Personal", desc = "Goto ~/Documents/Personal" },
-    { on  = ["g", "p"], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
-    { on  = ["g", "r"], run = "cd /", desc = "Goto /" },
-    { on  = ["g", "R"], run = "cd /run/media/$USER", desc = "Goto /run/media/$USER" },
-    { on  = ["g", "t"], run = "cd /tmp", desc = "Goto /tmp" },
-    { on  = ["g", "T"], run = "cd ~/.local/share/Trash", desc = "Goto ~/.local/share/Trash" },
-    { on  = ["g", "v"], run = "cd ~/Videos", desc = "Goto ~/Videos" },
+    # PASTE / LINK variants
+    { on = ["p", "o"], run = "paste --force", desc = "Paste (overwrite)" },
+    { on = ["p", "s"], run = "link --relative", desc = "Paste as symlink" },
+    { on = ["p", "h"], run = "hardlink", desc = "Paste as hardlink" },
+
+    # RENAME power-tools
+    { on = ["A"], run = "rename --cursor=before_ext", desc = "Rename before extension" },
+    { on = ["I"], run = "rename --cursor=start", desc = "Rename from start" },
+
+    # FIND / NAV
+    { on = ["f"], run = "plugin fzf", desc = "Fuzzy find (fzf)" },
+    { on = ["<A-f>"], run = "plugin jump-to-char", desc = "Jump to char" },
+
+    # PLUGIN OPS
+    { on = ["i", "i"], run = "plugin toggle-pane max-preview", desc = "Maximize preview" },
+    { on = ["i", "I"], run = "plugin toggle-pane min-preview", desc = "Hide preview" },
+    { on = ["c", "m"], run = "plugin chmod", desc = "chmod" },
+    { on = ["<A-s>"], run = "plugin what-size", desc = "Directory size (du)" },
+    { on = ["<A-m>"], run = "plugin mount", desc = "Mount manager" },
+    { on = ["u"], run = "plugin restore", desc = "Restore from trash" },
+
+    # BOOKMARKS (ad-hoc save/jump)
+    { on = ["m"], run = "plugin bookmarks save", desc = "Save bookmark" },
+    { on = ["'"], run = "plugin bookmarks jump", desc = "Jump to bookmark" },
+    { on = ["b", "d"], run = "plugin bookmarks delete", desc = "Delete bookmark" },
+
+    # GENERAL bookmarks
+    { on = ["g", "e"], run = "cd /etc", desc = "Goto /etc" },
+    { on = ["g", "u"], run = "cd /usr", desc = "Goto /usr" },
+    { on = ["g", "c"], run = "cd ~/.config", desc = "Goto ~/.config" },
+    { on = ["g", "d"], run = "cd ~/Documents", desc = "Goto ~/Documents" },
+    { on = ["g", "D"], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
+    { on = ["g", "l"], run = "cd ~/.local", desc = "Goto ~/.local" },
+    { on = ["g", "m"], run = "cd ~/.local/share/mail", desc = "Goto mail" },
+    { on = ["g", "M"], run = "cd /mnt", desc = "Goto /mnt" },
+    { on = ["g", "p"], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
+    { on = ["g", "P"], run = "cd ~/Documents/Personal", desc = "Goto ~/Documents/Personal" },
+    { on = ["g", "r"], run = "cd /", desc = "Goto /" },
+    { on = ["g", "R"], run = "cd /run/media/$USER", desc = "Goto /run/media" },
+    { on = ["g", "t"], run = "cd /tmp", desc = "Goto /tmp" },
+    { on = ["g", "T"], run = "cd ~/.local/share/Trash", desc = "Goto Trash" },
+    { on = ["g", "v"], run = "cd ~/Videos", desc = "Goto ~/Videos" },
+    { on = ["g", "V"], run = "cd ~/Documents/VEST", desc = "Goto VEST" },
+    { on = ["g", "H"], run = "cd ~/Documents/Howest", desc = "Goto Howest" },
+    { on = ["g", "G"], run = "cd $GOPATH", desc = "Goto GOPATH" },
 
     # DEVELOPMENT
-    { on  = ["g", "s", "g"], run = "cd ~/.scripts/go", desc = "Goto ~/.scripts/go" },
-    { on  = ["g", "s", "p"], run = "cd ~/.scripts/py", desc = "Goto ~/.scripts/py" },
+    { on = ["g", "s", "g"], run = "cd ~/.scripts/go", desc = "scripts/go" },
+    { on = ["g", "s", "p"], run = "cd ~/.scripts/py", desc = "scripts/py" },
 
     # WEGROUP
-    { on  = ["g", "w"], run = "cd ~/Documents/Work/WeGroup", desc = "Goto ~/Documents/Work/WeGroup" },
+    { on = ["g", "w"], run = "cd ~/Documents/Work/WeGroup", desc = "WeGroup" },
 
     # BACKEND
-    { on  = ["g", "b", "b"], run = "cd $WG_GIT/BE", desc = "BACKEND" },
-    { on  = ["g", "b", "a"], run = "cd $WG_GIT/BE/wg-be-api-address", desc = "wg-be-api-address" },
-    { on  = ["g", "b", "c"], run = "cd $WG_GIT/BE/wg-be-crm", desc = "wg-be-crm" },
-    { on  = ["g", "b", "C"], run = "cd $WG_GIT/BE/centurion", desc = "centurion" },
-    { on  = ["g", "b", "d"], run = "cd $WG_GIT/BE/wg-be-api-docgen", desc = "wg-be-api-docgen" },
-    { on  = ["g", "b", "e"], run = "cd $WG_GIT/BE/wg-be-expert-scheduler", desc = "wg-be-expert-scheduler" },
-    { on  = ["g", "b", "f"], run = "cd $WG_GIT/BE/flows", desc = "flows" },
-    { on  = ["g", "b", "p"], run = "cd $WG_GIT/BE/praesidium", desc = "praesidium" },
-    { on  = ["g", "b", "q"], run = "cd $WG_GIT/BE/wg-be-api-quotes", desc = "wg-be-api-quotes" },
-    { on  = ["g", "b", "r"], run = "cd $WG_GIT/BE/recommender", desc = "recommender" },
-    { on  = ["g", "b", "s"], run = "cd $WG_GIT/BE/singularity", desc = "singularity" },
-    { on  = ["g", "b", "v"], run = "cd $WG_GIT/BE/wg-be-api-vehicle", desc = "wg-be-api-vehicle" },
+    { on = ["g", "b", "b"], run = "cd $WG_GIT/BE", desc = "BACKEND" },
+    { on = ["g", "b", "a"], run = "cd $WG_GIT/BE/wg-be-api-address", desc = "wg-be-api-address" },
+    { on = ["g", "b", "c"], run = "cd $WG_GIT/BE/wg-be-crm", desc = "wg-be-crm" },
+    { on = ["g", "b", "C"], run = "cd $WG_GIT/BE/centurion", desc = "centurion" },
+    { on = ["g", "b", "d"], run = "cd $WG_GIT/BE/wg-be-api-docgen", desc = "wg-be-api-docgen" },
+    { on = ["g", "b", "e"], run = "cd $WG_GIT/BE/wg-be-expert-scheduler", desc = "wg-be-expert-scheduler" },
+    { on = ["g", "b", "f"], run = "cd $WG_GIT/BE/flows", desc = "flows" },
+    { on = ["g", "b", "p"], run = "cd $WG_GIT/BE/praesidium", desc = "praesidium" },
+    { on = ["g", "b", "q"], run = "cd $WG_GIT/BE/wg-be-api-quotes", desc = "wg-be-api-quotes" },
+    { on = ["g", "b", "r"], run = "cd $WG_GIT/BE/recommender", desc = "recommender" },
+    { on = ["g", "b", "s"], run = "cd $WG_GIT/BE/singularity", desc = "singularity" },
+    { on = ["g", "b", "v"], run = "cd $WG_GIT/BE/wg-be-api-vehicle", desc = "wg-be-api-vehicle" },
 
     # FRONTEND
-    { on  = ["g", "f", "m"], run = "cd $WG_GIT/FE/wg-fe-broker-platform", desc = "wg-fe-broker-platform" },
+    { on = ["g", "f", "m"], run = "cd $WG_GIT/FE/wg-fe-broker-platform", desc = "wg-fe-broker-platform" },
 
     # OTHER
-    { on  = ["g", "o", "o"], run = "cd $WG_GIT/OTHER", desc = "OTHER" },
-    { on  = ["g", "o", "f"], run = "cd $WG_GIT/OTHER/files.wegroup.be", desc = "files.wegroup.be" },
-    { on  = ["g", "o", "i"], run = "cd $WG_GIT/OTHER/wg-infrastructure", desc = "wg-infrastructure" },
-    { on  = ["g", "o", "m"], run = "cd $WG_GIT/OTHER/wg-py-models", desc = "wg-py-models" },
-    { on  = ["g", "o", "s"], run = "cd $WG_GIT/OTHER/wg-sdk", desc = "wg-sdk" },
+    { on = ["g", "o", "o"], run = "cd $WG_GIT/OTHER", desc = "OTHER" },
+    { on = ["g", "o", "f"], run = "cd $WG_GIT/OTHER/files.wegroup.be", desc = "files.wegroup.be" },
+    { on = ["g", "o", "i"], run = "cd $WG_GIT/OTHER/wg-infrastructure", desc = "wg-infrastructure" },
+    { on = ["g", "o", "m"], run = "cd $WG_GIT/OTHER/wg-py-models", desc = "wg-py-models" },
+    { on = ["g", "o", "s"], run = "cd $WG_GIT/OTHER/wg-sdk", desc = "wg-sdk" },
 ]
