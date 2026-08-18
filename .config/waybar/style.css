@@ -92,6 +92,22 @@ window#waybar.empty #window {
     /* background: transparent; */
 }
 
+#custom-media-window {
+    background-color: @surface0;
+    border-radius: .6em;
+    padding: 0 .75em;
+    margin: 0 .5em;
+    /* no min-width: pill hugs the text so the padding stays constant.
+       width cap is the module's max-length (chars), GTK CSS has no max-width. */
+}
+
+/* Hide the pill when there's nothing to show (empty window title + no music) */
+#custom-media-window.empty {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
 .modules-center  {
     /* background-color: @surface0; */
     /* border-radius: .6em; */

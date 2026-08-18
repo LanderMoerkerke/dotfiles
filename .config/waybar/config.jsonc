@@ -8,9 +8,8 @@
         "custom/lyrics"
     ],
     "modules-center": [
-        // "hyprland/window"
         "image#album-art",
-        "mpris"
+        "custom/media-window"
     ],
     "modules-right": [
         "custom/mail",
@@ -92,6 +91,14 @@
         "album-len": 10,
         "artist-len": 20,
         "title-len": 35
+    },
+    "custom/media-window": {
+        "exec": "~/.config/waybar/custom/media-window/media-window.sh",
+        "interval": 2,
+        "signal": 8,
+        "on-click-right": "f=/tmp/waybar-center-mode; [ \"$(cat $f 2>/dev/null)\" = window ] && echo auto > $f || echo window > $f; pkill -RTMIN+8 waybar",
+        "max-length": 60,
+        "tooltip": false
     },
     "image#album-art": {
         "exec": "~/.config/waybar/custom/spotify/album_art.sh",
