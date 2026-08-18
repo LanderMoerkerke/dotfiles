@@ -1,24 +1,13 @@
 #!/bin/bash
+# Prints the current Spotify lyric line (only while playing).
+# The lyric is produced by spotify-lyrics.service (retrieve-lyrics.py -> sptlrx),
+# which writes the current line to the regular file /tmp/lyrics-current. This
+# script only READS that file — no sptlrx spawn, no FIFO, no blocking tail.
 
-# Simple script that determines what my polybar music module prints
-# If spotify is playing it prints each lyric, if not then it prints
-# last sources title
+[ "$(playerctl -p spotify status 2>/dev/null)" = "Playing" ] || exit 0
 
-STATUS=$(playerctl -p spotify status)
-
-# Check if programs installed
-if ! command -v "playerctl" &>/dev/null && ! command -v "sptlrx" &>/dev/null; then
-    echo "Proper programs not installed!"
-    exit
-fi
-
-# Check if pipe is running
-if ! pgrep -f 'sptlrx pipe' >/dev/null; then
-    sptlrx pipe >>/tmp/lyrics &
-fi
-
-# On track change, pre-resolve the Genius URL in the background so the
-# on-click (open-lyric-genius.sh) is instant instead of doing a live search.
+# On track change, pre-resolve the Genius URL in the background so the on-click
+# (open-lyric-genius.sh) is instant instead of doing a live search.
 tid="$(playerctl -p spotify metadata mpris:trackid 2>/dev/null || true)"
 if [ -n "$tid" ] && [ "$tid" != "$(cat /tmp/lyrics-trackid 2>/dev/null)" ]; then
     printf '%s' "$tid" >/tmp/lyrics-trackid
@@ -26,13 +15,4 @@ if [ -n "$tid" ] && [ "$tid" != "$(cat /tmp/lyrics-trackid 2>/dev/null)" ]; then
     disown 2>/dev/null || true
 fi
 
-# Script's logic
-if [ "$STATUS" == "Playing" ]; then
-    line="$(tail -1 /tmp/lyrics)"
-    # Mirror the displayed line to a regular file so the on-click handler can
-    # read it instantly (the /tmp/lyrics FIFO can't be tail-1'd without blocking).
-    printf '%s' "$line" > /tmp/lyrics-current
-    echo "$line"
-else
-    exit
-fi
+cat /tmp/lyrics-current 2>/dev/null
