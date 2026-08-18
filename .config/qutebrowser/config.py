@@ -135,7 +135,10 @@ c.content.cache.size = None
 # - no-3rdparty: Accept cookies from the same origin only.
 # - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain.
 # - never: Don't accept cookies at all.
-c.content.cookies.accept = "all"
+c.content.cookies.accept = "no-3rdparty"
+
+# Don't auto-play media (click to play).
+c.content.autoplay = False
 
 # Store cookies. Note this option needs a restart with QtWebEngine on Qt
 # < 5.9.
@@ -191,25 +194,25 @@ c.content.blocking.enabled = True
 # host per line - A zip-file of any of the above, with either only one
 # file, or a file named   `hosts` (with any extension).
 # Type: List of Url
-c.content.blocking.hosts.lists = [
-    "https://www.malwaredomainlist.com/hostslist/hosts.txt",
-    "https://someonewhocares.org/hosts/hosts",
-    "https://winhelp2002.mvps.org/hosts.zip",
-    "https://malwaredomains.lehigh.edu/files/justdomains.zip",
-    "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext",
+# ABP engine only (python-adblock). easylist + easyprivacy block ads/trackers
+# per-REQUEST and are curated NOT to break sites (exactly uBlock Origin's
+# defaults). No whole-domain/category hosts lists (social/gambling/etc.) — those
+# block legit sites and turn into endless whitelisting. Run ':adblock-update'.
+c.content.blocking.method = "adblock"
+
+c.content.blocking.adblock.lists = [
     "https://easylist.to/easylist/easylist.txt",
     "https://easylist.to/easylist/easyprivacy.txt",
-    "https://easylist.to/easylist/fanboy-annoyance.txt",
-    "https://easylist.to/easylist/fanboy-social.txt",
-    "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts",
 ]
+
+c.content.blocking.hosts.lists = []
 
 # List of domains that should always be loaded, despite being ad-
 # blocked. Domains may contain * and ? wildcards and are otherwise
 # required to exactly match the requested domain. Local domains are
 # always exempt from hostblocking.
 # Type: List of String
-c.content.blocking.whitelist = ["https://wegroup.be/*", "https://*.wegroup.be/*", "https://sentry.io/*"]
+c.content.blocking.whitelist = ["https://wegroup.be/*", "https://*.wegroup.be/*", "https://sentry.io/*", "https://meet.google.com/*", "https://accounts.google.com/*"]
 
 # Enable or disable hyperlink auditing (`<a ping>`).
 # Type: Bool
@@ -366,7 +369,7 @@ c.downloads.remove_finished = 60000
 # The editor (and arguments) to use for the `edit-text` command. `{}`
 # gets replaced by the filename of the file to be edited.
 # Type: ShellCommand
-c.editor.command = ["st", "-e", "nvim", "{}", "+call cursor({line}, {column})"]
+c.editor.command = ["foot", "-e", "nvim", "{}", "+call cursor({line}, {column})"]
 
 # Encoding to use for the editor.
 # Type: Encoding
@@ -1017,6 +1020,7 @@ c.bindings.commands = {
         ";r": "hint --rapid links tab-bg",
         ";t": "hint inputs",
         ";x": "hint links fill :spawn xdg-open {hint-url}",
+        ";F": "hint links spawn firefox {hint-url}",
         ";y": "hint links yank",
         "<Alt-1>": "tab-focus 1",
         "<Alt-2>": "tab-focus 2",
@@ -1155,6 +1159,7 @@ c.bindings.commands = {
         "ww": "download",
         "xO": "cmd-set-text :open -b -r {url:pretty}",
         "xb": "config-cycle statusbar.hide",
+        "xf": "spawn firefox {url}",
         "xo": "cmd-set-text -s :open -b",
         "xt": "config-cycle tabs.show always switching",
         "xx": "config-cycle statusbar.hide ;; config-cycle tabs.show always switching",
