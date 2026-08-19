@@ -20,6 +20,7 @@ prepend_keymap = [
     { on = ["y", "b"], run = '''shell 'basename "$1" | sed "s/\.[^.]*$//" | tr -d "\n" | wl-copy'''', desc = "Yank basename (no ext)" },
 
     # PASTE / LINK variants
+    { on = ["p", "p"], run = "paste", desc = "Paste" },
     { on = ["p", "o"], run = "paste --force", desc = "Paste (overwrite)" },
     { on = ["p", "s"], run = "link --relative", desc = "Paste as symlink" },
     { on = ["p", "h"], run = "hardlink", desc = "Paste as hardlink" },
