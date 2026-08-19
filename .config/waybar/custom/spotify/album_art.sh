@@ -6,6 +6,12 @@ IMG_FILE="/tmp/cover.png"
 IMG_FILE_ROUNDED="/tmp/cover-rounded.png"
 NON_IMAGE="/tmp/.cover-empty.png"
 
+# Hide the cover unless music is actively playing
+if [ "$(playerctl -p spotify status 2>/dev/null)" != "Playing" ]; then
+    magick -size 1x1 xc:none "$NON_IMAGE"
+    echo "$NON_IMAGE" && exit
+fi
+
 ALBUM_ART=$(playerctl -p spotify metadata mpris:artUrl 2>/dev/null)
 
 if [ -z "$ALBUM_ART" ]; then
