@@ -2,22 +2,22 @@
 prepend_keymap = [
     { on = ["w"], run = '''shell "$SHELL" --block''', desc = "Open shell here" },
     { on = ["W"], run = "tasks_show", desc = "Tasks" },
-    { on = ["e"], run = '''shell --block '$EDITOR "$1"'''', desc = "Edit" },
+    { on = ["e"], run = '''shell --block '$EDITOR %h'''', desc = "Edit" },
 
     # smart-enter: open file OR enter dir
     { on = ["l"], run = "plugin smart-enter", desc = "Enter dir / open file" },
     { on = ["<Enter>"], run = "plugin smart-enter", desc = "Enter dir / open file" },
 
     # SCRIPTS
-    { on = ["<C-n>"], run = '''shell 'dragon-drop -a -x -T "$@"'''', desc = "Drag out (dragon)" },
-    { on = ["F", "s"], run = '''shell 'stripspace "$1"'''', desc = "Stripspace" },
-    { on = ["g", "L"], run = '''shell 'ya emit cd "$(dirname "$(readlink "$1")")"'''', desc = "Goto symlink target" },
+    { on = ["<C-n>"], run = '''shell 'set -- %s; [ "$#" -eq 0 ] && set -- %h; exec dragon-drop -a -x -T "$@"' --orphan''', desc = "Drag out (dragon)" },
+    { on = ["F", "s"], run = '''shell 'stripspace %h'''', desc = "Stripspace" },
+    { on = ["g", "L"], run = '''shell 'ya emit cd "$(dirname "$(readlink %h)")"'''', desc = "Goto symlink target" },
 
     # YANK (to clipboard)
     { on = ["y", "y"], run = "yank", desc = "Yank (copy)" },
-    { on = ["y", "n"], run = '''shell 'basename "$1" | wl-copy'''', desc = "Yank name" },
-    { on = ["y", "p"], run = '''shell 'echo -n "$1" | wl-copy'''', desc = "Yank path" },
-    { on = ["y", "b"], run = '''shell 'basename "$1" | sed "s/\.[^.]*$//" | tr -d "\n" | wl-copy'''', desc = "Yank basename (no ext)" },
+    { on = ["y", "n"], run = '''shell 'basename %h | wl-copy'''', desc = "Yank name" },
+    { on = ["y", "p"], run = '''shell 'echo -n %h | wl-copy'''', desc = "Yank path" },
+    { on = ["y", "b"], run = '''shell 'basename %h | sed "s/\.[^.]*$//" | tr -d "\n" | wl-copy'''', desc = "Yank basename (no ext)" },
 
     # PASTE / LINK variants
     { on = ["p", "p"], run = "paste", desc = "Paste" },
