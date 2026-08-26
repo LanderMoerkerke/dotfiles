@@ -387,6 +387,7 @@ hl.workspace_rule({ workspace = "special:spotify", on_created_empty = "spotify" 
 hl.workspace_rule({ workspace = "special:video",   on_created_empty = "firefox --new-instance --profile /home/lander/.local/share/firefox-video --name firefox-video" })
 
 hl.window_rule({ match = { class = "^(firefox-video)$" }, idle_inhibit = "focus" })
+hl.window_rule({ match = { class = "^([Dd]ragon.*)$" }, float = true, pin = true })
 
 -- pypr `unfocus = "hide"`: auto-hide volume/spotify when focus leaves them.
 local autohideSpecials = { ["special:volume"] = "volume", ["special:spotify"] = "spotify" }
