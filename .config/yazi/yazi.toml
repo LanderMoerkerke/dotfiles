@@ -3,24 +3,27 @@ show_hidden = false
 
 [opener]
 edit = [
-	{ run = '$EDITOR "$@"', block = true,  for = "unix" },
+	{ run = '$EDITOR %s', block = true,  for = "unix" },
 ]
 open = [
-	{ run = 'xdg-open "$@"', desc = "Open", for = "linux" },
-	{ run = 'mimeopen --ask "$@"', block = true, desc = "Open Ask", for = "linux" },
+	{ run = 'xdg-open %s', desc = "Open", for = "linux" },
+	{ run = 'mimeopen --ask %s', block = true, desc = "Open Ask", for = "linux" },
 ]
 reveal = [
-	{ run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
+	{ run = '''exiftool %s; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
-	{ run = 'unar "$1"', desc = "Extract here", for = "unix" },
+	{ run = 'unar %s', desc = "Extract here", for = "unix" },
 ]
 play = [
-	{ run = 'mpv "$@"', orphan = true, for = "unix" },
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+	{ run = 'mpv %s', orphan = true, for = "unix" },
+	{ run = '''mediainfo %s; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
 ]
 gimp = [
-	{ run = 'gimp "$@"', desc = "Gimp", orphan = true, for = "unix" },
+	{ run = 'gimp %s', desc = "Gimp", orphan = true, for = "unix" },
+]
+pdf = [
+	{ run = 'zathura %s', desc = "PDF (zathura)", orphan = true, for = "unix" },
 ]
 
 [open]
@@ -34,6 +37,8 @@ rules = [
 	{ mime = "video/*", use = [ "play", "reveal" ] },
 	{ mime = "audio/*", use = [ "play", "reveal" ] },
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+
+	{ mime = "application/pdf", use = [ "pdf", "open", "reveal" ] },
 
 	{ mime = "application/json", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript",     use = [ "edit", "reveal" ] },
