@@ -108,8 +108,17 @@ vim.keymap.set("n", "<right>", "3<C-W>>")
 -- Resize reset
 vim.keymap.set("n", "==", ":wincmd = <cr>")
 
--- Remove buffer
-vim.keymap.set("n", "<leader>x", ":bp|bd #<CR>")
+-- Remove buffer: return to the alternate (last-used) buffer, then delete.
+vim.keymap.set("n", "<leader>x", function()
+    local cur = vim.api.nvim_get_current_buf()
+    local alt = vim.fn.bufnr("#")
+    if alt > 0 and alt ~= cur and vim.fn.buflisted(alt) == 1 then
+        vim.cmd("buffer #")
+    else
+        vim.cmd("bprevious")
+    end
+    vim.cmd("bdelete " .. cur)
+end, { desc = "Delete buffer, return to alternate" })
 
 -- Go to last active tab (g:lasttab is set by the TabLeave autocmd in autocommands.lua)
 vim.g.lasttab = 1
