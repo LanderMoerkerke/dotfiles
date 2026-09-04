@@ -158,6 +158,8 @@ hl.config({
     decoration = {
         rounding = 5,
 
+        dim_special = 0, -- no background dim when a scratchpad/special ws is shown
+
         blur = {
             enabled = true,
             size    = 3,
