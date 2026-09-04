@@ -34,6 +34,7 @@ x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
 x-scheme-handler/magnet=torrent.desktop;
 x-scheme-handler/mailto=neomutt.desktop;
 x-scheme-handler/unknown=editor.desktop;
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 
 [Added Associations]
 
