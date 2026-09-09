@@ -83,6 +83,10 @@ window#waybar.empty #window {
     padding: 0 .75em;
 }
 
+#custom-privacy-dots {
+    padding: 0 .75em;
+}
+
 #mpris {
     background-color: @surface0;
     border-radius: .6em;
