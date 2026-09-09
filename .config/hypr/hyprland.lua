@@ -237,9 +237,12 @@ hl.bind(mainMod .. " + X",             hl.dsp.exec_cmd("lockscreenw"))
 hl.bind(mainMod .. " + SHIFT + X",     hl.dsp.exec_cmd("systemctl hibernate"))
 
 hl.bind(mainMod .. " + D",         hl.dsp.exec_cmd("rofi -show drun -terminal $TERMINAL -width 25"))
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("rofi-emoji"))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("rofimoji --action copy --clipboarder wl-copy --selector rofi --skin-tone moderate"))
 
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("$TERMINAL -e lf"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("$TERMINAL -e yazi"))
+
+-- Project picker (sesh): open a terminal, fuzzy-pick a project, attach its tmux session
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("$TERMINAL -e sesh-connect"))
 
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("gopass ls --flat | $PICKER -i | xargs --no-run-if-empty gopass -o | wl-copy"))
 hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("gopass ls --flat | $PICKER -i | xargs --no-run-if-empty gopass otp -o | wl-copy"))
