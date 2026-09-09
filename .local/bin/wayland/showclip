@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Show clipboard + primary selection contents via a dunst notification.
+
+! pgrep -x dunst >/dev/null && echo "dunst not running." && exit
+
+clip=$(wl-paste -n 2>/dev/null)
+prim=$(wl-paste -n --primary 2>/dev/null)
+
+icon="$HOME/Pictures/Notifications/clipboard.png"
+[ -n "$clip" ] && notify-send -i "$icon" "Clipboard:" "$clip"
+[ -n "$prim" ] && notify-send -i "$icon" "Primary:" "$prim"

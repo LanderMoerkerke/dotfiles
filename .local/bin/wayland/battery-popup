@@ -1,0 +1,48 @@
+#!/usr/bin/bash
+# Low-battery warning daemon (Wayland). Polls the battery and warns via dunstify
+# at two thresholds (upper, then lower). Single-instance.
+#
+#   -L <n>  upper threshold %% (first warning)   [default 10]
+#   -l <n>  lower threshold %% (second warning)  [default L/2]
+#   -i <p>  notification icon
+#   -t <d>  poll interval (sleep syntax: 5m, 30s) [default 5m]
+#   -m <s>  message
+#   -n      accepted for compatibility (dunstify is always used)
+
+UPPER=10; LOWER=""; ICON=""; MSG="Battery is getting low"; INTERVAL="5m"
+while getopts 'L:l:i:t:m:n' o; do case "$o" in
+  L) UPPER="$OPTARG" ;;
+  l) LOWER="$OPTARG" ;;
+  i) ICON="$OPTARG" ;;
+  t) INTERVAL="$OPTARG" ;;
+  m) MSG="$OPTARG" ;;
+  n) : ;;
+esac; done
+: "${LOWER:=$((UPPER / 2))}"
+
+BATS=/sys/class/power_supply/BAT*/uevent
+
+perc() {
+  awk -F= '/ENERGY_FULL=|CHARGE_FULL=/{f+=$2} /ENERGY_NOW=|CHARGE_NOW=/{n+=$2} END{if(f)print int(100*n/f)}' $BATS
+}
+discharging() { grep -q STATUS=Discharging $BATS; }
+warn() { dunstify -u critical -r 91234 ${ICON:+-i "$ICON"} "Battery low" "$1"; }
+
+# single instance
+exec 9>"/tmp/battery-popup.lock"
+flock -n 9 || exit 0
+
+limit="$UPPER"; warned=""
+while :; do
+  p="$(perc)"
+  if discharging; then
+    if [ "${p:-100}" -lt "$limit" ]; then
+      warn "${MSG} (${p}%)"
+      if [ -z "$warned" ]; then warned=y; limit="$LOWER"; else limit=0; fi
+    fi
+  else
+    warned=""
+    [ "${p:-0}" -gt "$UPPER" ] && limit="$UPPER" || limit="$LOWER"
+  fi
+  sleep "$INTERVAL"
+done

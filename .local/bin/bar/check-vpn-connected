@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ $(pgrep -x openvpn | wc -l) != "0" ]; then
-    echo "  VPN"
-else
-    exit 1
-fi

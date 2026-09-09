@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+# Wayland power menu (rofi). Icon menu for session/power actions.
+# Labels carry Nerd Font glyphs; action matching is on the text, not the icon.
+
+entries="$(printf '  Lock\n  Suspend\n  Hibernate\n  Logout\n  Reboot\n  Shutdown')"
+
+layout='
+  window   { width: 260px; border-radius: 12px; }
+  listview { lines: 6; }
+  element  { padding: 8px 12px; border-radius: 8px; }
+  prompt   { padding: 8px 12px; }
+'
+
+menu() { rofi -dmenu -i -p "$1" -theme-str "$2"; }
+
+confirm() {
+  ans="$(printf '  Yes\n  No' | menu "$1?" 'listview { lines: 2; } window { width: 220px; }')"
+  case "$ans" in *Yes*) return 0 ;; *) return 1 ;; esac
+}
+
+chosen="$(printf '%s' "$entries" | menu "  " "$layout")"
+[ -z "$chosen" ] && exit 0
+
+case "$chosen" in
+  *Lock*)      exec lockscreenw ;;
+  *Suspend*)   systemctl suspend ;;
+  *Hibernate*) confirm Hibernate && systemctl hibernate ;;
+  *Logout*)    confirm Logout    && hyprctl dispatch exit ;;
+  *Reboot*)    confirm Reboot    && systemctl reboot ;;
+  *Shutdown*)  confirm Shutdown  && systemctl poweroff ;;
+esac
