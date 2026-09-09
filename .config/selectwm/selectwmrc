@@ -1,8 +1,0 @@
-# Automatically generated file.
-# Do not edit (or make a backup copy before doing so)
-dwm=dwm
-i3=i3
-delay:3.000000
-restart_selectwm:1
-default_wm:0
-goback_btn:1
