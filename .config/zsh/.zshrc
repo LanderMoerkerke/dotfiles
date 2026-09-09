@@ -21,6 +21,7 @@ zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
 forgit
+zoxide
 )
 
 # Include hidden files in completion (must precede oh-my-zsh's compinit)
