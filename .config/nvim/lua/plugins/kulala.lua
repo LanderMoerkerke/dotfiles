@@ -1,6 +1,8 @@
 return {
     "mistweaverco/kulala.nvim",
-    opts = {},
+    opts = {
+        treesitter = { enable = false },
+    },
     ft = {
         "http"
     },

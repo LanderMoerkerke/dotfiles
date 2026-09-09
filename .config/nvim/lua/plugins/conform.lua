@@ -22,7 +22,7 @@ return {
             sql = {"pg_format"},
             sh = {"shfmt"},
             rust = {"rustfmt"},
-            markdown = {"remark"},
+            markdown = {"prettier"},
             json = {"prettier", "jq"},
             jsonc = {"prettier", "jq"},
             lua = {"lua_format"},
@@ -40,7 +40,6 @@ return {
             shfmt = {prepend_args = {"-i", "4", "-ci"}},
             pg_format = {command = "pg_format", args = {"-f", "2", "-"}, stdin = true},
             xmllint = {command = "xmllint", args = {"--format", "-"}, stdin = true},
-            remark = {command = "remark", args = {"--stdout"}, stdin = true},
             lua_format = {command = "lua-format", args = {}, stdin = true}
         }
     }

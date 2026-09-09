@@ -85,11 +85,8 @@ vim.keymap.set(
 -- vim.keymap.set("n", "k gk
 -- vim.keymap.set("n", "j gj
 
--- Split navigation
-vim.keymap.set("n", "<c-h>", "<c-w>h")
-vim.keymap.set("n", "<c-j>", "<c-w>j")
-vim.keymap.set("n", "<c-k>", "<c-w>k")
-vim.keymap.set("n", "<c-l>", "<c-w>l")
+-- Split navigation: handled by smart-splits.nvim (C-hjkl crosses nvim splits
+-- AND tmux panes seamlessly). See lua/plugins/smart-splits.lua.
 
 -- Buffers
 -- vim.keymap.set("n", "<c-n>", ":bnext<cr>")
