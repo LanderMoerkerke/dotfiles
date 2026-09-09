@@ -8,6 +8,7 @@ function precmd {
     if ! builtin zle; then
         print -n "\e]133;D\e\\"
     fi
+    print -n "\e]133;A\e\\"   # prompt start: lets foot jump between prompts (prompt-prev/next)
 }
 
 function preexec {
