@@ -1,0 +1,12 @@
+#!/bin/sh
+# Per-project dev layout (used as sesh's startup_command). Two windows, each with
+# the project venv auto-sourced (uv/.venv or poetry):
+#   edit (nvim) | test (plain shell)
+# lazygit is a tmux popup instead of a window: prefix + g.
+# Idempotent: only builds the windows once.
+if ! tmux list-windows -F '#{window_name}' | grep -qx test; then
+    tmux rename-window edit
+    tmux new-window -d -n test with-venv "$SHELL"
+    tmux select-window -t edit
+fi
+exec with-venv nvim

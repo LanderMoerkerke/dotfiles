@@ -1,0 +1,9 @@
+#!/bin/sh
+# Browse to any directory with yazi, then open (or attach) a sesh dev session
+# there. Bound to prefix + Y in tmux (runs in a popup). Quit yazi (q) on the dir
+# you want; cancel with no selection to abort.
+tmp=$(mktemp)
+yazi --cwd-file="$tmp"
+dir=$(cat "$tmp" 2>/dev/null)
+rm -f "$tmp"
+[ -n "$dir" ] && [ -d "$dir" ] && exec sesh connect "$dir"

@@ -1,0 +1,140 @@
+# sesh — tmux session manager. `sesh list` feeds the fzf picker (prefix P).
+# Names MUST equal the directory basename: sesh-yazi connects by path and names
+# that session by basename, so a decorated/renamed entry would create a second,
+# separate session for the same project. Picking a project runs `dev-layout`
+# (edit=nvim | test=shell, venv auto-sourced; lazygit = prefix g). Any other dir
+# from zoxide still shows and gets the same layout.
+
+# Keep the picker focused on projects: hide pure-background media/util sessions.
+blacklist = ["spotify", "redis", "stubru"]
+
+[default_session]
+startup_command = "dev-layout"
+
+# --- Backend (WeGroup) ----------------------------------------------------
+[[session]]
+name = "auth-trinity"
+path = "~/Documents/Work/WeGroup/Git/BE/auth-trinity"
+
+[[session]]
+name = "callant-rsr-ns-batcher"
+path = "~/Documents/Work/WeGroup/Git/BE/callant-rsr-ns-batcher"
+
+[[session]]
+name = "capnhook"
+path = "~/Documents/Work/WeGroup/Git/BE/capnhook"
+
+[[session]]
+name = "centurion"
+path = "~/Documents/Work/WeGroup/Git/BE/centurion"
+
+[[session]]
+name = "document-extractor"
+path = "~/Documents/Work/WeGroup/Git/BE/document-extractor"
+
+[[session]]
+name = "flows"
+path = "~/Documents/Work/WeGroup/Git/BE/flows"
+
+[[session]]
+name = "mercury"
+path = "~/Documents/Work/WeGroup/Git/BE/mercury"
+
+[[session]]
+name = "observatory"
+path = "~/Documents/Work/WeGroup/Git/BE/observatory"
+
+[[session]]
+name = "pantheon"
+path = "~/Documents/Work/WeGroup/Git/BE/pantheon"
+
+[[session]]
+name = "praesidium"
+path = "~/Documents/Work/WeGroup/Git/BE/praesidium"
+
+[[session]]
+name = "qualis"
+path = "~/Documents/Work/WeGroup/Git/BE/qualis"
+
+[[session]]
+name = "recommender"
+path = "~/Documents/Work/WeGroup/Git/BE/recommender"
+
+[[session]]
+name = "singularity"
+path = "~/Documents/Work/WeGroup/Git/BE/singularity"
+
+[[session]]
+name = "telebible"
+path = "~/Documents/Work/WeGroup/Git/BE/telebible"
+
+[[session]]
+name = "towncrier"
+path = "~/Documents/Work/WeGroup/Git/BE/towncrier"
+
+[[session]]
+name = "wg-be-api-address"
+path = "~/Documents/Work/WeGroup/Git/BE/wg-be-api-address"
+
+[[session]]
+name = "wg-be-api-docgen"
+path = "~/Documents/Work/WeGroup/Git/BE/wg-be-api-docgen"
+
+[[session]]
+name = "wg-be-api-quotes"
+path = "~/Documents/Work/WeGroup/Git/BE/wg-be-api-quotes"
+
+[[session]]
+name = "wg-be-api-vehicle"
+path = "~/Documents/Work/WeGroup/Git/BE/wg-be-api-vehicle"
+
+[[session]]
+name = "wg-be-crm"
+path = "~/Documents/Work/WeGroup/Git/BE/wg-be-crm"
+
+[[session]]
+name = "wg-be-expert-scheduler"
+path = "~/Documents/Work/WeGroup/Git/BE/wg-be-expert-scheduler"
+
+[[session]]
+name = "wg-be-phoenix-mailer"
+path = "~/Documents/Work/WeGroup/Git/BE/wg-be-phoenix-mailer"
+
+# --- Frontend -------------------------------------------------------------
+[[session]]
+name = "wg-fe-admin-portal-v2"
+path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-admin-portal-v2"
+
+[[session]]
+name = "wg-fe-broker-platform"
+path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-broker-platform"
+
+[[session]]
+name = "wg-fe-callant-affinity"
+path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-callant-affinity"
+
+[[session]]
+name = "wg-fe-claims"
+path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-claims"
+
+[[session]]
+name = "wg-fe-customer-portal"
+path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-customer-portal"
+
+[[session]]
+name = "wg-fe-design-system"
+path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-design-system"
+
+[[session]]
+name = "wg-fe-outlook-sidebar"
+path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-outlook-sidebar"
+
+[[session]]
+name = "wg-fe-ui"
+path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-ui"
+
+# --- Config ---------------------------------------------------------------
+[[session]]
+name = "dotfiles"
+path = "~/dotfiles"
+startup_command = "nvim"

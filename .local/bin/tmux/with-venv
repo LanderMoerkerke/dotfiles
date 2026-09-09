@@ -1,0 +1,12 @@
+#!/bin/sh
+# Source a project's Python venv (if any) in the current dir, then exec "$@".
+#   - uv / plain:  ./.venv/bin/activate
+#   - poetry:      venv lives elsewhere -> poetry env info -p
+# Node/other projects with no venv just exec straight through.
+if [ -f .venv/bin/activate ]; then
+    . .venv/bin/activate
+elif command -v poetry >/dev/null 2>&1 && [ -f pyproject.toml ] && grep -q 'tool.poetry' pyproject.toml 2>/dev/null; then
+    vp=$(poetry env info -p 2>/dev/null)
+    [ -n "$vp" ] && [ -f "$vp/bin/activate" ] && . "$vp/bin/activate"
+fi
+exec "$@"

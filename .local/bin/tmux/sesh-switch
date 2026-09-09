@@ -1,0 +1,6 @@
+#!/bin/sh
+# Project switcher: fuzzy-pick a sesh session/dir in a tmux popup and connect.
+# fzf-tmux draws its own popup, so this works from a tmux run-shell binding.
+# Guards an empty/cancelled selection (that was the old "popup flashes an error").
+sel=$(sesh list -i | fzf-tmux -p 55%,60% --ansi --no-sort --reverse --preview-window=hidden --prompt=' project  ') || exit 0
+[ -n "$sel" ] && exec sesh connect "$sel"
