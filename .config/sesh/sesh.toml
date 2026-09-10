@@ -2,11 +2,11 @@
 # Names MUST equal the directory basename: sesh-yazi connects by path and names
 # that session by basename, so a decorated/renamed entry would create a second,
 # separate session for the same project. Picking a project runs `dev-layout`
-# (edit=nvim | test=shell, venv auto-sourced; lazygit = prefix g). Any other dir
-# from zoxide still shows and gets the same layout.
+# (edit=nvim | test=shell, venv auto-sourced; lazygit = prefix g). The pickers
+# pass `-c -t -d` (configured + running tmux sessions, deduped; no zoxide dirs).
 
 # Keep the picker focused on projects: hide pure-background media/util sessions.
-blacklist = ["spotify", "redis", "stubru"]
+blacklist = ["spotify", "redis", "stubru", "scratchpad-tmux"]
 
 [default_session]
 startup_command = "dev-layout"

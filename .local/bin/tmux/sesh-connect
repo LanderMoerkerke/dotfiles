@@ -2,5 +2,5 @@
 # Pick a project and attach THIS terminal to its tmux session. For cold-start
 # from outside tmux (e.g. a Hyprland keybind) — uses plain fzf, since fzf-tmux
 # needs an existing tmux client. (Inside tmux, use prefix P / sesh-switch.)
-sel=$(sesh list -i | fzf --ansi --no-sort --reverse --preview-window=hidden --prompt=' project  ') || exit 0
+sel=$(sesh list -i -c -t -d | fzf --ansi --no-sort --reverse --preview-window=hidden --prompt=' project  ') || exit 0
 [ -n "$sel" ] && exec sesh connect "$sel"
