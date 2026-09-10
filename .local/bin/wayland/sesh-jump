@@ -1,0 +1,15 @@
+#!/bin/sh
+# Mod+O project picker (Wayland). Pick a sesh project via rofi; if a terminal for
+# that project is already open, focus it (switching workspace) instead of spawning
+# a duplicate. The window is tagged app-id "sesh:<project>" so it can be found again.
+#
+# Note: this Hyprland runs the Lua config plugin, so `hyprctl dispatch` is evaluated
+# as Lua (hl.dispatch(<arg>)) rather than the classic `focuswindow address:...` form.
+sel=$(sesh list -c -t -d | rofi -dmenu -i -p ' project') || exit 0
+[ -n "$sel" ] || exit 0
+
+app="sesh:$sel"
+if hyprctl -j clients | jq -e --arg a "$app" 'any(.[]; .class == $a)' >/dev/null; then
+  exec hyprctl dispatch 'hl.dsp.focus({window="class:^'"$app"'$"})'
+fi
+exec "$TERMINAL" --app-id="$app" -e sesh connect "$sel"

@@ -241,8 +241,8 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("rofimoji --action copy --cli
 
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("$TERMINAL -e yazi"))
 
--- Project picker (sesh): open a terminal, fuzzy-pick a project, attach its tmux session
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("$TERMINAL -e sesh-connect"))
+-- Project picker (sesh): fuzzy-pick a project; focus its window if already open, else attach
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("sesh-jump"))
 
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("gopass ls --flat | $PICKER -i | xargs --no-run-if-empty gopass -o | wl-copy"))
 hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("gopass ls --flat | $PICKER -i | xargs --no-run-if-empty gopass otp -o | wl-copy"))
@@ -383,6 +383,13 @@ for name, pad in pairs(scratchpads) do
         workspace = "special:" .. name .. " silent",
     })
 end
+
+-- Project terminals (Mod+O / sesh-jump) always open on workspace 2.
+hl.window_rule({
+    match     = { class = "^sesh:.*" },
+    workspace = "2",
+    maximize = true,
+})
 
 -- Lazy spawn: first toggle creates the workspace empty -> command runs.
 hl.workspace_rule({ workspace = "special:term",    on_created_empty = "foot -a foot-scratchpad -e scratch-tmux" })
