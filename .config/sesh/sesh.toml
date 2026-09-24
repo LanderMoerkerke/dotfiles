@@ -133,6 +133,47 @@ path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-outlook-sidebar"
 name = "wg-fe-ui"
 path = "~/Documents/Work/WeGroup/Git/FE/wg-fe-ui"
 
+# --- Other (WeGroup) ------------------------------------------------------
+[[session]]
+name = "files.wegroup.be"
+path = "~/Documents/Work/WeGroup/Git/OTHER/files.wegroup.be"
+
+[[session]]
+name = "flows-mapping"
+path = "~/Documents/Work/WeGroup/Git/OTHER/flows-mapping"
+
+[[session]]
+name = "natsapi"
+path = "~/Documents/Work/WeGroup/Git/OTHER/natsapi"
+
+[[session]]
+name = "scripts"
+path = "~/Documents/Work/WeGroup/Git/OTHER/scripts"
+
+[[session]]
+name = "sentinel"
+path = "~/Documents/Work/WeGroup/Git/OTHER/sentinel"
+
+[[session]]
+name = "wg-api-sdk"
+path = "~/Documents/Work/WeGroup/Git/OTHER/wg-api-sdk"
+
+[[session]]
+name = "wg-infrastructure"
+path = "~/Documents/Work/WeGroup/Git/OTHER/wg-infrastructure"
+
+[[session]]
+name = "wg-mcp"
+path = "~/Documents/Work/WeGroup/Git/OTHER/wg-mcp"
+
+[[session]]
+name = "wg-py-models"
+path = "~/Documents/Work/WeGroup/Git/OTHER/wg-py-models"
+
+[[session]]
+name = "wg-sdk"
+path = "~/Documents/Work/WeGroup/Git/OTHER/wg-sdk"
+
 # --- Config ---------------------------------------------------------------
 [[session]]
 name = "dotfiles"

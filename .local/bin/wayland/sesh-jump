@@ -5,7 +5,9 @@
 #
 # Note: this Hyprland runs the Lua config plugin, so `hyprctl dispatch` is evaluated
 # as Lua (hl.dispatch(<arg>)) rather than the classic `focuswindow address:...` form.
-sel=$(sesh list -c -t -d | rofi -dmenu -i -p ' project') || exit 0
+# show-icons off: plain project names have no icons, and per-row icon lookups
+# make the popup take many seconds to appear (global config keeps icons for drun).
+sel=$(sesh list -c -t -d | rofi -dmenu -i -p ' project' -theme-str 'configuration { show-icons: false; }') || exit 0
 [ -n "$sel" ] || exit 0
 
 app="sesh:$sel"
