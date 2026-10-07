@@ -166,3 +166,21 @@ function scratch() {
     "$EDITOR" "/tmp/scratch-$(date +%Y%m%d-%H%M%S).${ext}"
 }
 compdef '_values extension md json yaml toml http sql py sh lua js ts xml csv txt' scratch 2>/dev/null
+
+# tsls — peers of the active tailnet: MagicDNS name, IP, online, tags, subnet routes
+function tsls() {
+    tailscale status --json | jq -r '.Peer[] | [(.DNSName | rtrimstr(".")), .TailscaleIPs[0],
+        (if .Online then "online" else "offline" end), ((.Tags // []) | join(",")),
+        ((.PrimaryRoutes // []) | join(","))] | map(if . == "" then "-" else . end) | @tsv' \
+        | sort | column -t -s$'\t'
+}
+
+# tssw [tailnet|id] — switch Tailscale profile (personal headscale / work); fzf picker without argument
+function tssw() {
+    local target="$1"
+    if [[ -z "$target" ]]; then
+        target=$(tailscale switch --list | tail -n +2 | fzf --height=~10 --reverse --prompt=' tailnet ' | awk '{print $1}')
+        [[ -z "$target" ]] && return
+    fi
+    tailscale switch "$target" && pkill -RTMIN+9 waybar 2>/dev/null
+}
