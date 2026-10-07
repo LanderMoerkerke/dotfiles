@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 # see: https://github.com/federicovolponi/waybar-tailscale
 
-MENU_CMD="wofi --dmenu --prompt 'Select Exit Node'" # Change to rofi/fuzzel/dmenu as needed
+menu() {
+    rofi -dmenu -i -p "$1" -theme-str 'configuration { show-icons: false; }'
+}
+
+# Short label for the active tailnet: wegroup.be -> wegroup, headscale.moerkerke.me -> moerkerke
+tailnet_label() {
+    local name
+    name=$(jq -r '.CurrentTailnet.Name // .MagicDNSSuffix // "ts"' <<<"$1")
+    name=${name#headscale.}
+    echo "${name%%.*}"
+}
 
 tailscale_status() {
     tailscale status --json | jq -e '.BackendState == "Running"' >/dev/null
@@ -33,7 +43,7 @@ select_exit_node() {
 
     # Show menu and get selection
     local selected
-    selected=$(echo "$nodes" | $MENU_CMD)
+    selected=$(echo "$nodes" | menu " exit node")
 
     [ -z "$selected" ] && return 0 # User cancelled
 
@@ -96,7 +106,11 @@ case $1 in
 
             exitnode=$(jq -r '" (" + (.Peer[]? | select(.ExitNode == true).DNSName | split(".")[0]) + ")"' <<<"$status_json")
 
-            jq -nc --arg txt " TS${exitnode:-}" --arg tip "$peers" \
+            tailnet=$(tailnet_label "$status_json")
+            tailnet_full=$(jq -r '.CurrentTailnet.Name // .MagicDNSSuffix' <<<"$status_json")
+            peers="<b>Tailnet: $tailnet_full</b>"$'\n'"$peers"
+
+            jq -nc --arg txt " ${tailnet}${exitnode:-}" --arg tip "$peers" \
                 '{"text": $txt, "class": "connected", "alt": "connected", "tooltip": $tip}'
         else
             echo "{\"text\":\"\",\"class\":\"stopped\",\"alt\":\"stopped\", \"tooltip\": \"The VPN is not active.\"}"
@@ -107,5 +121,8 @@ case $1 in
         ;;
     --select-exit-node)
         select_exit_node
+        ;;
+    --switch)
+        exec ts-switch
         ;;
 esac

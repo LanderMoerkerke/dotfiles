@@ -31,7 +31,9 @@
         "exec": "~/.config/waybar/custom/tailscale/waybar-tailscale.sh --status",
         "on-click": "exec ~/.config/waybar/custom/tailscale/waybar-tailscale.sh --toggle",
         "on-click-right": "exec ~/.config/waybar/custom/tailscale/waybar-tailscale.sh --select-exit-node",
+        "on-click-middle": "exec ~/.config/waybar/custom/tailscale/waybar-tailscale.sh --switch",
         "exec-on-event": true,
+        "signal": 9,
         "format": "{icon}{text}",
         "format-icons": {
             "connected": ""
