@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Pinentry wrapper that shows WHO asked for the GPG passphrase.
+
+gpg-agent tells pinentry the requesting client via `OPTION owner=<pid>/<uid> <host>`.
+This wrapper proxies the Assuan stream to the real pinentry, resolves that pid
+into its process chain (gpg <- gopass <- zsh <- ...), appends it to the dialog
+text (SETDESC) and logs each passphrase request to
+~/.local/state/gnupg/pinentry-audit.log.
+
+The passphrase itself travels pinentry -> agent and is never read or logged.
+
+Use in gpg-agent.conf:
+    pinentry-program /home/lander/.local/bin/system/pinentry-audit
+"""
+import os
+import subprocess
+import sys
+import threading
+from datetime import datetime
+
+REAL_PINENTRY = "/usr/bin/pinentry"
+LOG = os.path.expanduser("~/.local/state/gnupg/pinentry-audit.log")
+MAX_DEPTH = 6         # ancestors shown/logged
+MAX_DESC_EXTRA = 600  # Assuan lines are capped at ~1000 bytes
+
+
+def proc_info(pid):
+    try:
+        with open(f"/proc/{pid}/stat") as f:
+            stat = f.read()
+        ppid = int(stat.rsplit(")", 1)[1].split()[1])
+        with open(f"/proc/{pid}/cmdline", "rb") as f:
+            cmd = " ".join(f.read().replace(b"\0", b" ").decode(errors="replace").split())
+        if not cmd:
+            cmd = stat[stat.find("(") + 1:stat.rfind(")")]
+        return ppid, cmd
+    except (OSError, IndexError, ValueError):
+        return None, None
+
+
+def chain(pid):
+    out = []
+    while pid and pid > 1 and len(out) < MAX_DEPTH:
+        ppid, cmd = proc_info(pid)
+        if cmd is None:
+            out.append(f"[{pid}] <exited>")
+            break
+        out.append(f"[{pid}] {cmd}")
+        pid = ppid
+    return out
+
+
+def assuan_escape(text):
+    return text.replace("%", "%25").replace("\r", "").replace("\n", "%0A")
+
+
+def log(line):
+    os.makedirs(os.path.dirname(LOG), exist_ok=True)
+    with open(LOG, "a") as f:
+        f.write(line + "\n")
+
+
+def main():
+    child = subprocess.Popen([REAL_PINENTRY, *sys.argv[1:]],
+                             stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    state = {"owner": None, "keyinfo": "", "chain": None}
+
+    def callers():
+        if state["chain"] is None:
+            state["chain"] = chain(state["owner"]) if state["owner"] else ["<unknown: agent sent no owner>"]
+        return state["chain"]
+
+    def agent_to_pinentry():
+        for raw in sys.stdin.buffer:
+            line = raw.decode(errors="replace")
+            if line.startswith("OPTION owner="):
+                try:
+                    state["owner"] = int(line.split("=", 1)[1].split("/", 1)[0])
+                except ValueError:
+                    pass
+            elif line.startswith("SETKEYINFO "):
+                state["keyinfo"] = line[11:].strip()
+            elif line.startswith("SETDESC "):
+                short = [c[:90] for c in callers()]
+                extra = assuan_escape("\n\nRequested by:\n" + "\n".join(short))[:MAX_DESC_EXTRA]
+                raw = (line.rstrip("\n") + extra + "\n").encode()
+            elif line.startswith(("GETPIN", "CONFIRM")):
+                log(f"{datetime.now().isoformat(timespec='seconds')} {line.split()[0]} "
+                    f"key={state['keyinfo'] or '-'} owner={state['owner']} "
+                    f"chain={' <- '.join(callers())}")
+            child.stdin.write(raw)
+            child.stdin.flush()
+        child.stdin.close()
+
+    threading.Thread(target=agent_to_pinentry, daemon=True).start()
+    for chunk in iter(lambda: child.stdout.read1(4096), b""):
+        sys.stdout.buffer.write(chunk)
+        sys.stdout.buffer.flush()
+    sys.exit(child.wait())
+
+
+if __name__ == "__main__":
+    main()
