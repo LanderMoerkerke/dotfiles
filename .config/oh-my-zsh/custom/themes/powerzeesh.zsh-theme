@@ -125,12 +125,18 @@ prompt_git () {
 
 prompt_vpn () {
 
-    local OUTPUT=`pgrep -x openvpn`
+    # Active Tailscale tailnet (replaces the old openvpn check): <TS wegroup> / <TS moerkerke>
+    (( $+commands[tailscale] )) || return
+    local tailnet
+    tailnet=$(tailscale status --json --peers=false 2>/dev/null \
+        | jq -r 'select(.BackendState == "Running") | .CurrentTailnet.Name // empty')
+    [[ -n $tailnet ]] || return
+    tailnet=${tailnet#headscale.}
 
-    if [[ $OUTPUT != "" ]]; then
-
-        prompt_segment $color_prompt_dir_bg $color_prompt_git_red ' <VPN>'
-
+    if [[ $tailnet == wegroup.* ]]; then
+        prompt_segment $color_prompt_dir_bg $color_prompt_git_red " <TS ${tailnet%%.*}>"
+    else
+        prompt_segment $color_prompt_dir_bg $color_prompt_dir_fg " <TS ${tailnet%%.*}>"
     fi
 
 }
