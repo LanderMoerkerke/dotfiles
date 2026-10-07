@@ -244,6 +244,9 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("$TERMINAL -e yazi"))
 -- Project picker (sesh): fuzzy-pick a project; focus its window if already open, else attach
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("sesh-jump"))
 
+-- Tailscale profile switcher (personal headscale / work tailnet)
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("ts-switch"))
+
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("gopass ls --flat | $PICKER -i | xargs --no-run-if-empty gopass -o | wl-copy"))
 hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("gopass ls --flat | $PICKER -i | xargs --no-run-if-empty gopass otp -o | wl-copy"))
 

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Rofi picker to switch the active Tailscale profile (personal headscale / work tailnet).
+# The active profile is marked with * in the list.
+sel=$(tailscale switch --list | tail -n +2 | rofi -dmenu -i -p ' tailnet' -theme-str 'configuration { show-icons: false; }') || exit 0
+id=$(printf '%s' "$sel" | awk '{print $1}')
+[ -n "$id" ] || exit 0
+
+if tailscale switch "$id"; then
+  notify-send "Tailscale" "Switched to $(printf '%s' "$sel" | awk '{print $2}')"
+else
+  notify-send -u critical "Tailscale" "Switching to $id failed"
+fi
+pkill -RTMIN+9 waybar
