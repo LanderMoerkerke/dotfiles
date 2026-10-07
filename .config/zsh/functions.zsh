@@ -157,3 +157,12 @@ function py-format () {
         $1
 
 }
+
+# scratch [ext] — open a throwaway file in /tmp with a real extension so nvim
+# filetype, LSP and formatters (prettier/jq/...) work. Rename/keep with :saveas.
+# Default extension: md.
+function scratch() {
+    local ext="${1:-md}"
+    "$EDITOR" "/tmp/scratch-$(date +%Y%m%d-%H%M%S).${ext}"
+}
+compdef '_values extension md json yaml toml http sql py sh lua js ts xml csv txt' scratch 2>/dev/null
