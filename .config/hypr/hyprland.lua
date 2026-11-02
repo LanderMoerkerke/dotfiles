@@ -404,7 +404,7 @@ local spawn_on_empty = {
     ["special:term"]    = "foot -a foot-scratchpad -e scratch-tmux",
     ["special:volume"]  = "pavucontrol -t 1",
     ["special:ferdi"]   = "ferdium",
-    ["special:spotify"] = "spotify",
+    ["special:spotify"] = "spotify-launcher",
     ["special:video"]   = "firefox --new-instance --profile /home/lander/.local/share/firefox-video --name firefox-video",
 }
 hl.on("workspace.created", function(ws)
