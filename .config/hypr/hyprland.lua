@@ -400,11 +400,19 @@ hl.window_rule({
 })
 
 -- Lazy spawn: first toggle creates the workspace empty -> command runs.
-hl.workspace_rule({ workspace = "special:term",    on_created_empty = "foot -a foot-scratchpad -e scratch-tmux" })
-hl.workspace_rule({ workspace = "special:volume",  on_created_empty = "pavucontrol -t 1" })
-hl.workspace_rule({ workspace = "special:ferdi",   on_created_empty = "ferdium" })
-hl.workspace_rule({ workspace = "special:spotify", on_created_empty = "spotify" })
-hl.workspace_rule({ workspace = "special:video",   on_created_empty = "firefox --new-instance --profile /home/lander/.local/share/firefox-video --name firefox-video" })
+local spawn_on_empty = {
+    ["special:term"]    = "foot -a foot-scratchpad -e scratch-tmux",
+    ["special:volume"]  = "pavucontrol -t 1",
+    ["special:ferdi"]   = "ferdium",
+    ["special:spotify"] = "spotify",
+    ["special:video"]   = "firefox --new-instance --profile /home/lander/.local/share/firefox-video --name firefox-video",
+}
+hl.on("workspace.created", function(ws)
+    local cmd = spawn_on_empty[ws.name]
+    if cmd and ws.is_empty then
+        hl.exec_cmd(cmd, { workspace = ws.name })
+    end
+end)
 
 hl.window_rule({ match = { class = "^(firefox-video)$" }, idle_inhibit = "focus" })
 hl.window_rule({ match = { class = "^([Dd]ragon.*)$" }, float = true, pin = true })
