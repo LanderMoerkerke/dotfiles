@@ -119,6 +119,8 @@ hl.config({
         swallow_regex            = "foot",
         -- never swallow a Claude Code terminal: its title starts with a status glyph
         swallow_exception_regex  = "^[·✢✳✶✻✽◐◓◑◒].*",
+        -- lets a relaunched hyprlock take over after a crash
+        allow_session_lock_restore = true,
     },
 
     xwayland = {
