@@ -117,6 +117,8 @@ hl.config({
         animate_manual_resizes   = true,
         enable_swallow           = true,
         swallow_regex            = "foot",
+        -- never swallow a Claude Code terminal: its title starts with a status glyph
+        swallow_exception_regex  = "^[·✢✳✶✻✽◐◓◑◒].*",
     },
 
     xwayland = {
