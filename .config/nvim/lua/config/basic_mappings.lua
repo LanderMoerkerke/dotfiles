@@ -23,8 +23,17 @@ vim.keymap.set("n", "<C-o>", "<C-o>zz")
 -- Reselect text you just entered
 vim.keymap.set("n", "gV", "`[v`]")
 
-vim.keymap.set("n", "<leader><leader>c", ":w! | !compiler <c-r>%<CR><CR>")
-vim.keymap.set("n", "<leader><leader>o", ":w! | !opout <c-r>%<CR><CR>")
+-- Save, then run a helper script on the current file. shellescape(_, true) keeps
+-- spaces and :! specials (%, #, !) in the filename intact.
+local function run_on_file(cmd)
+    return function()
+        vim.cmd("write!")
+        vim.cmd("silent !" .. cmd .. " " .. vim.fn.shellescape(vim.fn.expand("%:p"), true))
+        vim.cmd("redraw!")
+    end
+end
+vim.keymap.set("n", "<leader><leader>c", run_on_file("compiler"))
+vim.keymap.set("n", "<leader><leader>o", run_on_file("opout"))
 
 -- Exit terminal with shift esc
 vim.keymap.set("t", "<C-\\<>", "<C-\\><C-n>")
