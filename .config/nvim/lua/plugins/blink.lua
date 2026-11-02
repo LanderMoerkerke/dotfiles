@@ -2,7 +2,11 @@ return {
     "saghen/blink.cmp",
     version = "1.*", -- prebuilt binary release; avoids building the Rust matcher
     event = "InsertEnter",
-    dependencies = {"L3MON4D3/LuaSnip"},
+    dependencies = {
+        "L3MON4D3/LuaSnip",
+        {"saghen/blink.compat", version = "2.*", lazy = true, opts = {}}, -- runs nvim-cmp sources in blink
+        "hrsh7th/cmp-calc"
+    },
     opts = {
         snippets = {preset = "luasnip"},
         keymap = {
@@ -13,7 +17,12 @@ return {
             ["<C-Space>"] = {"show", "hide"},
             ["<C-e>"] = {"hide"}
         },
-        sources = {default = {"lsp", "snippets", "path", "buffer"}},
+        sources = {
+            default = {"lsp", "snippets", "path", "calc", "buffer"},
+            providers = {
+                calc = {name = "calc", module = "blink.compat.source"}
+            }
+        },
         appearance = {nerd_font_variant = "mono"},
         completion = {
             documentation = {auto_show = true, auto_show_delay_ms = 200},
