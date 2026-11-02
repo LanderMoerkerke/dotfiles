@@ -3,7 +3,7 @@ require("git"):setup()
 
 -- Community-plugin setups are pcall-guarded: a config slip can't brick yazi.
 pcall(function()
-	require("full-border"):setup({ type = ui.Border.ROUNDED })
+	require("full-border"):setup({ set = "rounded" })
 end)
 
 pcall(function()
