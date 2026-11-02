@@ -39,7 +39,6 @@ prepend_keymap = [
     { on = ["c", "m"], run = "plugin chmod", desc = "chmod" },
     { on = ["<A-s>"], run = "plugin what-size", desc = "Directory size (du)" },
     { on = ["<A-m>"], run = "plugin mount", desc = "Mount manager" },
-    { on = ["u"], run = "plugin restore", desc = "Restore from trash" },
 
     # BOOKMARKS (ad-hoc save/jump)
     { on = ["m"], run = "plugin bookmarks save", desc = "Save bookmark" },
